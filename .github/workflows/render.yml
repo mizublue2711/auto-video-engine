@@ -1,0 +1,68 @@
+name: Automated Video Rendering CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      tenant:
+        description: 'Tenant client ID to render (e.g., crabit-korea)'
+        required: true
+        default: 'crabit-korea'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Schema Validation
+        run: npm run validate:configs
+
+      - name: Run TypeScript Type Check
+        run: npm run type-check
+
+  render:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chrome/Chromium & FFMPEG for Remotion
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Render Video
+        run: |
+          TENANT="${{ github.event.inputs.tenant || 'crabit-korea' }}"
+          mkdir -p out
+          npx remotion render src/index.ts MasterComposition out/output_${TENANT}.mp4 --props="./site-configs/${TENANT}/config.json"
+
+      - name: Upload Rendered Video Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rendered-video
+          path: out/*.mp4

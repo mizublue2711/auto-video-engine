@@ -19,6 +19,7 @@ export const SPRING_PRESETS = {
     damping: 12,
     mass: 0.8,
     stiffness: 120,
+    overshootClamping: false,
   } as const satisfies SpringConfig,
 
   /**
@@ -28,6 +29,7 @@ export const SPRING_PRESETS = {
     damping: 20,
     mass: 1,
     stiffness: 80,
+    overshootClamping: false,
   } as const satisfies SpringConfig,
 
   /**
@@ -37,6 +39,7 @@ export const SPRING_PRESETS = {
     damping: 8,
     mass: 0.5,
     stiffness: 160,
+    overshootClamping: false,
   } as const satisfies SpringConfig,
 };
 
