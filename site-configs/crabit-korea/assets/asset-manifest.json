@@ -1,0 +1,86 @@
+{
+  "project": "Crabit Korea Educational Motion Engine",
+  "version": "1.0.0",
+  "assets": [
+    {
+      "id": "char_director_standing",
+      "file": "char_director_standing.svg",
+      "viewBox": "0 0 1000 1000",
+      "anchors": {
+        "head": "500px 330px",
+        "idleArm": "570px 330px",
+        "presentArm": "430px 350px",
+        "miniPhone": "280px 480px"
+      }
+    },
+    {
+      "id": "char_student_desk_morph",
+      "file": "char_student_desk_morph.svg",
+      "viewBox": "0 0 1000 1000",
+      "anchors": {
+        "headBored": "500px 550px",
+        "headExcited": "500px 515px",
+        "torso": "500px 640px",
+        "desk": "500px 595px"
+      }
+    },
+    {
+      "id": "prop_crabit_phone_hero",
+      "file": "prop_crabit_phone_hero.svg",
+      "viewBox": "0 0 800 1200",
+      "anchors": {
+        "device": "400px 600px",
+        "walletCard": "400px 385px",
+        "caratBadge": "570px 199px"
+      }
+    },
+    {
+      "id": "prop_icon_handraise",
+      "file": "prop_icon_handraise.svg",
+      "viewBox": "0 0 1000 1000",
+      "anchors": {
+        "center": "500px 500px",
+        "wrist": "500px 720px"
+      }
+    },
+    {
+      "id": "prop_icon_book_sparkle",
+      "file": "prop_icon_book_sparkle.svg",
+      "viewBox": "0 0 1000 1000",
+      "anchors": {
+        "center": "500px 500px",
+        "spine": "500px 670px"
+      }
+    },
+    {
+      "id": "prop_crabit_card_reward",
+      "file": "prop_crabit_card_reward.svg",
+      "viewBox": "0 0 1000 1000",
+      "anchors": {
+        "cardCenter": "500px 412px",
+        "emvChip": "280px 342px",
+        "tickerPill": "500px 725px"
+      }
+    },
+    {
+      "id": "scene3_classroom_peer_contrast",
+      "file": "scene3_classroom_peer_contrast.svg",
+      "viewBox": "0 0 1920 1080",
+      "anchors": {
+        "studentLeft": "520px 650px",
+        "studentRight": "1400px 650px",
+        "divider": "960px 540px"
+      }
+    },
+    {
+      "id": "scene3a_teacher_chalkboard_challenge",
+      "file": "scene3a_teacher_chalkboard_challenge.svg",
+      "viewBox": "0 0 1920 1080",
+      "anchors": {
+        "teacher": "1450px 600px",
+        "chalkboard": "800px 450px",
+        "mathPlot": "780px 420px"
+      }
+    }
+  ]
+}

@@ -9,8 +9,9 @@ function findJsonFiles(dir: string): string[] {
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) {
+      if (entry.name === 'assets') continue;
       results.push(...findJsonFiles(fullPath));
-    } else if (entry.isFile() && entry.name.endsWith('.json')) {
+    } else if (entry.isFile() && entry.name.endsWith('.json') && !entry.name.includes('manifest')) {
       results.push(fullPath);
     }
   }

@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" id="svg_scene3a_teacher_chalkboard" preserveAspectRatio="xMidYMid meet">
+  <!-- Group 1: Background Classroom Front & Continuous Floor Baseline -->
+  <g id="bg_classroom_front">
+    <!-- Front Classroom Wall -->
+    <rect id="front_classroom_wall" width="1920" height="1080" fill="#F8FAFC" />
+
+    <!-- Warm Studio Spotlight Beams from Ceiling -->
+    <polygon id="studio_light_beam_1" points="600,0 1100,0 1480,1080 240,1080" fill="#FEF08A" opacity="0.08" />
+    <polygon id="studio_light_beam_2" points="1050,0 1450,0 1850,1080 650,1080" fill="#FEF08A" opacity="0.05" />
+
+    <!-- Continuous Grounded Floor Baseline at y=920 -->
+    <line id="floor_baseline" x1="0" y1="920" x2="1920" y2="920" stroke="#CBD5E1" stroke-width="3" />
+    <!-- Baseboard Trim & Classroom Stage Floor below y=920 -->
+    <rect id="front_floor" x="0" y="920" width="1920" height="160" fill="#F1F5F9" />
+    <line x1="0" y1="980" x2="1920" y2="980" stroke="#E2E8F0" stroke-width="2" />
+    <line x1="0" y1="1030" x2="1920" y2="1030" stroke="#E2E8F0" stroke-width="2" />
+
+    <!-- Proper Classroom Wall Clock at (1740, 140) pointing to 10:10 -->
+    <g id="classroom_wall_clock">
+      <circle id="clock_outer_rim" cx="1740" cy="140" r="50" fill="#CBD5E1" />
+      <circle id="clock_face" cx="1740" cy="140" r="46" fill="#FFFFFF" />
+      <!-- Hour Markers (12, 3, 6, 9) -->
+      <line id="tick_12" x1="1740" y1="98" x2="1740" y2="108" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round" />
+      <line id="tick_3" x1="1782" y1="140" x2="1772" y2="140" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round" />
+      <line id="tick_6" x1="1740" y1="182" x2="1740" y2="172" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round" />
+      <line id="tick_9" x1="1698" y1="140" x2="1708" y2="140" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round" />
+      <!-- Sub-Hour Ticks -->
+      <line x1="1762" y1="102" x2="1757" y2="110.6" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" />
+      <line x1="1778" y1="118" x2="1769.4" y2="123" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" />
+      <line x1="1778" y1="162" x2="1769.4" y2="157" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" />
+      <line x1="1762" y1="178" x2="1757" y2="169.4" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" />
+      <line x1="1718" y1="178" x2="1723" y2="169.4" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" />
+      <line x1="1702" y1="162" x2="1710.6" y2="157" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" />
+      <line x1="1702" y1="118" x2="1710.6" y2="123" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" />
+      <line x1="1718" y1="102" x2="1723" y2="110.6" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" />
+      <!-- Minute Hand pointing to 10 min (60 degrees, length 32px) -->
+      <line id="clock_minute_hand" x1="1740" y1="140" x2="1767.7" y2="124" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round" />
+      <!-- Hour Hand pointing to 10:10 (305 degrees, length 20px) -->
+      <line id="clock_hour_hand" x1="1740" y1="140" x2="1723.6" y2="128.5" stroke="#0F172A" stroke-width="5" stroke-linecap="round" />
+      <!-- Center Pin -->
+      <circle id="clock_center_pin" cx="1740" cy="140" r="4.5" fill="#EF4444" />
+    </g>
+
+    <!-- Teacher Lecture Podium (Placed cleanly to far left, x=70..220, no body penetration) -->
+    <g id="teacher_podium_group">
+      <rect id="podium_shadow" x="65" y="720" width="160" height="200" rx="10" fill="#0F172A" opacity="0.08" />
+      <rect id="podium_body" x="70" y="700" width="150" height="220" rx="8" fill="#94A3B8" />
+      <rect id="podium_surface" x="60" y="685" width="170" height="18" rx="6" fill="#CBD5E1" stroke="#94A3B8" stroke-width="1.5" />
+      <rect id="podium_recess_plate" x="90" y="730" width="110" height="150" rx="6" fill="#64748B" opacity="0.3" />
+      <polygon id="podium_crest" points="145,780 155,792 151,806 139,806 135,792" fill="#00E5FF" />
+    </g>
+  </g>
+
+  <!-- Group 2: Mathematical Large Green Chalkboard (#1E3A2F with rounded wooden frame) -->
+  <g id="large_green_chalkboard">
+    <!-- Rounded Wooden Frame -->
+    <rect id="chalkboard_wood_frame" x="580" y="85" width="1280" height="630" rx="20" fill="#78350F" opacity="0.8" />
+    <rect id="chalkboard_inner_trim" x="590" y="95" width="1260" height="610" rx="16" fill="#92400E" opacity="0.6" />
+
+    <!-- Clean Slate Dark Green Blackboard Surface (fill="#1E3A2F") -->
+    <rect id="chalkboard_green_surface" x="600" y="105" width="1240" height="590" rx="12" fill="#1E3A2F" />
+
+    <!-- Grid Guidelines on Board -->
+    <path stroke="#134E4A" stroke-width="1.5" opacity="0.5" stroke-dasharray="16 16" d="M600,260 L1840,260 M600,420 L1840,420 M600,560 L1840,560 M1020,105 L1020,695 M1440,105 L1440,695" />
+
+    <!-- Mathematical Curriculum Header (Korean CSAT 2026 Style) -->
+    <text x="640" y="155" fill="#CCFBF1" font-size="28" font-weight="900" letter-spacing="1">[2026학년도 대학수학능력시험] 수학 최고난도 킬러 문항 #22</text>
+    <text x="640" y="195" fill="#99F6E4" font-size="20" font-weight="600">함수 f(x) = x³ - 3x² + 2에 대하여 다음 조건을 만족하는 실수 t의 값을 구하시오.</text>
+    <text x="640" y="240" fill="#FFFFFF" font-size="26" font-weight="bold">lim (x → t) |f(x) - f(t)| / (x - t) = g(t)</text>
+
+    <!-- Mathematical Coordinate Axes -->
+    <line x1="640" y1="460" x2="1320" y2="460" stroke="#5EEAD4" stroke-width="2" stroke-linecap="round" />
+    <line x1="720" y1="210" x2="720" y2="580" stroke="#5EEAD4" stroke-width="2" stroke-linecap="round" />
+    <text x="1330" y="465" fill="#5EEAD4" font-size="18">x</text>
+    <text x="725" y="225" fill="#5EEAD4" font-size="18">y</text>
+    <text x="705" y="475" fill="#5EEAD4" font-size="16">O</text>
+
+    <!-- Smooth Cubic Polynomial Curve (Yellow #FBBF24) with Local Maximum Crest at (802, 280) -->
+    <path id="cubic_polynomial_curve" stroke="#FBBF24" stroke-width="4.5" stroke-linecap="round" fill="none" d="M 680,480 C 730,280 770,280 802,280 C 840,280 940,490 1020,490 C 1100,490 1160,320 1260,200" />
+
+    <!-- Glowing Red Target Point Anchored EXACTLY at Local Maximum Crest (802, 280) -->
+    <g id="chalkboard_challenge_target">
+      <circle id="curve_peak_glow" cx="802" cy="280" r="32" fill="#EF4444" opacity="0.25" />
+      <circle id="curve_peak_ring" cx="802" cy="280" r="18" fill="none" stroke="#F87171" stroke-width="2" stroke-dasharray="4 3" />
+      <!-- Physically Anchored Point on Curve -->
+      <circle id="curve_peak_point" cx="802" cy="280" r="8" fill="#EF4444" stroke="#FFFFFF" stroke-width="2.5" />
+      <!-- Big Glowing Red Question Mark directly on top of the crest point -->
+      <text id="big_question_mark" x="802" y="250" fill="#EF4444" font-size="120" font-weight="900" text-anchor="middle">?</text>
+      <text x="802" y="315" fill="#FCA5A5" font-size="18" font-weight="bold" text-anchor="middle">극댓값 (Local Max) = ?</text>
+    </g>
+
+    <!-- Local Minimum Point for Mathematical Completeness -->
+    <circle cx="1020" cy="490" r="6" fill="#FBBF24" />
+    <text x="1020" y="520" fill="#99F6E4" font-size="16" text-anchor="middle">극솟값 (Min)</text>
+
+    <!-- Additional Formula on Right Side of Chalkboard -->
+    <text x="1360" y="290" fill="#FFFFFF" font-size="24" font-weight="bold">∫ [0 to 2π] |g(t) - k| dt</text>
+    <text x="1360" y="340" fill="#FEF08A" font-size="20" font-weight="600">핵심 포인트: 미분가능성 판별</text>
+    <rect x="1360" y="370" width="220" height="60" rx="8" fill="#134E4A" stroke="#5EEAD4" stroke-width="1.5" />
+    <text x="1470" y="408" fill="#5EEAD4" font-size="18" font-weight="bold" text-anchor="middle">정답률 4.2%</text>
+
+    <!-- Chalk Tray with Chalk Sticks & Eraser -->
+    <rect id="chalk_tray" x="600" y="692" width="1240" height="16" rx="6" fill="#CBD5E1" />
+    <rect x="660" y="688" width="35" height="8" rx="2" fill="#FFFFFF" />
+    <rect x="710" y="688" width="28" height="8" rx="2" fill="#F59E0B" />
+    <rect x="750" y="688" width="30" height="8" rx="2" fill="#38BDF8" />
+    <rect x="1720" y="684" width="70" height="14" rx="4" fill="#64748B" />
+  </g>
+
+  <!-- Group 3: Teacher Standing with Articulated Arm & Tapered Pointer Stick -->
+  <g id="teacher_pointing_group">
+    <!-- Teacher Legs & Shoes Grounded on Continuous Floor Baseline (y=920) -->
+    <g id="teacher_legs">
+      <!-- Left Leg -->
+      <path id="teacher_leg_l" d="M 310,650 L 310,900 L 342,900 L 342,650 Z" fill="#1E252D" />
+      <!-- Right Leg -->
+      <path id="teacher_leg_r" d="M 365,650 L 365,900 L 397,900 L 397,650 Z" fill="#1E252D" />
+      <!-- Left Shoe resting flat on y=920 -->
+      <path id="teacher_shoe_l" d="M 295,900 L 345,900 C 352,900 352,920 338,920 L 290,920 C 280,920 280,905 295,900 Z" fill="#11161B" />
+      <!-- Right Shoe resting flat on y=920 -->
+      <path id="teacher_shoe_r" d="M 365,900 L 415,900 C 422,900 422,920 408,920 L 360,920 C 350,920 350,905 365,900 Z" fill="#11161B" />
+    </g>
+
+    <!-- Teacher Suit Torso (Professional Dark Navy Suit) -->
+    <g id="teacher_torso">
+      <rect id="teacher_suit_body" x="285" y="420" width="135" height="240" rx="22" fill="#2B3A4A" />
+      <path id="teacher_collar" d="M 330,420 L 352,470 L 375,420 Z" fill="#FFFFFF" />
+      <path id="teacher_lapel_l" d="M 300,420 L 340,500 L 327,500 L 293,440 Z" fill="#24313F" />
+      <path id="teacher_lapel_r" d="M 405,420 L 365,500 L 377,500 L 411,440 Z" fill="#24313F" />
+      <path id="teacher_tie" d="M 347,465 L 357,465 L 363,560 L 352,575 L 341,560 Z" fill="#3B82F6" />
+    </g>
+
+    <!-- Teacher Left Arm (Resting on side) -->
+    <g id="teacher_arm_idle">
+      <path d="M 290,430 C 270,470 265,520 275,580 L 300,575 L 300,460 Z" fill="#24313F" />
+      <circle cx="285" cy="585" r="14" fill="#FFE3D1" />
+    </g>
+
+    <!-- Teacher Head & Face -->
+    <g id="teacher_head">
+      <rect id="teacher_neck" x="335" y="395" width="35" height="30" rx="5" fill="#F5CCA8" />
+      <circle id="teacher_face" cx="352" cy="320" r="75" fill="#FFE3D1" />
+      <circle cx="273" cy="320" r="12" fill="#FFE3D1" />
+      <circle cx="431" cy="320" r="12" fill="#FFE3D1" />
+      <!-- Neat Director Hair -->
+      <path id="teacher_hair" fill="#1E252D" d="M 275,310 C 273,225 315,205 365,205 C 415,205 433,225 431,310 C 425,260 405,250 375,255 C 345,260 315,280 275,310 Z" />
+      <!-- Smart Teacher Glasses -->
+      <rect x="315" y="300" width="32" height="24" rx="6" fill="none" stroke="#11161B" stroke-width="4" />
+      <rect x="359" y="300" width="32" height="24" rx="6" fill="none" stroke="#11161B" stroke-width="4" />
+      <line x1="347" y1="312" x2="359" y2="312" stroke="#11161B" stroke-width="4" />
+      <!-- Confident Challenging Teacher Eyes -->
+      <circle cx="331" cy="312" r="5" fill="#11161B" />
+      <circle cx="375" cy="312" r="5" fill="#11161B" />
+      <path stroke="#1E252D" stroke-width="4" stroke-linecap="round" d="M 317,290 L 345,294 M 361,294 L 389,290" />
+      <path stroke="#334155" stroke-width="4" stroke-linecap="round" fill="none" d="M 340,360 Q 352,366 365,360" />
+    </g>
+
+    <!-- Articulated Right Arm & Tapered Pointer Stick Angled at 40 Degrees -->
+    <g id="teacher_arm_presenting">
+      <!-- Upper Arm extending rightward from shoulder joint (360, 540) to elbow (450, 545) -->
+      <path id="arm_upper" d="M 405,435 Q 430,470 450,545 L 415,555 Q 395,490 380,445 Z" fill="#24313F" />
+      <!-- Forearm angling up from elbow (450, 545) to wrist (540, 500) -->
+      <path id="arm_forearm" d="M 425,550 L 530,505 L 545,525 L 440,570 Z" fill="#24313F" />
+      <rect id="arm_cuff" x="525" y="495" width="22" height="26" rx="4" fill="#1E252D" transform="rotate(-25 536 508)" />
+
+      <!-- Hand cleanly gripping the pointer stick at (540, 500) -->
+      <circle id="teacher_hand_grip" cx="540" cy="500" r="16" fill="#FFE3D1" />
+      <path d="M 532,492 C 542,488 550,494 548,504 C 546,512 538,514 532,508" fill="#F5CCA8" />
+
+      <!-- Tapered Wooden/Metallic Pointer Stick (#D97706, length ~280px) angled at 40 degrees -->
+      <!-- From hand (540, 500) to tip (755, 320) pointing precisely at curve peak (802, 280) -->
+      <line id="pointer_stick" x1="540" y1="500" x2="755" y2="320" stroke="#D97706" stroke-width="7" stroke-linecap="round" />
+      <circle id="pointer_tip" cx="755" cy="320" r="7" fill="#EF4444" />
+      <!-- Laser Aiming Line pointing directly into curve peak (802, 280) -->
+      <line id="pointer_laser_aim" x1="755" y1="320" x2="795" y2="286" stroke="#EF4444" stroke-width="2.5" stroke-dasharray="4 3" />
+    </g>
+  </g>
+</svg>
