@@ -56,11 +56,12 @@
     {
       "id": "prop_crabit_card_reward",
       "file": "prop_crabit_card_reward.svg",
-      "viewBox": "0 0 1000 1000",
+      "viewBox": "0 0 1920 1080",
       "anchors": {
-        "cardCenter": "500px 412px",
-        "emvChip": "280px 342px",
-        "tickerPill": "500px 725px"
+        "cardCenter": "960px 450px",
+        "emvChip": "710px 450px",
+        "rechargeBadge": "960px 765px",
+        "balanceDisplay": "960px 580px"
       }
     },
     {
