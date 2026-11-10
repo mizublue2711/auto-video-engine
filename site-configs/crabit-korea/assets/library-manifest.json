@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-10T18:16:43.065Z",
-  "total_components": 5,
+  "generated_at": "2026-11-10T18:27:37.044Z",
+  "total_components": 6,
   "categories": {
     "head": 1,
-    "limb": 2,
+    "limb": 3,
     "prop": 1,
     "torso": 1
   },
@@ -105,6 +105,80 @@
       "version": "1.0.0",
       "filePath": "student-rig-kit/limbs/arm_raised_classroom.svg",
       "metaPath": "student-rig-kit/limbs/arm_raised_classroom.meta.json"
+    },
+    "leg_single_master": {
+      "id": "leg_single_master",
+      "name": "Student Master Single Leg Rig",
+      "category": "limb",
+      "viewBox": "0 0 160 480",
+      "dimensions": {
+        "width": 160,
+        "height": 480
+      },
+      "sockets": {
+        "hip_mount": {
+          "x": 80,
+          "y": 30
+        }
+      },
+      "pivots": {
+        "hip": {
+          "x": 80,
+          "y": 30
+        },
+        "knee": {
+          "x": 80,
+          "y": 190
+        },
+        "ankle": {
+          "x": 80,
+          "y": 370
+        }
+      },
+      "immutable_inputs": {
+        "props_allowed": [
+          "style",
+          "opacity",
+          "transform",
+          "filter"
+        ],
+        "color_tokens_used": [
+          "#334155",
+          "#1E293B",
+          "#0F172A",
+          "#FFFFFF",
+          "#94A3B8",
+          "#64748B",
+          "#CBD5E1",
+          "#2563EB",
+          "#00E5FF"
+        ]
+      },
+      "color_tokens_used": [
+        "#334155",
+        "#1E293B",
+        "#0F172A",
+        "#FFFFFF",
+        "#94A3B8",
+        "#64748B",
+        "#CBD5E1",
+        "#2563EB",
+        "#00E5FF"
+      ],
+      "dependencies": [
+        "character_master_model_sheet.svg#turnaround_three_quarter_right"
+      ],
+      "tags": [
+        "limb",
+        "leg",
+        "single_leg",
+        "master_rig",
+        "kinematic",
+        "rest_pose"
+      ],
+      "version": "1.0.0",
+      "filePath": "student-rig-kit/limbs/leg_single_master.svg",
+      "metaPath": "student-rig-kit/limbs/leg_single_master.meta.json"
     },
     "legs_walk_rig": {
       "id": "legs_walk_rig",

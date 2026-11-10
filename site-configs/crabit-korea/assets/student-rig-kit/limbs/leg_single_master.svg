@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 480" width="160" height="480">
+  <!-- Master Atomic Single Leg Kinematic Rig (Vertical Rest Pose) -->
+
+  <!-- Ground Plane Shadow Reference (Sole grounded at y=460) -->
+  <ellipse id="shadow_ground_contact" cx="94" cy="462" rx="58" ry="7.5" fill="#000000" opacity="0.25" />
+
+  <!-- ======================================================================== -->
+  <!-- 1. BONE THIGH (Pivot: Hip Joint at 80, 30; Length: 160px)              -->
+  <!-- ======================================================================== -->
+  <g id="bone_thigh" data-pivot="80 30">
+    <!-- Charcoal Slate Thigh Pant Mesh (#334155) -->
+    <!-- Concentric hip joint cap at (80, 30) r=25, descending vertically to knee (80, 190) -->
+    <path id="thigh_mesh" d="
+      M 55 30
+      C 55 12 105 12 105 30
+      L 103 188
+      C 103 204 57 204 57 188
+      Z"
+      fill="#334155" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round" />
+
+    <!-- Thigh Inseam Shadow (#1E293B) -->
+    <path id="thigh_shade_inseam" d="M 55 30 L 57 188 L 68 188 L 66 30 Z" fill="#1E293B" opacity="0.45" />
+    <!-- Front Quadriceps Highlight Ridge -->
+    <path id="thigh_highlight" d="M 88 38 L 86 180" fill="none" stroke="#475569" stroke-width="2.5" stroke-linecap="round" opacity="0.55" />
+
+    <!-- Hip Socket Mount Reference: (80, 30) -->
+    <circle id="socket_hip_mount" cx="80" cy="30" r="2.5" fill="none" opacity="0" />
+
+    <!-- ====================================================================== -->
+    <!-- 2. BONE SHIN (Pivot: Knee Joint at 80, 190; Length: 180px)            -->
+    <!-- ====================================================================== -->
+    <g id="bone_shin" data-pivot="80 190">
+      <!-- Knee Joint Overlap Cap & Calf Mesh (#334155) -->
+      <!-- Smoothly tapers from knee capsule (80, 190) down to ankle level (80, 370) -->
+      <path id="shin_mesh" d="
+        M 57 190
+        C 57 174 103 174 103 190
+        L 99 362
+        C 99 374 61 374 61 362
+        Z"
+        fill="#334155" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round" />
+
+      <!-- Calf Shadow & Highlights -->
+      <path id="shin_shade" d="M 57 190 L 61 362 L 70 362 L 67 190 Z" fill="#1E293B" opacity="0.45" />
+      <path id="shin_highlight" d="M 86 198 L 84 350" fill="none" stroke="#475569" stroke-width="2.5" stroke-linecap="round" opacity="0.55" />
+      <path id="knee_tension_crease" d="M 68 202 Q 80 208 92 202" fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round" />
+
+      <!-- Trouser Hem Ribbed Cuff (#1E293B) at Ankle level -->
+      <rect id="trouser_cuff" x="60" y="358" width="40" height="12" rx="3" fill="#1E293B" stroke="#0F172A" stroke-width="1.8" />
+
+      <!-- Crisp White Ankle Sock: Extends seamlessly from cuff into sneaker collar -->
+      <path id="ankle_sock" d="
+        M 66 366
+        L 94 366
+        L 92 390
+        C 84 394 74 394 68 386
+        Z"
+        fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" />
+
+      <!-- Knee Pivot Reference: (80, 190) -->
+      <circle id="socket_knee" cx="80" cy="190" r="2.5" fill="none" opacity="0" />
+
+      <!-- ==================================================================== -->
+      <!-- 3. BONE FOOT (Pivot: Ankle Joint at 80, 370; Ground Sole at y=460)  -->
+      <!-- ==================================================================== -->
+      <g id="bone_foot" data-pivot="80 370">
+        <!-- White Anime Sneaker Upper (#FFFFFF): Sleek low-top profile viewed in 3/4 profile -->
+        <path id="sneaker_upper" d="
+          M 56 382
+          C 48 398 42 422 40 450
+          L 146 450
+          C 150 444 150 430 140 422
+          C 128 412 108 406 94 388
+          C 86 382 76 394 68 392
+          C 62 388 58 384 56 382
+          Z"
+          fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2.2" stroke-linejoin="round" />
+
+        <!-- Cool Gray Rubber Outsole (#94A3B8) flat touching ground y=460 -->
+        <path id="sneaker_sole" d="
+          M 38 450
+          L 148 450
+          C 152 450 153 455 151 460
+          L 36 460
+          C 34 455 35 450 38 450
+          Z"
+          fill="#94A3B8" stroke="#64748B" stroke-width="1.8" />
+        <!-- Sole Midline Tread Groove -->
+        <line x1="38" y1="455" x2="148" y2="455" stroke="#64748B" stroke-width="1.2" />
+
+        <!-- Rubber Toe Cap Bumper -->
+        <path id="sneaker_toe_bumper" d="M 132 450 C 142 446 148 438 146 426 C 136 426 126 436 122 450 Z" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" />
+
+        <!-- Royal Blue Accent Tick / Swoosh (#2563EB) -->
+        <path id="sneaker_accent_tick" d="M 76 414 L 110 426 L 106 432 L 72 420 Z" fill="#2563EB" />
+        <!-- Cyan Glint Detail -->
+        <path id="sneaker_tick_highlight" d="M 84 412 L 116 424 L 114 427 L 82 415 Z" fill="#00E5FF" opacity="0.8" />
+
+        <!-- White Laces (3 Clean Rungs on Instep) -->
+        <line x1="82" y1="400" x2="94" y2="404" stroke="#94A3B8" stroke-width="2.5" stroke-linecap="round" />
+        <line x1="88" y1="406" x2="100" y2="410" stroke="#94A3B8" stroke-width="2.5" stroke-linecap="round" />
+        <line x1="94" y1="412" x2="106" y2="416" stroke="#94A3B8" stroke-width="2.5" stroke-linecap="round" />
+
+        <!-- Royal Blue Heel Counter Tab (#2563EB) -->
+        <path id="sneaker_heel_tab" d="M 52 386 C 50 380 56 376 60 378 L 62 390 Z" fill="#2563EB" />
+
+        <!-- Ankle Pivot Reference: (80, 370) -->
+        <circle id="socket_ankle" cx="80" cy="370" r="2.5" fill="none" opacity="0" />
+      </g>
+    </g>
+  </g>
+</svg>
