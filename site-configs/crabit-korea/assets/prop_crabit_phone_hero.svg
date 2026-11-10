@@ -9,85 +9,82 @@
 
     <!-- Subtle Radial Glow for Ambient Touch Impact -->
     <radialGradient id="touch_radial_glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.4" />
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.5" />
       <stop offset="100%" stop-color="#00E5FF" stop-opacity="0" />
     </radialGradient>
   </defs>
 
   <!-- ======================================================================== -->
-  <!-- 1. BACKDROP GLOW LAYER                                                   -->
+  <!-- 1. BACKDROP LAYER                                                        -->
   <!-- ======================================================================== -->
   <g id="backdrop_glow">
-    <!-- Clean Canvas Background -->
     <rect width="1200" height="1600" fill="#F8FAFC" />
-
-    <!-- Subtle Ambient Circular Glow Centered Behind Device -->
-    <circle cx="600" cy="705" r="480" fill="#3B82F6" opacity="0.05" />
-
-    <!-- Ambient Micro Sparkles -->
-    <circle cx="200" cy="360" r="4" fill="#38BDF8" opacity="0.7" />
-    <circle cx="1000" cy="400" r="5" fill="#F59E0B" opacity="0.7" />
-    <circle cx="180" cy="920" r="3.5" fill="#10B981" opacity="0.6" />
-    <circle cx="1020" cy="880" r="4" fill="#00E5FF" opacity="0.7" />
+    <!-- Soft warm ambient circle behind phone, matching reference aura -->
+    <ellipse cx="600" cy="740" rx="460" ry="540" fill="#FEF3C7" opacity="0.6" />
+    <circle cx="200" cy="360" r="4" fill="#38BDF8" opacity="0.6" />
+    <circle cx="1020" cy="380" r="5" fill="#F59E0B" opacity="0.6" />
+    <circle cx="160" cy="980" r="4" fill="#10B981" opacity="0.5" />
+    <circle cx="1040" cy="940" r="4" fill="#00E5FF" opacity="0.6" />
   </g>
 
   <!-- ======================================================================== -->
-  <!-- 2. LEFT HAND FINGERS BEHIND PHONE (WRAPPING FROM BACK CHASSIS)           -->
+  <!-- 2. LEFT HAND FINGERTIPS BEHIND PHONE (SUPPORTING RIGHT CHASSIS)          -->
   <!-- ======================================================================== -->
   <g id="left_hand_fingers_behind_phone">
-    <!-- 4 Supporting Fingertips Peeking Out Behind Right Chassis (x=870..896, y=700..920) -->
-    <!-- Index Fingertip -->
-    <path id="left_finger_index_back" fill="#FFE3D1" stroke="#E2A888" stroke-width="2.5" stroke-linecap="round" d="M 870,705 C 892,705 896,725 888,745 C 880,752 870,752 870,745 Z" />
-    <line x1="875" y1="725" x2="888" y2="725" stroke="#FDBA74" stroke-width="2" stroke-linecap="round" />
+    <!-- Index Fingertip (highest, peeking out at y ~ 580..650) -->
+    <path id="left_finger_index_back" fill="#FFE3D1" stroke="#4A2E2B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"
+      d="M 868,575 C 895,575 918,590 918,612 C 918,634 895,648 868,648 Z" />
+    <path d="M 878,612 C 895,612 906,616 906,622" fill="none" stroke="#D97757" stroke-width="2.5" stroke-linecap="round" />
 
-    <!-- Middle Fingertip -->
-    <path id="left_finger_middle_back" fill="#FFE3D1" stroke="#E2A888" stroke-width="2.5" stroke-linecap="round" d="M 870,755 C 896,755 900,775 892,798 C 884,805 870,805 870,798 Z" />
-    <line x1="875" y1="775" x2="892" y2="775" stroke="#FDBA74" stroke-width="2" stroke-linecap="round" />
+    <!-- Middle Fingertip (peeking out at y ~ 675..755) -->
+    <path id="left_finger_middle_back" fill="#FFE3D1" stroke="#4A2E2B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"
+      d="M 868,680 C 902,680 926,696 926,720 C 926,744 902,758 868,758 Z" />
+    <path d="M 880,720 C 900,720 914,724 914,730" fill="none" stroke="#D97757" stroke-width="2.5" stroke-linecap="round" />
 
-    <!-- Ring Fingertip -->
-    <path id="left_finger_ring_back" fill="#FFE3D1" stroke="#E2A888" stroke-width="2.5" stroke-linecap="round" d="M 870,810 C 894,810 898,832 890,852 C 882,858 870,858 870,852 Z" />
-    <line x1="875" y1="832" x2="890" y2="832" stroke="#FDBA74" stroke-width="2" stroke-linecap="round" />
+    <!-- Ring Fingertip (peeking out at y ~ 790..865) -->
+    <path id="left_finger_ring_back" fill="#FFE3D1" stroke="#4A2E2B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"
+      d="M 868,792 C 898,792 922,808 922,830 C 922,852 898,866 868,866 Z" />
+    <path d="M 878,830 C 898,830 910,834 910,840" fill="none" stroke="#D97757" stroke-width="2.5" stroke-linecap="round" />
 
-    <!-- Pinky Fingertip -->
-    <path id="left_finger_pinky_back" fill="#FFE3D1" stroke="#E2A888" stroke-width="2.5" stroke-linecap="round" d="M 870,865 C 890,865 894,885 886,905 C 878,912 870,912 870,905 Z" />
-    <line x1="874" y1="885" x2="886" y2="885" stroke="#FDBA74" stroke-width="2" stroke-linecap="round" />
+    <!-- Pinky Fingertip (peeking out at y ~ 900..960) -->
+    <path id="left_finger_pinky_back" fill="#FFE3D1" stroke="#4A2E2B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"
+      d="M 868,902 C 890,902 908,915 908,932 C 908,949 890,960 868,960 Z" />
   </g>
 
   <!-- ======================================================================== -->
-  <!-- 3. PHONE BODY & SCREEN UI (CENTER STAGE: x=330, y=180, w=540, h=1050)    -->
+  <!-- 3. PHONE BODY & SCREEN UI (CENTERED: x=330, y=180, w=540, h=1050, rx=52) -->
   <!-- ======================================================================== -->
   <g id="phone_body_and_screen_ui">
     <!-- Phone Drop Shadow -->
-    <rect id="phone_shadow" x="345" y="195" width="540" height="1050" rx="54" fill="#0F172A" opacity="0.16" />
+    <rect id="phone_shadow" x="345" y="195" width="540" height="1050" rx="52" fill="#0F172A" opacity="0.12" />
 
     <!-- Outer Phone Chassis & Bezel -->
-    <rect id="phone_chassis_bezel" x="330" y="180" width="540" height="1050" rx="54" fill="#1E293B" stroke="#0F172A" stroke-width="4" />
+    <rect id="phone_chassis_bezel" x="330" y="180" width="540" height="1050" rx="52" fill="#1E293B" stroke="#0F172A" stroke-width="4" />
 
     <!-- Screen Glass Inset -->
-    <rect id="phone_screen_glass" x="344" y="194" width="512" height="1022" rx="42" fill="#F8FAFC" />
+    <rect id="phone_screen_glass" x="344" y="194" width="512" height="1022" rx="40" fill="#FFFFFF" />
 
     <!-- Camera Notch / Dynamic Island -->
-    <rect id="phone_camera_notch" x="530" y="208" width="140" height="26" rx="13" fill="#0F172A" />
-    <circle cx="555" cy="221" r="5" fill="#1E293B" />
-    <circle cx="556" cy="220" r="1.5" fill="#3B82F6" opacity="0.8" />
-    <circle cx="645" cy="221" r="3.5" fill="#1E293B" />
+    <rect id="phone_camera_notch" x="530" y="206" width="140" height="26" rx="13" fill="#0F172A" />
+    <circle cx="555" cy="219" r="5" fill="#1E293B" />
+    <circle cx="556" cy="218" r="1.5" fill="#3B82F6" opacity="0.8" />
+    <circle cx="645" cy="219" r="3.5" fill="#1E293B" />
 
     <!-- Crabit Header UI (Brand Logo & Carats Pill) -->
     <g id="ui_header">
-      <text id="brand_title" x="375" y="290" fill="#0F172A" font-size="30" font-weight="900" letter-spacing="1" font-family="system-ui, -apple-system, sans-serif">CRABIT</text>
+      <text id="brand_title" x="375" y="290" fill="#0F172A" font-size="30" font-weight="900" letter-spacing="1" font-family="Arial, Helvetica, sans-serif">CRABIT</text>
       <!-- Carat Gem Pill Badge -->
       <g id="ui_header_carat_pill">
         <rect x="670" y="260" width="155" height="46" rx="23" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="2" />
-        <!-- Faceted Carat Diamond Icon -->
         <polygon id="carat_mini_gem" points="695,275 705,267 715,275 705,293" fill="#00E5FF" stroke="#0284C7" stroke-width="1.5" />
-        <text x="725" y="291" fill="#1E3A8A" font-size="20" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">1,250</text>
+        <text x="725" y="291" fill="#1E3A8A" font-size="20" font-weight="bold" font-family="Arial, Helvetica, sans-serif">1,250</text>
       </g>
     </g>
 
     <!-- Hero Scholarship Card with Faceted Gemstone Theme -->
     <g id="ui_hero_wallet_card">
       <rect id="wallet_card_bg" x="370" y="335" width="460" height="240" rx="26" fill="url(#gem_blue_gradient)" />
-      <text id="wallet_label" x="405" y="385" fill="#BFDBFE" font-size="20" font-weight="600" font-family="system-ui, -apple-system, sans-serif">나의 누적 캐럿 (Accumulated Carats)</text>
+      <text id="wallet_label" x="405" y="385" fill="#BFDBFE" font-size="20" font-weight="600" font-family="Arial, Helvetica, sans-serif">나의 누적 캐럿 (Accumulated Carats)</text>
 
       <!-- Large Diamond Carat Token Emblem -->
       <g id="hero_carat_gemstone" transform="translate(695, 375)">
@@ -96,26 +93,26 @@
         <polygon points="60,10 90,35 75,85" fill="#BAE6FD" opacity="0.8" />
         <circle cx="85" cy="20" r="4" fill="#FFFFFF" />
       </g>
-      <text id="wallet_carat_value" x="405" y="455" fill="#FFFFFF" font-size="44" font-weight="900" font-family="system-ui, -apple-system, sans-serif">50,000 <tspan font-size="24" font-weight="600">Carats</tspan></text>
-      <text id="wallet_krw_equiv" x="405" y="510" fill="#93C5FD" font-size="18" font-family="system-ui, -apple-system, sans-serif">≈ 50,000원 장학금 전환 가능</text>
+      <text id="wallet_carat_value" x="405" y="455" fill="#FFFFFF" font-size="44" font-weight="900" font-family="Arial, Helvetica, sans-serif">50,000 <tspan font-size="24" font-weight="600">Carats</tspan></text>
+      <text id="wallet_krw_equiv" x="405" y="510" fill="#93C5FD" font-size="18" font-family="Arial, Helvetica, sans-serif">≈ 50,000원 장학금 전환 가능</text>
     </g>
 
-    <!-- Mission Completed Active Card (Triggers Interaction) -->
+    <!-- Mission Completed Active Card (Target Touch Area) -->
     <g id="ui_mission_card_active">
       <rect x="370" y="600" width="460" height="125" rx="22" fill="#FFFFFF" stroke="#E0E7FF" stroke-width="2" />
       <circle cx="430" cy="662" r="30" fill="#E0F2FE" />
       <polygon id="mission_reward_gem" points="430,644 444,656 436,676 424,676 416,656" fill="#0EA5E9" />
-      <text x="480" y="652" fill="#0F172A" font-size="20" font-weight="700" font-family="system-ui, -apple-system, sans-serif">오늘의 학습 미션 완료!</text>
-      <text x="480" y="685" fill="#0284C7" font-size="17" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">+ 500 Carats 즉시 지급</text>
+      <text x="480" y="652" fill="#0F172A" font-size="20" font-weight="700" font-family="Arial, Helvetica, sans-serif">오늘의 학습 미션 완료!</text>
+      <text x="480" y="685" fill="#0284C7" font-size="17" font-weight="bold" font-family="Arial, Helvetica, sans-serif">+ 500 Carats 즉시 지급</text>
     </g>
 
-    <!-- Additional Study Streak Status Card -->
+    <!-- Study Streak Status Card -->
     <g id="ui_streak_card">
       <rect x="370" y="745" width="460" height="110" rx="20" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" />
-      <text x="405" y="785" fill="#334155" font-size="18" font-weight="700" font-family="system-ui, -apple-system, sans-serif">연속 학습 7일차 달성 🔥</text>
+      <text x="405" y="785" fill="#334155" font-size="18" font-weight="700" font-family="Arial, Helvetica, sans-serif">연속 학습 7일차 달성 🔥</text>
       <rect x="405" y="805" width="390" height="12" rx="6" fill="#E2E8F0" />
       <rect x="405" y="805" width="290" height="12" rx="6" fill="#10B981" />
-      <text x="405" y="835" fill="#64748B" font-size="14" font-family="system-ui, -apple-system, sans-serif">내일 출석 시 +100 Carats 추가 보너스!</text>
+      <text x="405" y="835" fill="#64748B" font-size="14" font-family="Arial, Helvetica, sans-serif">내일 출석 시 +100 Carats 추가 보너스!</text>
     </g>
 
     <!-- Bottom Home Indicator Bar -->
@@ -123,95 +120,130 @@
   </g>
 
   <!-- ======================================================================== -->
-  <!-- 4. LEFT HAND WRIST & FRONT THUMB (SUPPORT / CRADLING HAND)               -->
+  <!-- 4. LEFT HAND (WRIST, PALM & THUMB CRADLING PHONE)                        -->
   <!-- ======================================================================== -->
-  <g id="left_hand_wrist_and_front_thumb">
-    <!-- Solid Blue Sleeve Originating At (x=220, y=1600) -->
-    <path id="left_sleeve" fill="#2563EB" d="M 120,1600 L 220,1280 L 370,1310 L 300,1600 Z" />
+  <g id="left_hand_cradling_phone">
+    <!-- Continuous Anatomical Hand Mass: Single clean unbroken contour cradling bottom-left chassis and thumb -->
+    <path id="left_hand_skin_mass" fill="#FFE3D1" stroke="#4A2E2B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"
+      d="M 195,1340
+         C 220,1220 245,1100 268,970
+         C 285,840 298,700 308,560
+         C 318,430 326,340 334,310
+         C 342,310 348,340 348,380
+         C 346,470 342,590 339,720
+         C 336,850 333,980 332,1100
+         C 331,1170 330,1210 330,1225
+         C 330,1242 345,1248 385,1248
+         C 425,1248 465,1240 495,1230
+         C 475,1265 440,1295 400,1320
+         C 380,1335 365,1345 350,1355
+         Z" />
 
-    <!-- Dark Ribbed Wrist Cuff (#1D4ED8) -->
-    <rect id="left_wrist_cuff" x="195" y="1265" width="165" height="38" rx="10" fill="#1D4ED8" stroke="#1E40AF" stroke-width="2" transform="rotate(10 277 1284)" />
+    <!-- Thumb resting naturally on bezel accent line -->
+    <path id="left_thumb_accent" fill="none" stroke="#D97757" stroke-width="2.5" stroke-linecap="round"
+      d="M 320,580 C 324,490 330,410 338,345" />
 
-    <!-- Palm Support Mass Hugging Left-Bottom Chassis Edge -->
-    <path id="left_palm_support" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M 230,1270 C 260,1150 275,1030 290,920 C 295,860 305,820 325,780 L 350,780 C 342,880 325,1020 335,1290 Z" />
-
-    <!-- Natural Anatomical Thumb Resting Against Front Left Bezel (x=310, y=780..880, Smooth Rounded Tip) -->
-    <path id="left_thumb_natural" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M 310,880 C 302,840 306,810 316,790 C 322,778 338,778 344,790 C 352,808 350,845 342,880 Z" />
-
-    <!-- Thumb Knuckle Accent Line (#FDBA74) -->
-    <path d="M 315,835 Q 328,830 342,835" stroke="#FDBA74" stroke-width="2.5" stroke-linecap="round" fill="none" />
-
-    <!-- Soft Thumbnail Catchlight -->
-    <path d="M 322,792 C 326,784 334,784 338,792" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.7" />
+    <!-- Palm cradle crease under phone chassis -->
+    <path d="M 345,1232 C 375,1240 415,1238 450,1230" fill="none" stroke="#D97757" stroke-width="2.5" stroke-linecap="round" />
   </g>
 
   <!-- ======================================================================== -->
-  <!-- 5. RIGHT HAND SLEEVE & CUFF (ORIGINATING AT x=980, y=1600)               -->
+  <!-- 5. LEFT HAND SLEEVE & WRIST CUFF (LAYERS OVER BARE FOREARM)              -->
   <!-- ======================================================================== -->
-  <g id="right_hand_sleeve_and_cuff">
-    <!-- Solid Blue Sleeve (#2563EB) -->
-    <path id="right_sleeve" fill="#2563EB" d="M 880,1600 L 760,1280 L 910,1235 L 1080,1600 Z" />
+  <g id="left_arm_sleeve_and_cuff">
+    <!-- Royal Blue Hoodie Sleeve (#2563EB) entering from bottom-left corner -->
+    <path id="left_hoodie_sleeve" fill="#2563EB" stroke="#1E40AF" stroke-width="3.5" stroke-linejoin="round"
+      d="M 40,1600 L 175,1365 L 365,1385 L 340,1600 Z" />
 
-    <!-- Clean Ribbed Wrist Band (#1D4ED8) Ending at (x=820, y=1280) -->
-    <rect id="right_wrist_cuff" x="745" y="1235" width="165" height="38" rx="10" fill="#1D4ED8" stroke="#1E40AF" stroke-width="2" transform="rotate(-18 827 1254)" />
+    <!-- Ribbed Wrist Cuff (#1D4ED8) snugly wrapped around wrist -->
+    <path id="left_hoodie_cuff" fill="#1D4ED8" stroke="#1E40AF" stroke-width="3.5" stroke-linejoin="round"
+      d="M 165,1365 C 165,1348 180,1336 198,1333 L 350,1353 C 368,1356 378,1368 376,1386 L 366,1418 C 364,1432 352,1442 336,1440 L 185,1420 C 170,1418 162,1405 165,1388 Z" />
+    <!-- Subtle cuff rib texture lines -->
+    <line x1="210" y1="1342" x2="205" y2="1410" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="245" y1="1347" x2="240" y2="1415" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="280" y1="1352" x2="275" y2="1420" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="315" y1="1357" x2="310" y2="1425" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" />
   </g>
 
   <!-- ======================================================================== -->
-  <!-- 6. RIGHT HAND SWIPING PALM & EXTENDED INDEX FINGER (TOUCH AT 640, 920)   -->
+  <!-- 6. RIGHT HAND SWIPING PALM & EXTENDED INDEX FINGER                       -->
   <!-- ======================================================================== -->
   <g id="right_hand_swiping_palm_and_finger">
-    <!-- Dorsal Palm Mass Tilting 40° Inward Towards Screen -->
-    <path id="right_dorsal_palm" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M 780,1240 C 750,1170 730,1100 705,1020 C 695,995 725,975 750,990 C 785,1015 820,1085 860,1220 Z" />
+    <!-- Complete, Continuous Anatomical Right Hand Mass -->
+    <!-- Emerging from cuff (770, 1340), rising along thenar to thumb webbing, extended index finger, knuckles, hypothenar -->
+    <path id="right_hand_skin_mass" fill="#FFE3D1" stroke="#4A2E2B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"
+      d="M 770,1340
+         C 755,1240 735,1140 715,1040
+         C 702,970 692,910 688,860
+         C 686,780 688,690 696,600
+         C 704,550 714,525 726,520
+         C 738,520 748,545 754,595
+         C 760,670 764,760 768,840
+         C 772,865 790,875 815,865
+         C 835,855 858,870 870,885
+         C 885,898 908,905 922,925
+         C 938,945 955,960 968,985
+         C 982,1015 992,1065 995,1125
+         C 998,1190 995,1260 980,1340
+         Z" />
 
-    <!-- Folded Supporting Digits (Curled Cleanly Into Palm Silhouette) -->
-    <!-- Curled Middle Finger -->
-    <path id="right_curled_middle" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" stroke-linecap="round" d="M 715,1010 C 695,998 680,1018 692,1045 C 702,1062 728,1062 740,1040 Z" />
-    <!-- Curled Ring Finger -->
-    <path id="right_curled_ring" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" stroke-linecap="round" d="M 740,1040 C 722,1028 710,1048 722,1072 C 732,1088 755,1088 765,1065 Z" />
-    <!-- Curled Pinky Finger -->
-    <path id="right_curled_pinky" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" stroke-linecap="round" d="M 765,1065 C 752,1055 745,1072 755,1095 C 765,1108 782,1108 790,1090 Z" />
+    <!-- Anatomical Fold Curves for the Knuckles and Digits -->
+    <!-- Middle finger knuckle fold -->
+    <path d="M 768,840 C 785,865 812,865 830,885" fill="none" stroke="#4A2E2B" stroke-width="3" stroke-linecap="round" />
+    <!-- Ring finger knuckle fold -->
+    <path d="M 835,885 C 855,905 880,900 896,925" fill="none" stroke="#4A2E2B" stroke-width="3" stroke-linecap="round" />
+    <!-- Pinky finger knuckle fold -->
+    <path d="M 900,925 C 918,945 940,945 954,970" fill="none" stroke="#4A2E2B" stroke-width="3" stroke-linecap="round" />
 
-    <!-- Knuckle Creases (#FDBA74) -->
-    <line x1="702" y1="1032" x2="720" y2="1032" stroke="#FDBA74" stroke-width="2" stroke-linecap="round" />
-    <line x1="728" y1="1058" x2="746" y2="1058" stroke="#FDBA74" stroke-width="2" stroke-linecap="round" />
+    <!-- Index Finger Phalangeal Creases (Natural finger joint indicators) -->
+    <path d="M 698,610 C 708,613 728,613 742,608" fill="none" stroke="#D97757" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M 694,705 C 710,710 732,710 748,702" fill="none" stroke="#D97757" stroke-width="2.5" stroke-linecap="round" />
 
-    <!-- Softly Tucked Thumb Beside Index Base -->
-    <path id="right_thumb_tucked" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" stroke-linecap="round" d="M 735,1085 C 710,1075 685,1095 700,1125 C 715,1145 750,1135 765,1110 Z" />
-    <line x1="712" y1="1108" x2="732" y2="1115" stroke="#FDBA74" stroke-width="2" stroke-linecap="round" />
+    <!-- Webbing Cleft between Thumb and Index finger -->
+    <path d="M 688,860 C 700,895 710,945 715,1005" fill="none" stroke="#4A2E2B" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M 712,990 C 720,1050 732,1120 752,1190" fill="none" stroke="#D97757" stroke-width="2.5" stroke-linecap="round" />
 
-    <!-- EXTENDED INDEX FINGER (The Touch Finger - Touching Screen at x=640, y=920, Width=28px, rx=14) -->
-    <!-- Smooth, Proportional Anatomical Finger (Palm-to-Finger Ratio 1:0.9) -->
-    <path id="right_index_finger_shaft" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M 715,1015 C 698,970 670,935 640,906 C 626,892 608,908 622,925 C 642,950 665,995 680,1045 Z" />
-
-    <!-- Rounded Fingertip Pad (rx=14) Anchored Exactly at (x=640, y=920) -->
-    <circle id="right_index_fingertip" cx="640" cy="920" r="14" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" />
-
-    <!-- Subtle Phalange Crease Lines (#FDBA74) -->
-    <line x1="655" y1="965" x2="675" y2="978" stroke="#FDBA74" stroke-width="2.5" stroke-linecap="round" />
-    <line x1="640" y1="935" x2="658" y2="948" stroke="#FDBA74" stroke-width="2.5" stroke-linecap="round" />
-
-    <!-- Soft Catchlight on Fingertip -->
-    <ellipse cx="640" cy="918" rx="6" ry="4" fill="#FFFFFF" opacity="0.75" />
+    <!-- Soft catchlight highlight on Index Fingertip -->
+    <ellipse cx="727" cy="530" rx="6" ry="4" fill="#FFFFFF" opacity="0.65" />
   </g>
 
   <!-- ======================================================================== -->
-  <!-- 7. TOUCH RIPPLE GLOW (LIVE INTERACTION EFFECT AT x=640, y=920)          -->
+  <!-- 7. RIGHT HAND SLEEVE & WRIST CUFF (LAYERS OVER BARE FOREARM)             -->
+  <!-- ======================================================================== -->
+  <g id="right_arm_sleeve_and_cuff">
+    <!-- Royal Blue Hoodie Sleeve (#2563EB) entering from bottom-right corner -->
+    <path id="right_hoodie_sleeve" fill="#2563EB" stroke="#1E40AF" stroke-width="3.5" stroke-linejoin="round"
+      d="M 740,1600 L 760,1365 L 995,1340 L 1080,1600 Z" />
+
+    <!-- Ribbed Wrist Cuff (#1D4ED8) -->
+    <path id="right_hoodie_cuff" fill="#1D4ED8" stroke="#1E40AF" stroke-width="3.5" stroke-linejoin="round"
+      d="M 750,1365 C 750,1348 765,1338 782,1336 L 975,1316 C 992,1314 1005,1324 1005,1340 L 995,1380 C 995,1396 982,1406 965,1408 L 770,1428 C 753,1430 750,1416 750,1400 Z" />
+    <!-- Subtle cuff rib texture lines -->
+    <line x1="795" y1="1335" x2="790" y2="1395" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="835" y1="1330" x2="830" y2="1390" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="875" y1="1325" x2="870" y2="1385" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="915" y1="1320" x2="910" y2="1380" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="955" y1="1315" x2="950" y2="1375" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+
+  <!-- ======================================================================== -->
+  <!-- 8. TOUCH RIPPLE INTERACTION (CENTERED AT TAP POINT: x=726, y=520)        -->
   <!-- ======================================================================== -->
   <g id="touch_ripple_glow">
     <!-- Soft Cyan Glow Behind Tap Point -->
-    <circle cx="640" cy="920" r="60" fill="url(#touch_radial_glow)" />
+    <circle cx="726" cy="520" r="55" fill="url(#touch_radial_glow)" />
 
-    <!-- Soft Glowing Cyan Touch Ring (#00E5FF, Opacity 0.4) -->
-    <circle id="touch_glow_ring" cx="640" cy="920" r="42" stroke="#00E5FF" stroke-width="3.5" fill="#00E5FF" fill-opacity="0.15" opacity="0.4" />
+    <!-- Glowing Cyan Touch Ring (#00E5FF, Opacity 0.45) -->
+    <circle id="touch_glow_ring" cx="726" cy="520" r="38" stroke="#00E5FF" stroke-width="3" fill="#00E5FF" fill-opacity="0.15" opacity="0.5" />
 
     <!-- Active Pulse Ring -->
-    <circle id="touch_pulse_core" cx="640" cy="920" r="22" stroke="#00E5FF" stroke-width="2.5" stroke-dasharray="6 4" fill="none" opacity="0.8" />
+    <circle id="touch_pulse_core" cx="726" cy="520" r="20" stroke="#00E5FF" stroke-width="2.5" stroke-dasharray="5 4" fill="none" opacity="0.85" />
 
     <!-- Center Contact Dot -->
-    <circle cx="640" cy="920" r="6" fill="#00E5FF" />
+    <circle cx="726" cy="520" r="5" fill="#00E5FF" />
 
     <!-- Micro Reward Carat Sparkle -->
-    <polygon id="touch_mini_carat" points="605,890 613,883 621,890 613,904" fill="#00E5FF" stroke="#0284C7" stroke-width="1.2" />
-    <path id="touch_sparkle_star" d="M 685,880 Q 685,890 675,890 Q 685,890 685,900 Q 685,890 695,890 Q 685,890 685,880 Z" fill="#F59E0B" />
+    <polygon id="touch_mini_carat" points="690,490 698,483 706,490 698,504" fill="#00E5FF" stroke="#0284C7" stroke-width="1.2" />
+    <path id="touch_sparkle_star" d="M 770,480 Q 770,490 760,490 Q 770,490 770,500 Q 770,490 780,490 Q 770,490 770,480 Z" fill="#F59E0B" />
   </g>
 </svg>
