@@ -52,4 +52,39 @@
      <text x="270" y="595" fill="#0F172A" font-size="22" font-weight="700" font-family="system-ui, -apple-system, sans-serif">오늘의 학습 미션 완료!</text>
      <text x="270" y="630" fill="#0284C7" font-size="18" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">+ 500 Carats 즉시 지급</text>
   </g>
+
+  <!-- Group 5: Unified Hero Student Hand Holding Phone (Exact Visual Vector DNA) -->
+  <g id="student_hand_holding_phone">
+     <!-- Sleeve Originating from Bottom-Right (Royal Blue #2563EB) -->
+     <path id="holding_arm_sleeve" fill="#2563EB" d="M 540,1200 L 760,1050 L 800,1110 L 640,1200 Z" />
+
+     <!-- Ribbed Wrist Cuff (#1D4ED8) -->
+     <rect id="holding_wrist_cuff" x="600" y="1030" width="130" height="34" rx="10" fill="#1D4ED8" stroke="#1E40AF" stroke-width="2" transform="rotate(-32 665 1047)" />
+
+     <!-- Tapered Wrist & Palm Base (#FFE3D1 With Contour #E2A888) -->
+     <path id="holding_palm_wrist" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M 645,1030 C 670,980 685,920 670,860 L 695,845 C 720,910 705,980 675,1045 Z" />
+
+     <!-- Supporting Fingers Wrapping Right Chassis Bezel (Behind Screen, On Top of Bezel) -->
+     <!-- Pinky Finger -->
+     <path id="finger_hold_pinky" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" stroke-linecap="round" d="M 690,920 C 708,920 714,905 700,895 C 688,890 678,895 675,905 Z" />
+     <!-- Ring Finger -->
+     <path id="finger_hold_ring" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" stroke-linecap="round" d="M 685,885 C 705,885 712,870 698,860 C 686,855 675,860 672,870 Z" />
+     <!-- Middle Finger -->
+     <path id="finger_hold_middle" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" stroke-linecap="round" d="M 682,850 C 704,850 710,835 696,825 C 684,820 672,825 670,835 Z" />
+     <!-- Index Finger -->
+     <path id="finger_hold_index" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" stroke-linecap="round" d="M 678,815 C 700,815 706,800 692,790 C 680,785 668,790 666,800 Z" />
+
+     <!-- Ergonomic Thumb Gripping Front Bezel at 35° Natural Angle (Does Not Obscure Active Screen UI) -->
+     <g id="holding_thumb_group" transform="translate(620, 860) rotate(-35)">
+        <!-- Thumb Body -->
+        <rect id="thumb_body" x="0" y="0" width="70" height="34" rx="14" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" />
+        <!-- Joint Accent Line (#FDBA74) -->
+        <line x1="28" y1="4" x2="28" y2="30" stroke="#FDBA74" stroke-width="2" stroke-linecap="round" />
+        <!-- Soft Thumb Tip Highlight -->
+        <circle cx="56" cy="17" r="6" fill="#FFFFFF" opacity="0.4" />
+     </g>
+
+     <!-- Soft Joint & Crease Shadow Lines (#FDBA74) -->
+     <path d="M 665,960 Q 655,930 660,900" stroke="#FDBA74" stroke-width="2" stroke-linecap="round" fill="none" />
+  </g>
 </svg>

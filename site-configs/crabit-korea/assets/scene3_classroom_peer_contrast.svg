@@ -223,19 +223,19 @@
   </g>
 
   <!-- ======================================================================== -->
-  <!-- GROUP 3: CENTRAL HERO STUDENT (CONFIDENT, RADIANT & EMPOWERED)           -->
+  <!-- GROUP 3: CENTRAL HERO CRABIT STUDENT (CONFIDENT, RADIANT & EMPOWERED)    -->
   <!-- ======================================================================== -->
-  <g id="hero_student_empowered" transform="translate(960, 560)">
+  <g id="hero_crabit_student_group" transform="translate(960, 560)">
     <!-- 1. Ergonomic Chair Backrest (Behind Torso, Upper Half Only) -->
     <g id="hero_chair_backrest">
       <rect id="hero_chair_back_cushion" x="-105" y="70" width="210" height="150" rx="24" fill="#64748B" opacity="0.6" />
       <rect id="hero_chair_back_inner" x="-85" y="85" width="170" height="120" rx="16" fill="#475569" opacity="0.4" />
     </g>
 
-    <!-- 2. Torso (Empowered Korean Tech Royal Blue Hoodie #2563EB) -->
-    <g id="hero_torso_layer">
-      <!-- Main Upper Body Contour -->
-      <path id="hero_hoodie_body" fill="#2563EB" d="M -85,115 C -95,170 -90,225 -80,250 L 80,250 C 90,225 95,170 85,115 C 60,105 30,100 0,100 C -30,100 -60,105 -85,115 Z" />
+    <!-- 2. Torso (Empowered Korean Tech Royal Blue Hoodie #2563EB) Seamlessly Welded at Shoulder -->
+    <g id="hero_torso">
+      <!-- Main Upper Body Contour Welded to Shoulder at (75, 140) -->
+      <path id="hero_hoodie_body" fill="#2563EB" d="M -85,115 C -95,170 -90,225 -80,250 L 80,250 C 90,225 85,170 75,140 C 65,115 35,100 0,100 C -35,100 -65,105 -85,115 Z" />
       <!-- Subtle Center Seam & Zipper Line -->
       <line id="hero_hoodie_seam" x1="0" y1="110" x2="0" y2="250" stroke="#1D4ED8" stroke-width="3" />
       <!-- White Drawstrings with Accent Cords -->
@@ -252,9 +252,9 @@
       <path id="hero_arm_l_path" stroke="#2563EB" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M -80,125 L -130,195 L -75,235" />
       <!-- Left Sleeve Cuff -->
       <rect id="hero_cuff_l" x="-95" y="224" width="30" height="15" rx="4" fill="#1D4ED8" transform="rotate(20 -80 231)" />
-      <!-- Left Palm Resting Flat on Desk Top Surface -->
-      <path id="hero_hand_l_palm" fill="#FFE3D1" d="M -70,230 L -30,230 C -25,230 -25,245 -30,245 L -70,245 Z" />
-      <circle cx="-32" cy="237" r="5" fill="#FFE3D1" />
+      <!-- Left Palm Resting Flat on Desk Top Surface (#FFE3D1 With Contour #E2A888) -->
+      <path id="hero_hand_l_palm" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" stroke-linecap="round" d="M -70,230 L -30,230 C -25,230 -25,245 -30,245 L -70,245 Z" />
+      <circle cx="-32" cy="237" r="4.5" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" />
     </g>
 
     <!-- 4. Mandatory Human Neck Column (Connecting Chin to Hoodie Collar) -->
@@ -268,7 +268,7 @@
       <!-- Head Circle: cx=0, cy=-10, r=90 (Total Head Height ~180px) -->
       <circle id="hero_head_circle" cx="0" cy="-10" r="90" fill="#FFE3D1" />
 
-      <!-- Ears: cx=-90 and 90, cy=-10, r=15 (Maintains clear 35px+ negative space to right arm) -->
+      <!-- Ears: cx=-90 and 90, cy=-10, r=15 -->
       <circle id="hero_ear_l" cx="-90" cy="-10" r="15" fill="#FFE3D1" />
       <circle id="hero_ear_r" cx="90" cy="-10" r="15" fill="#FFE3D1" />
 
@@ -301,55 +301,68 @@
       <path id="hero_smile_outline" stroke="#B91C1C" stroke-width="2.5" stroke-linecap="round" fill="none" d="M -32,7 Q 0,42 32,7" />
     </g>
 
-    <!-- 6. HARMONIZED HERO RAISED ARM (MATCHING PHONE PROP VECTOR DNA & 80° NATURAL ANGLE) -->
+    <!-- 6. HARMONIZED HERO RAISED ARM (WELDED SHOULDER AT 75,140 & GOLDEN RATIO HAND) -->
     <g id="hero_raised_arm_layer">
-      <!-- Blue Uniform Sleeve Ascending at 80° Natural Upright Angle -->
-      <!-- Smoothly starts from shoulder socket (x=100, y=125) with 35px+ space to ear (x=90..105, y=-10) -->
-      <path id="hero_arm_sleeve" stroke="#2563EB" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M 100,125 L 140,0 L 155,-115" />
+      <!-- Welded Shoulder Joint Foundation at (75, 140) -->
+      <circle id="hero_shoulder_joint_weld" cx="75" cy="140" r="18" fill="#2563EB" />
 
-      <!-- Distinct Ribbed Wrist Cuff (#1D4ED8) at Wrist Joint -->
-      <rect id="hero_wrist_cuff" x="135" y="-124" width="40" height="18" rx="5" fill="#1D4ED8" transform="rotate(-15 155 -115)" />
+      <!-- Ascending Sleeve Path (Maintains clear 30px gap to neck x=18 and cheek x=75) -->
+      <!-- Closed contour initiating from shoulder (75, 140) to wrist joint (135, -70) -->
+      <path id="hero_arm_sleeve" fill="#2563EB" d="M 60,140 C 65,95 80,35 115,-70 L 150,-60 C 115,45 100,105 88,145 Z" />
 
-      <!-- Articulated Human Hand Structure (Height ~140px = 0.8x Head Height 175px) -->
-      <!-- Enthusiastic "Number 1 / Index Finger Raised" Gesture (저요! / Ready to Answer) -->
-      <g id="hero_hand_gesture" transform="translate(155, -118)">
-        <!-- Tapered Graceful Wrist Expanding Into Palm -->
-        <path id="hero_hand_wrist_base" fill="#FFE3D1" d="M -16,0 L 16,-6 L 24,-40 C 24,-60 -24,-60 -20,-40 Z" />
+      <!-- Ribbed Wrist Cuff (#1D4ED8) -->
+      <rect id="hero_wrist_cuff" x="105" y="-76" width="46" height="15" rx="4" fill="#1D4ED8" stroke="#1E40AF" stroke-width="1.5" transform="rotate(-15 128 -68)" />
 
-        <!-- Palm & Curled Knuckles Silhouette (#FFE3D1 With Soft Anatomical Contours) -->
-        <!-- Curled Pinky Finger -->
-        <rect id="finger_curled_pinky" x="8" y="-48" width="16" height="20" rx="8" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" />
-        <!-- Curled Ring Finger -->
-        <rect id="finger_curled_ring" x="-4" y="-52" width="16" height="22" rx="8" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" />
-        <!-- Curled Middle Finger -->
-        <rect id="finger_curled_middle" x="-14" y="-56" width="16" height="24" rx="8" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" />
+      <!-- Golden Ratio Hand Gesture: Palm to finger 1 : 0.85; Index finger <= 1.1x palm -->
+      <g id="hero_hand_gesture" transform="translate(130, -70)">
+        <!-- Tapered Wrist & Palm Base (Height: 40px, Width: 36px, Fill #FFE3D1, Stroke #E2A888) -->
+        <path id="hero_palm_base" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M -16,-2 L 16,-8 C 20,-20 18,-35 14,-40 C 8,-42 -8,-42 -14,-40 C -18,-35 -20,-20 -16,-2 Z" />
 
-        <!-- Tucked Confident Thumb Resting Across Palm Base -->
-        <path id="hero_thumb_tucked" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" d="M -18,-15 C -28,-22 -26,-36 -16,-38 C -10,-39 -8,-28 -8,-15 Z" />
+        <!-- Palm Shadow & Crease Line (#FDBA74) -->
+        <path d="M -10,-15 Q 0,-22 10,-17" stroke="#FDBA74" stroke-width="2" stroke-linecap="round" fill="none" />
 
-        <!-- PROUD RAISED INDEX FINGER (Points High Towards Carat Sparkles, y=-56 to y=-138) -->
-        <rect id="hero_finger_index_raised" x="-18" y="-138" width="18" height="84" rx="9" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" />
-        <!-- Soft Vector Highlight on Index Finger -->
-        <line x1="-12" y1="-128" x2="-12" y2="-75" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.6" />
+        <!-- Three Curled Fingers (Middle, Ring, Pinky) with Soft Rounded Contours rx=5 -->
+        <!-- Curled Pinky -->
+        <rect id="finger_curled_pinky" x="12" y="-36" width="10" height="14" rx="5" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" />
+        <!-- Curled Ring -->
+        <rect id="finger_curled_ring" x="3" y="-39" width="11" height="16" rx="5" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" />
+        <!-- Curled Middle -->
+        <rect id="finger_curled_middle" x="-6" y="-41" width="11" height="18" rx="5" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" />
 
-        <!-- Subtle Knuckle Crease Lines for Stylized Korean 2D Vector Polish -->
-        <path stroke="#E2A888" stroke-width="2" stroke-linecap="round" fill="none" d="M -12,-32 Q 4,-36 18,-30" />
+        <!-- Thumb Neatly Folded Over Palm Edge at Natural 35° Angle -->
+        <g id="hero_thumb_folded" transform="translate(-14, -18) rotate(35)">
+          <rect id="hero_thumb_body" x="0" y="0" width="22" height="11" rx="5.5" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" />
+          <line x1="8" y1="2" x2="8" y2="9" stroke="#FDBA74" stroke-width="1.5" stroke-linecap="round" />
+        </g>
+
+        <!-- PROPORTIONAL INDEX FINGER (Height: 36px, Palm Ratio: 0.90x <= 1.1x, Clean Rounded Tip rx=6 ry=6) -->
+        <g id="hero_index_finger_group">
+          <!-- Main Finger Body from y=-40 to y=-76 (Height = 36px) -->
+          <rect id="hero_finger_index_raised" x="-17" y="-76" width="13" height="36" rx="6" ry="6" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" />
+
+          <!-- 3 Subtle Phalange Creases (#FDBA74) -->
+          <line x1="-15" y1="-64" x2="-6" y2="-64" stroke="#FDBA74" stroke-width="1.5" stroke-linecap="round" />
+          <line x1="-15" y1="-52" x2="-6" y2="-52" stroke="#FDBA74" stroke-width="1.5" stroke-linecap="round" />
+
+          <!-- Soft Catchlight Highlight on Finger -->
+          <line x1="-13" y1="-70" x2="-13" y2="-55" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+        </g>
       </g>
 
       <!-- 7. KNOWLEDGE AURA & 3 FACETED CYAN CARAT SPARKLES (#00E5FF, #38BDF8) -->
-      <g id="hero_carat_sparkles_group" transform="translate(155, -256)">
-        <!-- Faceted Carat Gem 1: Large Central Crown Jewel Floating Above Index Finger -->
-        <g id="carat_gem_primary" transform="translate(0, -38)">
+      <g id="hero_carat_sparkles_group" transform="translate(122, -180)">
+        <!-- Faceted Carat Gem 1: Large Central Crown Jewel Floating Directly Above Index Finger Tip -->
+        <g id="carat_gem_primary" transform="translate(0, -18)">
           <!-- Top Gem Body -->
-          <polygon id="gem1_outer" points="0,-22 18,-8 11,20 -11,20 -18,-8" fill="#00E5FF" stroke="#0284C7" stroke-width="1.5" />
-          <polygon id="gem1_facet_r" points="0,-22 18,-8 11,20 0,20" fill="#38BDF8" opacity="0.9" />
-          <polygon id="gem1_facet_l" points="0,-22 0,20 -11,20 -18,-8" fill="#0284C7" opacity="0.6" />
-          <polygon id="gem1_facet_top" points="0,-22 9,-8 0,4 -9,-8" fill="#BAE6FD" />
-          <circle id="gem1_catchlight" cx="6" cy="-14" r="2.5" fill="#FFFFFF" />
+          <polygon id="gem1_outer" points="0,-20 16,-7 10,18 -10,18 -16,-7" fill="#00E5FF" stroke="#0284C7" stroke-width="1.5" />
+          <polygon id="gem1_facet_r" points="0,-20 16,-7 10,18 0,18" fill="#38BDF8" opacity="0.9" />
+          <polygon id="gem1_facet_l" points="0,-20 0,18 -10,18 -16,-7" fill="#0284C7" opacity="0.6" />
+          <polygon id="gem1_facet_top" points="0,-20 8,-7 0,3 -8,-7" fill="#BAE6FD" />
+          <circle id="gem1_catchlight" cx="5" cy="-12" r="2" fill="#FFFFFF" />
         </g>
 
         <!-- Faceted Carat Gem 2: Floating Flanking Left -->
-        <g id="carat_gem_left" transform="translate(-48, -10) scale(0.75)">
+        <g id="carat_gem_left" transform="translate(-40, 8) scale(0.7)">
           <polygon points="0,-20 16,-7 10,18 -10,18 -16,-7" fill="#00E5FF" stroke="#0284C7" stroke-width="1.5" />
           <polygon points="0,-20 16,-7 10,18 0,18" fill="#38BDF8" opacity="0.9" />
           <polygon points="0,-20 0,18 -10,18 -16,-7" fill="#0284C7" opacity="0.6" />
@@ -358,7 +371,7 @@
         </g>
 
         <!-- Faceted Carat Gem 3: Floating Flanking Right -->
-        <g id="carat_gem_right" transform="translate(48, 5) scale(0.8)">
+        <g id="carat_gem_right" transform="translate(40, 18) scale(0.75)">
           <polygon points="0,-20 16,-7 10,18 -10,18 -16,-7" fill="#00E5FF" stroke="#0284C7" stroke-width="1.5" />
           <polygon points="0,-20 16,-7 10,18 0,18" fill="#38BDF8" opacity="0.9" />
           <polygon points="0,-20 0,18 -10,18 -16,-7" fill="#0284C7" opacity="0.6" />
@@ -367,14 +380,14 @@
         </g>
 
         <!-- Supporting Radiant Bursts & Golden Sparkle Stars -->
-        <path id="sparkle_star_gold_main" fill="#F59E0B" d="M -30,-60 Q -30,-48 -42,-48 Q -30,-48 -30,-36 Q -30,-48 -18,-48 Q -30,-48 -30,-60 Z" />
-        <path id="sparkle_star_cyan_sub" fill="#00E5FF" d="M 38,-55 Q 38,-45 28,-45 Q 38,-45 38,-35 Q 38,-45 48,-45 Q 38,-45 38,-55 Z" />
-        <circle cx="-25" cy="15" r="4.5" fill="#38BDF8" />
-        <circle cx="35" cy="-15" r="3.5" fill="#FBBF24" />
-        <circle cx="0" cy="18" r="3" fill="#10B981" />
+        <path id="sparkle_star_gold_main" fill="#F59E0B" d="M -26,-42 Q -26,-32 -36,-32 Q -26,-32 -26,-22 Q -26,-32 -16,-32 Q -26,-32 -26,-42 Z" />
+        <path id="sparkle_star_cyan_sub" fill="#00E5FF" d="M 32,-38 Q 32,-30 24,-30 Q 32,-30 32,-22 Q 32,-30 40,-30 Q 32,-30 32,-38 Z" />
+        <circle cx="-20" cy="22" r="4" fill="#38BDF8" />
+        <circle cx="28" cy="-5" r="3" fill="#FBBF24" />
+        <circle cx="0" cy="25" r="2.5" fill="#10B981" />
 
         <!-- Radiant Energy Accent Lines -->
-        <path stroke="#FBBF24" stroke-width="2.5" stroke-linecap="round" d="M -15,-72 L -22,-82 M 15,-72 L 22,-82 M -32,-32 L -42,-36 M 32,-32 L 42,-36" />
+        <path stroke="#FBBF24" stroke-width="2" stroke-linecap="round" d="M -12,-52 L -18,-60 M 12,-52 L 18,-60 M -26,-22 L -34,-25 M 26,-22 L 34,-25" />
       </g>
     </g>
 
