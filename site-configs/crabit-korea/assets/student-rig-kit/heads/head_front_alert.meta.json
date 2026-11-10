@@ -1,0 +1,25 @@
+{
+  "id": "head_front_alert",
+  "name": "Student Head Front Alert View",
+  "category": "head",
+  "viewBox": "0 0 320 320",
+  "dimensions": {
+    "width": 320,
+    "height": 320
+  },
+  "pivots": {
+    "neck_base": { "x": 160, "y": 290 }
+  },
+  "sockets": {
+    "neck_base": { "x": 160, "y": 290 }
+  },
+  "immutable_inputs": {
+    "props_allowed": ["style", "opacity"],
+    "color_tokens_used": ["#1E293B", "#FFE3D1", "#0F172A", "#FCA5A5", "#EF4444", "#FFFFFF"]
+  },
+  "dependencies": [
+    "character_master_model_sheet.svg#front_head_assembly"
+  ],
+  "tags": ["student", "korean", "front_view", "alert", "hair_side_swept"],
+  "version": "1.0.0"
+}

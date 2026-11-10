@@ -4,6 +4,7 @@ node_modules/
 # Remotion & Render outputs
 out/
 dist/
+build/
 .remotion/
 
 # OS and Editor

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="320" height="320">
+  <!-- Student Head Front Alert View Rig Component -->
+  <g id="head_front_alert" data-pivot="160 290">
+    <!-- 1. Mandatory Neck Column (fill="#FFE3D1", height ~35px, terminating at y=290 socket) -->
+    <g id="neck_group">
+      <rect x="142" y="255" width="36" height="35" fill="#FFE3D1" />
+      <path d="M 142 255 C 154 265 166 265 178 255 L 178 265 C 166 275 154 275 142 265 Z" fill="#E2A888" opacity="0.4" />
+    </g>
+
+    <!-- 2. Skull & Head Base (Frontal anime contour) -->
+    <circle id="front_head_base" cx="160" cy="170" r="90" fill="#FFE3D1" />
+
+    <!-- 3. Ears (Left and Right with inner creases) -->
+    <g id="front_ears">
+      <!-- Left Ear -->
+      <circle cx="70" cy="170" r="14" fill="#FFE3D1" />
+      <path d="M 70 165 Q 75 170 70 175" fill="none" stroke="#E2A888" stroke-width="2.2" stroke-linecap="round" />
+      <!-- Right Ear -->
+      <circle cx="250" cy="170" r="14" fill="#FFE3D1" />
+      <path d="M 250 165 Q 245 170 250 175" fill="none" stroke="#E2A888" stroke-width="2.2" stroke-linecap="round" />
+    </g>
+
+    <!-- 4. Hair Assembly: Clean dark slate hair (#1E293B) side-swept bangs -->
+    <g id="front_hair">
+      <!-- Back hair volume & front fringe contour -->
+      <path d="M 70 170 C 65 60 105 50 160 50 C 215 50 255 60 250 170 C 245 140 230 110 210 105 C 185 110 160 135 130 140 C 100 142 85 125 70 170 Z" fill="#1E293B" />
+      <!-- Side fringe strands -->
+      <path d="M 72 170 C 70 190 73 205 78 212 C 80 202 81 188 82 176 Z" fill="#1E293B" />
+      <path d="M 248 170 C 250 190 247 205 242 212 C 240 202 239 188 238 176 Z" fill="#1E293B" />
+    </g>
+
+    <!-- 5. Cheeks: Soft Rosy Blush Pads (#FCA5A5, opacity 0.55) -->
+    <g id="front_cheeks">
+      <circle cx="110" cy="185" r="14" fill="#FCA5A5" opacity="0.55" />
+      <circle cx="210" cy="185" r="14" fill="#FCA5A5" opacity="0.55" />
+    </g>
+
+    <!-- 6. Arched Eyebrows (#1E293B) -->
+    <g id="front_brows">
+      <path d="M 105 140 Q 122 128 138 136" fill="none" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round" />
+      <path d="M 182 136 Q 198 128 215 140" fill="none" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round" />
+    </g>
+
+    <!-- 7. Sparkling Star-Glint Eyes (#0F172A) -->
+    <g id="front_eyes">
+      <!-- Left Eye -->
+      <g id="eye_front_left">
+        <circle cx="122" cy="158" r="9.5" fill="#0F172A" />
+        <circle cx="119" cy="154" r="3" fill="#FFFFFF" />
+        <circle cx="125" cy="160" r="1.5" fill="#FFFFFF" />
+      </g>
+      <!-- Right Eye -->
+      <g id="eye_front_right">
+        <circle cx="198" cy="158" r="9.5" fill="#0F172A" />
+        <circle cx="195" cy="154" r="3" fill="#FFFFFF" />
+        <circle cx="201" cy="160" r="1.5" fill="#FFFFFF" />
+      </g>
+    </g>
+
+    <!-- 8. Anime Nose (#E2A888) -->
+    <path id="front_nose" d="M 160 162 L 160 172 L 165 173" fill="none" stroke="#E2A888" stroke-width="2.8" stroke-linecap="round" />
+
+    <!-- 9. Cheerful Smile with Teeth and Tongue -->
+    <g id="front_mouth">
+      <path d="M 134 188 Q 160 220 186 188 Z" fill="#EF4444" />
+      <path d="M 138 189 Q 160 198 182 189 Q 160 192 138 189 Z" fill="#FFFFFF" />
+      <path d="M 148 208 Q 160 200 172 208 C 168 218 152 218 148 208 Z" fill="#F87171" />
+      <path d="M 132 187 Q 160 222 188 187" fill="none" stroke="#B91C1C" stroke-width="2.2" stroke-linecap="round" />
+    </g>
+  </g>
+</svg>

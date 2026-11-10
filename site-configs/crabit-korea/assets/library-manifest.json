@@ -1,13 +1,409 @@
 {
-  "generated_at": "2026-11-10T19:30:39.226Z",
-  "total_components": 9,
+  "generated_at": "2026-11-10T19:42:57.231Z",
+  "total_components": 16,
   "categories": {
-    "head": 1,
+    "prop": 7,
+    "head": 2,
     "limb": 6,
-    "prop": 1,
     "torso": 1
   },
   "components": {
+    "prop_backpack_sandwich": {
+      "id": "prop_backpack_sandwich",
+      "name": "Modular Backpack Rig (Rear Pack & Front Straps)",
+      "category": "prop",
+      "viewBox": "0 0 360 420",
+      "dimensions": {
+        "width": 360,
+        "height": 420
+      },
+      "sockets": {
+        "torso_mount": {
+          "x": 180,
+          "y": 42
+        }
+      },
+      "immutable_inputs": {
+        "props_allowed": [
+          "style",
+          "opacity",
+          "transform"
+        ],
+        "color_tokens_used": [
+          "#F59E0B",
+          "#D97706",
+          "#E2E8F0",
+          "#CBD5E1",
+          "#94A3B8"
+        ]
+      },
+      "color_tokens_used": [
+        "#F59E0B",
+        "#D97706",
+        "#E2E8F0",
+        "#CBD5E1",
+        "#94A3B8"
+      ],
+      "dependencies": [
+        "character_master_model_sheet.svg#turnaround_three_quarter_right"
+      ],
+      "tags": [
+        "prop",
+        "backpack",
+        "sandwich_rig",
+        "layering",
+        "walking"
+      ],
+      "version": "2.0.0",
+      "filePath": "props/prop_backpack_sandwich.svg",
+      "metaPath": "props/prop_backpack_sandwich.meta.json"
+    },
+    "prop_chair_classroom": {
+      "id": "prop_chair_classroom",
+      "name": "Classroom Ergonomic Student Chair",
+      "category": "prop",
+      "viewBox": "0 0 400 600",
+      "dimensions": {
+        "width": 400,
+        "height": 600
+      },
+      "sockets": {
+        "seat_surface": {
+          "x": 200,
+          "y": 300
+        },
+        "backrest_center": {
+          "x": 200,
+          "y": 150
+        },
+        "floor_contact": {
+          "x": 200,
+          "y": 565
+        }
+      },
+      "pivots": {
+        "seat": {
+          "x": 200,
+          "y": 300
+        },
+        "base": {
+          "x": 200,
+          "y": 565
+        }
+      },
+      "immutable_inputs": {
+        "props_allowed": [
+          "style",
+          "opacity",
+          "transform"
+        ],
+        "color_tokens_used": [
+          "#475569",
+          "#334155",
+          "#1E293B",
+          "#94A3B8",
+          "#64748B"
+        ]
+      },
+      "tags": [
+        "prop",
+        "furniture",
+        "chair",
+        "classroom",
+        "seated"
+      ],
+      "version": "1.0.0",
+      "filePath": "props/prop_chair_classroom.svg",
+      "metaPath": "props/prop_chair_classroom.meta.json"
+    },
+    "prop_chalkboard_math": {
+      "id": "prop_chalkboard_math",
+      "name": "Classroom Mathematical Chalkboard",
+      "category": "prop",
+      "viewBox": "0 0 1200 700",
+      "dimensions": {
+        "width": 1200,
+        "height": 700
+      },
+      "sockets": {
+        "board_center": {
+          "x": 600,
+          "y": 350
+        },
+        "chalk_tray": {
+          "x": 600,
+          "y": 650
+        },
+        "focus_point": {
+          "x": 760,
+          "y": 240
+        }
+      },
+      "pivots": {
+        "center": {
+          "x": 600,
+          "y": 350
+        }
+      },
+      "immutable_inputs": {
+        "props_allowed": [
+          "style",
+          "opacity",
+          "transform"
+        ],
+        "color_tokens_used": [
+          "#1E3A2F",
+          "#1E293B",
+          "#334155",
+          "#F8FAFC",
+          "#38BDF8",
+          "#FDE047"
+        ]
+      },
+      "tags": [
+        "prop",
+        "classroom",
+        "chalkboard",
+        "math",
+        "background",
+        "hagwon"
+      ],
+      "version": "1.0.0",
+      "filePath": "props/prop_chalkboard_math.svg",
+      "metaPath": "props/prop_chalkboard_math.meta.json"
+    },
+    "prop_desk_hagwon": {
+      "id": "prop_desk_hagwon",
+      "name": "Hagwon Classroom Student Desk",
+      "category": "prop",
+      "viewBox": "0 0 600 500",
+      "dimensions": {
+        "width": 600,
+        "height": 500
+      },
+      "sockets": {
+        "desktop_center": {
+          "x": 300,
+          "y": 116
+        },
+        "floor_contact": {
+          "x": 300,
+          "y": 480
+        }
+      },
+      "pivots": {
+        "base": {
+          "x": 300,
+          "y": 480
+        },
+        "desktop": {
+          "x": 300,
+          "y": 116
+        }
+      },
+      "immutable_inputs": {
+        "props_allowed": [
+          "style",
+          "opacity",
+          "transform"
+        ],
+        "color_tokens_used": [
+          "#E2E8F0",
+          "#CBD5E1",
+          "#F8FAFC",
+          "#64748B",
+          "#475569",
+          "#94A3B8"
+        ]
+      },
+      "tags": [
+        "prop",
+        "furniture",
+        "desk",
+        "classroom",
+        "hagwon",
+        "modesty_panel"
+      ],
+      "version": "1.0.0",
+      "filePath": "props/prop_desk_hagwon.svg",
+      "metaPath": "props/prop_desk_hagwon.meta.json"
+    },
+    "prop_phone_frame": {
+      "id": "prop_phone_frame",
+      "name": "Isolated Smartphone Chassis and Screen Frame",
+      "category": "prop",
+      "viewBox": "0 0 360 720",
+      "dimensions": {
+        "width": 360,
+        "height": 720
+      },
+      "sockets": {
+        "screen_center": {
+          "x": 180,
+          "y": 360
+        },
+        "top_notch": {
+          "x": 180,
+          "y": 50
+        },
+        "grip_left": {
+          "x": 14,
+          "y": 450
+        },
+        "grip_right": {
+          "x": 346,
+          "y": 450
+        }
+      },
+      "pivots": {
+        "center": {
+          "x": 180,
+          "y": 360
+        }
+      },
+      "immutable_inputs": {
+        "props_allowed": [
+          "style",
+          "opacity",
+          "transform"
+        ],
+        "color_tokens_used": [
+          "#0F172A",
+          "#334155",
+          "#1E293B",
+          "#020617",
+          "#F8FAFC",
+          "#94A3B8"
+        ]
+      },
+      "tags": [
+        "prop",
+        "smartphone",
+        "screen",
+        "device",
+        "ui_container"
+      ],
+      "version": "1.0.0",
+      "filePath": "props/prop_phone_frame.svg",
+      "metaPath": "props/prop_phone_frame.meta.json"
+    },
+    "prop_teacher_podium": {
+      "id": "prop_teacher_podium",
+      "name": "Teacher Lecture Podium with Brand Crest",
+      "category": "prop",
+      "viewBox": "0 0 450 650",
+      "dimensions": {
+        "width": 450,
+        "height": 650
+      },
+      "sockets": {
+        "console_surface": {
+          "x": 225,
+          "y": 150
+        },
+        "floor_contact": {
+          "x": 225,
+          "y": 625
+        }
+      },
+      "pivots": {
+        "base": {
+          "x": 225,
+          "y": 625
+        },
+        "console": {
+          "x": 225,
+          "y": 150
+        }
+      },
+      "immutable_inputs": {
+        "props_allowed": [
+          "style",
+          "opacity",
+          "transform"
+        ],
+        "color_tokens_used": [
+          "#64748B",
+          "#475569",
+          "#94A3B8",
+          "#CBD5E1",
+          "#E2E8F0",
+          "#F8FAFC",
+          "#00E5FF"
+        ]
+      },
+      "tags": [
+        "prop",
+        "classroom",
+        "podium",
+        "teacher",
+        "furniture"
+      ],
+      "version": "1.0.0",
+      "filePath": "props/prop_teacher_podium.svg",
+      "metaPath": "props/prop_teacher_podium.meta.json"
+    },
+    "prop_wall_clock": {
+      "id": "prop_wall_clock",
+      "name": "Classroom Wall Clock with Decoupled Hands",
+      "category": "prop",
+      "viewBox": "0 0 300 300",
+      "dimensions": {
+        "width": 300,
+        "height": 300
+      },
+      "sockets": {
+        "clock_center": {
+          "x": 150,
+          "y": 150
+        },
+        "wall_mount": {
+          "x": 150,
+          "y": 20
+        }
+      },
+      "pivots": {
+        "clock_center": {
+          "x": 150,
+          "y": 150
+        },
+        "hour_hand": {
+          "x": 150,
+          "y": 150
+        },
+        "minute_hand": {
+          "x": 150,
+          "y": 150
+        }
+      },
+      "immutable_inputs": {
+        "props_allowed": [
+          "style",
+          "opacity",
+          "transform",
+          "hourRotation",
+          "minuteRotation"
+        ],
+        "color_tokens_used": [
+          "#FFFFFF",
+          "#1E293B",
+          "#64748B",
+          "#2563EB",
+          "#EF4444",
+          "#94A3B8"
+        ]
+      },
+      "tags": [
+        "prop",
+        "classroom",
+        "clock",
+        "kinematic",
+        "decoupled_hands"
+      ],
+      "version": "1.0.0",
+      "filePath": "props/prop_wall_clock.svg",
+      "metaPath": "props/prop_wall_clock.meta.json"
+    },
     "head_34_confident": {
       "id": "head_34_confident",
       "name": "Student Head 3/4 Confident View",
@@ -55,6 +451,55 @@
       "version": "1.1.0",
       "filePath": "student-rig-kit/heads/head_34_confident.svg",
       "metaPath": "student-rig-kit/heads/head_34_confident.meta.json"
+    },
+    "head_front_alert": {
+      "id": "head_front_alert",
+      "name": "Student Head Front Alert View",
+      "category": "head",
+      "viewBox": "0 0 320 320",
+      "dimensions": {
+        "width": 320,
+        "height": 320
+      },
+      "pivots": {
+        "neck_base": {
+          "x": 160,
+          "y": 290
+        }
+      },
+      "sockets": {
+        "neck_base": {
+          "x": 160,
+          "y": 290
+        }
+      },
+      "immutable_inputs": {
+        "props_allowed": [
+          "style",
+          "opacity"
+        ],
+        "color_tokens_used": [
+          "#1E293B",
+          "#FFE3D1",
+          "#0F172A",
+          "#FCA5A5",
+          "#EF4444",
+          "#FFFFFF"
+        ]
+      },
+      "dependencies": [
+        "character_master_model_sheet.svg#front_head_assembly"
+      ],
+      "tags": [
+        "student",
+        "korean",
+        "front_view",
+        "alert",
+        "hair_side_swept"
+      ],
+      "version": "1.0.0",
+      "filePath": "student-rig-kit/heads/head_front_alert.svg",
+      "metaPath": "student-rig-kit/heads/head_front_alert.meta.json"
     },
     "arm_raised_classroom": {
       "id": "arm_raised_classroom",
@@ -445,56 +890,6 @@
       "version": "1.0.0",
       "filePath": "student-rig-kit/limbs/legs_walk_rig.svg",
       "metaPath": "student-rig-kit/limbs/legs_walk_rig.meta.json"
-    },
-    "prop_backpack_sandwich": {
-      "id": "prop_backpack_sandwich",
-      "name": "Modular Backpack Rig (Rear Pack & Front Straps)",
-      "category": "prop",
-      "viewBox": "0 0 360 420",
-      "dimensions": {
-        "width": 360,
-        "height": 420
-      },
-      "sockets": {
-        "torso_mount": {
-          "x": 180,
-          "y": 42
-        }
-      },
-      "immutable_inputs": {
-        "props_allowed": [
-          "style",
-          "opacity",
-          "transform"
-        ],
-        "color_tokens_used": [
-          "#F59E0B",
-          "#D97706",
-          "#E2E8F0",
-          "#CBD5E1",
-          "#94A3B8"
-        ]
-      },
-      "color_tokens_used": [
-        "#F59E0B",
-        "#D97706",
-        "#E2E8F0",
-        "#CBD5E1",
-        "#94A3B8"
-      ],
-      "dependencies": [
-        "character_master_model_sheet.svg#turnaround_three_quarter_right"
-      ],
-      "tags": [
-        "prop",
-        "backpack",
-        "sandwich_rig",
-        "layering",
-        "walking"
-      ],
-      "version": "2.0.0",
-      "filePath": "student-rig-kit/props/prop_backpack_sandwich.svg",
-      "metaPath": "student-rig-kit/props/prop_backpack_sandwich.meta.json"
     },
     "torso_hoodie_34_clean": {
       "id": "torso_hoodie_34_clean",
