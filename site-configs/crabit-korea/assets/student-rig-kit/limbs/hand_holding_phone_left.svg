@@ -1,121 +1,102 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 280" width="240" height="280">
-  <!-- STUDENT RIG KIT: Unified Left Hand Holding Phone (Sandwich Architecture) -->
-  <!-- Base Skin: #FFE3D1 | Contour: #E0A890 | Accents: #FCA5A5 | Sleeve: #2563EB / #1D4ED8 -->
-
-  <defs>
-    <!-- Smooth form gradient for natural anime hand volume -->
-    <linearGradient id="rearPalmGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#F5C7AF" />
-      <stop offset="55%" stop-color="#FFE3D1" />
-      <stop offset="100%" stop-color="#FFF0E5" />
-    </linearGradient>
-
-    <linearGradient id="thumbGrad" x1="0%" y1="100%" x2="80%" y2="20%">
-      <stop offset="0%" stop-color="#F5C7AF" />
-      <stop offset="50%" stop-color="#FFE3D1" />
-      <stop offset="100%" stop-color="#FFF0E5" />
-    </linearGradient>
-  </defs>
+  <!-- KOREAN ANIME RIG: Left Hand Holding Phone (Clean Decoupled Sandwich) -->
+  <!-- Pure warm skin: #FFE3D1 | Contour: #E0A890 (2.5px) | Accents: #FCA5A5 (0.6 opacity) | Cuff: #2563EB / #1D4ED8 -->
 
   <!-- ========================================================================= -->
-  <!-- LAYER 1: REAR PALM & 4 CURLED FINGERS (Rendered BEHIND Phone)             -->
+  <!-- LAYER 1: REAR FINGERS, PALM BASE & HOODIE CUFF (Rendered BEHIND Phone)    -->
   <!-- ========================================================================= -->
-  <g id="hand_left_rear_fingers" data-socket-wrist="60 250" data-socket-phone="110 140">
+  <g id="hand_left_rear_fingers" data-socket-wrist="70 250" data-socket-phone="120 140">
 
-    <!-- Unified Palm & 4 Curled Fingers Mass (Natural rhythmic columns along bezel) -->
-    <path d="M 60 202
-             C 72 170, 88 135, 115 122
-             C 130 116, 146 104, 160 90
-             C 168 82, 178 78, 186 84
-             C 192 90, 190 98, 182 104
-             C 174 108, 164 108, 158 112
-             C 170 114, 184 116, 190 124
-             C 196 132, 192 140, 183 144
-             C 176 146, 166 147, 158 150
-             C 168 152, 180 154, 186 162
-             C 192 170, 188 178, 178 182
-             C 170 184, 162 184, 154 186
-             C 162 188, 172 192, 176 200
-             C 180 208, 174 214, 164 216
-             C 152 218, 140 220, 128 226
-             C 110 234, 94 238, 84 228
-             C 76 218, 66 212, 60 202 Z"
-          fill="url(#rearPalmGrad)" stroke="#E0A890" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
+    <!-- Wrist base extension under cuff -->
+    <path d="M 46 232 L 95 242 L 85 275 L 36 265 Z"
+          fill="#FFE3D1" />
 
-    <!-- Clean interdigital division lines between fingers -->
-    <path d="M 158 110 C 146 116, 136 124, 130 135"
+    <!-- MASTER UNIFIED REAR PALM & 4 CRADLING FINGERS (Zero Rake, Organic Human Contours) -->
+    <!-- Encompasses palm support plate and 4 softly curled fingers on right side: x: 145..190, y: 75..215 -->
+    <path d="M 50 232
+             C 66 195, 96 145, 138 95
+             C 152 82, 170 78, 180 84
+             C 186 89, 185 96, 178 102
+             C 168 108, 158 108, 150 112
+             C 166 114, 180 116, 186 122
+             C 192 128, 190 136, 182 140
+             C 172 144, 162 144, 152 148
+             C 164 150, 176 152, 182 158
+             C 188 164, 186 172, 178 176
+             C 168 180, 158 180, 148 184
+             C 158 186, 170 190, 174 196
+             C 178 202, 174 210, 166 212
+             C 154 214, 138 218, 122 226
+             C 104 235, 82 242, 64 240 Z"
+          fill="#FFE3D1" stroke="#E0A890" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
+
+    <!-- Minimal clean interdigital fold lines between fingers -->
+    <path d="M 150 112 C 142 116, 134 122, 128 132"
           fill="none" stroke="#E0A890" stroke-width="2" stroke-linecap="round" />
-    <path d="M 156 148 C 144 152, 134 160, 128 170"
+    <path d="M 152 148 C 144 152, 136 158, 130 168"
           fill="none" stroke="#E0A890" stroke-width="2" stroke-linecap="round" />
-    <path d="M 152 184 C 142 188, 132 196, 126 206"
+    <path d="M 148 184 C 140 188, 132 194, 126 204"
           fill="none" stroke="#E0A890" stroke-width="2" stroke-linecap="round" />
 
-    <!-- Soft Knuckle & Crease Accents (#FCA5A5) -->
-    <path d="M 172 88 C 176 94, 174 100, 170 104"
-          fill="none" stroke="#FCA5A5" stroke-width="2" stroke-linecap="round" />
-    <path d="M 176 126 C 180 132, 178 138, 173 142"
-          fill="none" stroke="#FCA5A5" stroke-width="2" stroke-linecap="round" />
-    <path d="M 172 164 C 176 170, 174 176, 169 180"
-          fill="none" stroke="#FCA5A5" stroke-width="2" stroke-linecap="round" />
-    <path d="M 164 202 C 168 206, 166 212, 162 214"
-          fill="none" stroke="#FCA5A5" stroke-width="2" stroke-linecap="round" />
+    <!-- Exactly one subtle knuckle accent tick per finger (#FCA5A5, opacity 0.6) -->
+    <!-- Index finger tick -->
+    <path d="M 170 88 C 174 92, 172 97, 168 100"
+          fill="none" stroke="#FCA5A5" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+    <!-- Middle finger tick -->
+    <path d="M 176 124 C 180 128, 178 134, 173 138"
+          fill="none" stroke="#FCA5A5" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+    <!-- Ring finger tick -->
+    <path d="M 172 160 C 176 164, 174 170, 169 174"
+          fill="none" stroke="#FCA5A5" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+    <!-- Pinky finger tick -->
+    <path d="M 164 198 C 168 202, 166 207, 162 210"
+          fill="none" stroke="#FCA5A5" stroke-width="2" stroke-linecap="round" opacity="0.6" />
 
-    <!-- Finger nail hints on pads curving over bezel -->
-    <path d="M 180 86 C 184 86, 187 89, 185 94"
-          fill="none" stroke="#E0A890" stroke-width="1.5" stroke-linecap="round" />
-    <path d="M 186 126 C 190 127, 192 130, 190 135"
-          fill="none" stroke="#E0A890" stroke-width="1.5" stroke-linecap="round" />
-    <path d="M 182 164 C 186 165, 188 168, 186 173"
-          fill="none" stroke="#E0A890" stroke-width="1.5" stroke-linecap="round" />
-    <path d="M 172 202 C 175 203, 177 206, 175 210"
-          fill="none" stroke="#E0A890" stroke-width="1.5" stroke-linecap="round" />
+    <!-- Clean subtle fingernail reflection hints on wrapped pads -->
+    <path d="M 176 86 C 180 86, 182 89, 180 93"
+          fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" opacity="0.4" />
+    <path d="M 182 124 C 186 125, 188 128, 186 132"
+          fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" opacity="0.4" />
+    <path d="M 178 160 C 182 161, 184 164, 182 168"
+          fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" opacity="0.4" />
+    <path d="M 170 198 C 173 199, 175 202, 173 206"
+          fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" opacity="0.4" />
 
-    <!-- Wrist emerging from cuff -->
-    <path d="M 38 236 C 42 218, 50 206, 60 202 L 88 214 C 92 226, 93 236, 94 244 Z"
-          fill="#FFE3D1" stroke="#E0A890" stroke-width="2.5" stroke-linejoin="round" />
-
-    <!-- Student Hoodie Sleeve Cuff (drawn OVER wrist base for seamless integration) -->
-    <g id="cuff_group">
-      <!-- Sleeve forearm body -->
-      <path d="M 8 280 L 28 236 C 33 226, 44 220, 58 225 L 90 238 C 100 242, 106 252, 101 264 L 90 280 Z"
+    <!-- Student Royal Blue Sleeve Cuff entering bottom-left (x: 40..100, y: 220..275) -->
+    <g id="sleeve_cuff_left">
+      <!-- Main sleeve fabric -->
+      <path d="M 16 280 L 42 232 C 46 224, 56 220, 68 224 L 98 236 C 108 240, 112 250, 108 260 L 96 280 Z"
             fill="#2563EB" stroke="#1D4ED8" stroke-width="2.5" stroke-linejoin="round" />
-      <!-- Ribbed cuff hem band -->
-      <path d="M 28 236 C 40 222, 70 216, 90 238 L 95 248 C 72 228, 44 234, 34 246 Z"
+      <!-- Dark navy ribbed hem trim -->
+      <path d="M 42 232 C 52 220, 78 217, 98 236 L 102 244 C 82 226, 56 230, 47 242 Z"
             fill="#1D4ED8" stroke="#1D4ED8" stroke-width="1.5" stroke-linejoin="round" />
-      <!-- Sleeve wrinkle accent -->
-      <path d="M 36 262 C 50 254, 70 258, 83 272"
+      <!-- Subtle fabric crease -->
+      <path d="M 48 256 C 60 250, 76 254, 86 266"
             fill="none" stroke="#1D4ED8" stroke-width="2" stroke-linecap="round" />
     </g>
 
   </g>
 
   <!-- ========================================================================= -->
-  <!-- LAYER 2: FRONT THUMB & THENAR EMINENCE (Rendered IN FRONT of Phone)       -->
+  <!-- LAYER 2: FRONT THUMB & THENAR PAD (Rendered IN FRONT of Phone)            -->
   <!-- ========================================================================= -->
-  <g id="hand_left_front_thumb" data-socket-wrist="60 250" data-socket-phone="110 140">
-    <!-- Seamless anatomical thumb: emerges from cuff at wrist (36, 242) to wrap bezel -->
-    <path d="M 36 242
-             C 32 215, 34 186, 38 162
-             C 42 142, 52 128, 68 130
-             C 80 132, 86 142, 84 154
-             C 82 166, 74 176, 68 188
-             C 60 204, 58 222, 58 238 Z"
-          fill="url(#thumbGrad)" stroke="#E0A890" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
+  <g id="hand_left_front_thumb" data-socket-wrist="70 250" data-socket-phone="120 140">
+    <!-- Organic curved thumb pad extending at a 40° angle from palm heel (x: 50..95, y: 110..165) -->
+    <!-- Soft arc with radius > 16px, resting naturally on left bezel -->
+    <path d="M 48 232
+             C 42 205, 46 172, 54 150
+             C 60 134, 70 120, 84 116
+             C 94 114, 100 122, 98 132
+             C 96 142, 88 152, 82 165
+             C 74 182, 70 206, 68 232 Z"
+          fill="#FFE3D1" stroke="#E0A890" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
 
-    <!-- Thenar eminence contour line for volume and realism -->
-    <path d="M 44 204 C 40 186, 42 170, 48 156"
-          fill="none" stroke="#F5C7AF" stroke-width="2" stroke-linecap="round" />
+    <!-- Exactly one subtle knuckle crease accent (#FCA5A5, opacity 0.6) -->
+    <path d="M 72 136 C 77 141, 83 140, 87 136"
+          fill="none" stroke="#FCA5A5" stroke-width="2" stroke-linecap="round" opacity="0.6" />
 
-    <!-- Thumb joint crease (#FCA5A5) -->
-    <path d="M 54 146 C 60 150, 66 151, 72 148"
-          fill="none" stroke="#FCA5A5" stroke-width="2" stroke-linecap="round" />
-
-    <!-- Thumb distal pad / nail accent -->
-    <path d="M 68 134 C 74 136, 78 140, 77 146"
-          fill="none" stroke="#E0A890" stroke-width="1.5" stroke-linecap="round" />
-
-    <!-- Soft light highlight on thumb curvature -->
-    <path d="M 42 160 C 42 148, 47 138, 56 134"
-          fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" opacity="0.6" />
+    <!-- Clean subtle oval fingernail reflection -->
+    <path d="M 82 122 C 87 120, 92 123, 91 128 C 90 133, 85 133, 81 129 Z"
+          fill="#FFFFFF" opacity="0.35" />
   </g>
 </svg>

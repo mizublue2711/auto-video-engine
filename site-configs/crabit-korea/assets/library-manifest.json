@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T19:02:02.466Z",
+  "generated_at": "2026-11-10T19:17:07.597Z",
   "total_components": 9,
   "categories": {
     "head": 1,
@@ -117,17 +117,17 @@
       },
       "sockets": {
         "wrist": {
-          "x": 60,
+          "x": 70,
           "y": 250
         },
         "phone_anchor": {
-          "x": 110,
+          "x": 120,
           "y": 140
         }
       },
       "pivots": {
         "wrist": {
-          "x": 60,
+          "x": 70,
           "y": 250
         }
       },
@@ -144,7 +144,7 @@
           "#E0A890",
           "#2563EB",
           "#1D4ED8",
-          "#F5C7AF"
+          "#FFFFFF"
         ]
       },
       "color_tokens_used": [
@@ -153,7 +153,7 @@
         "#E0A890",
         "#2563EB",
         "#1D4ED8",
-        "#F5C7AF"
+        "#FFFFFF"
       ],
       "tags": [
         "hand",
@@ -163,7 +163,7 @@
         "student",
         "ui_interaction"
       ],
-      "version": "2.0.0",
+      "version": "2.1.0",
       "filePath": "student-rig-kit/limbs/hand_holding_phone_left.svg",
       "metaPath": "student-rig-kit/limbs/hand_holding_phone_left.meta.json"
     },
@@ -178,22 +178,22 @@
       },
       "sockets": {
         "wrist": {
-          "x": 230,
-          "y": 310
+          "x": 250,
+          "y": 280
         },
         "touch_point": {
-          "x": 100,
-          "y": 70
+          "x": 105,
+          "y": 65
         }
       },
       "pivots": {
         "wrist": {
-          "x": 230,
-          "y": 310
+          "x": 250,
+          "y": 280
         },
         "index_knuckle": {
-          "x": 150,
-          "y": 170
+          "x": 160,
+          "y": 160
         }
       },
       "immutable_inputs": {
@@ -209,8 +209,6 @@
           "#E0A890",
           "#2563EB",
           "#1D4ED8",
-          "#F5C7AF",
-          "#EDB89D",
           "#FFFFFF"
         ]
       },
@@ -220,8 +218,6 @@
         "#E0A890",
         "#2563EB",
         "#1D4ED8",
-        "#F5C7AF",
-        "#EDB89D",
         "#FFFFFF"
       ],
       "tags": [
@@ -233,7 +229,7 @@
         "student",
         "ui_interaction"
       ],
-      "version": "2.0.0",
+      "version": "2.1.0",
       "filePath": "student-rig-kit/limbs/hand_swiping_first_person_pov.svg",
       "metaPath": "student-rig-kit/limbs/hand_swiping_first_person_pov.meta.json"
     },
@@ -248,22 +244,22 @@
       },
       "sockets": {
         "wrist": {
-          "x": 45,
+          "x": 40,
           "y": 220
         },
         "touch_point": {
-          "x": 190,
-          "y": 50
+          "x": 180,
+          "y": 55
         }
       },
       "pivots": {
         "wrist": {
-          "x": 45,
+          "x": 40,
           "y": 220
         },
         "index_knuckle": {
           "x": 115,
-          "y": 115
+          "y": 93
         }
       },
       "immutable_inputs": {
@@ -279,7 +275,7 @@
           "#E0A890",
           "#2563EB",
           "#1D4ED8",
-          "#F5C7AF"
+          "#FFFFFF"
         ]
       },
       "color_tokens_used": [
@@ -288,7 +284,7 @@
         "#E0A890",
         "#2563EB",
         "#1D4ED8",
-        "#F5C7AF"
+        "#FFFFFF"
       ],
       "tags": [
         "hand",
@@ -299,7 +295,7 @@
         "student",
         "ui_interaction"
       ],
-      "version": "2.0.0",
+      "version": "2.1.0",
       "filePath": "student-rig-kit/limbs/hand_swiping_profile_right.svg",
       "metaPath": "student-rig-kit/limbs/hand_swiping_profile_right.meta.json"
     },

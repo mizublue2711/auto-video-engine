@@ -8,12 +8,12 @@
     "height": 320
   },
   "sockets": {
-    "wrist": { "x": 230, "y": 310 },
-    "touch_point": { "x": 100, "y": 70 }
+    "wrist": { "x": 250, "y": 280 },
+    "touch_point": { "x": 105, "y": 65 }
   },
   "pivots": {
-    "wrist": { "x": 230, "y": 310 },
-    "index_knuckle": { "x": 150, "y": 170 }
+    "wrist": { "x": 250, "y": 280 },
+    "index_knuckle": { "x": 160, "y": 160 }
   },
   "immutable_inputs": {
     "props_allowed": ["style", "opacity", "transform", "filter"],
@@ -23,8 +23,6 @@
       "#E0A890",
       "#2563EB",
       "#1D4ED8",
-      "#F5C7AF",
-      "#EDB89D",
       "#FFFFFF"
     ]
   },
@@ -34,8 +32,6 @@
     "#E0A890",
     "#2563EB",
     "#1D4ED8",
-    "#F5C7AF",
-    "#EDB89D",
     "#FFFFFF"
   ],
   "tags": [
@@ -47,5 +43,5 @@
     "student",
     "ui_interaction"
   ],
-  "version": "2.0.0"
+  "version": "2.1.0"
 }

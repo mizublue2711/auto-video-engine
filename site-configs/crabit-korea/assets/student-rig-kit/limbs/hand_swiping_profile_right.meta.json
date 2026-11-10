@@ -8,12 +8,12 @@
     "height": 260
   },
   "sockets": {
-    "wrist": { "x": 45, "y": 220 },
-    "touch_point": { "x": 190, "y": 50 }
+    "wrist": { "x": 40, "y": 220 },
+    "touch_point": { "x": 180, "y": 55 }
   },
   "pivots": {
-    "wrist": { "x": 45, "y": 220 },
-    "index_knuckle": { "x": 115, "y": 115 }
+    "wrist": { "x": 40, "y": 220 },
+    "index_knuckle": { "x": 115, "y": 93 }
   },
   "immutable_inputs": {
     "props_allowed": ["style", "opacity", "transform", "filter"],
@@ -23,7 +23,7 @@
       "#E0A890",
       "#2563EB",
       "#1D4ED8",
-      "#F5C7AF"
+      "#FFFFFF"
     ]
   },
   "color_tokens_used": [
@@ -32,7 +32,7 @@
     "#E0A890",
     "#2563EB",
     "#1D4ED8",
-    "#F5C7AF"
+    "#FFFFFF"
   ],
   "tags": [
     "hand",
@@ -43,5 +43,5 @@
     "student",
     "ui_interaction"
   ],
-  "version": "2.0.0"
+  "version": "2.1.0"
 }
