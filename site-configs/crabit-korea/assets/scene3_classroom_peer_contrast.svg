@@ -56,9 +56,7 @@
   <!-- GROUP 2: FLANKING CONFUSED PEERS (LEFT & RIGHT STATIONS)                 -->
   <!-- ======================================================================== -->
   <g id="peers_confused_group">
-    <!-- ---------------------------------------------------------------------- -->
-    <!-- PEER LEFT (Puzzled, Scratching Head Behind Hagwon Desk)                 -->
-    <!-- ---------------------------------------------------------------------- -->
+    <!-- Sub-group 2A: PEER LEFT (Puzzled, Scratching Head Behind Hagwon Desk) -->
     <g id="peer_left" transform="translate(340, 560)">
       <!-- 1. Chair Silhouette (Behind Torso, Upper Half Only) -->
       <g id="peer_left_chair">
@@ -139,9 +137,7 @@
       </g>
     </g>
 
-    <!-- ---------------------------------------------------------------------- -->
-    <!-- PEER RIGHT (Amazed, Looking Sideways in Awe Behind Hagwon Desk)        -->
-    <!-- ---------------------------------------------------------------------- -->
+    <!-- Sub-group 2B: PEER RIGHT (Amazed, Looking Sideways in Awe Behind Hagwon Desk) -->
     <g id="peer_right" transform="translate(1580, 560)">
       <!-- 1. Chair Silhouette (Behind Torso, Upper Half Only) -->
       <g id="peer_right_chair">
