@@ -157,3 +157,28 @@ All scene implementations must respect the core project narrative:
 - Scene 2: Director presenting the smartphone (suit sleeve/cuff, fleshy rounded thumb) showing the Crabit 50,000 Carats Card.
 - Scene 3: Challenge & Epiphany via Shot-Reverse-Shot (Chalkboard math problem -> 3B student raising hand + 3/4 walking student).
 - Scene 4: Crabit Card reward with active numeric balance updating (+50,000 KRW), Korean recharge badge ("충전 완료"), and inflowing energy particles.
+
+---
+
+## 8. ATOMIC COMPONENT STEWARDSHIP & METADATA AUTOMATION (AN'S PROTOCOL)
+
+### 8.1. Mandatory Satellite Metadata (.meta.json)
+Every reusable vector asset or React sub-component placed in `assets/` or `src/components/` MUST have a companion metadata file `<component_name>.meta.json`.
+- Strict Schema Compliance: Must validate against `schemas/component.schema.json`.
+- Immutability Rule: All components must be pure functions/isolated DOM elements. Never inject global side-effects or uncontained CSS styles.
+- Mandatory Fields:
+  * `id`: Unique snake_case string.
+  * `category`: One of ['head', 'torso', 'limb', 'prop', 'fx', 'scene_rig'].
+  * `viewBox`: Exact bounding dimensions (e.g., "0 0 400 400").
+  * `pivots`: Exact rotation coordinates for joints (e.g., `{ "shoulder": { "x": 120, "y": 80 } }`).
+  * `color_tokens_used`: Master color palette dependency tracking.
+
+### 8.2. Automated Indexing & Manifest Generation
+- Role Assignment: Worker Agent "An" (Antigravity) acts as the Master Asset Steward.
+- Trigger Protocol: Whenever an asset is added, modified, or refactored:
+  1. An must generate or update the corresponding `<name>.meta.json`.
+  2. Execute the indexer script:
+     `npx tsx scripts/generate-manifest.ts`
+  3. Verify that `site-configs/crabit-korea/assets/library-manifest.json` is updated and committed alongside the assets.
+- Pre-Assembly Query Gate:
+  Before generating any new Scene, the AI worker MUST read `library-manifest.json` first. If a component (e.g., desk, clock, walking legs) already exists in the manifest, the worker MUST reuse it via `<use href="...">` or React import. RE-DRAWING EXISTING COMPONENTS IS STRICTLY FORBIDDEN.
