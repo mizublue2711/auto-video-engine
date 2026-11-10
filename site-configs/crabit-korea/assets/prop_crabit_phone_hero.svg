@@ -75,19 +75,6 @@
     </g>
   </g>
 
-  <!-- SUPPORTING ADULT FINGERS (Behind the right chassis edge) -->
-  <!-- 4 adult fingers cleanly supporting the phone chassis from behind -->
-  <g id="director_supporting_fingers" transform="translate(860, 480)">
-    <!-- Finger 1: Index finger -->
-    <path id="director_finger_index" d="M 0,15 C 25,12 55,20 62,38 C 68,54 52,70 25,70 L 0,70 Z" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="2" />
-    <!-- Finger 2: Middle finger -->
-    <path id="director_finger_middle" d="M 0,85 C 30,82 68,90 75,110 C 80,128 62,142 30,142 L 0,142 Z" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="2" />
-    <!-- Finger 3: Ring finger -->
-    <path id="director_finger_ring" d="M 0,155 C 28,152 64,160 70,180 C 75,198 58,212 28,212 L 0,212 Z" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="2" />
-    <!-- Finger 4: Pinky finger -->
-    <path id="director_finger_pinky" d="M 0,225 C 24,222 52,230 56,248 C 60,264 48,278 22,278 L 0,278 Z" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="2" />
-  </g>
-
   <!-- SMARTPHONE CHASSIS (Centered Stage: x=330, y=180, w=540, h=1050, rx=54) -->
   <g id="smartphone_chassis" filter="url(#phone_chassis_shadow)">
     <!-- Outer Bezel Frame -->
@@ -221,47 +208,6 @@
       <circle cx="700" cy="1170" r="6" fill="#94A3B8" />
       <!-- Home Indicator Bar -->
       <rect x="520" y="1195" width="160" height="5" rx="2.5" fill="#1E293B" />
-    </g>
-  </g>
-
-  <!-- ========================================================================= -->
-  <!-- HOLDING HAND RIG (ACADEMY DIRECTOR PRESENTING THE PHONE)                 -->
-  <!-- Belongs to the Academy Director (DNA from char_director_standing.svg)    -->
-  <!-- ========================================================================= -->
-  <g id="director_presenting_hand_rig">
-    <!-- Director's Arm & Suit Jacket Sleeve entering from bottom left -->
-    <g id="director_suit_sleeve">
-      <!-- Dark Charcoal/Slate Tailored Suit Sleeve (#1E293B / #334155) -->
-      <path id="director_sleeve_body" d="M 0,1400 L 120,1050 C 140,1000 170,970 230,950 L 320,920 L 390,1100 L 260,1180 L 120,1600 L 0,1600 Z" fill="url(#director_sleeve_grad)" />
-
-      <!-- Tailored Cuff Trim and Shadow Lines -->
-      <path d="M 230,950 L 320,920 L 340,970 L 250,1000 Z" fill="#1E293B" opacity="0.6" />
-      <!-- Sleeve button accents (Formal attire) -->
-      <circle cx="210" cy="1040" r="5" fill="#0F172A" />
-      <circle cx="225" cy="1065" r="5" fill="#0F172A" />
-    </g>
-
-    <!-- Crisp White Dress Shirt Cuff (#F8FAFC) peeking out exactly 18px from suit jacket sleeve -->
-    <g id="director_shirt_cuff">
-      <path id="white_shirt_cuff_band" d="M 252,938 L 332,910 C 342,906 354,912 358,924 L 372,968 C 376,980 368,992 356,996 L 276,1024 Z" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="2" />
-    </g>
-
-    <!-- ADULT HAND ANATOMY & FLESHY THUMB PAD (Resting along left bezel edge) -->
-    <!-- CRITICAL FIX: The thumb resting along the left bezel edge MUST have a soft, fleshy, rounded contour (arc radius >16px). NO sharp points, NO triangular claws! -->
-    <g id="director_hand_palm_thumb">
-      <!-- Adult Skin Tone Palm Base (#FFE3D1 / #FDDEC0) -->
-      <path id="director_palm_base" d="M 290,920 C 310,870 340,840 375,855 C 410,870 425,920 405,970 L 350,1010 Z" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="2" />
-
-      <!-- Fleshy, Rounded Thumb Pad (Gripping Phone Over Left Bezel) -->
-      <!-- Smooth, gentle bezier curves forming a plump, natural, friendly adult thumb contour with radius > 22px -->
-      <path id="director_fleshy_thumb" d="M 320,830 C 322,760 340,700 372,692 C 398,685 418,708 418,740 C 418,775 408,825 392,860 C 380,885 352,890 334,870 C 324,858 320,845 320,830 Z" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="2.5" />
-
-      <!-- Soft Thumb Joint Crease (Fleshy adult detail, warm subtle skin shade) -->
-      <path d="M 345,770 C 358,764 374,768 386,776" fill="none" stroke="#E5B293" stroke-width="3" stroke-linecap="round" />
-      <path d="M 348,782 C 358,778 370,780 380,788" fill="none" stroke="#E5B293" stroke-width="2" stroke-linecap="round" opacity="0.6" />
-
-      <!-- Smooth Rounded Thumb Nail Highlight (Natural, curved, rounded edge) -->
-      <path id="thumb_nail_subtle" d="M 378,705 C 388,702 398,710 400,722 C 401,732 394,742 384,744" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" opacity="0.75" />
     </g>
   </g>
 </svg>
