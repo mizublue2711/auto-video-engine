@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" id="prop_chair_classroom" preserveAspectRatio="xMidYMid meet">
+  <!-- ========================================================================== -->
+  <!-- LAYER 1 (Z-Bottom): Floor Contact Shadow & Steel Frame Base                -->
+  <!-- ========================================================================== -->
+  <g id="chair_steel_frame">
+    <!-- Contact Floor Shadow beneath legs -->
+    <ellipse id="chair_floor_shadow" cx="200" cy="565" rx="145" ry="14" fill="#94A3B8" opacity="0.25" />
+
+    <!-- Rear Steel Tubular Legs (Narrower baseline for perspective depth) -->
+    <line id="chair_leg_rear_left" x1="135" y1="310" x2="115" y2="548" stroke="#64748B" stroke-width="10" stroke-linecap="round" />
+    <ellipse id="chair_foot_rear_left" cx="115" cy="550" rx="9" ry="4.5" fill="#334155" />
+
+    <line id="chair_leg_rear_right" x1="265" y1="310" x2="285" y2="548" stroke="#64748B" stroke-width="10" stroke-linecap="round" />
+    <ellipse id="chair_foot_rear_right" cx="285" cy="550" rx="9" ry="4.5" fill="#334155" />
+
+    <!-- Backrest Spine Support Tubes (Connecting seat base up to backrest) -->
+    <path id="chair_spine_left" d="M 155,230 L 155,305" fill="none" stroke="#94A3B8" stroke-width="12" stroke-linecap="round" />
+    <path id="chair_spine_right" d="M 245,230 L 245,305" fill="none" stroke="#94A3B8" stroke-width="12" stroke-linecap="round" />
+
+    <!-- Front Steel Tubular Legs (Flaring out for ergonomic stability) -->
+    <line id="chair_leg_front_left" x1="95" y1="325" x2="72" y2="562" stroke="#94A3B8" stroke-width="13" stroke-linecap="round" />
+    <ellipse id="chair_foot_front_left" cx="72" cy="565" rx="12" ry="5.5" fill="#1E293B" />
+
+    <line id="chair_leg_front_right" x1="305" y1="325" x2="328" y2="562" stroke="#94A3B8" stroke-width="13" stroke-linecap="round" />
+    <ellipse id="chair_foot_front_right" cx="328" cy="565" rx="12" ry="5.5" fill="#1E293B" />
+
+    <!-- Structural Reinforcement Crossbars -->
+    <line id="chair_crossbar_front" x1="82" y1="445" x2="318" y2="445" stroke="#94A3B8" stroke-width="8" stroke-linecap="round" />
+    <line id="chair_crossbar_side_left" x1="86" y1="445" x2="124" y2="435" stroke="#64748B" stroke-width="7" stroke-linecap="round" />
+    <line id="chair_crossbar_side_right" x1="314" y1="445" x2="276" y2="435" stroke="#64748B" stroke-width="7" stroke-linecap="round" />
+  </g>
+
+  <!-- ========================================================================== -->
+  <!-- LAYER 2 (Z-Mid): Cushioned Seat Pad (Subtle 15-degree perspective depth)  -->
+  <!-- ========================================================================== -->
+  <g id="chair_seat_group">
+    <!-- Cushioned Seat Pad Base Shape -->
+    <path id="chair_seat_base" d="M 98,268 C 120,265 280,265 302,268 C 322,270 336,285 332,305 L 328,322 C 326,328 320,332 312,332 L 88,332 C 80,332 74,328 72,322 L 68,305 C 64,285 78,270 98,268 Z" fill="#334155" stroke="#1E293B" stroke-width="2" stroke-linejoin="round" />
+
+    <!-- Cushioned Seat Surface Contour Highlight & Front Waterfall Edge -->
+    <path id="chair_seat_highlight" d="M 105,278 C 145,274 255,274 295,278 C 310,282 318,295 316,308 L 84,308 C 82,295 90,282 105,278 Z" fill="#475569" opacity="0.6" />
+    <path id="chair_seat_front_rim" d="M 72,318 L 328,318 L 324,330 C 322,333 318,335 314,335 L 86,335 C 82,335 78,333 76,330 Z" fill="#1E293B" />
+  </g>
+
+  <!-- ========================================================================== -->
+  <!-- LAYER 3 (Z-Top): Molded Polypropylene Ergonomic Curved Backrest           -->
+  <!-- ========================================================================== -->
+  <g id="chair_backrest_group">
+    <!-- Molded Polypropylene Curved Backrest (#475569 with smooth contours) -->
+    <path id="chair_backrest" d="M 112,62 C 140,54 260,54 288,62 C 314,70 322,96 320,135 C 318,175 308,215 292,238 C 285,248 274,252 262,252 L 138,252 C 126,252 115,248 108,238 C 92,215 82,175 80,135 C 78,96 86,70 112,62 Z" fill="#475569" stroke="#334155" stroke-width="2.5" stroke-linejoin="round" />
+
+    <!-- Molded Top Grip / Ergonomic Air Ventilation Slot Cutout -->
+    <rect id="chair_backrest_slot" x="155" y="86" width="90" height="18" rx="9" fill="#1E293B" opacity="0.4" stroke="#334155" stroke-width="1.5" />
+
+    <!-- Subtle Lumbar Spine Contour Ridge & Bevel Highlight -->
+    <path id="chair_backrest_ridge" d="M 125,78 C 160,70 240,70 275,78" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+    <path id="chair_lumbar_groove" d="M 135,190 C 165,198 235,198 265,190" fill="none" stroke="#334155" stroke-width="2" stroke-linecap="round" />
+  </g>
+</svg>
