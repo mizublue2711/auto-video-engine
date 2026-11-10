@@ -65,11 +65,26 @@ Global Z-Index Stacking Hierarchy:
 80 - 100: Floating particles, text reveals, emotion marks, and kinetic overlays (fx_*).
 
 4. VALIDATION & TESTING GATES (FAIL-FAST)
+
+### 4.0. Pre-Execution Operational Briefing (Mandatory)
+Before generating or modifying any visual SVG asset, React rig, or Scene composition, the AI Worker MUST read `docs/RUNBOOK_HOTFIXES.md`. Any Pull Request or commit that reproduces known defects listed in the Runbook will be immediately rejected.
+
 Before committing code or opening a Pull Request, the AI worker MUST execute and pass all 4 verification gates:
 npm run validate:configs: Validates all JSON configs against VideoConfigSchema.ts.
 npm run type-check: Strict TypeScript checking with zero any types.
 npx tsx scripts/generate-manifest.ts: Validates that all assets have companion .meta.json files and updates library-manifest.json.
 npx remotion still MasterComposition --frame=45 out/test_scene1.png: Verifies visual compilation without headless browser errors.
+
+### 4.5. Autonomous Incident Logging Protocol (Self-Correction Loop)
+Whenever an AI Worker receives corrective feedback from the user, fails an automated verification test, or resolves an unexpected visual/architectural defect not yet documented:
+1. Fix the asset or code as instructed and verify via visual inspection (`out/audit_*.png`).
+2. BEFORE committing the changes, the AI Worker MUST autonomously open `docs/RUNBOOK_HOTFIXES.md` and append a new Case entry adhering strictly to the standardized 4-part incident template:
+   - What was the problem?
+   - How was it resolved?
+   - What is the key lesson?
+   - What is the non-negotiable rule for future tasks?
+3. Commit the code and the updated Runbook together:
+   `fix(asset): resolve [issue] and document Case [X] in runbook`
 
 5. COMMIT CONVENTIONS
 Strictly use Conventional Commits:
