@@ -83,6 +83,60 @@
         "chalkboard": "800px 450px",
         "mathPlot": "780px 420px"
       }
+    },
+    {
+      "id": "prop_desk_hagwon",
+      "file": "props/prop_desk_hagwon.svg",
+      "viewBox": "0 0 600 500",
+      "anchors": {
+        "deskCenter": "300px 250px",
+        "tabletop": "300px 152px",
+        "modestyPanel": "300px 317px",
+        "floorShadow": "300px 480px"
+      }
+    },
+    {
+      "id": "prop_chair_classroom",
+      "file": "props/prop_chair_classroom.svg",
+      "viewBox": "0 0 400 600",
+      "anchors": {
+        "chairCenter": "200px 300px",
+        "backrest": "200px 150px",
+        "seatBase": "200px 300px",
+        "floorContact": "200px 565px"
+      }
+    },
+    {
+      "id": "prop_chalkboard_math",
+      "file": "props/prop_chalkboard_math.svg",
+      "viewBox": "0 0 1200 700",
+      "anchors": {
+        "boardCenter": "600px 350px",
+        "criticalPeak": "560px 180px",
+        "localMin": "850px 420px",
+        "chalkTray": "600px 660px"
+      }
+    },
+    {
+      "id": "prop_wall_clock",
+      "file": "props/prop_wall_clock.svg",
+      "viewBox": "0 0 300 300",
+      "anchors": {
+        "pivot": "150px 150px",
+        "hourHand": "150px 150px",
+        "minuteHand": "150px 150px"
+      }
+    },
+    {
+      "id": "prop_teacher_podium",
+      "file": "props/prop_teacher_podium.svg",
+      "viewBox": "0 0 450 650",
+      "anchors": {
+        "podiumCenter": "225px 325px",
+        "readingSurface": "225px 155px",
+        "microphone": "354px 76px",
+        "floorBase": "225px 610px"
+      }
     }
   ]
 }

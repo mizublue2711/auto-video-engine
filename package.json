@@ -8,7 +8,8 @@
     "render": "remotion render src/index.ts MasterComposition out/video.mp4",
     "render:still": "remotion still src/index.ts MasterComposition out/still.png",
     "type-check": "tsc --noEmit",
-    "validate:configs": "tsx scripts/validate-configs.ts"
+    "validate:configs": "tsx scripts/validate-configs.ts",
+    "generate:manifest": "tsx scripts/generate-manifest.ts"
   },
   "dependencies": {
     "@remotion/transitions": "4.0.240",
