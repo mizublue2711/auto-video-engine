@@ -1,0 +1,19 @@
+{
+  "id": "head_34_confident",
+  "name": "Student Head 3/4 Confident View",
+  "category": "head",
+  "viewBox": "0 0 320 320",
+  "dimensions": { "width": 320, "height": 320 },
+  "pivots": {
+    "neck_base": { "x": 160, "y": 290 }
+  },
+  "immutable_inputs": {
+    "props_allowed": ["style", "opacity"],
+    "color_tokens_used": ["#1E293B", "#FFE3D1", "#0F172A", "#FCA5A5", "#EF4444"]
+  },
+  "dependencies": [
+    "character_master_model_sheet.svg#turnaround_three_quarter_right"
+  ],
+  "tags": ["student", "korean", "3_4_view", "confident", "hair_side_swept"],
+  "version": "1.1.0"
+}

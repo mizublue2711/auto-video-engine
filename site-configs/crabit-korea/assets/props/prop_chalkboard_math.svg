@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" id="prop_chalkboard_math" preserveAspectRatio="xMidYMid meet">
+  <!-- ========================================================================== -->
+  <!-- LAYER 1: Dark Classroom Frame, Metallic Bezel, Chalk Tray & Chalk Pieces    -->
+  <!-- ========================================================================== -->
+  <g id="board_frame">
+    <!-- Dark Aluminum Classroom Frame (#334155) -->
+    <rect id="frame_outer" x="12" y="12" width="1176" height="646" rx="10" fill="#1E293B" stroke="#334155" stroke-width="8" stroke-linejoin="round" />
+    <rect id="frame_inner_bezel" x="26" y="26" width="1148" height="618" rx="6" fill="none" stroke="#475569" stroke-width="3" />
+
+    <!-- Corner Joint Fasteners -->
+    <circle cx="22" cy="22" r="4" fill="#64748B" />
+    <circle cx="1178" cy="22" r="4" fill="#64748B" />
+    <circle cx="22" cy="648" r="4" fill="#64748B" />
+    <circle cx="1178" cy="648" r="4" fill="#64748B" />
+
+    <!-- Full-Width Bottom Chalk Tray Shelf -->
+    <rect id="chalk_tray" x="60" y="650" width="1080" height="26" rx="4" fill="#334155" stroke="#1E293B" stroke-width="2" />
+    <line id="chalk_tray_lip" x1="70" y1="654" x2="1130" y2="654" stroke="#475569" stroke-width="2.5" />
+
+    <!-- Neatly Placed Chalk Pieces and Wooden Felt Eraser -->
+    <g id="chalk_tray_accessories">
+      <!-- White Chalk Stick (#FFFFFF) -->
+      <rect id="chalk_piece_white" x="510" y="657" width="36" height="9" rx="2.5" fill="#FFFFFF" opacity="0.95" />
+      <!-- Yellow Chalk Stick (#FEF08A) -->
+      <rect id="chalk_piece_yellow" x="558" y="657" width="32" height="9" rx="2.5" fill="#FEF08A" />
+      <!-- Red Chalk Stick Accent (#F87171) -->
+      <rect id="chalk_piece_red" x="602" y="657" width="28" height="9" rx="2.5" fill="#F87171" />
+
+      <!-- Felt Chalkboard Eraser (Wooden back and felt wiping pad) -->
+      <g id="chalk_eraser">
+        <rect id="eraser_wood_handle" x="645" y="653" width="75" height="9" rx="2" fill="#D97706" stroke="#B45309" stroke-width="1" />
+        <rect id="eraser_felt_pad" x="645" y="662" width="75" height="9" rx="2" fill="#1E293B" />
+        <line x1="650" y1="667" x2="715" y2="667" stroke="#475569" stroke-width="1" />
+      </g>
+    </g>
+  </g>
+
+  <!-- ========================================================================== -->
+  <!-- LAYER 2: Deep Matte Chalkboard Surface Slate Green (#1E3A2F)               -->
+  <!-- ========================================================================== -->
+  <rect id="chalkboard_surface" x="32" y="32" width="1136" height="606" rx="4" fill="#1E3A2F" />
+  <!-- Subtle Matte Slate Vignette & Chalkboard Depth -->
+  <rect id="chalkboard_vignette" x="32" y="32" width="1136" height="606" rx="4" fill="#000000" opacity="0.08" />
+
+  <!-- ========================================================================== -->
+  <!-- LAYER 3: Faint Dashed Coordinate Grid Axes X and Y                         -->
+  <!-- ========================================================================== -->
+  <g id="math_grid_axes">
+    <!-- Minor Coordinate Grid Lines (Faint dashed green) -->
+    <line x1="120" y1="180" x2="1080" y2="180" stroke="#34D399" stroke-width="1" stroke-dasharray="4,8" opacity="0.18" />
+    <line x1="120" y1="280" x2="1080" y2="280" stroke="#34D399" stroke-width="1" stroke-dasharray="4,8" opacity="0.18" />
+    <line x1="120" y1="380" x2="1080" y2="380" stroke="#34D399" stroke-width="1" stroke-dasharray="4,8" opacity="0.18" />
+    <line x1="420" y1="70" x2="420" y2="570" stroke="#34D399" stroke-width="1" stroke-dasharray="4,8" opacity="0.18" />
+    <line x1="700" y1="70" x2="700" y2="570" stroke="#34D399" stroke-width="1" stroke-dasharray="4,8" opacity="0.18" />
+    <line x1="980" y1="70" x2="980" y2="570" stroke="#34D399" stroke-width="1" stroke-dasharray="4,8" opacity="0.18" />
+
+    <!-- Main X-Axis Line & Arrowhead -->
+    <line id="math_axis_x" x1="100" y1="460" x2="1090" y2="460" stroke="#34D399" stroke-width="2.5" stroke-dasharray="8,6" opacity="0.45" />
+    <polygon id="math_axis_x_arrow" points="1090,455 1105,460 1090,465" fill="#34D399" opacity="0.6" />
+    <text id="label_axis_x" x="1100" y="490" fill="#34D399" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="22" opacity="0.8">x</text>
+
+    <!-- Main Y-Axis Line & Arrowhead -->
+    <line id="math_axis_y" x1="260" y1="570" x2="260" y2="90" stroke="#34D399" stroke-width="2.5" stroke-dasharray="8,6" opacity="0.45" />
+    <polygon id="math_axis_y_arrow" points="255,90 260,75 265,90" fill="#34D399" opacity="0.6" />
+    <text id="label_axis_y" x="225" y="85" fill="#34D399" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="22" opacity="0.8">y</text>
+
+    <!-- Origin 'O' Point Marker -->
+    <text id="label_origin" x="235" y="485" fill="#34D399" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="20" opacity="0.65">O</text>
+
+    <!-- Authentic CSAT Calculus Board Formulas -->
+    <text id="chalk_title_formula" x="100" y="115" fill="#E2E8F0" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="22" opacity="0.9">f(x) = ax³ + bx² + cx + d</text>
+    <text id="chalk_derivative_rule" x="720" y="115" fill="#34D399" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="20" opacity="0.85">f'(α) = 0 , f''(α) &lt; 0</text>
+  </g>
+
+  <!-- ========================================================================== -->
+  <!-- LAYER 4: High-Level Polynomial/Calculus Function Curve                      -->
+  <!-- Remotion Hook Target: strokeDashoffset animation                           -->
+  <!-- ========================================================================== -->
+  <path id="math_polynomial_curve" d="M 140,530 C 250,510 380,180 560,180 C 690,180 730,420 850,420 C 940,420 1000,260 1080,120" stroke="#FACC15" stroke-width="6" fill="none" stroke-linecap="round" />
+
+  <!-- Secondary Inflection & Local Minimum Points -->
+  <circle id="math_point_inflection" cx="705" cy="300" r="4.5" fill="#34D399" opacity="0.75" />
+  <circle id="math_point_min" cx="850" cy="420" r="6" fill="#38BDF8" stroke="#FFFFFF" stroke-width="2" />
+  <text id="label_point_min" x="850" y="455" text-anchor="middle" fill="#38BDF8" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="18">MIN</text>
+
+  <!-- ========================================================================== -->
+  <!-- LAYER 5: Critical Peak Target Point (Red Pulsating Maximum Circle)          -->
+  <!-- Remotion Hook Target: pulse scale & opacity animation around (560, 180)    -->
+  <!-- ========================================================================== -->
+  <g id="math_critical_peak" data-pivot="560 180">
+    <!-- Dashed Vertical Projection Line to X-Axis -->
+    <line id="math_peak_projection" x1="560" y1="180" x2="560" y2="460" stroke="#EF4444" stroke-width="2" stroke-dasharray="5,5" opacity="0.6" />
+
+    <!-- Horizontal Tangent Line at Extremum [f'(α) = 0] -->
+    <line id="math_peak_tangent" x1="475" y1="180" x2="645" y2="180" stroke="#F87171" stroke-width="2.5" stroke-dasharray="6,4" opacity="0.85" />
+
+    <!-- Pulsating Target Accent Rings -->
+    <circle id="math_peak_pulse_outer" cx="560" cy="180" r="24" fill="none" stroke="#EF4444" stroke-width="1.5" opacity="0.35" />
+    <circle id="math_peak_pulse_inner" cx="560" cy="180" r="16" fill="none" stroke="#EF4444" stroke-width="2.5" stroke-dasharray="4,3" opacity="0.8" />
+
+    <!-- Solid Core Pin Marker with White Outline -->
+    <circle id="math_peak_pin" cx="560" cy="180" r="7.5" fill="#EF4444" stroke="#FFFFFF" stroke-width="2" />
+
+    <!-- Prominent Chalk Annotation: "MAX?" -->
+    <text id="math_peak_text_max" x="560" y="142" text-anchor="middle" fill="#FEF08A" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="28" letter-spacing="1">MAX?</text>
+
+    <!-- Critical Root Coordinate on Axis: x = α -->
+    <rect id="math_peak_coord_badge" x="532" y="470" width="56" height="26" rx="4" fill="#1E293B" stroke="#EF4444" stroke-width="1.5" />
+    <text id="math_peak_coord_text" x="560" y="488" text-anchor="middle" fill="#EF4444" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="16">x = α</text>
+  </g>
+</svg>

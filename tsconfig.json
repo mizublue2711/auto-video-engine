@@ -15,5 +15,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "scripts", "remotion.config.ts"]
+  "include": ["src", "scripts", "schemas", "remotion.config.ts"]
 }
