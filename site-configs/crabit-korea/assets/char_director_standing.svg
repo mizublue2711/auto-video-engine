@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" id="svg_director" preserveAspectRatio="xMidYMid meet">
+  <!-- Group 1: Body and Base -->
+  <g id="director_body_group">
+    <!-- Legs & Shoes -->
+    <g id="director_legs">
+      <!-- Left Leg (viewer's left / director's right) -->
+      <path id="leg_left" d="M 455 600 L 455 860 L 490 860 L 490 600 Z" fill="#1E252D" />
+      <!-- Right Leg (viewer's right / director's left) -->
+      <path id="leg_right" d="M 510 600 L 510 860 L 545 860 L 545 600 Z" fill="#1E252D" />
+      <!-- Left Shoe -->
+      <path id="shoe_left" d="M 440 860 L 490 860 C 495 860 500 865 500 875 C 500 885 490 890 475 890 L 430 890 C 420 890 420 875 430 865 Z" fill="#11161B" />
+      <!-- Right Shoe -->
+      <path id="shoe_right" d="M 510 860 L 560 860 C 570 865 580 875 570 890 L 525 890 C 510 890 500 885 500 875 C 500 865 505 860 510 860 Z" fill="#11161B" />
+    </g>
+
+    <!-- Torso Suit -->
+    <rect id="director_torso_suit" x="420" y="320" width="160" height="300" rx="28" fill="#2B3A4A" />
+
+    <!-- Left Arm Resting / Back Pocket (viewer's right side) -->
+    <g id="director_left_arm_idle">
+      <path id="director_left_arm" d="M 570 330 C 595 330 615 350 615 375 L 610 520 C 610 540 595 555 575 555 C 555 555 555 535 555 520 L 560 375 C 560 350 565 330 570 330 Z" fill="#24313F" />
+      <circle id="director_left_hand" cx="575" cy="550" r="18" fill="#FFE3D1" />
+    </g>
+
+    <!-- Shirt Collar, Lapels, and Tie -->
+    <path id="director_collar_tie" d="M 470 320 L 500 380 L 530 320 Z" fill="#FFFFFF" />
+    <!-- Lapels -->
+    <path id="suit_lapel_left" d="M 440 320 L 485 430 L 470 430 L 430 350 Z" fill="#24313F" />
+    <path id="suit_lapel_right" d="M 560 320 L 515 430 L 530 430 L 570 350 Z" fill="#24313F" />
+    <!-- Blue Tie -->
+    <path id="director_tie_knot" d="M 492 370 L 508 370 L 505 385 L 495 385 Z" fill="#3B66FF" />
+    <path id="director_tie_body" d="M 495 385 L 505 385 L 512 490 L 500 510 L 488 490 Z" fill="#3B66FF" />
+  </g>
+
+  <!-- Group 2: Head (Pivot at bottom neck x=500, y=320) -->
+  <g id="director_head_group">
+    <!-- Neck -->
+    <rect id="director_neck" x="480" y="295" width="40" height="35" rx="6" fill="#F5CCA8" />
+
+    <!-- Head / Face Base (Center at x=500, y=210, r=100) -->
+    <circle id="director_face" cx="500" cy="210" r="100" fill="#FFE3D1" />
+
+    <!-- Cheeks Blush -->
+    <circle id="director_blush_left" cx="445" cy="235" r="14" fill="#FF9B9B" opacity="0.6" />
+    <circle id="director_blush_right" cx="555" cy="235" r="14" fill="#FF9B9B" opacity="0.6" />
+
+    <!-- Ears -->
+    <circle id="director_ear_left" cx="398" cy="212" r="15" fill="#FFE3D1" />
+    <circle id="director_ear_right" cx="602" cy="212" r="15" fill="#FFE3D1" />
+
+    <!-- Modern Korean Flat-Vector Haircut -->
+    <path id="director_hair" d="M 395 200 C 395 120 440 95 500 95 C 565 95 605 120 605 200 C 605 215 595 220 590 205 C 585 165 570 145 530 145 C 490 145 470 160 450 170 C 430 180 415 195 405 210 C 400 218 395 212 395 200 Z" fill="#1E252D" />
+
+    <!-- Glasses Frame & Lenses -->
+    <!-- Left Lens & Frame -->
+    <rect id="glasses_frame_left" x="430" y="185" width="55" height="42" rx="10" fill="none" stroke="#1E252D" stroke-width="6" />
+    <rect id="glasses_lens_left" x="433" y="188" width="49" height="36" rx="8" fill="#FFFFFF" opacity="0.25" />
+    <!-- Right Lens & Frame -->
+    <rect id="glasses_frame_right" x="515" y="185" width="55" height="42" rx="10" fill="none" stroke="#1E252D" stroke-width="6" />
+    <rect id="glasses_lens_right" x="518" y="188" width="49" height="36" rx="8" fill="#FFFFFF" opacity="0.25" />
+    <!-- Glasses Bridge -->
+    <path id="director_glasses" d="M 485 203 L 515 203" stroke="#1E252D" stroke-width="6" stroke-linecap="round" fill="none" />
+    <!-- Glasses Temples -->
+    <path id="glasses_temple_left" d="M 405 200 L 430 203" stroke="#1E252D" stroke-width="5" stroke-linecap="round" fill="none" />
+    <path id="glasses_temple_right" d="M 570 203 L 595 200" stroke="#1E252D" stroke-width="5" stroke-linecap="round" fill="none" />
+
+    <!-- Eyes Behind Glasses -->
+    <circle id="eye_left" cx="458" cy="206" r="5" fill="#1E252D" />
+    <circle id="eye_right" cx="542" cy="206" r="5" fill="#1E252D" />
+
+    <!-- Nose -->
+    <path id="director_nose" d="M 498 220 L 498 232 L 506 232" stroke="#E5B293" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+    <!-- Expression: Worried / Concerned Director Observing Classroom -->
+    <g id="director_expression_worry">
+      <!-- Worried Eyebrows (inner side raised up, outer side slanted down) -->
+      <path id="brow_left" d="M 432 176 Q 455 168 478 178" stroke="#1E252D" stroke-width="6" stroke-linecap="round" fill="none" />
+      <path id="brow_right" d="M 522 178 Q 545 168 568 176" stroke="#1E252D" stroke-width="6" stroke-linecap="round" fill="none" />
+      <!-- Concerned / Tight Mouth -->
+      <path id="mouth_concerned" d="M 484 266 Q 500 256 516 266" stroke="#1E252D" stroke-width="5" stroke-linecap="round" fill="none" />
+    </g>
+  </g>
+
+  <!-- Group 3: Right Arm Holding Smartphone (Pivot at shoulder x=430, y=400) -->
+  <g id="director_arm_present_group">
+    <!-- Upper Arm extending down and forward -->
+    <path id="director_upper_arm" d="M 430 350 C 405 350 385 375 380 405 L 360 480 C 355 500 370 515 390 515 C 408 515 420 500 425 482 L 442 410 C 445 385 442 355 430 350 Z" fill="#24313F" />
+
+    <!-- Forearm bending upward toward presentation height -->
+    <path id="director_forearm" d="M 375 480 L 305 450 C 288 443 270 452 265 470 C 260 487 270 505 288 512 L 365 540 C 382 546 400 538 408 522 L 375 480 Z" fill="#2B3A4A" />
+
+    <!-- Sleeve Cuff -->
+    <rect id="director_sleeve_cuff" x="268" y="455" width="22" height="40" rx="6" transform="rotate(22 279 475)" fill="#1E252D" />
+
+    <!-- Hand Holding Phone Group -->
+    <g id="director_hand_holding_phone">
+      <!-- Hand Base Palm -->
+      <circle id="director_hand_palm" cx="265" cy="480" r="18" fill="#FFE3D1" />
+
+      <!-- Mini Phone Mockup (Hero presentation device) -->
+      <!-- Phone Outer Shell -->
+      <rect id="mini_phone_mockup" x="200" y="380" width="105" height="175" rx="14" fill="#1E252D" stroke="#0F141A" stroke-width="3" transform="rotate(-8 252 467)" />
+      <!-- Active Glowing Blue Screen with Korean UI Accent -->
+      <rect id="mini_phone_screen_active" x="208" y="392" width="89" height="151" rx="8" fill="#3B66FF" transform="rotate(-8 252 467)" />
+
+      <!-- Minimal Phone UI Elements inside Screen (Clean Vector) -->
+      <g id="phone_screen_ui" transform="rotate(-8 252 467)">
+        <!-- Top Status Bar Mockup -->
+        <rect id="phone_status_bar" x="238" y="398" width="30" height="4" rx="2" fill="#FFFFFF" opacity="0.6" />
+        <!-- App Header Graphic -->
+        <circle id="phone_app_badge" cx="252" cy="428" r="14" fill="#FFFFFF" />
+        <circle id="phone_app_icon_dot" cx="252" cy="428" r="7" fill="#FF5E36" />
+        <!-- Content Preview Cards -->
+        <rect id="phone_ui_card_1" x="218" y="452" width="69" height="26" rx="5" fill="#FFFFFF" opacity="0.9" />
+        <rect id="phone_ui_bar_1" x="224" y="462" width="40" height="6" rx="3" fill="#3B66FF" />
+        <rect id="phone_ui_card_2" x="218" y="486" width="69" height="38" rx="5" fill="#FFFFFF" opacity="0.9" />
+        <rect id="phone_ui_bar_2" x="224" y="496" width="48" height="6" rx="3" fill="#2EC4B6" />
+        <rect id="phone_ui_bar_3" x="224" y="508" width="30" height="6" rx="3" fill="#FFBF00" />
+      </g>
+
+      <!-- Thumb & Fingers gripping phone -->
+      <!-- Thumb over front edge -->
+      <path id="director_thumb" d="M 282 465 C 295 465 298 480 286 484 L 270 484 C 265 484 262 475 268 470 Z" fill="#FFE3D1" />
+      <!-- Supporting Fingers Behind/Around -->
+      <path id="director_fingers" d="M 230 495 C 230 505 240 512 250 512 L 270 510 C 275 510 278 502 272 498 Z" fill="#F5CCA8" />
+    </g>
+  </g>
+</svg>
