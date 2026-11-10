@@ -87,8 +87,8 @@
       <!-- Legs & Sneaker Assemblies (Charcoal pants #334155) - Harmonized 5.5-Heads Proportion -->
       <!-- Left Leg (Front Ortho) -->
       <g id="front_leg_left">
-        <!-- Hip to Knee (Thigh: Shortened ~18%, origin y=915) -->
-        <path d="M 322 915 L 308 1135 L 348 1135 L 348 915 Z" fill="#334155" />
+        <!-- Hip to Knee (Thigh origin y=825) -->
+        <path d="M 322 825 L 308 1135 L 348 1135 L 348 825 Z" fill="#334155" />
         <!-- Knee to Ankle (Shin) -->
         <path d="M 308 1135 L 298 1295 L 350 1295 L 348 1135 Z" fill="#334155" />
         <!-- Knee Crease Line -->
@@ -107,7 +107,7 @@
       <!-- Right Leg (Front Ortho) -->
       <g id="front_leg_right">
         <!-- Hip to Knee (Thigh: Shortened ~18%, origin y=915) -->
-        <path d="M 372 915 L 372 1135 L 412 1135 L 398 915 Z" fill="#334155" />
+        <path d="M 372 825 L 372 1135 L 412 1135 L 398 825 Z" fill="#334155" />
         <!-- Knee to Ankle (Shin) -->
         <path d="M 372 1135 L 370 1295 L 422 1295 L 412 1135 Z" fill="#334155" />
         <!-- Knee Crease Line -->
@@ -123,44 +123,42 @@
         <line x1="386" y1="1330" x2="416" y2="1330" stroke="#CBD5E1" stroke-width="2.5" stroke-linecap="round" />
       </g>
 
-      <!-- Torso & Royal Blue Hoodie (#2563EB) -->
+      <!-- Torso & Royal Blue Hoodie (#2563EB) - Harmonized Proportions (~25% Shortened, Natural Tapered Waist & Shoulder Slope) -->
       <g id="front_hoodie_torso">
-        <!-- Hoodie Body (Brought down slightly for authentic 5.5-heads teen proportion) -->
-        <path d="M 280 470 C 268 600 268 760 280 885 L 440 885 C 452 760 452 600 440 470 C 390 450 330 450 280 470 Z" fill="#2563EB" stroke="#1D4ED8" stroke-width="3" stroke-linejoin="round" />
-        <!-- Ribbed Hem (#1D4ED8) -->
-        <rect x="278" y="880" width="164" height="35" rx="6" fill="#1D4ED8" />
-        <line x1="310" y1="880" x2="310" y2="915" stroke="#1E40AF" stroke-width="2.5" />
-        <line x1="340" y1="880" x2="340" y2="915" stroke="#1E40AF" stroke-width="2.5" />
-        <line x1="360" y1="880" x2="360" y2="915" stroke="#1E40AF" stroke-width="2.5" />
-        <line x1="380" y1="880" x2="380" y2="915" stroke="#1E40AF" stroke-width="2.5" />
-        <line x1="410" y1="880" x2="410" y2="915" stroke="#1E40AF" stroke-width="2.5" />
+        <!-- Hoodie Body: Gentle shoulder slope from neck (330/390, 442) down to shoulders (276/444, 465), subtle waist taper (width 148px at y=680) and natural hem flare (width 158px at y=800) -->
+        <path d="M 276 465 C 270 540 282 660 286 730 C 288 765 284 790 282 802 L 438 802 C 436 790 432 765 434 730 C 438 660 450 540 444 465 C 418 448 385 442 360 442 C 335 442 302 448 276 465 Z" fill="#2563EB" stroke="#1D4ED8" stroke-width="3" stroke-linejoin="round" />
+        <!-- Ribbed Hem (#1D4ED8): y=798..828 -->
+        <rect x="280" y="798" width="160" height="30" rx="6" fill="#1D4ED8" />
+        <line x1="312" y1="798" x2="312" y2="828" stroke="#1E40AF" stroke-width="2.5" />
+        <line x1="344" y1="798" x2="344" y2="828" stroke="#1E40AF" stroke-width="2.5" />
+        <line x1="360" y1="798" x2="360" y2="828" stroke="#1E40AF" stroke-width="2.5" />
+        <line x1="376" y1="798" x2="376" y2="828" stroke="#1E40AF" stroke-width="2.5" />
+        <line x1="408" y1="798" x2="408" y2="828" stroke="#1E40AF" stroke-width="2.5" />
 
-        <!-- Kangaroo Pocket -->
-        <path d="M 302 735 C 330 725 390 725 418 735 C 424 795 418 845 412 870 L 308 870 C 302 845 296 795 302 735 Z" fill="#1D4ED8" opacity="0.95" />
+        <!-- Kangaroo Pocket (y=675..788) -->
+        <path d="M 302 680 C 330 670 390 670 418 680 C 424 735 420 770 414 788 L 306 788 C 300 770 296 735 302 680 Z" fill="#1D4ED8" opacity="0.95" />
         <!-- Kangaroo Slit Outlines -->
-        <path d="M 302 735 Q 316 785 308 840" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
-        <path d="M 418 735 Q 404 785 412 840" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
+        <path d="M 302 680 Q 315 725 308 768" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
+        <path d="M 418 680 Q 405 725 412 768" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
 
-        <!-- Refined Backpack Harness Straps naturally curved over shoulders -->
+        <!-- Realistic Curved Shoulder Straps: Soft amber #F59E0B with #D97706 border naturally draping over shoulders and ribcage -->
         <!-- Left Strap -->
-        <path d="M 298 448 C 295 520 298 680 302 820" fill="none" stroke="#F59E0B" stroke-width="13" stroke-linecap="round" />
-        <path d="M 298 448 C 295 520 298 680 302 820" fill="none" stroke="#D97706" stroke-width="2.5" stroke-linecap="round" />
+        <path d="M 302 446 C 298 510 300 640 304 760" fill="none" stroke="#F59E0B" stroke-width="12" stroke-linecap="round" />
+        <path d="M 302 446 C 298 510 300 640 304 760" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" />
+        <rect x="296" y="580" width="16" height="10" rx="2" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.2" />
         <!-- Right Strap -->
-        <path d="M 422 448 C 425 520 422 680 418 820" fill="none" stroke="#F59E0B" stroke-width="13" stroke-linecap="round" />
-        <path d="M 422 448 C 425 520 422 680 418 820" fill="none" stroke="#D97706" stroke-width="2.5" stroke-linecap="round" />
-        <!-- Refined Chest Harness Connector Strap (Off-white/light gray #E2E8F0 with clean contour line) -->
-        <rect x="298" y="616" width="124" height="10" rx="3" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.5" />
-        <rect x="352" y="612" width="16" height="18" rx="3" fill="#1E293B" stroke="#00E5FF" stroke-width="1.5" />
-        <line x1="360" y1="614" x2="360" y2="628" stroke="#00E5FF" stroke-width="1.5" />
+        <path d="M 418 446 C 422 510 420 640 416 760" fill="none" stroke="#F59E0B" stroke-width="12" stroke-linecap="round" />
+        <path d="M 418 446 C 422 510 420 640 416 760" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" />
+        <rect x="408" y="580" width="16" height="10" rx="2" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.2" />
 
         <!-- Drawstrings -->
-        <line x1="340" y1="465" x2="338" y2="560" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
-        <circle cx="338" cy="565" r="4.5" fill="#FFFFFF" />
-        <line x1="380" y1="465" x2="382" y2="560" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
-        <circle cx="382" cy="565" r="4.5" fill="#FFFFFF" />
+        <line x1="340" y1="455" x2="338" y2="540" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
+        <circle cx="338" cy="545" r="4.5" fill="#FFFFFF" />
+        <line x1="380" y1="455" x2="382" y2="540" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
+        <circle cx="382" cy="545" r="4.5" fill="#FFFFFF" />
 
         <!-- Chest Diamond Cyan Gem Carat (#00E5FF) -->
-        <polygon points="360,520 372,532 368,548 352,548 348,532" fill="#00E5FF" stroke="#38BDF8" stroke-width="1.8" />
+        <polygon points="360,510 372,522 368,538 352,538 348,522" fill="#00E5FF" stroke="#38BDF8" stroke-width="1.8" />
       </g>
 
       <!-- Left Arm (Front Ortho) -->
@@ -181,12 +179,12 @@
 
       <!-- Head & Neck Assembly (Center Hero DNA 1:1) -->
       <g id="front_head_assembly">
-        <!-- Neck Column: Tone #FFE3D1, 22px high -->
-        <rect x="342" y="388" width="36" height="32" fill="#FFE3D1" />
-        <path d="M 342 388 C 354 398 366 398 378 388 L 378 398 C 366 408 354 408 342 398 Z" fill="#E2A888" opacity="0.4" />
+        <!-- Neck Column: Tone #FFE3D1, anchored upward into jawline and collar -->
+        <path d="M 342 350 L 342 450 C 354 454 366 454 378 450 L 378 350 Z" fill="#FFE3D1" />
+        <path d="M 342 388 C 354 402 366 402 378 388 L 378 402 C 366 416 354 416 342 402 Z" fill="#E2A888" opacity="0.35" />
 
         <!-- Hoodie Collar framing neck -->
-        <path d="M 315 425 C 345 440 375 440 405 425 C 390 450 330 450 315 425 Z" fill="#1D4ED8" />
+        <path d="M 315 422 C 345 438 375 438 405 422 C 390 455 330 455 315 422 Z" fill="#1D4ED8" />
 
         <!-- Head Base: r=90, cx=360, cy=300 -->
         <circle id="front_head_base" cx="360" cy="300" r="90" fill="#FFE3D1" />
@@ -267,9 +265,9 @@
       <!-- 3. HIERARCHICAL ARTICULATED LEGS (TRUE DYNAMIC WALKING STRIDE & HARMONIZED PROPORTIONS) -->
       <!-- Back Leg: Extending backward with heel lifted, pushing off ground plane on its TOE PAD -->
       <g id="tq_back_leg">
-        <!-- Tier 1: Thigh (Harmonized length, shortened ~18%) -->
-        <g id="tq_back_thigh" data-pivot="735 915">
-          <path d="M 720 915 L 665 1135 L 710 1135 L 760 915 Z" fill="#243040" />
+        <!-- Tier 1: Thigh (Harmonized origin y=825) -->
+        <g id="tq_back_thigh" data-pivot="735 825">
+          <path d="M 720 825 L 665 1135 L 710 1135 L 760 825 Z" fill="#243040" />
           <!-- Tier 2: Shin -->
           <g id="tq_back_shin" data-pivot="685 1135">
             <path d="M 665 1135 L 632 1330 L 682 1335 L 710 1135 Z" fill="#243040" />
@@ -293,13 +291,13 @@
 
       <!-- Front Leg: Stepping forward with slight knee flex, sneaker landing cleanly on its HEEL -->
       <g id="tq_front_leg">
-        <!-- Tier 1: Thigh (Harmonized length, shortened ~18%) -->
-        <g id="tq_front_thigh" data-pivot="775 915">
-          <path d="M 760 915 L 795 1130 L 845 1130 L 805 915 Z" fill="#334155" />
+        <!-- Tier 1: Thigh (Harmonized origin y=825) -->
+        <g id="tq_front_thigh" data-pivot="775 825">
+          <path d="M 760 825 L 795 1130 L 845 1130 L 805 825 Z" fill="#334155" />
           <!-- Tier 2: Shin -->
           <g id="tq_front_shin" data-pivot="820 1130">
-            <path d="M 795 1130 L 835 1318 L 888 1315 L 845 1130 Z" fill="#334155" />
-            <path d="M 795 1130 Q 820 1148 845 1130" fill="none" stroke="#1E293B" stroke-width="4" stroke-linecap="round" />
+            <path d="M 795 1130 L 835 1320 L 888 1315 L 845 1130 Z" fill="#334155" />
+            <path d="M 795 1130 Q 820 1150 845 1130" fill="none" stroke="#1E293B" stroke-width="4" stroke-linecap="round" />
             <!-- White Sock -->
             <polygon points="835,1318 888,1315 892,1335 839,1338" fill="#FFFFFF" />
             <!-- Tier 3: Foot (Sneaker Heel Strike: Heel landing firmly at y=1400, toe lifted) -->
@@ -318,79 +316,71 @@
         </g>
       </g>
 
-      <!-- 4. Torso & Royal Blue Hoodie with Refined Backpack Chest Harness -->
+      <!-- 4. Torso & Royal Blue Hoodie with Realistic Soft Shoulder Strap (~25% Shortened, Natural Tapered Waist & Gentle Slope) -->
       <g id="tq_hoodie_torso">
-        <!-- Hoodie Body (Harmonized 5.5-heads teen aesthetic) -->
-        <path d="M 700 460 C 740 450 810 450 850 470 C 865 530 860 770 845 885 C 805 895 725 892 695 882 C 688 770 695 620 700 460 Z" fill="#2563EB" stroke="#1D4ED8" stroke-width="3" stroke-linejoin="round" />
-        <!-- Ribbed Hem (#1D4ED8) brought down slightly -->
-        <path d="M 692 880 C 740 890 820 892 855 884 L 852 914 C 815 924 735 922 690 910 Z" fill="#1D4ED8" />
-        <line x1="730" y1="885" x2="730" y2="915" stroke="#1E40AF" stroke-width="2.5" />
-        <line x1="770" y1="888" x2="770" y2="919" stroke="#1E40AF" stroke-width="2.5" />
-        <line x1="810" y1="887" x2="810" y2="917" stroke="#1E40AF" stroke-width="2.5" />
+        <!-- Hoodie Body: Gentle shoulder slope from collar (740/840, 435) to shoulders, natural tapered waist (y=660..700), hem at y=802 -->
+        <path d="M 698 460 C 738 448 812 448 848 468 C 860 520 854 660 842 730 C 838 765 836 790 834 802 C 800 812 730 810 696 800 C 690 760 688 640 698 460 Z" fill="#2563EB" stroke="#1D4ED8" stroke-width="3" stroke-linejoin="round" />
+        <!-- Ribbed Hem (#1D4ED8): y=798..828 -->
+        <path d="M 694 798 C 736 808 804 808 836 800 L 834 826 C 800 834 734 834 692 824 Z" fill="#1D4ED8" />
+        <line x1="728" y1="802" x2="728" y2="828" stroke="#1E40AF" stroke-width="2.5" />
+        <line x1="764" y1="804" x2="764" y2="830" stroke="#1E40AF" stroke-width="2.5" />
+        <line x1="800" y1="803" x2="800" y2="829" stroke="#1E40AF" stroke-width="2.5" />
 
-        <!-- Kangaroo Front Pocket -->
-        <path d="M 722 745 C 765 735 820 738 845 755 C 840 815 835 850 826 870 C 790 875 738 872 710 864 C 705 840 714 785 722 745 Z" fill="#1D4ED8" opacity="0.95" />
-        <path d="M 722 745 Q 736 790 726 845" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
-        <path d="M 845 755 Q 830 798 826 852" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
+        <!-- Kangaroo Front Pocket (y=680..788) -->
+        <path d="M 722 685 C 760 676 808 678 830 692 C 826 738 822 768 816 786 C 785 792 736 788 712 780 C 708 762 715 720 722 685 Z" fill="#1D4ED8" opacity="0.95" />
+        <path d="M 722 685 Q 734 725 726 766" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
+        <path d="M 830 692 Q 818 730 816 772" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
 
-        <!-- Front Shoulder Strap naturally curved over hoodie shoulder -->
-        <path d="M 750 445 C 765 490 778 580 782 740 L 768 740 C 764 585 753 495 738 445 Z" fill="#F59E0B" stroke="#D97706" stroke-width="1.8" />
-        <!-- Refined Chest Harness Cross Strap (Off-white/light gray #E2E8F0 with clean contour line) -->
-        <rect x="730" y="575" width="85" height="10" rx="3" transform="rotate(3 772 580)" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.5" />
-        <!-- Subtle sleek buckle with cyan carat accent -->
-        <rect x="766" y="571" width="15" height="18" rx="3" transform="rotate(3 773 580)" fill="#1E293B" stroke="#00E5FF" stroke-width="1.5" />
-        <line x1="774" y1="573" x2="774" y2="587" stroke="#00E5FF" stroke-width="1.5" transform="rotate(3 774 580)" />
+        <!-- Realistic Soft Curved Backpack Shoulder Strap: naturally draping over shoulder down ribcage (NO horizontal chest harness bar!) -->
+        <path d="M 752 445 C 764 485 774 580 778 740 L 766 740 C 762 585 752 490 740 445 Z" fill="#F59E0B" stroke="#D97706" stroke-width="1.8" />
+        <rect x="764" y="580" width="14" height="9" rx="2" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.2" />
 
         <!-- White Hoodie Drawstrings (#FFFFFF) -->
-        <path d="M 795 478 Q 792 525 794 560" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
-        <circle cx="794" cy="564" r="4.5" fill="#FFFFFF" />
-        <path d="M 818 478 Q 816 520 818 550" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
-        <circle cx="818" cy="554" r="4.5" fill="#FFFFFF" />
+        <path d="M 792 470 Q 790 515 792 546" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
+        <circle cx="792" cy="550" r="4.5" fill="#FFFFFF" />
+        <path d="M 814 470 Q 812 510 814 538" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
+        <circle cx="814" cy="542" r="4.5" fill="#FFFFFF" />
 
         <!-- Cyan Carat Crest -->
-        <polygon points="832,525 844,535 840,548 826,548 822,535" fill="#00E5FF" stroke="#38BDF8" stroke-width="1.8" />
+        <polygon points="828,515 840,525 836,538 822,538 818,525" fill="#00E5FF" stroke="#38BDF8" stroke-width="1.8" />
       </g>
 
-      <!-- 5. Relaxed Foreground Arm (Natural Walking Swing ~125° & Soft Curled Fist with Finger Creases) -->
+      <!-- 5. Relaxed Foreground Arm (Natural Walking Swing ~125° & Curled Inward Fist | Safely Contained, NO Canvas Penetration) -->
       <g id="tq_front_arm">
-        <!-- Upper Arm: Originates from anatomical shoulder socket, slopes down-forward to elbow (~125° angle) -->
-        <path d="M 822 476 C 850 495 878 540 895 596 L 858 612 C 842 562 822 522 802 495 Z" fill="#2563EB" />
-        <!-- Forearm: Soft walking swing extending forward-down at ~125° angle -->
-        <path d="M 858 612 L 895 596 L 965 628 L 948 656 Z" fill="#2563EB" stroke="#1D4ED8" stroke-width="1.5" />
+        <!-- Upper Arm: From shoulder socket (x=818, y=470) sloping forward-down to elbow at (x=852, y=575) -->
+        <path d="M 816 470 C 838 490 858 530 868 578 L 836 590 C 824 546 808 510 794 486 Z" fill="#2563EB" />
+        <!-- Forearm: Soft relaxed swing at ~125° angle from elbow (x=852, y=575) extending forward-down to wrist (x=892, y=650) -->
+        <path d="M 836 590 L 868 578 L 916 638 L 892 654 Z" fill="#2563EB" stroke="#1D4ED8" stroke-width="1.5" />
         <!-- Ribbed Cuff at Wrist -->
-        <rect x="946" y="626" width="16" height="34" rx="5" transform="rotate(20 954 643)" fill="#1D4ED8" stroke="#1E40AF" stroke-width="1.5" />
+        <rect x="888" y="632" width="16" height="30" rx="4" transform="rotate(35 896 647)" fill="#1D4ED8" stroke="#1E40AF" stroke-width="1.5" />
 
-        <!-- Relaxed Softly Curled Fist (Crafted with Section 3 Hand Rig DNA) -->
-        <g id="tq_relaxed_fist" transform="translate(974, 646) rotate(15)">
+        <!-- Relaxed Curled-Inward Fist (Safely contained around x=905..940, well clear of View 3 at x=1005) -->
+        <g id="tq_relaxed_fist" transform="translate(908, 656) rotate(20)">
           <!-- Palm / Dorsum Base -->
-          <ellipse cx="6" cy="4" rx="16" ry="14" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" />
-          <!-- Curled Finger Knuckles & Creases (Index, Middle, Ring, Pinky) -->
-          <!-- Pinky Knuckle -->
-          <circle cx="16" cy="12" r="5.5" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.2" />
-          <!-- Ring Finger Knuckle -->
-          <circle cx="19" cy="4" r="6" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.2" />
-          <!-- Middle Finger Knuckle -->
-          <circle cx="18" cy="-4" r="6" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.2" />
-          <!-- Index Finger Knuckle -->
-          <circle cx="14" cy="-11" r="5.5" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.2" />
-          <!-- Subtle Inter-digital Crease Lines -->
-          <line x1="12" y1="-7" x2="16" y2="-7" stroke="#E2A888" stroke-width="1.2" stroke-linecap="round" />
-          <line x1="13" y1="0" x2="17" y2="0" stroke="#E2A888" stroke-width="1.2" stroke-linecap="round" />
-          <line x1="11" y1="8" x2="15" y2="8" stroke="#E2A888" stroke-width="1.2" stroke-linecap="round" />
-          <!-- Soft Rounded Anatomical Thumb Pad (Relaxed over index finger) -->
-          <ellipse cx="-2" cy="-4" rx="8" ry="10" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.4" />
-          <path d="M 3 -8 Q 8 -6 8 -2" fill="none" stroke="#E2A888" stroke-width="1.2" stroke-linecap="round" />
+          <ellipse cx="6" cy="4" rx="14" ry="12" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" />
+          <!-- Curled Knuckles (Index, Middle, Ring, Pinky) -->
+          <circle cx="14" cy="10" r="4.8" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.2" />
+          <circle cx="16" cy="3" r="5.2" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.2" />
+          <circle cx="15" cy="-4" r="5.2" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.2" />
+          <circle cx="12" cy="-10" r="4.8" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.2" />
+          <!-- Subtle Finger Creases -->
+          <line x1="10" y1="-7" x2="14" y2="-7" stroke="#E2A888" stroke-width="1.2" stroke-linecap="round" />
+          <line x1="11" y1="0" x2="15" y2="0" stroke="#E2A888" stroke-width="1.2" stroke-linecap="round" />
+          <line x1="9" y1="7" x2="13" y2="7" stroke="#E2A888" stroke-width="1.2" stroke-linecap="round" />
+          <!-- Soft Rounded Anatomical Thumb Pad (Curled inwards over fingers) -->
+          <ellipse cx="-1" cy="-3" rx="7" ry="9" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.3" />
+          <path d="M 4 -7 Q 8 -5 8 -1" fill="none" stroke="#E2A888" stroke-width="1.2" stroke-linecap="round" />
         </g>
       </g>
 
       <!-- 6. Head & Expression (3/4 Right Canonical Hero DNA) -->
       <g id="tq_head_assembly">
-        <!-- Neck Column: #FFE3D1, 22px high -->
-        <rect x="760" y="388" width="36" height="32" fill="#FFE3D1" />
-        <path d="M 760 388 C 772 398 784 398 796 388 L 796 398 C 784 408 772 408 760 398 Z" fill="#E2A888" opacity="0.4" />
+        <!-- Neck Column: Tone #FFE3D1, anchoring upward into jawline contour and bridging collar with zero gap -->
+        <path d="M 754 350 L 754 450 C 768 454 786 454 798 450 L 798 350 Z" fill="#FFE3D1" />
+        <path d="M 754 388 C 768 404 784 404 798 388 L 798 402 C 784 418 768 418 754 402 Z" fill="#E2A888" opacity="0.35" />
 
-        <!-- Hoodie Collar -->
-        <path d="M 740 425 C 775 440 810 440 840 425 C 830 450 760 450 740 425 Z" fill="#1D4ED8" />
+        <!-- Hoodie Collar seamlessly framing neck -->
+        <path d="M 738 422 C 772 438 812 438 842 422 C 832 455 754 455 738 422 Z" fill="#1D4ED8" />
 
         <!-- Head Base: cx=770, cy=300, r=90 -->
         <circle id="tq_head_base" cx="770" cy="300" r="90" fill="#FFE3D1" />
@@ -450,8 +440,8 @@
 
       <!-- Leg Assembly (Profile Side View) - Harmonized 5.5-Heads Proportions -->
       <g id="profile_leg">
-        <!-- Hip to Knee (Thigh: Shortened ~18%, origin y=915) -->
-        <path d="M 1150 915 L 1155 1135 L 1205 1135 L 1205 915 Z" fill="#334155" />
+        <!-- Hip to Knee (Thigh origin y=825) -->
+        <path d="M 1150 825 L 1155 1135 L 1205 1135 L 1205 825 Z" fill="#334155" />
         <!-- Knee to Ankle (Shin) -->
         <path d="M 1155 1135 L 1155 1295 L 1210 1295 L 1205 1135 Z" fill="#334155" />
         <line x1="1155" y1="1135" x2="1195" y2="1135" stroke="#1E293B" stroke-width="3.5" stroke-linecap="round" />
@@ -465,19 +455,18 @@
         </g>
       </g>
 
-      <!-- Torso Profile (Royal Blue Hoodie) with Refined Chest Harness -->
+      <!-- Torso Profile (Royal Blue Hoodie) - Harmonized Proportions (~25% Shortened, Natural Tapered Waist) -->
       <g id="profile_hoodie_torso">
-        <path d="M 1100 460 C 1130 450 1190 450 1210 470 C 1220 530 1218 770 1205 885 L 1110 885 C 1098 780 1096 610 1100 460 Z" fill="#2563EB" stroke="#1D4ED8" stroke-width="3" stroke-linejoin="round" />
-        <rect x="1105" y="880" width="105" height="32" rx="6" fill="#1D4ED8" />
-        <!-- Chest Harness Side Strap Anchoring amber backpack (Naturally curved) -->
-        <path d="M 1108 455 C 1125 500 1152 610 1168 740" fill="none" stroke="#F59E0B" stroke-width="10" stroke-linecap="round" />
-        <path d="M 1108 455 C 1125 500 1152 610 1168 740" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" />
-        <!-- Refined Off-white/light gray Harness Accent & Buckle -->
-        <rect x="1146" y="575" width="14" height="10" rx="2.5" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.2" />
-        <rect x="1149" y="573" width="8" height="14" rx="2" fill="#1E293B" stroke="#00E5FF" stroke-width="1.2" />
+        <!-- Hoodie Body: Gentle shoulder curvature, natural waist taper, hem at y=802 -->
+        <path d="M 1098 458 C 1128 448 1184 448 1206 468 C 1215 520 1210 660 1200 730 C 1196 765 1194 790 1192 802 L 1106 802 C 1102 760 1096 640 1098 458 Z" fill="#2563EB" stroke="#1D4ED8" stroke-width="3" stroke-linejoin="round" />
+        <rect x="1104" y="798" width="90" height="28" rx="6" fill="#1D4ED8" />
+        <!-- Curved Soft Shoulder Strap draping over shoulder down ribcage (NO horizontal chest harness bar!) -->
+        <path d="M 1106 452 C 1122 495 1146 590 1158 730" fill="none" stroke="#F59E0B" stroke-width="9" stroke-linecap="round" />
+        <path d="M 1106 452 C 1122 495 1146 590 1158 730" fill="none" stroke="#D97706" stroke-width="1.8" stroke-linecap="round" />
+        <rect x="1144" y="580" width="12" height="9" rx="2" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1" />
         <!-- Hoodie drawstring side -->
-        <path d="M 1190 475 Q 1195 520 1192 560" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" />
-        <circle cx="1192" cy="564" r="4" fill="#FFFFFF" />
+        <path d="M 1186 470 Q 1190 510 1188 545" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" />
+        <circle cx="1188" cy="549" r="4" fill="#FFFFFF" />
       </g>
 
       <!-- Profile Arm -->
@@ -488,28 +477,42 @@
         <ellipse cx="1174" cy="855" rx="8" ry="5" fill="#F5CCA8" />
       </g>
 
-      <!-- Profile Head -->
+      <!-- Profile Head & Organically Integrated Neck Assembly -->
       <g id="profile_head">
-        <rect x="1160" y="388" width="34" height="32" fill="#FFE3D1" />
-        <path d="M 1145 425 C 1175 440 1205 440 1220 425 C 1210 450 1155 450 1145 425 Z" fill="#1D4ED8" />
-        <!-- Profile Cranium -->
-        <path d="M 1120 300 C 1120 200 1170 200 1220 220 C 1245 250 1240 310 1225 345 C 1200 380 1165 390 1140 370 C 1120 350 1120 320 1120 300 Z" fill="#FFE3D1" />
+        <!-- Natural Slightly Forward-Angled Neck: Anchored UPWARD into jawline contour and seamlessly into collar (Zero Gap) -->
+        <path d="M 1146 338 C 1144 372 1148 412 1152 452 L 1202 452 C 1200 416 1196 376 1190 348 C 1176 352 1160 350 1146 338 Z" fill="#FFE3D1" />
+        <!-- Throat Shadow beneath jawline -->
+        <path d="M 1158 350 C 1174 355 1190 348 1190 348 C 1188 372 1184 398 1180 408 C 1170 408 1164 382 1158 350 Z" fill="#E2A888" opacity="0.35" />
+
+        <!-- Hoodie Collar framing profile neck with zero gap -->
+        <path d="M 1134 422 C 1168 438 1204 438 1220 422 C 1212 454 1144 454 1134 422 Z" fill="#1D4ED8" />
+
+        <!-- Profile Head: Authentic Teenage Boy Cranium, Jawline, Chin, Nose & Features -->
+        <!-- Skull, Face & Jaw Mass (Tone #FFE3D1): Full cranial curvature -> forehead -> nose -> lips -> chin -> jawline -->
+        <path d="M 1170 210 C 1125 210 1110 248 1114 295 C 1116 328 1132 346 1146 346 L 1166 346 C 1176 350 1196 354 1208 352 C 1216 350 1220 344 1220 336 C 1216 330 1214 326 1218 320 C 1222 314 1219 310 1216 306 C 1216 301 1228 294 1228 288 C 1228 282 1216 278 1213 270 C 1210 250 1198 212 1170 210 Z" fill="#FFE3D1" />
+
         <!-- Profile Ear -->
-        <circle cx="1165" cy="305" r="14" fill="#FFE3D1" />
-        <path d="M 1165 300 Q 1160 305 1165 310" fill="none" stroke="#E2A888" stroke-width="2" stroke-linecap="round" />
-        <!-- Side-swept slate hair profile -->
-        <path d="M 1115 310 C 1105 200 1165 180 1215 180 C 1245 180 1255 200 1250 240 C 1235 235 1210 245 1195 260 C 1180 275 1160 270 1145 305 Z" fill="#1E293B" />
+        <circle cx="1158" cy="305" r="14" fill="#FFE3D1" />
+        <path d="M 1158 298 Q 1152 304 1158 311" fill="none" stroke="#E2A888" stroke-width="2" stroke-linecap="round" />
+
+        <!-- Side-swept Slate Hair Profile (#1E293B): Volumetric crown, tapered Korean bangs, neat nape -->
+        <path d="M 1170 192 C 1115 192 1095 238 1098 295 C 1102 330 1118 348 1138 344 C 1135 330 1130 312 1134 288 C 1136 260 1150 248 1162 246 C 1158 264 1152 284 1150 304 C 1149 317 1156 319 1158 311 C 1162 294 1166 264 1176 252 C 1188 252 1202 242 1215 254 C 1223 262 1225 272 1222 280 C 1230 260 1224 234 1210 214 C 1196 195 1184 192 1170 192 Z" fill="#1E293B" />
+        <!-- Front Bang Fringe overlaying forehead -->
+        <path d="M 1192 216 C 1208 236 1218 256 1215 272 C 1211 264 1205 260 1199 264 C 1195 252 1188 246 1178 242 Z" fill="#1E293B" />
+
         <!-- Eye in Profile (Star Glint) -->
-        <path d="M 1220 285 L 1230 288 L 1220 293 Z" fill="#0F172A" />
-        <circle cx="1223" cy="288" r="1.5" fill="#FFFFFF" />
+        <path d="M 1204 282 L 1214 286 L 1204 291 Z" fill="#0F172A" />
+        <circle cx="1207" cy="286" r="1.5" fill="#FFFFFF" />
         <!-- Brow Profile -->
-        <path d="M 1212 268 Q 1224 262 1234 270" fill="none" stroke="#1E293B" stroke-width="4" stroke-linecap="round" />
-        <!-- Rosy Blush -->
-        <circle cx="1215" cy="315" r="12" fill="#FCA5A5" opacity="0.6" />
-        <!-- Nose Profile -->
-        <path d="M 1235 285 L 1245 298 L 1236 302" fill="none" stroke="#E2A888" stroke-width="2.5" stroke-linecap="round" />
-        <!-- Smile Profile -->
-        <path d="M 1222 322 Q 1232 334 1236 322" fill="none" stroke="#B91C1C" stroke-width="2.2" stroke-linecap="round" />
+        <path d="M 1196 266 Q 1208 260 1218 266" fill="none" stroke="#1E293B" stroke-width="3.8" stroke-linecap="round" />
+        <!-- Rosy Cheek Blush -->
+        <ellipse cx="1198" cy="310" rx="12" ry="9" fill="#FCA5A5" opacity="0.6" />
+        <!-- Nose Bridge & Contour -->
+        <path d="M 1214 276 L 1228 292 L 1217 300" fill="none" stroke="#E2A888" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+        <!-- Gentle Confident Smile in Profile -->
+        <path d="M 1208 320 Q 1216 326 1218 321" fill="none" stroke="#B91C1C" stroke-width="2.2" stroke-linecap="round" />
+        <!-- Clean Jawline Contour definition -->
+        <path d="M 1208 348 C 1196 350 1176 346 1164 336" fill="none" stroke="#E2A888" stroke-width="1.8" stroke-linecap="round" />
       </g>
     </g>
   </g>
@@ -653,30 +656,47 @@
     <text x="1440" y="545" fill="#38BDF8" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" letter-spacing="1">SECTION 3: LIMB RIGGING SPEC &amp; HAND MATRIX</text>
     <text x="2160" y="545" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="13">KINEMATICS &amp; PIVOTS</text>
 
-    <!-- 1. hand_holding_phone (x=1560, y=670) -->
+    <!-- 1. hand_holding_phone (x=1560, y=670) - Refined Anatomical Matrix -->
     <g id="hand_holding_phone">
       <rect x="1445" y="565" width="230" height="230" rx="8" fill="#1E293B" stroke="#475569" stroke-width="1" />
       <text x="1560" y="595" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">HAND: HOLDING PHONE</text>
       <text x="1560" y="612" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">id=&quot;hand_holding_phone&quot;</text>
 
       <g transform="translate(1560, 685)">
-        <!-- Smartphone Base (Black & Cyan Screen) -->
+        <!-- Integrated Palm & Phalange Mass (Behind Phone) -->
+        <path d="M 6 -28 C 16 -34 26 -28 26 -16 L 26 32 C 26 44 14 46 2 40 L -8 34 L 6 -28 Z" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" stroke-linejoin="round" />
+
+        <!-- Smartphone Body (Black Shell with Cyan Glowing Screen) -->
         <rect x="-40" y="-55" width="55" height="95" rx="8" fill="#0F172A" stroke="#38BDF8" stroke-width="2" />
         <rect x="-35" y="-45" width="45" height="75" rx="4" fill="#0284C7" />
         <line x1="-20" y1="-50" x2="-5" y2="-50" stroke="#64748B" stroke-width="2" stroke-linecap="round" />
-        <!-- Fingers Wrapped on Left Edge -->
-        <circle cx="20" cy="-25" r="9" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.5" />
-        <circle cx="22" cy="-7" r="9" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.5" />
-        <circle cx="20" cy="11" r="9" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.5" />
-        <circle cx="16" cy="29" r="8" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.5" />
-        <!-- Fleshy Thumb Pad (radius > 16px) hugging the phone edge -->
-        <ellipse cx="-15" cy="12" rx="18" ry="24" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" />
-        <ellipse cx="-26" cy="10" rx="14" ry="17" fill="#FFE3D1" />
+
+        <!-- 4 Natural Curled Phalanges gently cradling the right bezel from behind (Zero floating circles) -->
+        <!-- Index Finger (Curled over right edge) -->
+        <path d="M 12 -28 C 18 -32 26 -28 26 -19 C 26 -13 16 -13 12 -15 Z" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.3" />
+        <!-- Middle Finger -->
+        <path d="M 14 -13 C 20 -17 28 -13 28 -4 C 28 3 18 2 13 0 Z" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.3" />
+        <!-- Ring Finger -->
+        <path d="M 13 2 C 19 -2 27 2 27 11 C 27 18 17 17 12 15 Z" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.3" />
+        <!-- Little / Pinky Finger -->
+        <path d="M 11 17 C 17 13 25 17 25 25 C 25 32 15 31 10 29 Z" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.3" />
+
+        <!-- Soft Inter-digital Crease Lines on Fingers -->
+        <line x1="14" y1="-14" x2="22" y2="-14" stroke="#F5CCA8" stroke-width="1.2" stroke-linecap="round" />
+        <line x1="14" y1="1" x2="23" y2="1" stroke="#F5CCA8" stroke-width="1.2" stroke-linecap="round" />
+        <line x1="13" y1="16" x2="21" y2="16" stroke="#F5CCA8" stroke-width="1.2" stroke-linecap="round" />
+
+        <!-- Fleshy Natural Thumb Pad (radius > 16px, organic arc curve resting comfortably on left bezel) -->
+        <!-- Thenar eminence sweeping into curved thumb pad -->
+        <path d="M -28 38 C -42 26 -38 4 -30 -4 C -22 -10 -14 -4 -12 6 C -10 16 -16 28 -22 38 Z" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" stroke-linejoin="round" />
+        <!-- Soft inner highlight & thumb flexion crease -->
+        <path d="M -24 22 C -18 16 -16 8 -18 0" fill="none" stroke="#E2A888" stroke-width="1.3" stroke-linecap="round" />
+        <ellipse cx="-20" cy="8" rx="5" ry="8" fill="#FFFFFF" opacity="0.15" />
       </g>
-      <text x="1560" y="780" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Soft rounded thumb pad (r &gt; 16px)</text>
+      <text x="1560" y="780" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Integrated palm &amp; arc thumb (r &gt; 16px)</text>
     </g>
 
-    <!-- 2. hand_swiping_index (x=1895, y=670) -->
+    <!-- 2. hand_swiping_index (x=1895, y=670) - Refined Anatomical Matrix -->
     <g id="hand_swiping_index">
       <rect x="1780" y="565" width="230" height="230" rx="8" fill="#1E293B" stroke="#475569" stroke-width="1" />
       <text x="1895" y="595" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">HAND: SWIPING INDEX</text>
@@ -692,20 +712,30 @@
         <rect x="-30" y="-28" width="40" height="16" rx="4" fill="#0284C7" />
         <text x="-10" y="-17" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="7" font-weight="700" text-anchor="middle">CLAIM</text>
 
-        <!-- Curved Index Finger tapping screen -->
-        <!-- Curled hand base -->
-        <ellipse cx="25" cy="15" rx="18" ry="20" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" />
-        <circle cx="28" cy="2" r="8" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.5" />
-        <circle cx="28" cy="18" r="8" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.5" />
-        <circle cx="24" cy="32" r="7.5" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.5" />
-        <!-- Natural Index Finger Curving to Tap (x=0, y=-20) -->
-        <path d="M 18 -5 C 10 -15 2 -25 0 -20 C -2 -15 6 -3 15 5 Z" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.8" stroke-linejoin="round" />
-        <circle cx="0" cy="-20" r="7" fill="#FFE3D1" />
-        <!-- Forearm sleeve -->
-        <path d="M 28 35 L 50 35 L 50 70 L 28 70 Z" fill="#2563EB" />
-        <rect x="26" y="32" width="26" height="8" rx="2" fill="#1D4ED8" />
+        <!-- Forearm Royal Blue Sleeve & Ribbed Cuff (#2563EB / #1D4ED8) -->
+        <path d="M 22 42 L 54 42 L 56 75 L 18 75 Z" fill="#2563EB" />
+        <rect x="16" y="35" width="40" height="10" rx="3" fill="#1D4ED8" stroke="#1E40AF" stroke-width="1.5" />
+
+        <!-- Integrated Palm & Curled Phalange Mass with Natural Knuckle Creasing -->
+        <!-- Lateral dorsal palm mass -->
+        <path d="M 18 35 C 34 32 44 20 44 4 C 44 -8 34 -12 24 -6 C 18 -2 14 6 12 18 Z" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" stroke-linejoin="round" />
+        <!-- Curled finger knuckle definition & skin folds (Middle, Ring, Pinky) -->
+        <path d="M 24 -4 C 32 -6 38 0 36 6" fill="none" stroke="#F5CCA8" stroke-width="1.3" stroke-linecap="round" />
+        <path d="M 22 8 C 30 6 36 12 34 18" fill="none" stroke="#F5CCA8" stroke-width="1.3" stroke-linecap="round" />
+        <path d="M 20 20 C 28 18 32 23 30 28" fill="none" stroke="#F5CCA8" stroke-width="1.3" stroke-linecap="round" />
+
+        <!-- Thumb curled gently under palm mass -->
+        <path d="M 12 18 C 6 16 2 22 6 28 C 10 34 18 33 20 28 Z" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.3" />
+
+        <!-- Extended Index Finger: Smooth anatomical transition from palm mass curving gracefully to tap (0, -20) -->
+        <path d="M 20 0 C 14 -10 6 -18 0 -20 C -4 -21 -4 -15 2 -8 C 8 0 14 12 16 22 Z" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" stroke-linejoin="round" />
+        <!-- Soft finger pad at tap point -->
+        <ellipse cx="0" cy="-20" rx="6" ry="5" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.2" />
+        <!-- Interphalangeal joint creases on extended index finger -->
+        <line x1="8" y1="-8" x2="13" y2="-4" stroke="#E2A888" stroke-width="1.3" stroke-linecap="round" />
+        <line x1="3" y1="-15" x2="7" y2="-12" stroke="#E2A888" stroke-width="1.1" stroke-linecap="round" />
       </g>
-      <text x="1895" y="780" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Articulated curve &amp; tap ripple</text>
+      <text x="1895" y="780" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Integrated palm mass &amp; cuff connection</text>
     </g>
 
     <!-- 3. hand_raised_classroom (x=2230, y=670) -->
