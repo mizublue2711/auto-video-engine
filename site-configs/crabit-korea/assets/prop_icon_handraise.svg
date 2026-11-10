@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500" id="prop_icon_handraise" preserveAspectRatio="xMidYMid meet">
+  <!-- Aura / Radiant Burst Rays (Centered at 250, 250) -->
+  <g id="handraise_aura_rays">
+    <!-- Top Ray -->
+    <path id="ray_top" d="M 250 50 L 250 95" stroke="#FFB800" stroke-width="12" stroke-linecap="round" fill="none" />
+    <!-- Top-Right 1 Ray -->
+    <path id="ray_tr1" d="M 350 90 L 325 125" stroke="#FFB800" stroke-width="10" stroke-linecap="round" fill="none" />
+    <!-- Top-Right 2 Ray -->
+    <path id="ray_tr2" d="M 415 160 L 375 185" stroke="#FFB800" stroke-width="10" stroke-linecap="round" fill="none" />
+    <!-- Right Ray -->
+    <path id="ray_right" d="M 440 250 L 395 250" stroke="#FFB800" stroke-width="12" stroke-linecap="round" fill="none" />
+    <!-- Top-Left 1 Ray -->
+    <path id="ray_tl1" d="M 150 90 L 175 125" stroke="#FFB800" stroke-width="10" stroke-linecap="round" fill="none" />
+    <!-- Top-Left 2 Ray -->
+    <path id="ray_tl2" d="M 85 160 L 125 185" stroke="#FFB800" stroke-width="10" stroke-linecap="round" fill="none" />
+    <!-- Left Ray -->
+    <path id="ray_left" d="M 60 250 L 105 250" stroke="#FFB800" stroke-width="12" stroke-linecap="round" fill="none" />
+
+    <!-- Sparkles and floating dots -->
+    <path id="sparkle_star_left" d="M 130 135 Q 130 148 117 148 Q 130 148 130 161 Q 130 148 143 148 Q 130 148 130 135 Z" fill="#34D399" />
+    <path id="sparkle_star_right" d="M 370 135 Q 370 148 357 148 Q 370 148 370 161 Q 370 148 383 148 Q 370 148 370 135 Z" fill="#38BDF8" />
+    <circle id="sparkle_dot_top_left" cx="205" cy="85" r="7" fill="#FB7185" />
+    <circle id="sparkle_dot_top_right" cx="295" cy="85" r="7" fill="#34D399" />
+    <circle id="sparkle_dot_mid_left" cx="95" cy="210" r="6" fill="#FFB800" />
+    <circle id="sparkle_dot_mid_right" cx="405" cy="210" r="6" fill="#FB7185" />
+  </g>
+
+  <!-- Raised Hand & Arm Structure (Centered vertically and horizontally) -->
+  <g id="handraise_arm_group">
+    <!-- Sleeve Cuff (Sky Blue with Soft Mint Trim) -->
+    <rect id="sleeve_body" x="200" y="380" width="100" height="70" rx="16" fill="#38BDF8" />
+    <path id="sleeve_trim" d="M 195 380 Q 250 375 305 380 Q 305 392 250 392 Q 195 392 195 380 Z" fill="#34D399" />
+
+    <!-- Wrist (Soft warm base) -->
+    <rect id="wrist" x="224" y="320" width="52" height="65" rx="10" fill="#FB7185" />
+
+    <!-- Palm Base -->
+    <path id="palm_base" d="M 215 240 C 215 210 285 210 285 240 L 285 330 C 285 340 215 340 215 330 Z" fill="#FB7185" />
+
+    <!-- Thumb (Spread to the left) -->
+    <path id="finger_thumb" d="M 220 270 C 190 260 175 225 192 215 C 205 208 218 220 230 240 Z" fill="#FB7185" />
+    <!-- Thumb highlight accent -->
+    <path id="thumb_accent" d="M 190 225 C 198 220 208 228 215 242" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.6" />
+
+    <!-- Four Raised Fingers (Clean rounded pillars) -->
+    <!-- Index Finger -->
+    <rect id="finger_index" x="215" y="145" width="16" height="100" rx="8" fill="#FB7185" />
+    <!-- Middle Finger (Tallest, reaching y=135) -->
+    <rect id="finger_middle" x="234" y="135" width="16" height="110" rx="8" fill="#FB7185" />
+    <!-- Ring Finger -->
+    <rect id="finger_ring" x="253" y="145" width="16" height="100" rx="8" fill="#FB7185" />
+    <!-- Pinky Finger -->
+    <rect id="finger_pinky" x="272" y="165" width="15" height="80" rx="7.5" fill="#FB7185" />
+
+    <!-- Highlights on fingers for 2D Motion Graphic depth -->
+    <path id="finger_highlights" d="M 223 155 L 223 195 M 242 145 L 242 195 M 261 155 L 261 195" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.5" />
+
+    <!-- Palm crease / Active speaking icon emblem on palm -->
+    <circle id="palm_badge" cx="250" cy="285" r="16" fill="#FFB800" />
+    <path id="palm_star" d="M 250 275 Q 250 285 240 285 Q 250 285 250 295 Q 250 285 260 285 Q 250 285 250 275 Z" fill="#FFFFFF" />
+  </g>
+</svg>

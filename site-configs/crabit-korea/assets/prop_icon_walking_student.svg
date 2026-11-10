@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500" id="prop_icon_walking_student" preserveAspectRatio="xMidYMid meet">
+  <!-- Motion & Energy Trail Accents (Centering balance) -->
+  <g id="walking_student_energy_fx">
+    <!-- Sunny / Joyful Sparkle top right -->
+    <path id="energy_sun_star" d="M 370 70 Q 370 90 350 90 Q 370 90 370 110 Q 370 90 390 90 Q 370 90 370 70 Z" fill="#FFB800" />
+    <circle id="energy_dot_1" cx="405" cy="120" r="6" fill="#38BDF8" />
+    <circle id="energy_dot_2" cx="100" cy="160" r="7" fill="#34D399" />
+    <circle id="energy_dot_3" cx="125" cy="115" r="5" fill="#FB7185" />
+
+    <!-- Walking Motion Wind Whims (Left behind student) -->
+    <path id="motion_wind_1" d="M 85 285 Q 120 280 145 285" stroke="#38BDF8" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.7" />
+    <path id="motion_wind_2" d="M 95 320 Q 130 315 155 320" stroke="#34D399" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.7" />
+    <path id="motion_wind_3" d="M 115 355 Q 140 350 160 355" stroke="#FFB800" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.7" />
+
+    <!-- Footstep Sparkles at ground level -->
+    <path id="foot_sparkle_1" d="M 360 440 Q 360 448 352 448 Q 360 448 360 456 Q 360 448 368 448 Q 360 448 360 440 Z" fill="#FFB800" />
+    <circle id="foot_dot_1" cx="150" cy="445" r="5" fill="#38BDF8" />
+  </g>
+
+  <!-- Student Rig / Silhouette (Striding energetically from left to right) -->
+  <g id="walking_student_character">
+    <!-- Backpack (Carried on back - Sky Blue & Coral) -->
+    <g id="student_backpack">
+      <!-- Backpack Main Pack Shell -->
+      <rect id="backpack_body" x="145" y="195" width="55" height="105" rx="20" fill="#38BDF8" />
+      <!-- Backpack Front Utility Pocket -->
+      <rect id="backpack_pocket" x="135" y="225" width="30" height="55" rx="12" fill="#FB7185" />
+      <path id="backpack_pocket_zipper" d="M 140 240 L 160 240" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" />
+      <!-- Backpack Top Handle Loop -->
+      <path id="backpack_handle" d="M 165 195 C 165 180 185 180 185 195" stroke="#38BDF8" stroke-width="6" stroke-linecap="round" fill="none" />
+      <!-- Backpack Keyring Dangling Tag -->
+      <circle id="backpack_charm_ring" cx="138" cy="285" r="4" fill="#FFB800" />
+      <path id="backpack_charm_star" d="M 138 290 Q 138 296 132 296 Q 138 296 138 302 Q 138 296 144 296 Q 138 296 138 290 Z" fill="#FFB800" />
+    </g>
+
+    <!-- Left Leg (Trailing behind in stride) -->
+    <g id="student_leg_back">
+      <!-- Thigh & Calf (Navy/Sky Blue pants) -->
+      <path id="leg_back_path" d="M 230 330 L 180 405 C 175 412 180 422 188 424 C 196 426 205 420 208 412 L 250 340 Z" fill="#38BDF8" />
+      <!-- Sneaker (Coral & Mint trim) -->
+      <path id="shoe_back" d="M 165 415 L 195 415 C 205 418 208 430 200 436 L 160 436 C 150 436 152 422 165 415 Z" fill="#FB7185" />
+      <rect id="shoe_back_sole" x="156" y="432" width="46" height="6" rx="3" fill="#FFFFFF" />
+    </g>
+
+    <!-- Torso / Trendy Mint Hoodie (Soft Mint #34D399) -->
+    <g id="student_torso">
+      <!-- Body shape slightly tilted forward in energetic walk -->
+      <path id="torso_hoodie" d="M 190 205 C 190 195 210 185 245 185 C 275 185 295 195 295 215 L 285 330 C 285 340 230 345 205 335 Z" fill="#34D399" />
+      <!-- Hoodie Front Kangaroo Pocket -->
+      <path id="hoodie_front_pocket" d="M 235 275 L 280 275 C 285 305 275 320 240 320 C 225 320 225 305 235 275 Z" fill="#2BB582" />
+      <!-- Backpack Shoulder Strap over chest -->
+      <path id="backpack_strap" d="M 215 192 L 235 315" stroke="#38BDF8" stroke-width="12" stroke-linecap="round" fill="none" />
+      <circle id="strap_clip" cx="225" cy="250" r="5" fill="#FFB800" />
+    </g>
+
+    <!-- Right Leg (Stepping forward actively) -->
+    <g id="student_leg_front">
+      <!-- Thigh forward & Calf stepping down -->
+      <path id="leg_front_path" d="M 255 325 L 305 385 L 325 415 C 330 422 340 422 345 415 C 350 408 348 398 340 392 L 315 358 L 280 320 Z" fill="#38BDF8" />
+      <!-- Front Sneaker touching ground with bounce -->
+      <path id="shoe_front" d="M 315 418 L 355 418 C 368 420 372 432 362 440 L 315 440 C 305 440 305 425 315 418 Z" fill="#FB7185" />
+      <rect id="shoe_front_sole" x="310" y="434" width="55" height="7" rx="3.5" fill="#FFFFFF" />
+      <circle id="shoe_front_accent" cx="340" cy="425" r="4" fill="#FFB800" />
+    </g>
+
+    <!-- Head & Cheerful Expression (Golden Hair / Cap & Bright Smile) -->
+    <g id="student_head">
+      <!-- Neck -->
+      <rect id="student_neck" x="240" y="165" width="22" height="25" rx="5" fill="#FB7185" opacity="0.3" />
+
+      <!-- Head Base -->
+      <circle id="student_face" cx="255" cy="140" r="45" fill="#FFE3D1" />
+
+      <!-- Coral Cap / Beanie (Youthful Korean street fashion) -->
+      <path id="student_cap" d="M 215 135 C 215 95 245 80 280 85 C 305 90 315 110 310 135 Z" fill="#FB7185" />
+      <!-- Cap Visor pointing forward -->
+      <path id="cap_visor" d="M 275 118 L 325 124 C 330 125 330 132 322 135 L 285 135 Z" fill="#FB7185" />
+      <!-- Cap Top Pin Dot -->
+      <circle id="cap_pin" cx="265" cy="85" r="5" fill="#FFB800" />
+
+      <!-- Peeking Bangs (Golden Yellow #FFB800) -->
+      <path id="hair_peeking" d="M 285 132 C 295 138 290 148 280 148 C 275 148 275 140 285 132 Z" fill="#FFB800" />
+      <path id="hair_sideburn" d="M 225 135 C 220 150 225 158 230 155 Z" fill="#FFB800" />
+
+      <!-- Blushing Cheeks -->
+      <circle id="student_blush" cx="292" cy="152" r="8" fill="#FB7185" opacity="0.65" />
+
+      <!-- Happy Cheerful Closed Eye (Curved line) -->
+      <path id="student_eye_happy" d="M 275 138 Q 285 130 295 138" stroke="#1E252D" stroke-width="4.5" stroke-linecap="round" fill="none" />
+
+      <!-- Big Joyful Smile -->
+      <path id="student_smile" d="M 280 155 Q 295 170 305 155" fill="#FB7185" stroke="#1E252D" stroke-width="3" stroke-linecap="round" />
+      <path id="student_teeth" d="M 284 156 Q 295 162 301 156" fill="#FFFFFF" />
+    </g>
+
+    <!-- Right Arm (Swinging joyfully forward) -->
+    <g id="student_arm_front">
+      <!-- Upper Arm & Sleeve -->
+      <path id="arm_sleeve" d="M 250 200 L 290 235 C 298 242 295 255 285 260 C 275 265 265 258 258 250 L 235 220 Z" fill="#34D399" />
+      <!-- Fist / Hand swinging forward -->
+      <circle id="hand_front" cx="305" cy="250" r="14" fill="#FFE3D1" />
+      <circle id="thumb_front" cx="298" cy="242" r="6" fill="#FFE3D1" />
+    </g>
+  </g>
+</svg>
