@@ -27,11 +27,12 @@
     {
       "id": "prop_crabit_phone_hero",
       "file": "prop_crabit_phone_hero.svg",
-      "viewBox": "0 0 800 1200",
+      "viewBox": "0 0 1200 1600",
       "anchors": {
-        "device": "400px 600px",
-        "walletCard": "400px 385px",
-        "caratBadge": "570px 199px"
+        "device": "600px 725px",
+        "walletCard": "600px 475px",
+        "caratBadge": "745px 303px",
+        "tapRipple": "650px 680px"
       }
     },
     {

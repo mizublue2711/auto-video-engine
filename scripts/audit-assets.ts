@@ -1,3 +1,4 @@
+import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -26,17 +27,51 @@ const MANDATORY_FILES = [
   'prop_icon_handraise.svg',
   'prop_icon_book_sparkle.svg',
   'prop_crabit_card_reward.svg',
+  'scene3_classroom_peer_contrast.svg',
+  'scene3a_teacher_chalkboard_challenge.svg',
   'asset-manifest.json',
 ];
 
 function auditSvgContent(content: string, filename: string): Partial<AuditResult> {
-  // 1. XML check
-  const xmlValid = content.includes('<svg') && content.includes('</svg>');
+  // 1. Strict XML validation
+  let xmlValid = false;
+  let notes: string | undefined;
+
+  // Check 1A: Illegal double-hyphens inside comments (XML 1.0 Section 2.5)
+  const commentMatches = content.match(/<!--([\s\S]*?)-->/g) || [];
+  for (const comment of commentMatches) {
+    const inner = comment.slice(4, -3);
+    if (inner.includes('--')) {
+      xmlValid = false;
+      notes = 'Illegal "--" detected inside XML comment (violates XML 1.0 Section 2.5)';
+      break;
+    }
+  }
+
+  // Check 1B: True XML parser execution
+  if (!notes) {
+    try {
+      execSync(`python3 -c "import xml.etree.ElementTree as ET; ET.fromstring('''${content.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}''')"`, {
+        stdio: 'pipe',
+      });
+      xmlValid = true;
+    } catch {
+      // Fallback: file-based check if command line was too long or escaped
+      try {
+        const filePath = path.join(ASSET_DIR, filename);
+        execSync(`python3 -c "import xml.etree.ElementTree as ET; ET.parse('${filePath}')"`, { stdio: 'pipe' });
+        xmlValid = true;
+      } catch (err: any) {
+        xmlValid = false;
+        notes = `XML Parser Error: ${err.message || 'Malformed XML structure'}`;
+      }
+    }
+  }
   
   // 2. ViewBox
   const viewBoxMatch = content.match(/viewBox=["']([^"']+)["']/);
   const viewBox = viewBoxMatch ? viewBoxMatch[1] : undefined;
-  const viewBoxCompliant = viewBox === '0 0 1000 1000' || viewBox === '0 0 800 1200';
+  const viewBoxCompliant = viewBox === '0 0 1000 1000' || viewBox === '0 0 800 1200' || viewBox === '0 0 1920 1080' || viewBox === '0 0 1200 1600';
 
   // 3. Groups & IDs
   const idMatches = content.match(/id=["']([^"']+)["']/g) || [];

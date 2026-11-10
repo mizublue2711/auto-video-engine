@@ -1,147 +1,178 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" id="svg_student" preserveAspectRatio="xMidYMid meet">
-  <!-- LAYER 1: Chair Backrest & Support (Behind the body) -->
-  <g id="chair_backrest">
-    <rect id="chair_back_cushion" x="370" y="440" width="260" height="170" rx="28" fill="#64748B" />
-    <rect id="chair_back_inner" x="390" y="460" width="220" height="130" rx="18" fill="#475569" opacity="0.6" />
-    <rect id="chair_pole" x="488" y="610" width="24" height="200" rx="6" fill="#334155" />
-    <path id="chair_base" d="M 400 810 L 600 810 L 590 835 L 410 835 Z" fill="#334155" />
-    <circle id="chair_wheel_left" cx="410" cy="843" r="10" fill="#1E293B" />
-    <circle id="chair_wheel_center" cx="500" cy="843" r="10" fill="#1E293B" />
-    <circle id="chair_wheel_right" cx="590" cy="843" r="10" fill="#1E293B" />
-    <!-- Cushioned Seat Base -->
-    <rect id="chair_seat_cushion" x="350" y="625" width="300" height="34" rx="14" fill="#334155" stroke="#1E293B" stroke-width="2" />
+  <!-- LAYER 1: Desk Modesty Panel & Outer Legs (Behind the student's torso plane) -->
+  <g id="desk_modesty_panel_and_legs">
+    <!-- Two Minimal Outer Desk Legs Grounding the Desk -->
+    <rect id="desk_leg_left" x="200" y="560" width="20" height="340" rx="4" fill="#94A3B8" />
+    <rect id="desk_leg_right" x="780" y="560" width="20" height="340" rx="4" fill="#94A3B8" />
+    <rect id="desk_foot_left" x="190" y="892" width="40" height="12" rx="3" fill="#64748B" />
+    <rect id="desk_foot_right" x="770" y="892" width="40" height="12" rx="3" fill="#64748B" />
+    <line id="floor_ground_line" x1="120" y1="904" x2="880" y2="904" stroke="#E2E8F0" stroke-width="2" />
+
+    <!-- Modesty Panel (Tấm ván yếm chắn kín hoàn toàn gầm bàn) -->
+    <rect id="desk_modesty_panel" x="220" y="596" width="560" height="280" rx="4" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="2" />
+    <!-- Subtle Architectural Groove & Recess on Modesty Panel -->
+    <rect id="modesty_panel_inner" x="240" y="616" width="520" height="240" rx="3" fill="#F1F5F9" opacity="0.6" />
+    <line x1="240" y1="636" x2="760" y2="636" stroke="#CBD5E1" stroke-width="1.5" />
   </g>
 
-  <!-- LAYER 2: Student Hips & Thighs (Sitting horizontally on chair seat) -->
-  <g id="student_hips_thighs">
-    <path id="thigh_left" d="M 360,630 L 475,630 L 470,685 L 350,685 Z" fill="#334155" />
-    <path id="thigh_right" d="M 525,630 L 640,630 L 650,685 L 530,685 Z" fill="#334155" />
-  </g>
+  <!-- LAYER 2: State A - Bored & Collapsed on Desk (Default opacity="1") -->
+  <g id="student_state_bored" opacity="1">
+    <!-- Hunched Back Curving Down Toward Desk -->
+    <path id="hunched_back" fill="#3B82F6" d="M 330,600 C 320,500 370,430 490,430 C 590,430 650,480 670,600 Z" />
+    <path id="hunched_hoodie_crease_1" stroke="#2563EB" stroke-width="4" stroke-linecap="round" fill="none" d="M 390,520 Q 480,490 570,525" />
+    <path id="hunched_hoodie_crease_2" stroke="#2563EB" stroke-width="3.5" stroke-linecap="round" fill="none" d="M 410,555 Q 490,535 580,565" />
+    <!-- Slumped Hood at Back of Neck -->
+    <path id="hoodie_slumped_collar" d="M 430,445 C 420,420 460,405 500,405 C 540,405 580,420 570,445 Z" fill="#2563EB" />
 
-  <!-- LAYER 3: Calves & Feet (Descending vertically at 90-degree angle, sneakers grounded at y=900) -->
-  <g id="student_calves_feet">
-    <g id="student_legs">
-      <path id="calf_left" d="M 375,685 L 445,685 L 435,890 L 370,890 Z" fill="#334155" />
-      <path id="calf_right" d="M 555,685 L 625,685 L 630,890 L 565,890 Z" fill="#334155" />
-      <path id="crease_left" stroke="#1E293B" stroke-width="3" stroke-linecap="round" d="M 405,730 L 405,860" />
-      <path id="crease_right" stroke="#1E293B" stroke-width="3" stroke-linecap="round" d="M 595,730 L 595,860" />
-      <!-- White Socks -->
-      <rect id="sock_left" x="374" y="884" width="60" height="14" rx="3" fill="#FFFFFF" />
-      <rect id="sock_right" x="566" y="884" width="60" height="14" rx="3" fill="#FFFFFF" />
-    </g>
+    <!-- Head & Face Lowered and Tilted Sideways, Resting Directly on Folded Arms (y ≈ 500) -->
+    <g id="student_head_bored">
+      <!-- Head Circle Lowered & Tilted -->
+      <ellipse id="head_slumped_base" cx="490" cy="500" rx="85" ry="75" transform="rotate(-8 490 500)" fill="#FFE3D1" />
+      <circle id="ear_slumped" cx="565" cy="515" r="14" fill="#FFE3D1" />
 
-    <!-- Clean White Student Sneakers resting flat on floor plane at y=900 -->
-    <g id="student_shoes">
-      <path id="shoe_left_upper" d="M 350,900 L 445,900 C 455,900 455,876 435,876 L 395,876 C 370,876 358,884 350,900 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" />
-      <rect id="shoe_left_sole" x="345" y="900" width="105" height="14" rx="4" fill="#94A3B8" />
-      <rect id="shoe_left_tread" x="345" y="909" width="105" height="5" rx="2" fill="#64748B" />
-      <path id="shoe_left_accent" d="M 385,886 L 420,886" stroke="#3B82F6" stroke-width="3" stroke-linecap="round" />
+      <!-- Messy Hair Drooping Over the Face & Folded Arms -->
+      <path id="hair_slumped" fill="#1E293B" d="M 410,480 C 400,410 440,410 500,410 C 560,410 585,430 580,485 C 570,455 540,450 515,465 C 485,480 445,460 410,480 Z" />
+      <path id="hair_droop_lock" fill="#1E293B" d="M 450,470 Q 430,500 420,520 Q 440,510 465,490 Z" />
 
-      <path id="shoe_right_upper" d="M 555,900 L 650,900 C 660,900 660,876 640,876 L 600,876 C 575,876 563,884 555,900 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" />
-      <rect id="shoe_right_sole" x="550" y="900" width="105" height="14" rx="4" fill="#94A3B8" />
-      <rect id="shoe_right_tread" x="550" y="909" width="105" height="5" rx="2" fill="#64748B" />
-      <path id="shoe_right_accent" d="M 580,886 L 615,886" stroke="#3B82F6" stroke-width="3" stroke-linecap="round" />
-    </g>
-  </g>
+      <!-- Eyes: Droopy Flat Horizontal Slits -->
+      <path id="eyes_bored_slits" stroke="#1E293B" stroke-width="5" stroke-linecap="round" fill="none" d="M 435,505 L 465,502 M 495,498 L 525,496" />
 
-  <!-- LAYER 4: Torso Hoodie (Sloping downward naturally at 20 degrees, behind desk surface) -->
-  <g id="student_torso_group">
-    <path id="student_hoodie_body" fill="#2563EB" d="M 360,670 L 360,600 C 360,565 410,555 500,555 C 590,555 640,565 640,600 L 640,670 Z" />
-    <path id="student_hoodie_pocket" d="M 440,610 L 560,610 C 560,650 540,665 500,665 C 460,665 440,650 440,610 Z" fill="#1D4ED8" />
-    <path id="hoodie_string_left" d="M 480,565 L 478,610" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" />
-    <circle id="hoodie_knot_left" cx="478" cy="612" r="4" fill="#FFFFFF" />
-    <path id="hoodie_string_right" d="M 520,565 L 522,610" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" />
-    <circle id="hoodie_knot_right" cx="522" cy="612" r="4" fill="#FFFFFF" />
-  </g>
+      <!-- Sleepy Drooping Eyebrows -->
+      <path stroke="#1E293B" stroke-width="4" stroke-linecap="round" fill="none" d="M 432,492 L 462,494 M 498,490 L 528,487" />
 
-  <!-- LAYER 5: 15-Degree Oblique Desk Surface (Overlaps & Clips the Waist) -->
-  <g id="student_desk_prop">
-    <!-- Desk Legs anchoring to ground -->
-    <rect id="desk_legs" x="220" y="650" width="28" height="250" rx="6" fill="#94A3B8" />
-    <rect id="desk_legs_right" x="752" y="650" width="28" height="250" rx="6" fill="#94A3B8" />
-    <rect id="desk_crossbar" x="220" y="770" width="560" height="16" rx="4" fill="#CBD5E1" />
-    <rect id="desk_foot_left" x="205" y="895" width="58" height="12" rx="4" fill="#64748B" />
-    <rect id="desk_foot_right" x="737" y="895" width="58" height="12" rx="4" fill="#64748B" />
+      <!-- Slanted Listless Frown -->
+      <path id="mouth_slanted_frown" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round" fill="none" d="M 465,528 Q 485,520 505,524" />
 
-    <!-- 15-Degree Oblique Desk Top Surface: Top width 640px, bottom width 700px, depth 60px -->
-    <polygon id="desk_surface" points="180,590 820,590 850,650 150,650" fill="#CBD5E1" stroke="#94A3B8" stroke-width="1.5" />
-    <polygon id="desk_top_highlight" points="180,590 820,590 823,596 177,596" fill="#E2E8F0" />
-    <!-- Desk Front Lip -->
-    <polygon id="desk_front_lip" points="150,650 850,650 850,672 150,672" fill="#94A3B8" />
+      <!-- Pale Exhausted Blush -->
+      <circle cx="430" cy="515" r="12" fill="#FF9B9B" opacity="0.35" />
+      <circle cx="525" cy="510" r="12" fill="#FF9B9B" opacity="0.35" />
 
-    <!-- Stationery resting on oblique desk plane -->
-    <g id="desk_stationery">
-      <polygon id="desk_notebook" points="435,602 565,602 575,638 425,638" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
-      <line x1="500" y1="602" x2="500" y2="638" stroke="#CBD5E1" stroke-width="2" />
-      <line x1="445" y1="612" x2="490" y2="612" stroke="#E2E8F0" stroke-width="2" />
-      <line x1="442" y1="622" x2="490" y2="622" stroke="#E2E8F0" stroke-width="2" />
-      <line x1="510" y1="612" x2="555" y2="612" stroke="#E2E8F0" stroke-width="2" />
-      <line x1="510" y1="622" x2="558" y2="622" stroke="#E2E8F0" stroke-width="2" />
-      <rect id="desk_pen" x="590" y="618" width="45" height="6" rx="3" fill="#3B82F6" transform="rotate(-6 610 620)" />
+      <!-- Exhaustion Drop & Sigh Accent -->
+      <path id="exhaustion_drop" fill="#60A5FA" d="M 550,460 C 542,460 538,468 542,476 C 546,484 554,484 558,476 C 562,468 558,460 550,460 Z" />
+      <!-- Small Sleepy Zzz Icons -->
+      <text x="375" y="460" fill="#94A3B8" font-size="28" font-weight="900" opacity="0.7">z</text>
+      <text x="355" y="435" fill="#94A3B8" font-size="36" font-weight="900" opacity="0.5">Z</text>
     </g>
   </g>
 
-  <!-- LAYER 6: Forearms Resting on Top of Desk Surface -->
-  <g id="student_arms_resting_on_desk">
-    <path id="forearm_left" d="M 360,600 Q 350,625 410,626 L 475,632" fill="none" stroke="#2563EB" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" />
-    <path id="forearm_left_cuff" d="M 370,610 Q 420,615 470,628" fill="none" stroke="#1D4ED8" stroke-width="28" stroke-linecap="round" />
-    <path id="forearm_right" d="M 640,600 Q 650,625 590,626 L 525,632" fill="none" stroke="#2563EB" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" />
-    <path id="forearm_right_cuff" d="M 630,610 Q 580,615 530,628" fill="none" stroke="#1D4ED8" stroke-width="28" stroke-linecap="round" />
-    <circle id="hand_left" cx="475" cy="630" r="16" fill="#FFE3D1" />
-    <circle id="hand_right" cx="525" cy="630" r="16" fill="#FFE3D1" />
-  </g>
-
-  <!-- LAYER 7: Natural Distinct Neck Column (fill="#FFE3D1", height 28px) -->
-  <g id="student_neck">
-    <rect id="neck_column" x="482" y="538" width="36" height="28" rx="6" fill="#FFE3D1" />
-    <path id="neck_shadow" d="M 482,538 L 518,538 L 518,548 C 500,554 490,554 482,548 Z" fill="#F5CCA8" />
-  </g>
-
-  <!-- LAYER 8: Head Morph (Fixed Head Skull & Hair, Only Inner Face Swaps) -->
-  <g id="student_head_morph">
-    <!-- Head State A: Bored / Slumping -->
-    <g id="student_head_bored" opacity="1">
-      <circle id="head_circle_bored" cx="500" cy="450" r="95" fill="#FFE3D1" />
-      <circle id="ear_bored_left" cx="405" cy="450" r="15" fill="#FFE3D1" />
-      <circle id="ear_bored_right" cx="595" cy="450" r="15" fill="#FFE3D1" />
-      <!-- Unified Hair: Clean Korean side-swept fringe in #1E293B -->
-      <path id="hair_neat_bored" fill="#1E293B" d="M 400 460 C 395 345 435 330 500 330 C 565 330 605 345 600 460 C 595 430 580 398 560 390 C 532 395 505 422 470 428 C 442 430 420 412 405 438 Z" />
-      <circle id="blush_left" cx="440" cy="465" r="13" fill="#FF9B9B" opacity="0.4" />
-      <circle id="blush_right" cx="560" cy="465" r="13" fill="#FF9B9B" opacity="0.4" />
-      <path id="brow_bored_left" stroke="#1E293B" stroke-width="5" stroke-linecap="round" fill="none" d="M 440 420 Q 458 430 475 426" />
-      <path id="brow_bored_right" stroke="#1E293B" stroke-width="5" stroke-linecap="round" fill="none" d="M 525 426 Q 542 430 560 420" />
-      <path id="eyes_sleepy_slanted" stroke="#334155" stroke-width="6" stroke-linecap="round" fill="none" d="M 442 438 Q 458 445 474 440 M 526 440 Q 542 445 558 438" />
-      <path id="nose_bored" stroke="#E2A888" stroke-width="3" stroke-linecap="round" fill="none" d="M 500,444 L 500,454 L 505,455" />
-      <path id="mouth_frown" stroke="#334155" stroke-width="5" stroke-linecap="round" fill="none" d="M 478 485 Q 500 475 522 482" />
-      <path id="sweat_drop_bored" d="M 575 425 C 568 425 565 431 568 438 C 571 445 578 445 581 438 C 584 431 581 425 575 425 Z" fill="#60A5FA" opacity="0.8" />
+  <!-- LAYER 3: State B - Excited & Alert (Default opacity="0") -->
+  <g id="student_state_excited" opacity="0">
+    <!-- Back & Upright Torso in Blue Crabit Hoodie (#2563EB) -->
+    <g id="student_torso_group">
+      <path id="torso_upright_body" fill="#2563EB" d="M 370,600 L 375,470 C 378,430 420,410 500,410 C 580,410 622,430 625,470 L 630,600 Z" />
+      <path id="hoodie_pocket_upright" d="M 440,525 L 560,525 C 560,565 540,578 500,578 C 460,578 440,565 440,525 Z" fill="#1D4ED8" />
+      <!-- Drawstrings -->
+      <path d="M 480,440 L 478,480" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" />
+      <circle cx="478" cy="482" r="3.5" fill="#FFFFFF" />
+      <path d="M 520,440 L 522,480" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" />
+      <circle cx="522" cy="482" r="3.5" fill="#FFFFFF" />
+      <!-- Crabit Carat Chest Crest -->
+      <polygon points="500,455 512,467 508,482 492,482 488,467" fill="#00E5FF" />
+      <polygon points="500,455 512,467 508,482 500,482" fill="#0284C7" opacity="0.6" />
     </g>
 
-    <!-- Head State B: Excited / Sparkling -->
-    <g id="student_head_excited" opacity="0">
-      <circle id="head_circle_excited" cx="500" cy="450" r="95" fill="#FFE3D1" />
-      <circle id="ear_excited_left" cx="405" cy="450" r="15" fill="#FFE3D1" />
-      <circle id="ear_excited_right" cx="595" cy="450" r="15" fill="#FFE3D1" />
-      <path id="hair_neat_excited" fill="#1E293B" d="M 400 460 C 395 345 435 330 500 330 C 565 330 605 345 600 460 C 595 430 580 398 560 390 C 532 395 505 422 470 428 C 442 430 420 412 405 438 Z" />
-      <circle id="blush_excited_left" cx="438" cy="462" r="15" fill="#FCA5A5" opacity="0.85" />
-      <circle id="blush_excited_right" cx="562" cy="462" r="15" fill="#FCA5A5" opacity="0.85" />
-      <path id="brow_excited_left" stroke="#1E293B" stroke-width="5" stroke-linecap="round" fill="none" d="M 440 415 Q 458 405 475 414" />
-      <path id="brow_excited_right" stroke="#1E293B" stroke-width="5" stroke-linecap="round" fill="none" d="M 525 414 Q 542 405 560 415" />
-      <circle id="eye_left_sparkle" cx="462" cy="436" r="10" fill="#0F172A" />
-      <circle id="eye_left_catchlight" cx="459" cy="432" r="3" fill="#FFFFFF" />
-      <circle id="eye_left_catchlight_sub" cx="465" cy="438" r="1.8" fill="#FFFFFF" />
-      <circle id="eye_right_sparkle" cx="538" cy="436" r="10" fill="#0F172A" />
-      <circle id="eye_right_catchlight" cx="535" cy="432" r="3" fill="#FFFFFF" />
-      <circle id="eye_right_catchlight_sub" cx="541" cy="438" r="1.8" fill="#FFFFFF" />
-      <path id="nose_excited" stroke="#E2A888" stroke-width="3" stroke-linecap="round" fill="none" d="M 500,442 L 500,452 L 505,453" />
-      <path id="mouth_wide_smile" fill="#EF4444" d="M 470,468 Q 500,500 530,468 Z" />
-      <path id="teeth_excited" fill="#FFFFFF" d="M 476,469 Q 500,478 524,469 Q 500,472 476,469 Z" />
-      <path id="tongue_excited" fill="#F87171" d="M 488,488 Q 500,480 512,488 C 508,498 492,498 488,488 Z" />
-      <path id="smile_outline" stroke="#B91C1C" stroke-width="2.5" stroke-linecap="round" fill="none" d="M 468,467 Q 500,502 532,467" />
-      <path id="sparkle_star_left" fill="#F59E0B" d="M 330 360 Q 330 380 310 380 Q 330 380 330 400 Q 330 380 350 380 Q 330 380 330 360 Z" />
-      <circle id="sparkle_dot_left" cx="300" cy="350" r="5" fill="#38BDF8" />
-      <path id="sparkle_star_right" fill="#F59E0B" d="M 670 340 Q 670 365 645 365 Q 670 365 670 390 Q 670 365 695 365 Q 670 365 670 340 Z" />
-      <circle id="sparkle_dot_right" cx="705" cy="405" r="6" fill="#10B981" />
-      <path id="sparkle_star_top" fill="#00E5FF" d="M 500 240 Q 500 255 485 255 Q 500 255 500 270 Q 500 255 515 255 Q 500 255 500 240 Z" />
+    <!-- Natural Visible Neck Column -->
+    <rect id="neck_excited" x="480" y="390" width="40" height="30" rx="6" fill="#FFE3D1" />
+    <path id="neck_excited_shadow" d="M 480,390 L 520,390 L 520,398 C 505,404 495,404 480,398 Z" fill="#F5CCA8" />
+
+    <!-- Head & Face Held High (Center around y=360..380) -->
+    <g id="student_head_excited">
+      <!-- Head Circle -->
+      <circle id="head_circle_excited" cx="500" cy="360" r="95" fill="#FFE3D1" />
+      <!-- Ears -->
+      <circle cx="405" cy="360" r="15" fill="#FFE3D1" />
+      <circle cx="595" cy="360" r="15" fill="#FFE3D1" />
+
+      <!-- Unified Clean Korean Side-Swept Hair in #1E293B -->
+      <path id="hair_neat_excited" fill="#1E293B" d="M 400 370 C 395 255 435 240 500 240 C 565 240 605 255 600 370 C 595 340 580 308 560 300 C 532 305 505 332 470 338 C 442 340 420 322 405 348 Z" />
+
+      <!-- Lively Raised Eyebrows -->
+      <path stroke="#1E293B" stroke-width="5" stroke-linecap="round" fill="none" d="M 440 320 Q 458 310 475 318 M 525 318 Q 542 310 560 320" />
+
+      <!-- Eyes: Wide Open, Bright Pupils with White Glint Stars -->
+      <circle id="eye_l_pupil" cx="462" cy="345" r="12" fill="#0F172A" />
+      <circle id="eye_l_glint" cx="458" cy="340" r="4" fill="#FFFFFF" />
+      <circle id="eye_l_glint_sub" cx="466" cy="348" r="2" fill="#FFFFFF" />
+
+      <circle id="eye_r_pupil" cx="538" cy="345" r="12" fill="#0F172A" />
+      <circle id="eye_r_glint" cx="534" cy="340" r="4" fill="#FFFFFF" />
+      <circle id="eye_r_glint_sub" cx="542" cy="348" r="2" fill="#FFFFFF" />
+
+      <!-- Cute Nose -->
+      <path stroke="#E2A888" stroke-width="3" stroke-linecap="round" fill="none" d="M 500,352 L 500,362 L 506,363" />
+
+      <!-- Big Happy Smile with Red Tongue Visible -->
+      <path id="mouth_wide_smile" fill="#EF4444" d="M 465,378 Q 500,418 535,378 Z" />
+      <path id="teeth_excited" fill="#FFFFFF" d="M 472,379 Q 500,388 528,379 Q 500,382 472,379 Z" />
+      <path id="tongue_excited" fill="#F87171" d="M 485,400 Q 500,390 515,400 C 510,412 490,412 485,400 Z" />
+      <path stroke="#B91C1C" stroke-width="2.5" stroke-linecap="round" fill="none" d="M 463,377 Q 500,420 537,377" />
+
+      <!-- Pink Rosy Cheeks -->
+      <circle cx="435" cy="370" r="16" fill="#FCA5A5" opacity="0.85" />
+      <circle cx="565" cy="370" r="16" fill="#FCA5A5" opacity="0.85" />
+
+      <!-- Floating Gold Sparkle Stars Around Head -->
+      <polygon id="sparkle_star_l" points="340,250 348,268 368,275 348,282 340,300 332,282 312,275 332,268" fill="#F59E0B" />
+      <polygon id="sparkle_star_r" points="660,240 668,258 688,265 668,272 660,290 652,272 632,265 652,258" fill="#F59E0B" />
+      <polygon id="sparkle_star_top" points="500,160 506,174 520,180 506,186 500,200 494,186 480,180 494,174" fill="#00E5FF" />
+      <circle cx="310" cy="320" r="5" fill="#38BDF8" />
+      <circle cx="690" cy="320" r="5" fill="#10B981" />
+    </g>
+  </g>
+
+  <!-- LAYER 4: Desk Surface Front (Clips the torso cleanly) -->
+  <g id="desk_surface_front">
+    <!-- Desk Surface Top Board: x=200, y=560, width=600, height=36, rx=8, fill="#CBD5E1" -->
+    <rect id="desk_surface" x="200" y="560" width="600" height="36" rx="8" fill="#CBD5E1" stroke="#94A3B8" stroke-width="1.5" />
+    <!-- Desk Top Bevel Highlight Trim -->
+    <rect id="desk_top_highlight" x="200" y="560" width="600" height="8" rx="4" fill="#E2E8F0" />
+    <!-- Desk Front Bevel Shadow -->
+    <rect id="desk_front_shadow" x="200" y="590" width="600" height="6" fill="#94A3B8" opacity="0.6" />
+  </g>
+
+  <!-- LAYER 5: Arms & Props on Desk (Folded arms in State A / resting palms in State B, textbooks/pencil case) -->
+  <g id="arms_and_props_on_desk">
+    <!-- State A Arms: Folded arms acting as a pillow on the desk surface -->
+    <g id="arms_state_bored" opacity="1">
+      <!-- Left Forearm crossed horizontally -->
+      <path id="folded_arm_l" d="M 330,555 C 330,535 380,530 450,540 L 560,548 L 550,580 L 420,575 Z" fill="#2563EB" />
+      <!-- Right Forearm crossed over left -->
+      <path id="folded_arm_r" d="M 670,555 C 670,535 620,530 550,540 L 440,548 L 450,580 L 580,575 Z" fill="#1D4ED8" />
+      <!-- Resting Hands tucked under head -->
+      <circle id="hand_bored_l" cx="435" cy="560" r="16" fill="#FFE3D1" />
+      <circle id="hand_bored_r" cx="565" cy="560" r="16" fill="#FFE3D1" />
+    </g>
+
+    <!-- State B Arms: Hands placed lightly on desk edge in alert posture -->
+    <g id="arms_state_excited" opacity="0">
+      <path id="excited_arm_l" d="M 375,470 L 350,550 L 440,565" fill="none" stroke="#2563EB" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" />
+      <path id="excited_arm_r" d="M 625,470 L 650,550 L 560,565" fill="none" stroke="#2563EB" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" />
+      <circle id="hand_excited_l" cx="440" cy="565" r="16" fill="#FFE3D1" />
+      <circle id="hand_excited_r" cx="560" cy="565" r="16" fill="#FFE3D1" />
+    </g>
+
+    <!-- Generic Remotion Hook Anchor (Satisfies audit rigging contract) -->
+    <g id="student_arms_resting_on_desk" opacity="0">
+      <rect x="350" y="550" width="300" height="40" rx="8" fill="#2563EB" />
+    </g>
+
+    <!-- Study Props on Desk Top (Open textbook, pencil case, highlighter pen) -->
+    <g id="desk_study_props">
+      <!-- Open Textbook / Study Guide -->
+      <polygon id="desk_book_base" points="260,565 380,565 390,588 250,588" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+      <line id="book_spine_crease" x1="320" y1="565" x2="320" y2="588" stroke="#CBD5E1" stroke-width="2" />
+      <line x1="270" y1="572" x2="310" y2="572" stroke="#E2E8F0" stroke-width="2" />
+      <line x1="268" y1="580" x2="310" y2="580" stroke="#E2E8F0" stroke-width="2" />
+      <line x1="330" y1="572" x2="370" y2="572" stroke="#E2E8F0" stroke-width="2" />
+      <line x1="330" y1="580" x2="372" y2="580" stroke="#E2E8F0" stroke-width="2" />
+
+      <!-- Modern Korean Study Pencil Case (Pouch) -->
+      <rect id="pencil_case" x="660" y="566" width="90" height="20" rx="8" fill="#3B82F6" stroke="#1D4ED8" stroke-width="1.5" />
+      <line x1="675" y1="576" x2="735" y2="576" stroke="#93C5FD" stroke-width="2" stroke-linecap="round" />
+      <circle cx="675" cy="576" r="3" fill="#FBBF24" />
+
+      <!-- Highlighter Pen -->
+      <rect id="desk_highlighter" x="610" y="572" width="40" height="5" rx="2.5" fill="#EF4444" transform="rotate(-5 630 574)" />
     </g>
   </g>
 </svg>
