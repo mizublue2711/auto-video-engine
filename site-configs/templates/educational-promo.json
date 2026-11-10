@@ -1,0 +1,44 @@
+{
+  "tenantId": "template-educational-promo",
+  "tenantName": "Educational Promo Template",
+  "palette": {
+    "primary": "#4F46E5",
+    "secondary": "#06B6D4",
+    "accent": "#F59E0B",
+    "background": "#F8FAFC",
+    "text": "#0F172A"
+  },
+  "runtime": {
+    "fps": 30,
+    "width": 1920,
+    "height": 1080
+  },
+  "scenes": {
+    "scene1": {
+      "title": "Struggling with Daily Study?",
+      "subtitle": "Traditional education methods don't engage modern learners",
+      "directorDialogue": "Focus on the screen!",
+      "studentEmotion": "bored",
+      "durationInFrames": 90
+    },
+    "scene2": {
+      "headline": "Meet the Gamified Learning Platform",
+      "subheadline": "Turn routine tasks into engaging quests",
+      "appScreenTitle": "Interactive Learning App",
+      "durationInFrames": 90
+    },
+    "scene3": {
+      "headline": "Consistency Multiplied by 300%",
+      "studyMetricLabel": "Daily Active Focus Time",
+      "studyMetricValue": "45 min/day",
+      "durationInFrames": 90
+    },
+    "scene4": {
+      "headline": "Earn Real Rewards Every Day",
+      "cardHolderName": "ALEX KIM",
+      "rewardAmount": 50000,
+      "rewardCurrency": "POINTS",
+      "durationInFrames": 90
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "tenantId": "crabit-korea",
+  "tenantName": "크래빗 코리아 (Crabit Korea)",
+  "palette": {
+    "primary": "#FF5E36",
+    "secondary": "#2EC4B6",
+    "accent": "#FFBF00",
+    "background": "#FFF9F5",
+    "text": "#1A1A1A"
+  },
+  "runtime": {
+    "fps": 30,
+    "width": 1920,
+    "height": 1080
+  },
+  "scenes": {
+    "scene1": {
+      "title": "공부가 지루할 땐 어떡하죠?",
+      "subtitle": "집중 못 하는 우리 아이, 매일 같은 잔소리는 그만!",
+      "directorDialogue": "집중해야지!",
+      "studentEmotion": "bored",
+      "durationInFrames": 90
+    },
+    "scene2": {
+      "headline": "크래빗 모바일 앱으로 해결!",
+      "subheadline": "게임을 하듯 재미있게 몰입하는 자기주도 학습 습관",
+      "appScreenTitle": "크래빗 챌린지 모드",
+      "durationInFrames": 90
+    },
+    "scene3": {
+      "headline": "매일 30분씩 쑥쑥 자라는 집중력",
+      "studyMetricLabel": "일일 학습 달성률",
+      "studyMetricValue": "98.5%",
+      "durationInFrames": 90
+    },
+    "scene4": {
+      "headline": "공부하고 당근 모아 크래빗 카드로 쏙!",
+      "cardHolderName": "KIM CRABIT",
+      "rewardAmount": 25000,
+      "rewardCurrency": "CARROT",
+      "durationInFrames": 90
+    }
+  }
+}

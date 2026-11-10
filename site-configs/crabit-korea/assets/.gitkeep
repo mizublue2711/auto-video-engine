@@ -1,0 +1,3 @@
+# Raw SVG and vector assets for Crabit Korea
+# Naming rule: [entity_type]_[object_name]_[part_or_state].[ext]
+# Example: char_student_bored.svg, ui_crabit_card.svg, prop_phone_hero.svg

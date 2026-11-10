@@ -1,0 +1,11 @@
+# Dependencies
+node_modules/
+
+# Remotion & Render outputs
+out/
+dist/
+.remotion/
+
+# OS and Editor
+.DS_Store
+*.log
