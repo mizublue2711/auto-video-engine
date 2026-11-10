@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 650" width="500" height="650">
+  <!-- STUDENT LEGS WALK RIG: Fully Articulated Hierarchical Rig -->
+
+  <!-- Ground Plane Reference & Dynamic Walk Contact Shadows (Ground Plane y=520) -->
+  <g id="legs_ground_shadows">
+    <ellipse id="shadow_trail_toe" cx="145" cy="522" rx="32" ry="6.5" fill="#000000" opacity="0.25" />
+    <ellipse id="shadow_lead_sole" cx="340" cy="522" rx="72" ry="8.5" fill="#000000" opacity="0.35" />
+    <ellipse id="shadow_stride_ambient" cx="240" cy="523" rx="145" ry="11" fill="#000000" opacity="0.14" />
+  </g>
+
+  <!-- ======================================================================== -->
+  <!-- 1. TRAIL LEG (LEFT) - Hierarchical 3-Tier Rig in Background (#1E293B)   -->
+  <!-- ======================================================================== -->
+  <g id="leg_left_thigh" data-pivot="220 80">
+    <!-- Trail Thigh Path: Relaxed streetwear silhouette angled backward -->
+    <path id="thigh_left_mesh" d="M 196 82 C 192 135 170 215 168 252 C 168 268 178 276 192 276 C 206 276 214 266 214 250 C 228 198 244 135 244 78 C 244 62 232 58 220 58 C 206 58 198 66 196 82 Z" fill="#1E293B" stroke="#0F172A" stroke-width="2.2" stroke-linejoin="round" />
+    <!-- Inseam Shadow & Fabric Crease -->
+    <path id="thigh_left_shade" d="M 196 82 C 192 135 170 215 168 252 L 182 252 C 192 208 214 135 220 82 Z" fill="#0F172A" opacity="0.5" />
+    <path d="M 178 242 Q 192 248 206 242" fill="none" stroke="#0F172A" stroke-width="2" stroke-linecap="round" />
+
+    <!-- Left Shin Group: Pivot at Knee (190, 260) -->
+    <g id="leg_left_shin" data-pivot="190 260">
+      <!-- Trail Shin Mesh: Tapering calf descending to ankle -->
+      <path id="shin_left_mesh" d="M 170 258 C 154 320 148 395 152 452 L 188 452 C 198 395 210 320 210 258 C 210 244 200 242 190 242 C 180 242 172 244 170 258 Z" fill="#1E293B" stroke="#0F172A" stroke-width="2.2" stroke-linejoin="round" />
+      <path id="shin_left_shade" d="M 170 258 C 154 320 148 395 152 452 L 166 452 C 164 395 174 320 182 258 Z" fill="#0F172A" opacity="0.45" />
+
+      <!-- Trouser Hem Ribbed Cuff (#0F172A) reaching ankle y=450 -->
+      <rect id="cuff_left" x="150" y="446" width="40" height="12" rx="3" fill="#0F172A" stroke="#020617" stroke-width="1.5" />
+      <!-- White Ankle Sock Transition -->
+      <path id="sock_left" d="M 158 454 L 182 454 C 182 466 168 470 158 462 Z" fill="#E2E8F0" />
+
+      <!-- Left Foot Group: Pivot at Ankle (170, 450) -->
+      <!-- Pushing off: Heel raised high, ball and toe pressing ground plane y=520 -->
+      <g id="leg_left_foot" data-pivot="170 450">
+        <!-- Trail Sneaker Upper (#CBD5E1) - Sleek Low-top Profile -->
+        <path id="sneaker_left_upper" d="M 160 464 C 150 468 138 488 126 508 C 118 514 116 518 120 520 L 152 520 C 162 514 176 498 198 484 C 206 478 202 468 192 466 C 180 464 170 460 160 464 Z" fill="#CBD5E1" stroke="#94A3B8" stroke-width="2" stroke-linejoin="round" />
+
+        <!-- Trail Rubber Sole (#64748B) - Natural Flex Curve -->
+        <path id="sneaker_left_sole" d="M 120 520 L 154 520 C 166 514 182 498 204 484 L 198 478 C 178 494 158 510 148 514 L 118 514 C 114 514 115 520 120 520 Z" fill="#64748B" stroke="#475569" stroke-width="1.6" />
+
+        <!-- Instep Flex Crease Accent -->
+        <line x1="138" y1="504" x2="148" y2="498" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" />
+        <line x1="144" y1="510" x2="154" y2="504" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" />
+
+        <!-- Heel Accent Tag (#2563EB) -->
+        <circle cx="192" cy="472" r="3.5" fill="#2563EB" />
+      </g>
+    </g>
+  </g>
+
+  <!-- ======================================================================== -->
+  <!-- 2. LEAD LEG (RIGHT) - Foreground Hierarchical Rig (#334155)             -->
+  <!-- ======================================================================== -->
+  <g id="leg_right_thigh" data-pivot="260 80">
+    <!-- Lead Thigh Path: Athletic quadriceps curve advancing forward -->
+    <path id="thigh_right_mesh" d="M 234 84 C 234 138 256 210 268 252 C 272 268 286 280 302 278 C 318 276 324 262 320 246 C 310 195 294 135 290 80 C 288 62 276 58 260 58 C 244 58 236 66 234 84 Z" fill="#334155" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round" />
+    <!-- Thigh Muscle Ridge Highlight -->
+    <path id="thigh_right_highlight" d="M 264 88 C 268 135 284 198 296 244" fill="none" stroke="#475569" stroke-width="3" stroke-linecap="round" opacity="0.6" />
+    <!-- Knee Fabric Tension Crease -->
+    <path d="M 276 244 Q 294 250 310 244" fill="none" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" />
+
+    <!-- Right Shin Group: Pivot at Knee (290, 260) -->
+    <g id="leg_right_shin" data-pivot="290 260">
+      <!-- Lead Shin Mesh: Natural calf curve descending to ankle socket -->
+      <path id="shin_right_mesh" d="M 270 258 C 274 320 288 395 298 452 L 342 452 C 334 395 320 318 314 258 C 312 244 300 242 290 242 C 280 242 272 245 270 258 Z" fill="#334155" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round" />
+      <path id="shin_right_highlight" d="M 292 266 C 300 320 316 385 322 446" fill="none" stroke="#475569" stroke-width="3" stroke-linecap="round" opacity="0.6" />
+
+      <!-- Trouser Hem Ribbed Cuff (#1E293B) at Ankle level -->
+      <rect id="cuff_right" x="296" y="446" width="48" height="12" rx="3" fill="#1E293B" stroke="#0F172A" stroke-width="1.8" />
+      <!-- Crisp White Ankle Sock -->
+      <path id="sock_right" d="M 308 454 L 332 454 C 334 468 318 470 308 460 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" />
+
+      <!-- Right Foot Group: Pivot at Ankle (320, 450) -->
+      <!-- Sleek low-top white sneaker (#FFFFFF) with gray sole (#94A3B8) flat touching ground y=520 -->
+      <g id="leg_right_foot" data-pivot="320 450">
+        <!-- Low-Top Sneaker Main Leather Upper (#FFFFFF) with athletic ergonomic curves -->
+        <path id="sneaker_right_upper" d="M 288 480 C 282 492 280 502 280 510 L 400 510 C 404 506 404 496 394 490 C 382 482 358 476 342 470 C 334 466 324 460 318 460 C 304 460 294 468 288 480 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2.2" stroke-linejoin="round" />
+
+        <!-- Crisp Gray Rubber Outsole (#94A3B8) planted flat along ground y=520 -->
+        <path id="sneaker_right_sole" d="M 276 510 L 404 510 C 408 510 409 515 407 520 L 274 520 C 272 515 273 510 276 510 Z" fill="#94A3B8" stroke="#64748B" stroke-width="1.8" />
+        <line x1="278" y1="515" x2="404" y2="515" stroke="#64748B" stroke-width="1.2" />
+
+        <!-- Rubber Toe Cap Bumper -->
+        <path id="sneaker_toe_cap" d="M 384 510 C 394 506 402 500 400 490 C 390 490 378 498 374 510 Z" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" />
+
+        <!-- Dynamic Cyan Carat Speed Stripe (#38BDF8 & #00E5FF) -->
+        <path id="sneaker_stripe_cyan" d="M 326 480 L 360 492 L 356 498 L 322 486 Z" fill="#38BDF8" />
+        <path id="sneaker_stripe_accent" d="M 334 476 L 368 488 L 366 492 L 332 480 Z" fill="#00E5FF" opacity="0.8" />
+
+        <!-- White Laces (3 crisp rungs on instep) -->
+        <line x1="326" y1="468" x2="338" y2="472" stroke="#94A3B8" stroke-width="2.5" stroke-linecap="round" />
+        <line x1="332" y1="474" x2="344" y2="478" stroke="#94A3B8" stroke-width="2.5" stroke-linecap="round" />
+        <line x1="338" y1="480" x2="350" y2="484" stroke="#94A3B8" stroke-width="2.5" stroke-linecap="round" />
+
+        <!-- Royal Blue Heel Counter Tab (#2563EB) -->
+        <path id="sneaker_heel_tab" d="M 286 482 C 284 476 290 472 294 474 L 296 486 Z" fill="#2563EB" />
+      </g>
+    </g>
+  </g>
+</svg>

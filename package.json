@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@remotion/cli": "^4.0.240",
+    "@resvg/resvg-js-cli": "^2.6.2-beta.1",
     "@types/node": "^20.14.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",

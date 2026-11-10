@@ -1,0 +1,33 @@
+{
+  "id": "arm_raised_classroom",
+  "name": "Student Raised Arm Classroom Gesture",
+  "category": "limb",
+  "viewBox": "0 0 240 400",
+  "dimensions": {
+    "width": 240,
+    "height": 400
+  },
+  "pivots": {
+    "shoulder": { "x": 40, "y": 360 }
+  },
+  "sockets": {
+    "shoulder": { "x": 40, "y": 360 }
+  },
+  "immutable_inputs": {
+    "props_allowed": ["style", "opacity", "transform"],
+    "color_tokens_used": [
+      "#2563EB",
+      "#1D4ED8",
+      "#1E40AF",
+      "#FFE3D1",
+      "#E2A888",
+      "#FDBA74",
+      "#FFFFFF"
+    ]
+  },
+  "dependencies": [
+    "character_master_model_sheet.svg#turnaround_three_quarter_right"
+  ],
+  "tags": ["arm", "raised_hand", "classroom", "student"],
+  "version": "1.0.0"
+}

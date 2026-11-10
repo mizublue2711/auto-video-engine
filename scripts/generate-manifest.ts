@@ -12,9 +12,12 @@ export interface ComponentMeta {
   filePath: string;
   metaPath: string;
   viewBox: string;
+  dimensions?: { width: number; height: number };
+  sockets?: Record<string, { x: number; y: number }>;
   pivots?: Record<string, { x: number; y: number }>;
-  tags: string[];
+  tags?: string[];
   version: string;
+  [key: string]: any;
 }
 
 function scanDirectory(dir: string, fileList: string[] = []): string[] {
@@ -69,6 +72,7 @@ export function buildManifest(assetsRoot: string = ASSETS_ROOT, manifestPath: st
 
       manifest.components[content.id] = {
         ...content,
+        sockets: content.sockets || {},
         filePath: relativeSvg,
         metaPath: relativeMeta
       };

@@ -1,0 +1,41 @@
+{
+  "id": "torso_hoodie_34_strap",
+  "name": "Student Torso 3/4 Hoodie with Backpack Strap",
+  "category": "torso",
+  "viewBox": "0 0 400 450",
+  "dimensions": {
+    "width": 400,
+    "height": 450
+  },
+  "pivots": {
+    "neck_socket": { "x": 200, "y": 40 },
+    "hip_socket": { "x": 195, "y": 380 }
+  },
+  "sockets": {
+    "neck_socket": { "x": 200, "y": 40 },
+    "hip_socket": { "x": 195, "y": 380 }
+  },
+  "immutable_inputs": {
+    "props_allowed": ["style", "opacity", "transform"],
+    "color_tokens_used": [
+      "#2563EB",
+      "#1D4ED8",
+      "#1E40AF",
+      "#F59E0B",
+      "#D97706",
+      "#B45309",
+      "#FDE68A",
+      "#E2E8F0",
+      "#94A3B8",
+      "#64748B",
+      "#FFFFFF",
+      "#00E5FF",
+      "#38BDF8"
+    ]
+  },
+  "dependencies": [
+    "character_master_model_sheet.svg#turnaround_three_quarter_right"
+  ],
+  "tags": ["torso", "hoodie", "backpack", "3_4_view", "student"],
+  "version": "1.0.0"
+}

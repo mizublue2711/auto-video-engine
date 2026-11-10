@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 450" width="400" height="450">
+  <!-- Student Torso 3/4 View with Backpack & Chest Strap Component -->
+  <g id="torso_hoodie_34_strap" data-pivot="195 380">
+    <!-- 1. Snug Amber Gold Backpack (#F59E0B) nestled tightly behind left back contour -->
+    <g id="backpack_assembly">
+      <!-- Top Webbing Loop -->
+      <path id="backpack_handle" d="M 95 65 C 95 38 122 38 122 68" fill="none" stroke="#D97706" stroke-width="6" stroke-linecap="round" />
+
+      <!-- Main Backpack Body: Snug against left back contour with ZERO floating space -->
+      <path id="backpack_main_body" d="M 120 75 C 80 70 42 105 36 170 C 30 238 38 305 74 344 C 98 370 125 358 132 334 L 126 155 Z" fill="#F59E0B" stroke="#D97706" stroke-width="3.5" stroke-linejoin="round" />
+
+      <!-- Side Gusset Shadow & Depth Panel -->
+      <path id="backpack_shade_gusset" d="M 36 170 C 30 238 38 305 74 344 C 88 320 98 210 108 115 C 75 110 46 136 36 170 Z" fill="#D97706" opacity="0.55" />
+
+      <!-- Exterior Front Zipper Pocket -->
+      <rect id="backpack_pocket" x="42" y="198" width="52" height="88" rx="10" fill="#D97706" stroke="#B45309" stroke-width="2.2" />
+      <line id="backpack_zipper" x1="48" y1="222" x2="88" y2="222" stroke="#FDE68A" stroke-width="3" stroke-linecap="round" />
+
+      <!-- Reflector Charm Tag -->
+      <circle id="backpack_charm_ring" cx="62" cy="302" r="4" fill="#FBBF24" />
+      <polygon id="backpack_charm_gem" points="62,308 70,317 67,328 57,328 54,317" fill="#00E5FF" stroke="#38BDF8" stroke-width="1.2" />
+    </g>
+
+    <!-- 2. Hoodie Torso Assembly (Tilted 6° Forward for Dynamic Walking Momentum) -->
+    <g id="hoodie_body_assembly">
+      <!-- Back Interior Rim Behind Neck Socket -->
+      <path id="hoodie_collar_back" d="M 160 52 Q 200 30 240 48" fill="none" stroke="#1D4ED8" stroke-width="15" stroke-linecap="round" />
+      <ellipse id="hoodie_collar_interior" cx="200" cy="40" rx="30" ry="10" fill="#0F172A" opacity="0.75" />
+
+      <!-- Main Hoodie Torso Body (#2563EB) -->
+      <!-- Broad teen shoulders (x=116 to 318), 6° forward torso lean, tapered waist (x=136 to 268) -->
+      <path id="hoodie_torso_base" d="M 162 52 L 116 92 C 112 152 118 248 136 358 L 268 358 C 298 290 334 205 328 152 C 322 112 314 96 295 86 L 238 48 C 214 62 186 62 162 52 Z" fill="#2563EB" stroke="#1D4ED8" stroke-width="3" stroke-linejoin="round" />
+
+      <!-- Left Lateral Back Shade (#1D4ED8) -->
+      <path id="hoodie_back_shade" d="M 162 52 L 116 92 C 112 152 118 248 136 358 L 165 358 C 152 245 146 145 162 52 Z" fill="#1D4ED8" opacity="0.35" />
+
+      <!-- Front Collar Rim Over Clavicle -->
+      <path id="hoodie_collar_front" d="M 162 52 Q 200 78 238 48 C 230 72 216 86 200 86 C 184 86 170 72 162 52 Z" fill="#1D4ED8" stroke="#1E40AF" stroke-width="2" />
+
+      <!-- Kangaroo Front Pocket (#1D4ED8) -->
+      <path id="hoodie_kangaroo_pocket" d="M 172 268 C 218 258 270 262 296 280 C 288 316 280 344 268 358 L 162 358 C 158 338 164 296 172 268 Z" fill="#1D4ED8" stroke="#1E40AF" stroke-width="2" />
+      <!-- Pocket Entry Slits -->
+      <path id="pocket_slit_left" d="M 172 268 Q 186 304 176 338" fill="none" stroke="#2563EB" stroke-width="3.5" stroke-linecap="round" />
+      <path id="pocket_slit_right" d="M 296 280 Q 284 316 276 348" fill="none" stroke="#2563EB" stroke-width="3.5" stroke-linecap="round" />
+
+      <!-- Dark Navy Ribbed Waist Cuff (#1D4ED8) terminating at y=380 -->
+      <path id="hoodie_waist_cuff" d="M 134 358 L 270 358 C 271 368 266 378 258 380 L 140 380 C 133 376 132 368 134 358 Z" fill="#1D4ED8" stroke="#1E40AF" stroke-width="2.5" />
+      <!-- Ribbing Seam Lines -->
+      <line x1="152" y1="360" x2="152" y2="378" stroke="#1E40AF" stroke-width="1.8" stroke-linecap="round" />
+      <line x1="170" y1="360" x2="170" y2="378" stroke="#1E40AF" stroke-width="1.8" stroke-linecap="round" />
+      <line x1="188" y1="360" x2="188" y2="378" stroke="#1E40AF" stroke-width="1.8" stroke-linecap="round" />
+      <line x1="206" y1="360" x2="206" y2="378" stroke="#1E40AF" stroke-width="1.8" stroke-linecap="round" />
+      <line x1="224" y1="360" x2="224" y2="378" stroke="#1E40AF" stroke-width="1.8" stroke-linecap="round" />
+      <line x1="242" y1="360" x2="242" y2="378" stroke="#1E40AF" stroke-width="1.8" stroke-linecap="round" />
+      <line x1="258" y1="360" x2="258" y2="378" stroke="#1E40AF" stroke-width="1.8" stroke-linecap="round" />
+    </g>
+
+    <!-- 3. Curved Off-White Shoulder Harness Strap (#E2E8F0, Width 10px) -->
+    <g id="harness_strap_system">
+      <!-- Main Strap coming over left shoulder, crossing the chest diagonally, anchoring to waist seam -->
+      <path id="harness_shoulder_strap" d="M 138 66 C 154 125 186 210 218 288 C 230 322 226 345 218 358" fill="none" stroke="#E2E8F0" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+      <!-- Strap Trim & Shading -->
+      <path id="harness_strap_accent" d="M 142 68 C 158 127 190 212 222 290 C 234 324 230 345 222 358" fill="none" stroke="#CBD5E1" stroke-width="2" stroke-linecap="round" />
+
+      <!-- Horizontal Sternum Chest Strap with Buckle -->
+      <path id="harness_sternum_strap" d="M 194 204 Q 236 212 284 222" fill="none" stroke="#E2E8F0" stroke-width="6" stroke-linecap="round" />
+      <rect id="harness_buckle_frame" x="184" y="196" width="20" height="17" rx="3.5" fill="#94A3B8" stroke="#64748B" stroke-width="2" />
+      <rect id="harness_buckle_core" x="190" y="200" width="8" height="9" rx="1.5" fill="#334155" />
+      <rect id="sternum_slider" x="242" y="210" width="11" height="10" rx="2" fill="#64748B" />
+    </g>
+
+    <!-- 4. Clean White Hoodie Drawstrings (#FFFFFF) Hanging Naturally -->
+    <g id="hoodie_drawstrings">
+      <!-- Left Drawstring -->
+      <path id="drawstring_left" d="M 184 72 Q 180 115 184 156" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
+      <circle id="drawstring_left_tip" cx="184" cy="160" r="4.5" fill="#FFFFFF" />
+      <!-- Right Drawstring -->
+      <path id="drawstring_right" d="M 216 72 Q 222 112 218 148" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
+      <circle id="drawstring_right_tip" cx="218" cy="152" r="4.5" fill="#FFFFFF" />
+    </g>
+
+    <!-- 5. Cyan Carat Crest (#00E5FF) on Upper Right Chest -->
+    <g id="carat_crest" transform="translate(282, 138)">
+      <polygon id="carat_crest_outer" points="0,-12 11,-3 8,10 -8,10 -11,-3" fill="#00E5FF" stroke="#38BDF8" stroke-width="1.6" stroke-linejoin="round" />
+      <polygon id="carat_crest_facet" points="0,-12 11,-3 0,0 -11,-3" fill="#BAE6FD" opacity="0.85" />
+    </g>
+
+    <!-- 6. Anatomical Sockets (Snap Anchors) -->
+    <circle id="socket_neck" cx="200" cy="40" r="3" fill="none" opacity="0" />
+    <circle id="socket_hip" cx="195" cy="380" r="3" fill="none" opacity="0" />
+  </g>
+</svg>

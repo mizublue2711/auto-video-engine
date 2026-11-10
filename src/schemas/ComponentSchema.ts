@@ -21,6 +21,13 @@ export const PivotPointSchema = z.object({
 
 export const PivotsSchema = z.record(z.string(), PivotPointSchema);
 
+export const SocketPointSchema = z.object({
+  x: z.number(),
+  y: z.number(),
+});
+
+export const SocketsSchema = z.record(z.string(), SocketPointSchema);
+
 export const ImmutableInputsSchema = z.object({
   props_allowed: z.array(z.string()).optional(),
   color_tokens_used: z.array(z.string()).optional(),
@@ -37,6 +44,7 @@ export const AtomicComponentMetaSchema = z.object({
     .regex(/^0 0 \d+ \d+$/, 'viewBox must match pattern ^0 0 \\d+ \\d+$'),
   dimensions: DimensionsSchema,
   pivots: PivotsSchema.optional(),
+  sockets: SocketsSchema.optional(),
   immutable_inputs: ImmutableInputsSchema,
   dependencies: z.array(z.string()).optional(),
   tags: z.array(z.string()).optional(),
@@ -47,6 +55,8 @@ export type ComponentCategory = z.infer<typeof ComponentCategoryEnum>;
 export type Dimensions = z.infer<typeof DimensionsSchema>;
 export type PivotPoint = z.infer<typeof PivotPointSchema>;
 export type Pivots = z.infer<typeof PivotsSchema>;
+export type SocketPoint = z.infer<typeof SocketPointSchema>;
+export type Sockets = z.infer<typeof SocketsSchema>;
 export type ImmutableInputs = z.infer<typeof ImmutableInputsSchema>;
 export type AtomicComponentMeta = z.infer<typeof AtomicComponentMetaSchema>;
 

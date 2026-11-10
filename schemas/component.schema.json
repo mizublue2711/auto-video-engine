@@ -47,6 +47,18 @@
         }
       }
     },
+    "sockets": {
+      "type": "object",
+      "description": "Magnetic connection points for Lego assembly (e.g., neck, hip, shoulder sockets)",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["x", "y"],
+        "properties": {
+          "x": { "type": "number", "description": "X coordinate in component's local viewBox" },
+          "y": { "type": "number", "description": "Y coordinate in component's local viewBox" }
+        }
+      }
+    },
     "immutable_inputs": {
       "type": "object",
       "description": "Các thuộc tính đầu vào bất biến mà linh kiện cho phép can thiệp",

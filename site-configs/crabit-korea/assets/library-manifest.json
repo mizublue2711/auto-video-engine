@@ -1,8 +1,10 @@
 {
-  "generated_at": "2026-11-10T17:28:04.838Z",
-  "total_components": 1,
+  "generated_at": "2026-11-10T18:01:25.479Z",
+  "total_components": 4,
   "categories": {
-    "head": 1
+    "head": 1,
+    "limb": 2,
+    "torso": 1
   },
   "components": {
     "head_34_confident": {
@@ -15,6 +17,12 @@
         "height": 320
       },
       "pivots": {
+        "neck_base": {
+          "x": 160,
+          "y": 290
+        }
+      },
+      "sockets": {
         "neck_base": {
           "x": 160,
           "y": 290
@@ -46,6 +54,194 @@
       "version": "1.1.0",
       "filePath": "student-rig-kit/heads/head_34_confident.svg",
       "metaPath": "student-rig-kit/heads/head_34_confident.meta.json"
+    },
+    "arm_raised_classroom": {
+      "id": "arm_raised_classroom",
+      "name": "Student Raised Arm Classroom Gesture",
+      "category": "limb",
+      "viewBox": "0 0 240 400",
+      "dimensions": {
+        "width": 240,
+        "height": 400
+      },
+      "pivots": {
+        "shoulder": {
+          "x": 40,
+          "y": 360
+        }
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 40,
+          "y": 360
+        }
+      },
+      "immutable_inputs": {
+        "props_allowed": [
+          "style",
+          "opacity",
+          "transform"
+        ],
+        "color_tokens_used": [
+          "#2563EB",
+          "#1D4ED8",
+          "#1E40AF",
+          "#FFE3D1",
+          "#E2A888",
+          "#FDBA74",
+          "#FFFFFF"
+        ]
+      },
+      "dependencies": [
+        "character_master_model_sheet.svg#turnaround_three_quarter_right"
+      ],
+      "tags": [
+        "arm",
+        "raised_hand",
+        "classroom",
+        "student"
+      ],
+      "version": "1.0.0",
+      "filePath": "student-rig-kit/limbs/arm_raised_classroom.svg",
+      "metaPath": "student-rig-kit/limbs/arm_raised_classroom.meta.json"
+    },
+    "legs_walk_rig": {
+      "id": "legs_walk_rig",
+      "name": "Student Hierarchical Walk Rig Legs",
+      "category": "limb",
+      "viewBox": "0 0 500 650",
+      "dimensions": {
+        "width": 500,
+        "height": 650
+      },
+      "pivots": {
+        "hip_right": {
+          "x": 260,
+          "y": 80
+        },
+        "knee_right": {
+          "x": 290,
+          "y": 260
+        },
+        "ankle_right": {
+          "x": 320,
+          "y": 450
+        },
+        "hip_left": {
+          "x": 220,
+          "y": 80
+        },
+        "knee_left": {
+          "x": 190,
+          "y": 260
+        },
+        "ankle_left": {
+          "x": 170,
+          "y": 450
+        }
+      },
+      "sockets": {
+        "hip_socket": {
+          "x": 240,
+          "y": 80
+        }
+      },
+      "immutable_inputs": {
+        "props_allowed": [
+          "style",
+          "opacity",
+          "transform"
+        ],
+        "color_tokens_used": [
+          "#334155",
+          "#1E293B",
+          "#0F172A",
+          "#FFFFFF",
+          "#94A3B8",
+          "#64748B",
+          "#CBD5E1",
+          "#E2E8F0",
+          "#38BDF8",
+          "#2563EB"
+        ]
+      },
+      "dependencies": [
+        "character_master_model_sheet.svg#turnaround_three_quarter_right"
+      ],
+      "tags": [
+        "legs",
+        "walk_cycle",
+        "hierarchical_rig",
+        "remotion_ready"
+      ],
+      "version": "1.0.0",
+      "filePath": "student-rig-kit/limbs/legs_walk_rig.svg",
+      "metaPath": "student-rig-kit/limbs/legs_walk_rig.meta.json"
+    },
+    "torso_hoodie_34_strap": {
+      "id": "torso_hoodie_34_strap",
+      "name": "Student Torso 3/4 Hoodie with Backpack Strap",
+      "category": "torso",
+      "viewBox": "0 0 400 450",
+      "dimensions": {
+        "width": 400,
+        "height": 450
+      },
+      "pivots": {
+        "neck_socket": {
+          "x": 200,
+          "y": 40
+        },
+        "hip_socket": {
+          "x": 195,
+          "y": 380
+        }
+      },
+      "sockets": {
+        "neck_socket": {
+          "x": 200,
+          "y": 40
+        },
+        "hip_socket": {
+          "x": 195,
+          "y": 380
+        }
+      },
+      "immutable_inputs": {
+        "props_allowed": [
+          "style",
+          "opacity",
+          "transform"
+        ],
+        "color_tokens_used": [
+          "#2563EB",
+          "#1D4ED8",
+          "#1E40AF",
+          "#F59E0B",
+          "#D97706",
+          "#B45309",
+          "#FDE68A",
+          "#E2E8F0",
+          "#94A3B8",
+          "#64748B",
+          "#FFFFFF",
+          "#00E5FF",
+          "#38BDF8"
+        ]
+      },
+      "dependencies": [
+        "character_master_model_sheet.svg#turnaround_three_quarter_right"
+      ],
+      "tags": [
+        "torso",
+        "hoodie",
+        "backpack",
+        "3_4_view",
+        "student"
+      ],
+      "version": "1.0.0",
+      "filePath": "student-rig-kit/torsos/torso_hoodie_34_strap.svg",
+      "metaPath": "student-rig-kit/torsos/torso_hoodie_34_strap.meta.json"
     }
   }
 }
