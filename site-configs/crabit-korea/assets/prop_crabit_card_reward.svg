@@ -1,67 +1,237 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800" id="svg_crabit_card_carats_deposit" preserveAspectRatio="xMidYMid meet">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" id="svg_crabit_card_reward" preserveAspectRatio="xMidYMid meet">
   <defs>
-    <!-- Premium Deep Blue Hologram Gradient -->
-    <linearGradient id="card_hologram" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1E40AF" />
-      <stop offset="50%" stop-color="#3B82F6" />
-      <stop offset="100%" stop-color="#0F172A" />
+    <!-- Deep Royal Corporate Blue Card Gradient -->
+    <linearGradient id="card_royal_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="50%" stop-color="#1D4ED8" />
+      <stop offset="100%" stop-color="#1E3A8A" />
     </linearGradient>
-    <linearGradient id="gem_cyan_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+
+    <!-- Metallic Brushed Gold EMV Chip Gradients -->
+    <linearGradient id="gold_chip_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF3C7" />
+      <stop offset="30%" stop-color="#FDE68A" />
+      <stop offset="70%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+
+    <!-- Glowing Cyan Carat Diamond & Particle Gradient -->
+    <linearGradient id="carat_cyan_glow" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#E0F2FE" />
-      <stop offset="50%" stop-color="#38BDF8" />
-      <stop offset="100%" stop-color="#0284C7" />
+      <stop offset="45%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#00E5FF" />
     </linearGradient>
-    <filter id="drop_shadow_ticker" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000000" flood-opacity="0.1" />
+
+    <!-- Status Badge Gradient -->
+    <linearGradient id="status_badge_grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+
+    <!-- Cyan Energy Sweep Arc Gradient -->
+    <linearGradient id="energy_sweep_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="1" />
+      <stop offset="50%" stop-color="#38BDF8" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0.2" />
+    </linearGradient>
+
+    <!-- Foil Pattern Overlay Clip -->
+    <clipPath id="card_foil_clip">
+      <rect x="0" y="0" width="720" height="450" rx="32" />
+    </clipPath>
+
+    <!-- Atmospheric Card Drop Shadow Filter -->
+    <filter id="card_shadow_filter" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="28" stdDeviation="32" flood-color="#090D16" flood-opacity="0.45" />
+    </filter>
+
+    <!-- Luminous Energy Glow Filter -->
+    <filter id="luminous_glow_filter" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="badge_shadow_filter" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.18" />
     </filter>
   </defs>
 
-  <!-- 1. Card Base Plate -->
-  <g id="card_plate_group">
-     <rect id="card_shadow" x="180" y="180" width="640" height="400" rx="36" fill="#090D16" opacity="0.3" />
-     <rect id="card_surface" x="180" y="160" width="640" height="400" rx="36" fill="url(#card_hologram)" stroke="#60A5FA" stroke-width="2" />
-     <path id="card_geometric_facets" opacity="0.12" fill="#FFFFFF" d="M180,160 L450,160 L320,560 L180,560 Z" />
-  </g>
+  <!-- ========================================================================= -->
+  <!-- MAIN STAGE WRAPPER: Centered in 1920x1080 stage                          -->
+  <!-- ========================================================================= -->
+  <g id="crabit_card_stage" transform="translate(960, 520)">
 
-  <!-- 2. Metallic EMV Chip (Receiver) -->
-  <g id="card_chip" transform="translate(250, 260)">
-     <rect width="70" height="54" rx="8" fill="#FBBF24" stroke="#D97706" stroke-width="1.5" />
-     <path d="M0,27 h70 M25,0 v54 M45,0 v54" stroke="#B45309" stroke-width="1.5" />
-  </g>
+    <!-- ===================================================================== -->
+    <!-- 4. ENERGY INJECTION & CHARGING SWEEP (<g id="card_charging_fx">)     -->
+    <!-- Energy sweep stroke & inflowing Carat diamonds converging toward chip -->
+    <!-- ===================================================================== -->
+    <g id="card_charging_fx">
+      <!-- Energy Sweep Stroke: luminous cyan arc wrapping around card perimeter -->
+      <!-- Tilted in alignment with the -8deg card chassis -->
+      <g id="energy_glow_sweep_group" transform="rotate(-8)">
+        <!-- Outer diffuse ambient energy aura -->
+        <rect x="-380" y="-245" width="760" height="490" rx="42" fill="none" stroke="#00E5FF" stroke-width="14" opacity="0.18" filter="url(#luminous_glow_filter)" />
+        <!-- Core Precision Luminous Cyan Energy Sweep Arc -->
+        <path id="energy_glow_sweep" d="M -360,-120 L -360,-225 L 120,-225 M 360,-100 L 360,225 L -180,225" fill="none" stroke="url(#energy_sweep_grad)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.85" filter="url(#luminous_glow_filter)" />
+        <!-- Inflowing Cyan Energy Stream Tendrils -->
+        <path id="energy_inflow_tendril_1" d="M 420,-140 C 260,-100 0,-90 -160,-70" fill="none" stroke="#00E5FF" stroke-width="3" stroke-dasharray="12,8" opacity="0.75" />
+        <path id="energy_inflow_tendril_2" d="M 480,-20 C 300,10 60,-10 -140,-50" fill="none" stroke="#38BDF8" stroke-width="2.5" stroke-dasharray="8,6" opacity="0.65" />
+      </g>
 
-  <!-- 3. Crabit Card Typography & Co-branding -->
-  <g id="card_text_group">
-     <text x="250" y="470" fill="#FFFFFF" font-size="32" font-weight="900" letter-spacing="3" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">CRABIT</text>
-     <text x="250" y="505" fill="#93C5FD" font-size="16" font-weight="600" letter-spacing="1" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">STUDENT SCHOLARSHIP CARD</text>
-     <!-- Brand Logo Mark: Mini Diamond inside Crab Crest -->
-     <polygon points="730,220 750,205 770,220 750,250" fill="url(#gem_cyan_grad)" />
-  </g>
+      <!-- Inflowing Carat Stream: 5-6 faceted cyan Carat diamond vectors converging toward smart chip -->
+      <!-- Target Chip Position in Stage space: approx (-220, -75) after -8 deg rotation -->
+      <g id="inflowing_carat_stream">
+        <!-- Gem 1: Imminent Injection (Directly entering the chip contact) -->
+        <g id="carat_stream_gem_1" transform="translate(-140, -110) scale(1.1)" filter="url(#luminous_glow_filter)">
+          <polygon points="20,0 40,14 32,38 8,38 0,14" fill="url(#carat_cyan_glow)" stroke="#FFFFFF" stroke-width="2" />
+          <polygon points="20,0 40,14 28,18 20,10" fill="#FFFFFF" opacity="0.8" />
+          <polygon points="20,10 28,18 20,36 12,18" fill="#E0F2FE" opacity="0.9" />
+        </g>
 
-  <!-- 4. Carat Gems Stream (Particle Flow toward Card Chip) -->
-  <g id="carat_gems_stream">
-     <!-- Gem 1 (Leading into the chip) -->
-     <g id="carat_gem_1" transform="translate(360, 240)">
-        <polygon points="30,5 50,22 40,55 20,55 10,22" fill="url(#gem_cyan_grad)" stroke="#E0F2FE" stroke-width="2" />
-        <circle cx="45" cy="15" r="3" fill="#FFFFFF" />
-     </g>
-     <!-- Gem 2 (Mid-flight) -->
-     <g id="carat_gem_2" transform="translate(480, 160)">
-        <polygon points="25,4 42,18 34,45 17,45 8,18" fill="url(#gem_cyan_grad)" stroke="#E0F2FE" stroke-width="1.5" />
-     </g>
-     <!-- Gem 3 (Floating in from top right) -->
-     <g id="carat_gem_3" transform="translate(620, 110)">
-        <polygon points="20,3 34,14 27,36 13,36 6,14" fill="url(#gem_cyan_grad)" opacity="0.8" />
-     </g>
-  </g>
+        <!-- Gem 2: Inflow Stream - Close approach -->
+        <g id="carat_stream_gem_2" transform="translate(20, -165) scale(1.3)" filter="url(#luminous_glow_filter)">
+          <polygon points="22,0 44,16 35,42 9,42 0,16" fill="url(#carat_cyan_glow)" stroke="#FFFFFF" stroke-width="2" />
+          <polygon points="22,0 44,16 32,20 22,11" fill="#FFFFFF" opacity="0.8" />
+          <polygon points="22,11 32,20 22,40 12,20" fill="#E0F2FE" opacity="0.9" />
+          <circle cx="22" cy="18" r="3.5" fill="#FFFFFF" />
+        </g>
 
-  <!-- 5. Floating Balance Ticker (Pop-up Result) -->
-  <g id="card_balance_ticker" transform="translate(320, 600)">
-     <rect width="360" height="84" rx="42" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="3" filter="url(#drop_shadow_ticker)" />
-     <!-- Green check badge -->
-     <circle cx="50" cy="42" r="24" fill="#10B981" />
-     <path d="M40,42 L47,49 L60,35" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-     <!-- Balance text -->
-     <text x="95" y="40" fill="#64748B" font-size="14" font-weight="600" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">장학금 충전 완료 (Recharged)</text>
-     <text x="95" y="66" fill="#0F172A" font-size="24" font-weight="900" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">+ 50,000 KRW</text>
+        <!-- Gem 3: Mid-flight Energy Surge -->
+        <g id="carat_stream_gem_3" transform="translate(190, -210) scale(1.0)">
+          <polygon points="20,0 40,14 32,38 8,38 0,14" fill="url(#carat_cyan_glow)" stroke="#E0F2FE" stroke-width="1.5" />
+          <polygon points="20,0 40,14 28,18 20,10" fill="#FFFFFF" opacity="0.7" />
+        </g>
+
+        <!-- Gem 4: Entering Upper Orbit -->
+        <g id="carat_stream_gem_4" transform="translate(340, -180) scale(1.2)" filter="url(#luminous_glow_filter)">
+          <polygon points="22,0 44,16 35,42 9,42 0,16" fill="url(#carat_cyan_glow)" stroke="#FFFFFF" stroke-width="2" />
+          <polygon points="22,0 44,16 32,20 22,11" fill="#FFFFFF" opacity="0.75" />
+          <polygon points="22,11 32,20 22,40 12,20" fill="#E0F2FE" opacity="0.85" />
+        </g>
+
+        <!-- Gem 5: Distant Inflow Cluster Lead -->
+        <g id="carat_stream_gem_5" transform="translate(460, -100) scale(0.95)">
+          <polygon points="18,0 36,12 28,34 8,34 0,12" fill="url(#carat_cyan_glow)" stroke="#E0F2FE" stroke-width="1.5" opacity="0.9" />
+        </g>
+
+        <!-- Gem 6: Sparkle Trail Accent -->
+        <g id="carat_stream_gem_6" transform="translate(560, -30) scale(0.8)">
+          <polygon points="16,0 32,10 26,30 6,30 0,10" fill="url(#carat_cyan_glow)" stroke="#E0F2FE" stroke-width="1" opacity="0.8" />
+        </g>
+      </g>
+    </g>
+
+    <!-- ===================================================================== -->
+    <!-- 1. BASE CARD CHASSIS (<g id="crabit_card_body">)                      -->
+    <!-- Width 720px, height 450px, rx 32, tilted dynamically at -8 degrees    -->
+    <!-- ===================================================================== -->
+    <g id="crabit_card_body" transform="rotate(-8)">
+      <!-- Card Outer Shell & Ground Shadow -->
+      <rect id="card_shadow" x="-360" y="-225" width="720" height="450" rx="32" fill="#090D16" filter="url(#card_shadow_filter)" />
+
+      <!-- Card Base Plate: Deep Royal Blue Gradient (#1E3A8A / #2563EB) -->
+      <rect id="card_surface" x="-360" y="-225" width="720" height="450" rx="32" fill="url(#card_royal_grad)" stroke="#60A5FA" stroke-width="2.5" />
+
+      <!-- Subtle Holographic Geometric Foil Patterns -->
+      <g id="card_foil_patterns" clip-path="url(#card_foil_clip)" transform="translate(-360, -225)">
+        <!-- Faceted Reflective Geometric Prisms -->
+        <polygon points="0,0 280,0 160,450 0,450" fill="#FFFFFF" opacity="0.07" />
+        <polygon points="280,0 420,0 260,450 160,450" fill="#60A5FA" opacity="0.08" />
+        <polygon points="420,0 720,0 520,450 260,450" fill="#FFFFFF" opacity="0.05" />
+        <polygon points="560,0 720,0 720,260 620,450 520,450" fill="#93C5FD" opacity="0.09" />
+
+        <!-- Radial Holographic Sheen Circles -->
+        <circle cx="560" cy="120" r="320" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.08" />
+        <circle cx="560" cy="120" r="220" fill="none" stroke="#38BDF8" stroke-width="1" opacity="0.12" />
+        <circle cx="560" cy="120" r="140" fill="none" stroke="#60A5FA" stroke-width="1.5" opacity="0.1" />
+
+        <!-- Holographic Guilloche Micro Wave -->
+        <path d="M 0,380 Q 180,340 360,390 T 720,360" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.12" />
+        <path d="M 0,395 Q 180,355 360,405 T 720,375" fill="none" stroke="#93C5FD" stroke-width="1" opacity="0.1" />
+      </g>
+
+      <!-- Smart IC Chip Vector in Metallic Brushed Gold (#F59E0B / #FDE68A) -->
+      <g id="emv_smart_chip" transform="translate(-290, -110)">
+        <!-- Outer Chip Base with chamfered look -->
+        <rect width="90" height="70" rx="12" fill="url(#gold_chip_grad)" stroke="#B45309" stroke-width="2" />
+        <!-- Internal Micro-contact circuitry traces -->
+        <path d="M 0,35 L 90,35 M 32,0 L 32,70 M 58,0 L 58,70" fill="none" stroke="#92400E" stroke-width="2" />
+        <rect x="32" y="20" width="26" height="30" rx="4" fill="none" stroke="#92400E" stroke-width="1.5" />
+        <path d="M 0,20 L 32,20 M 58,20 L 90,20 M 0,50 L 32,50 M 58,50 L 90,50" fill="none" stroke="#92400E" stroke-width="1.5" />
+      </g>
+
+      <!-- Contactless Wave Signal Icon -->
+      <g id="contactless_icon" transform="translate(-180, -96)" opacity="0.8">
+        <path d="M 0,14 C 4,18 4,26 0,30" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" />
+        <path d="M 8,8 C 16,16 16,28 8,36" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" />
+        <path d="M 16,2 C 28,14 28,34 16,42" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" />
+      </g>
+
+      <!-- Crabit Brand Mark: Typography "CRABIT CARD" and stylized crab-claw diamond icon in top-right -->
+      <g id="crabit_card_branding" transform="translate(140, -170)">
+        <!-- Crisp White Typography "CRABIT CARD" -->
+        <text x="120" y="24" fill="#FFFFFF" font-size="28" font-weight="900" letter-spacing="3" text-anchor="end" font-family="system-ui, -apple-system, sans-serif">CRABIT CARD</text>
+        <text x="120" y="44" fill="#93C5FD" font-size="12" font-weight="700" letter-spacing="1.5" text-anchor="end" font-family="system-ui, -apple-system, sans-serif">PREMIUM SCHOLARSHIP</text>
+
+        <!-- Stylized Crab-claw Diamond Icon in Top-Right -->
+        <g id="brand_claw_diamond" transform="translate(132, 2)">
+          <!-- Crab Claw Silhouette Framing Crest -->
+          <path d="M -16,24 C -22,14 -20,-2 -6,-8 C -4,0 -2,8 6,12 C -4,14 -10,18 -16,24 Z" fill="#FF5E36" />
+          <path d="M 44,24 C 50,14 48,-2 34,-8 C 32,0 30,8 22,12 C 32,14 38,18 44,24 Z" fill="#FF5E36" />
+          <!-- Radiant Faceted Diamond Core -->
+          <polygon points="14,-10 32,4 24,28 4,28 -4,4" fill="url(#carat_cyan_glow)" stroke="#FFFFFF" stroke-width="1.5" />
+          <polygon points="14,-10 32,4 20,8 14,0" fill="#FFFFFF" opacity="0.8" />
+        </g>
+      </g>
+
+      <!-- =================================================================== -->
+      <!-- 2. BALANCE UPDATING MODULE (<g id="card_balance_display">)          -->
+      <!-- Rigged for Remotion text interpolations                             -->
+      <!-- =================================================================== -->
+      <g id="card_balance_display" transform="translate(-290, 40)">
+        <!-- Sub-label -->
+        <text id="balance_label" x="0" y="0" fill="#93C5FD" font-size="24" font-weight="600" letter-spacing="0.5" font-family="system-ui, -apple-system, sans-serif">장학금 잔액 (Scholarship Balance)</text>
+
+        <!-- Dynamic Numeric Value -->
+        <text id="balance_amount_krw" x="0" y="68" fill="#FFFFFF" font-size="64" font-weight="800" letter-spacing="1" font-family="system-ui, -apple-system, sans-serif">₩ 50,000</text>
+
+        <!-- Growth Delta Badge -->
+        <g id="balance_increment_pill" transform="translate(340, 26)">
+          <rect x="0" y="0" width="160" height="36" rx="18" fill="#10B981" />
+          <text x="80" y="25" fill="#FFFFFF" font-size="20" font-weight="700" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">+ 50,000 KRW</text>
+        </g>
+      </g>
+
+      <!-- Cardholder Name & Expiry Mockup -->
+      <g id="card_metadata" transform="translate(-290, 175)">
+        <text x="0" y="0" fill="#94A3B8" font-size="13" font-weight="700" letter-spacing="1.5" font-family="system-ui, -apple-system, sans-serif">CARD HOLDER</text>
+        <text x="0" y="24" fill="#FFFFFF" font-size="18" font-weight="800" letter-spacing="2" font-family="system-ui, -apple-system, sans-serif">KIM CRABIT</text>
+
+        <text x="260" y="0" fill="#94A3B8" font-size="13" font-weight="700" letter-spacing="1.5" font-family="system-ui, -apple-system, sans-serif">VALID THRU</text>
+        <text x="260" y="24" fill="#FFFFFF" font-size="18" font-weight="800" letter-spacing="2" font-family="system-ui, -apple-system, sans-serif">12/28</text>
+      </g>
+    </g>
+
+    <!-- ===================================================================== -->
+    <!-- 3. STATUS CONFIRMATION BADGE (<g id="recharge_status_badge">)         -->
+    <!-- Bright cyan/emerald pill badge: "충전 완료" + checkmark circle icon   -->
+    <!-- ===================================================================== -->
+    <g id="recharge_status_badge" transform="translate(-190, 270)" filter="url(#badge_shadow_filter)">
+      <!-- Pill Container: 380px wide, 72px high, rx 36 -->
+      <rect width="380" height="72" rx="36" fill="url(#status_badge_grad)" stroke="#A7F3D0" stroke-width="2.5" />
+
+      <!-- Crisp White Checkmark Circle Icon -->
+      <g id="recharge_check_circle" transform="translate(48, 36)">
+        <circle cx="0" cy="0" r="22" fill="#FFFFFF" />
+        <!-- Green Check Path -->
+        <path d="M -9,-1 L -2,6 L 10,-6" fill="none" stroke="#059669" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+      </g>
+
+      <!-- Korean Recharge Confirmation Text -->
+      <text id="recharge_status_text" x="90" y="45" fill="#FFFFFF" font-size="28" font-weight="800" letter-spacing="0.5" font-family="system-ui, -apple-system, sans-serif">충전 완료</text>
+
+      <!-- Secondary English Sub-pill text -->
+      <text x="215" y="44" fill="#D1FAE5" font-size="18" font-weight="700" letter-spacing="1" font-family="system-ui, -apple-system, sans-serif">| RECHARGED</text>
+    </g>
   </g>
 </svg>
