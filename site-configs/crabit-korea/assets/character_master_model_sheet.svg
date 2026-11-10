@@ -1,0 +1,752 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1600" width="2400" height="1600">
+  <defs>
+    <!-- Master Tokens & Swatches -->
+    <linearGradient id="token_hoodie_blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#1D4ED8" />
+    </linearGradient>
+    <solidColor id="token_skin_base" solid-color="#FFE3D1" />
+    <solidColor id="token_hair_slate" solid-color="#1E293B" />
+    <solidColor id="token_pants_navy" solid-color="#334155" />
+    <solidColor id="token_carat_cyan" solid-color="#00E5FF" />
+
+    <filter id="soft_shadow_filter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" />
+    </filter>
+  </defs>
+  <!-- Background & Blueprint Studio Grid -->
+  <rect width="2400" height="1600" fill="#0F172A" />
+  <g id="studio_grid" opacity="0.6">
+    <line x1="0" y1="0" x2="0" y2="1600" stroke="#334155" stroke-width="1" opacity="0.2" /><line x1="100" y1="0" x2="100" y2="1600" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="200" y1="0" x2="200" y2="1600" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="300" y1="0" x2="300" y2="1600" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="400" y1="0" x2="400" y2="1600" stroke="#334155" stroke-width="1" opacity="0.2" /><line x1="500" y1="0" x2="500" y2="1600" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="600" y1="0" x2="600" y2="1600" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="700" y1="0" x2="700" y2="1600" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="800" y1="0" x2="800" y2="1600" stroke="#334155" stroke-width="1" opacity="0.2" /><line x1="900" y1="0" x2="900" y2="1600" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="1000" y1="0" x2="1000" y2="1600" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="1100" y1="0" x2="1100" y2="1600" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="1200" y1="0" x2="1200" y2="1600" stroke="#334155" stroke-width="1" opacity="0.2" /><line x1="1300" y1="0" x2="1300" y2="1600" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="1400" y1="0" x2="1400" y2="1600" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="1500" y1="0" x2="1500" y2="1600" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="1600" y1="0" x2="1600" y2="1600" stroke="#334155" stroke-width="1" opacity="0.2" /><line x1="1700" y1="0" x2="1700" y2="1600" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="1800" y1="0" x2="1800" y2="1600" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="1900" y1="0" x2="1900" y2="1600" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="2000" y1="0" x2="2000" y2="1600" stroke="#334155" stroke-width="1" opacity="0.2" /><line x1="2100" y1="0" x2="2100" y2="1600" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="2200" y1="0" x2="2200" y2="1600" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="2300" y1="0" x2="2300" y2="1600" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="2400" y1="0" x2="2400" y2="1600" stroke="#334155" stroke-width="1" opacity="0.2" /><line x1="0" y1="0" x2="2400" y2="0" stroke="#334155" stroke-width="1" opacity="0.2" /><line x1="0" y1="100" x2="2400" y2="100" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="0" y1="200" x2="2400" y2="200" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="0" y1="300" x2="2400" y2="300" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="0" y1="400" x2="2400" y2="400" stroke="#334155" stroke-width="1" opacity="0.2" /><line x1="0" y1="500" x2="2400" y2="500" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="0" y1="600" x2="2400" y2="600" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="0" y1="700" x2="2400" y2="700" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="0" y1="800" x2="2400" y2="800" stroke="#334155" stroke-width="1" opacity="0.2" /><line x1="0" y1="900" x2="2400" y2="900" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="0" y1="1000" x2="2400" y2="1000" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="0" y1="1100" x2="2400" y2="1100" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="0" y1="1200" x2="2400" y2="1200" stroke="#334155" stroke-width="1" opacity="0.2" /><line x1="0" y1="1300" x2="2400" y2="1300" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="0" y1="1400" x2="2400" y2="1400" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="0" y1="1500" x2="2400" y2="1500" stroke="#334155" stroke-width="1" opacity="0.07" /><line x1="0" y1="1600" x2="2400" y2="1600" stroke="#334155" stroke-width="1" opacity="0.2" />
+  </g>
+
+  <!-- Studio Header UI -->
+  <rect x="30" y="25" width="2340" height="60" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1.5" />
+  <circle cx="60" cy="55" r="8" fill="#EF4444" />
+  <circle cx="85" cy="55" r="8" fill="#F59E0B" />
+  <circle cx="110" cy="55" r="8" fill="#10B981" />
+  <text x="140" y="61" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" letter-spacing="1.5">CRABIT KOREA // CHARACTER RIGGING PIPELINE &amp; MASTER MODEL SHEET v1.0</text>
+  <text x="1820" y="61" fill="#38BDF8" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" letter-spacing="1">SCALE: 5.5 HEADS TALL | PROPORTION LOCK: SCENE 3 HERO</text>
+  <rect x="2210" y="40" width="140" height="30" rx="6" fill="#0284C7" />
+  <text x="2224" y="60" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="0.8">CANONICAL DNA</text>
+
+  <!-- Ground Plane Baseline y=1400 Guideline -->
+  <line x1="40" y1="1400" x2="1400" y2="1400" stroke="#00E5FF" stroke-width="3" stroke-dasharray="10 6" opacity="0.8" />
+  <text x="50" y="1425" fill="#00E5FF" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">GROUND PLANE CONTACT (y=1400)</text>
+  <!-- ======================================================================= -->
+  <!-- SECTION 1: TURNAROUND VIEWS (Full Body Orthographics | y=200 to y=1400) -->
+  <!-- ======================================================================= -->
+  <g id="section1_turnaround_views">
+    <rect x="40" y="90" width="1350" height="1470" rx="10" fill="#131E32" stroke="#334155" stroke-width="1.5" />
+    <text x="60" y="125" fill="#38BDF8" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" letter-spacing="1">SECTION 1: FULL BODY ORTHOGRAPHIC TURNAROUND VIEWS (SCALE = 5.5 HEADS)</text>
+    <text x="1250" y="125" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="13">HEIGHT: 1200px [y=200..1400]</text>
+
+    <!-- Measurement Baseline Ruler (y=200 to y=1400) -->
+    <g id="measurement_ruler" opacity="0.6">
+      <line x1="80" y1="200" x2="80" y2="1400" stroke="#64748B" stroke-width="2" />
+      <!-- Head 0: Top of Head y=200 -->
+      <line x1="70" y1="200" x2="1380" y2="200" stroke="#38BDF8" stroke-width="1" stroke-dasharray="4 4" />
+      <text x="85" y="205" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="11" font-weight="700">0.0H TOP y=200</text>
+      <!-- Head 1: Chin y=418 -->
+      <line x1="70" y1="418" x2="1380" y2="418" stroke="#64748B" stroke-width="1" stroke-dasharray="2 4" />
+      <text x="85" y="423" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">1.0H CHIN y=418</text>
+      <!-- Head 2: Mid-Chest y=636 -->
+      <line x1="70" y1="636" x2="1380" y2="636" stroke="#64748B" stroke-width="1" stroke-dasharray="2 4" />
+      <text x="85" y="641" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">2.0H CHEST y=636</text>
+      <!-- Head 3: Hips / Belt y=854 -->
+      <line x1="70" y1="854" x2="1380" y2="854" stroke="#64748B" stroke-width="1" stroke-dasharray="2 4" />
+      <text x="85" y="859" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">3.0H HIPS y=854</text>
+      <!-- Head 4: Knees y=1072 -->
+      <line x1="70" y1="1072" x2="1380" y2="1072" stroke="#64748B" stroke-width="1" stroke-dasharray="2 4" />
+      <text x="85" y="1077" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">4.0H KNEES y=1072</text>
+      <!-- Head 5: Ankles y=1290 -->
+      <line x1="70" y1="1290" x2="1380" y2="1290" stroke="#64748B" stroke-width="1" stroke-dasharray="2 4" />
+      <text x="85" y="1295" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">5.0H ANKLES y=1290</text>
+      <!-- Head 5.5: Ground Plane y=1400 -->
+      <line x1="70" y1="1400" x2="1380" y2="1400" stroke="#00E5FF" stroke-width="2" />
+      <text x="85" y="1405" fill="#00E5FF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">5.5H GROUND=1400</text>
+    </g>
+
+    <!-- Turnaround View Labels -->
+    <text x="360" y="165" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="16" font-weight="700" text-anchor="middle">1. FRONT VIEW</text>
+    <text x="360" y="185" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">&lt;g id=&quot;turnaround_front&quot;&gt;</text>
+
+    <text x="770" y="165" fill="#00E5FF" font-family="system-ui, sans-serif" font-size="16" font-weight="700" text-anchor="middle">2. 3/4 DYNAMIC RIGHT VIEW</text>
+    <text x="770" y="185" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="12" font-weight="600" text-anchor="middle">TEMPLATE FOR prop_icon_walking_student</text>
+
+    <text x="1180" y="165" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="16" font-weight="700" text-anchor="middle">3. PROFILE RIGHT (90°)</text>
+    <text x="1180" y="185" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">&lt;g id=&quot;turnaround_profile_right&quot;&gt;</text>
+    <!-- 1. FULL FRONT ORTHOGRAPHIC VIEW -->
+    <g id="turnaround_front">
+      <!-- Ground Shadows -->
+      <ellipse cx="360" cy="1400" rx="140" ry="16" fill="#000000" opacity="0.3" />
+
+      <!-- Back Hair behind neck -->
+      <rect x="330" y="380" width="60" height="30" rx="10" fill="#1E293B" />
+
+      <!-- Legs & Sneaker Assemblies (Charcoal pants #334155) -->
+      <!-- Left Leg (Front Ortho) -->
+      <g id="front_leg_left">
+        <!-- Hip to Knee (Thigh) -->
+        <path d="M 322 840 L 305 1072 L 345 1072 L 348 840 Z" fill="#334155" />
+        <!-- Knee to Ankle (Shin) -->
+        <path d="M 305 1072 L 295 1290 L 350 1290 L 345 1072 Z" fill="#334155" />
+        <!-- Knee Crease Line -->
+        <line x1="310" y1="1072" x2="340" y2="1072" stroke="#1E293B" stroke-width="3" stroke-linecap="round" />
+        <!-- White Sock -->
+        <rect x="300" y="1285" width="45" height="15" fill="#FFFFFF" />
+        <!-- Sneaker Left (Clean White #FFFFFF, Light Gray Sole #94A3B8) -->
+        <path d="M 285 1300 L 355 1300 L 360 1375 L 358 1390 L 280 1390 L 278 1360 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2.5" />
+        <path d="M 276 1385 L 362 1385 L 362 1400 L 276 1400 Z" fill="#94A3B8" />
+        <!-- Sneaker Blue Accent & Laces -->
+        <path d="M 292 1345 Q 318 1352 345 1345" fill="none" stroke="#2563EB" stroke-width="3.5" stroke-linecap="round" />
+        <line x1="304" y1="1318" x2="334" y2="1318" stroke="#CBD5E1" stroke-width="2.5" stroke-linecap="round" />
+        <line x1="304" y1="1330" x2="334" y2="1330" stroke="#CBD5E1" stroke-width="2.5" stroke-linecap="round" />
+      </g>
+
+      <!-- Right Leg (Front Ortho) -->
+      <g id="front_leg_right">
+        <!-- Hip to Knee (Thigh) -->
+        <path d="M 372 840 L 375 1072 L 415 1072 L 398 840 Z" fill="#334155" />
+        <!-- Knee to Ankle (Shin) -->
+        <path d="M 375 1072 L 370 1290 L 425 1290 L 415 1072 Z" fill="#334155" />
+        <!-- Knee Crease Line -->
+        <line x1="380" y1="1072" x2="410" y2="1072" stroke="#1E293B" stroke-width="3" stroke-linecap="round" />
+        <!-- White Sock -->
+        <rect x="375" y="1285" width="45" height="15" fill="#FFFFFF" />
+        <!-- Sneaker Right -->
+        <path d="M 365 1300 L 435 1300 L 442 1360 L 440 1390 L 362 1390 L 360 1375 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2.5" />
+        <path d="M 358 1385 L 444 1385 L 444 1400 L 358 1400 Z" fill="#94A3B8" />
+        <!-- Sneaker Blue Accent & Laces -->
+        <path d="M 375 1345 Q 402 1352 428 1345" fill="none" stroke="#2563EB" stroke-width="3.5" stroke-linecap="round" />
+        <line x1="386" y1="1318" x2="416" y2="1318" stroke="#CBD5E1" stroke-width="2.5" stroke-linecap="round" />
+        <line x1="386" y1="1330" x2="416" y2="1330" stroke="#CBD5E1" stroke-width="2.5" stroke-linecap="round" />
+      </g>
+
+      <!-- Torso & Royal Blue Hoodie (#2563EB) -->
+      <g id="front_hoodie_torso">
+        <!-- Hoodie Body -->
+        <path d="M 280 470 C 270 590 270 730 282 825 L 438 825 C 450 730 450 590 440 470 C 390 450 330 450 280 470 Z" fill="#2563EB" stroke="#1D4ED8" stroke-width="3" stroke-linejoin="round" />
+        <!-- Ribbed Hem (#1D4ED8) -->
+        <rect x="280" y="815" width="160" height="35" rx="6" fill="#1D4ED8" />
+        <line x1="310" y1="815" x2="310" y2="850" stroke="#1E40AF" stroke-width="2.5" />
+        <line x1="340" y1="815" x2="340" y2="850" stroke="#1E40AF" stroke-width="2.5" />
+        <line x1="360" y1="815" x2="360" y2="850" stroke="#1E40AF" stroke-width="2.5" />
+        <line x1="380" y1="815" x2="380" y2="850" stroke="#1E40AF" stroke-width="2.5" />
+        <line x1="410" y1="815" x2="410" y2="850" stroke="#1E40AF" stroke-width="2.5" />
+
+        <!-- Kangaroo Pocket -->
+        <path d="M 305 690 C 330 680 390 680 415 690 C 420 740 415 780 410 805 L 310 805 C 305 780 300 740 305 690 Z" fill="#1D4ED8" opacity="0.95" />
+        <!-- Kangaroo Slit Outlines -->
+        <path d="M 305 690 Q 318 735 310 775" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
+        <path d="M 415 690 Q 402 735 410 775" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
+
+        <!-- Amber Backpack Harness Straps (#F59E0B) over Shoulders -->
+        <!-- Left Strap -->
+        <path d="M 305 460 C 298 520 296 660 300 780" fill="none" stroke="#F59E0B" stroke-width="16" stroke-linecap="round" />
+        <path d="M 305 460 C 298 520 296 660 300 780" fill="none" stroke="#D97706" stroke-width="4" stroke-linecap="round" />
+        <!-- Right Strap -->
+        <path d="M 415 460 C 422 520 424 660 420 780" fill="none" stroke="#F59E0B" stroke-width="16" stroke-linecap="round" />
+        <path d="M 415 460 C 422 520 424 660 420 780" fill="none" stroke="#D97706" stroke-width="4" stroke-linecap="round" />
+        <!-- Chest Harness Connector Strap -->
+        <rect x="296" y="605" width="128" height="12" rx="3" fill="#F59E0B" stroke="#D97706" stroke-width="2" />
+        <rect x="350" y="600" width="20" height="22" rx="4" fill="#00E5FF" stroke="#0891B2" stroke-width="2" />
+
+        <!-- Drawstrings -->
+        <line x1="340" y1="465" x2="338" y2="560" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
+        <circle cx="338" cy="565" r="4.5" fill="#FFFFFF" />
+        <line x1="380" y1="465" x2="382" y2="560" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
+        <circle cx="382" cy="565" r="4.5" fill="#FFFFFF" />
+
+        <!-- Chest Diamond Cyan Gem Carat (#00E5FF) -->
+        <polygon points="360,520 372,532 368,548 352,548 348,532" fill="#00E5FF" stroke="#38BDF8" stroke-width="1.8" />
+      </g>
+
+      <!-- Left Arm (Front Ortho) -->
+      <g id="front_arm_left">
+        <path d="M 285 470 C 265 520 248 640 242 750 L 282 755 C 288 650 300 530 315 470 Z" fill="#2563EB" />
+        <rect x="240" y="745" width="44" height="20" rx="5" fill="#1D4ED8" stroke="#1E40AF" stroke-width="1.5" />
+        <circle cx="262" cy="782" r="16" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" />
+        <ellipse cx="266" cy="790" rx="9" ry="6" fill="#F5CCA8" />
+      </g>
+
+      <!-- Right Arm (Front Ortho) -->
+      <g id="front_arm_right">
+        <path d="M 435 470 C 455 520 472 640 478 750 L 438 755 C 432 650 420 530 405 470 Z" fill="#2563EB" />
+        <rect x="436" y="745" width="44" height="20" rx="5" fill="#1D4ED8" stroke="#1E40AF" stroke-width="1.5" />
+        <circle cx="458" cy="782" r="16" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" />
+        <ellipse cx="454" cy="790" rx="9" ry="6" fill="#F5CCA8" />
+      </g>
+
+      <!-- Head & Neck Assembly (Center Hero DNA 1:1) -->
+      <g id="front_head_assembly">
+        <!-- Neck Column: Tone #FFE3D1, 22px high -->
+        <rect x="342" y="388" width="36" height="32" fill="#FFE3D1" />
+        <path d="M 342 388 C 354 398 366 398 378 388 L 378 398 C 366 408 354 408 342 398 Z" fill="#E2A888" opacity="0.4" />
+
+        <!-- Hoodie Collar framing neck -->
+        <path d="M 315 425 C 345 440 375 440 405 425 C 390 450 330 450 315 425 Z" fill="#1D4ED8" />
+
+        <!-- Head Base: r=90, cx=360, cy=300 -->
+        <circle id="front_head_base" cx="360" cy="300" r="90" fill="#FFE3D1" />
+
+        <!-- Ears -->
+        <circle cx="270" cy="300" r="14" fill="#FFE3D1" />
+        <circle cx="450" cy="300" r="14" fill="#FFE3D1" />
+        <path d="M 270 295 Q 275 300 270 305" fill="none" stroke="#E2A888" stroke-width="2" stroke-linecap="round" />
+        <path d="M 450 295 Q 445 300 450 305" fill="none" stroke="#E2A888" stroke-width="2" stroke-linecap="round" />
+
+        <!-- Hair: Side-swept slate #1E293B framing forehead -->
+        <path d="M 270 300 C 265 190 305 180 360 180 C 415 180 455 190 450 300 C 445 270 430 240 410 235 C 385 240 360 265 330 270 C 300 272 285 255 270 300 Z" fill="#1E293B" />
+
+        <!-- Cheeks: Rosy Blush (#FCA5A5, 0.6 op) -->
+        <circle cx="310" cy="315" r="14" fill="#FCA5A5" opacity="0.6" />
+        <circle cx="410" cy="315" r="14" fill="#FCA5A5" opacity="0.6" />
+
+        <!-- Arched Brows (#1E293B) -->
+        <path d="M 305 270 Q 322 258 338 266" fill="none" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round" />
+        <path d="M 382 266 Q 398 258 415 270" fill="none" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round" />
+
+        <!-- Sparkling Star-Glint Eyes (#0F172A) -->
+        <g id="front_eye_left">
+          <circle cx="322" cy="288" r="9.5" fill="#0F172A" />
+          <circle cx="319" cy="284" r="3" fill="#FFFFFF" />
+          <circle cx="325" cy="290" r="1.5" fill="#FFFFFF" />
+        </g>
+        <g id="front_eye_right">
+          <circle cx="398" cy="288" r="9.5" fill="#0F172A" />
+          <circle cx="395" cy="284" r="3" fill="#FFFFFF" />
+          <circle cx="401" cy="290" r="1.5" fill="#FFFFFF" />
+        </g>
+
+        <!-- Nose (#E2A888) -->
+        <path d="M 360 292 L 360 302 L 365 303" fill="none" stroke="#E2A888" stroke-width="2.8" stroke-linecap="round" />
+
+        <!-- Smile with Teeth & Tongue -->
+        <g id="front_smile">
+          <path d="M 334 318 Q 360 350 386 318 Z" fill="#EF4444" />
+          <path d="M 338 319 Q 360 328 382 319 Q 360 322 338 319 Z" fill="#FFFFFF" />
+          <path d="M 348 338 Q 360 330 372 338 C 368 348 352 348 348 338 Z" fill="#F87171" />
+          <path d="M 332 317 Q 360 352 388 317" fill="none" stroke="#B91C1C" stroke-width="2.2" stroke-linecap="round" />
+        </g>
+      </g>
+    </g>
+    <!-- 2. 3/4 DYNAMIC RIGHT VIEW (MASTER TEMPLATE FOR prop_icon_walking_student.svg) -->
+    <g id="turnaround_three_quarter_right">
+      <!-- Ground Shadows -->
+      <g id="tq_ground_shadows">
+        <ellipse cx="640" cy="1400" rx="60" ry="12" fill="#000000" opacity="0.35" />
+        <ellipse cx="910" cy="1400" rx="70" ry="14" fill="#000000" opacity="0.45" />
+        <ellipse cx="770" cy="1402" rx="160" ry="18" fill="#000000" opacity="0.25" />
+      </g>
+
+      <!-- 1. Back Arm (Swinging Backwards) -->
+      <g id="tq_back_arm">
+        <path d="M 730 475 L 665 575 L 685 595 L 750 495 Z" fill="#1D4ED8" />
+        <path d="M 665 575 L 625 655 L 650 670 L 685 595 Z" fill="#1D4ED8" />
+        <rect x="615" y="645" width="30" height="15" rx="4" transform="rotate(32 630 652)" fill="#1E40AF" stroke="#1D4ED8" stroke-width="1.5" />
+        <circle cx="620" cy="682" r="15" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" />
+        <ellipse cx="615" cy="688" rx="9" ry="6" fill="#F5CCA8" />
+      </g>
+
+      <!-- 2. Amber Backpack Subcomponent (#F59E0B) -->
+      <g id="tq_backpack">
+        <path d="M 700 460 C 700 425 665 425 665 460" fill="none" stroke="#D97706" stroke-width="8" stroke-linecap="round" />
+        <path d="M 720 450 C 730 550 722 660 705 700 C 675 715 625 700 615 670 C 590 620 598 505 625 455 C 650 415 705 418 720 450 Z" fill="#F59E0B" stroke="#D97706" stroke-width="3.5" stroke-linejoin="round" />
+        <path d="M 625 455 C 598 505 590 620 615 670 C 625 650 635 520 655 450 C 640 450 630 452 625 455 Z" fill="#D97706" opacity="0.6" />
+        <rect x="600" y="530" width="40" height="70" rx="10" fill="#D97706" stroke="#B45309" stroke-width="2.5" />
+        <line x1="605" y1="550" x2="635" y2="550" stroke="#FDE68A" stroke-width="2.5" stroke-linecap="round" />
+        <circle cx="615" cy="615" r="4" fill="#FBBF24" />
+        <polygon points="615,620 622,628 619,638 611,638 608,628" fill="#00E5FF" stroke="#0891B2" stroke-width="1.2" />
+      </g>
+
+      <!-- 3. HIERARCHICAL ARTICULATED LEGS (PRESERVED 3-JOINT RIG) -->
+      <!-- Back Leg: Pushing off behind, toe contacting ground plane (y=1400) -->
+      <g id="tq_back_leg">
+        <!-- Tier 1: Thigh -->
+        <g id="tq_back_thigh" data-pivot="730 840">
+          <path d="M 720 840 L 660 1072 L 705 1072 L 755 840 Z" fill="#243040" />
+          <!-- Tier 2: Shin -->
+          <g id="tq_back_shin" data-pivot="682 1072">
+            <path d="M 660 1072 L 595 1345 L 648 1355 L 705 1072 Z" fill="#243040" />
+            <path d="M 660 1072 Q 685 1090 705 1072" fill="none" stroke="#1E293B" stroke-width="4" stroke-linecap="round" />
+            <!-- White Sock -->
+            <polygon points="595,1340 648,1350 645,1365 592,1355" fill="#FFFFFF" />
+            <!-- Tier 3: Foot (Sneaker Push-off) -->
+            <g id="tq_back_foot" data-pivot="620 1355">
+              <path d="M 590 1355 L 645 1362 L 670 1385 L 660 1400 L 610 1398 L 580 1375 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2.5" />
+              <path d="M 595 1395 L 660 1400 L 658 1406 L 592 1402 Z" fill="#94A3B8" />
+              <path d="M 605 1375 Q 632 1382 650 1380" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
+              <line x1="615" y1="1362" x2="635" y2="1368" stroke="#CBD5E1" stroke-width="2" stroke-linecap="round" />
+            </g>
+          </g>
+        </g>
+      </g>
+
+      <!-- Front Leg: Stepping forward, heel contacting ground plane (y=1400) -->
+      <g id="tq_front_leg">
+        <!-- Tier 1: Thigh -->
+        <g id="tq_front_thigh" data-pivot="775 840">
+          <path d="M 755 840 L 805 1072 L 855 1072 L 805 840 Z" fill="#334155" />
+          <!-- Tier 2: Shin -->
+          <g id="tq_front_shin" data-pivot="830 1072">
+            <path d="M 805 1072 L 870 1340 L 925 1335 L 855 1072 Z" fill="#334155" />
+            <path d="M 805 1072 Q 830 1090 855 1072" fill="none" stroke="#1E293B" stroke-width="4" stroke-linecap="round" />
+            <!-- White Sock -->
+            <polygon points="870,1340 925,1335 930,1355 875,1360" fill="#FFFFFF" />
+            <!-- Tier 3: Foot (Sneaker Heel Contact) -->
+            <g id="tq_front_foot" data-pivot="900 1345">
+              <path d="M 872 1350 C 900 1342 930 1340 955 1362 L 995 1365 C 998 1375 992 1385 980 1388 L 890 1394 C 880 1394 870 1383 865 1370 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2.5" />
+              <path d="M 868 1386 L 890 1394 L 985 1388 L 990 1396 L 892 1402 L 868 1396 Z" fill="#94A3B8" />
+              <path d="M 900 1370 Q 930 1372 960 1365" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
+              <line x1="915" y1="1352" x2="935" y2="1358" stroke="#CBD5E1" stroke-width="2" stroke-linecap="round" />
+              <line x1="930" y1="1358" x2="950" y2="1365" stroke="#CBD5E1" stroke-width="2" stroke-linecap="round" />
+            </g>
+          </g>
+        </g>
+      </g>
+
+      <!-- 4. Torso & Royal Blue Hoodie with Backpack Chest Harness -->
+      <g id="tq_hoodie_torso">
+        <path d="M 700 460 C 740 450 810 450 850 470 C 865 520 860 740 845 825 C 805 835 725 832 695 822 C 688 745 695 620 700 460 Z" fill="#2563EB" stroke="#1D4ED8" stroke-width="3" stroke-linejoin="round" />
+        <!-- Ribbed Hem (#1D4ED8) -->
+        <path d="M 692 818 C 740 828 820 830 855 822 L 852 848 C 815 858 735 856 690 844 Z" fill="#1D4ED8" />
+        <line x1="730" y1="822" x2="730" y2="850" stroke="#1E40AF" stroke-width="2.5" />
+        <line x1="770" y1="825" x2="770" y2="854" stroke="#1E40AF" stroke-width="2.5" />
+        <line x1="810" y1="824" x2="810" y2="852" stroke="#1E40AF" stroke-width="2.5" />
+
+        <!-- Kangaroo Front Pocket -->
+        <path d="M 725 700 C 765 692 820 695 845 710 C 840 760 835 788 828 805 C 792 810 740 808 712 800 C 708 780 716 735 725 700 Z" fill="#1D4ED8" opacity="0.95" />
+        <path d="M 725 700 Q 738 735 728 775" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
+        <path d="M 845 710 Q 832 742 828 785" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
+
+        <!-- Front Shoulder Strap from Backpack (#F59E0B) -->
+        <path d="M 765 450 C 780 520 790 620 795 725 L 775 725 C 770 620 760 520 748 450 Z" fill="#F59E0B" stroke="#D97706" stroke-width="2" />
+        <!-- Chest Harness Horizontal Cross Strap crossing hoodie -->
+        <rect x="740" y="565" width="85" height="12" rx="3" fill="#FDE68A" stroke="#D97706" stroke-width="2" />
+        <rect x="770" y="560" width="18" height="22" rx="4" fill="#00E5FF" stroke="#0891B2" stroke-width="2" />
+
+        <!-- White Hoodie Drawstrings (#FFFFFF) -->
+        <path d="M 795 478 Q 792 525 794 560" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
+        <circle cx="794" cy="564" r="4.5" fill="#FFFFFF" />
+        <path d="M 818 478 Q 816 520 818 550" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
+        <circle cx="818" cy="554" r="4.5" fill="#FFFFFF" />
+
+        <!-- Cyan Carat Crest -->
+        <polygon points="832,525 844,535 840,548 826,548 822,535" fill="#00E5FF" stroke="#38BDF8" stroke-width="1.8" />
+      </g>
+
+      <!-- 5. Front Arm (Swinging Forward with Hand) -->
+      <g id="tq_front_arm">
+        <path d="M 830 475 C 870 485 930 535 955 585 L 910 605 C 885 570 840 530 810 505 Z" fill="#2563EB" />
+        <path d="M 915 580 L 1005 525 L 1025 555 L 935 610 Z" fill="#2563EB" stroke="#1D4ED8" stroke-width="2" />
+        <rect x="995" y="520" width="35" height="18" rx="6" transform="rotate(-30 1012 529)" fill="#1D4ED8" stroke="#1E40AF" stroke-width="1.5" />
+        <circle cx="1035" cy="520" r="16" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" />
+        <ellipse cx="1042" cy="524" rx="9" ry="6" fill="#F5CCA8" />
+      </g>
+
+      <!-- 6. Head & Expression (3/4 Right Canonical Hero DNA) -->
+      <g id="tq_head_assembly">
+        <!-- Neck Column: #FFE3D1, 22px high -->
+        <rect x="760" y="388" width="36" height="32" fill="#FFE3D1" />
+        <path d="M 760 388 C 772 398 784 398 796 388 L 796 398 C 784 408 772 408 760 398 Z" fill="#E2A888" opacity="0.4" />
+
+        <!-- Hoodie Collar -->
+        <path d="M 740 425 C 775 440 810 440 840 425 C 830 450 760 450 740 425 Z" fill="#1D4ED8" />
+
+        <!-- Head Base: cx=770, cy=300, r=90 -->
+        <circle id="tq_head_base" cx="770" cy="300" r="90" fill="#FFE3D1" />
+
+        <!-- Right Ear -->
+        <circle cx="860" cy="300" r="14" fill="#FFE3D1" />
+        <path d="M 860 295 Q 855 300 860 305" fill="none" stroke="#E2A888" stroke-width="2" stroke-linecap="round" />
+
+        <!-- Hair: Side-swept slate #1E293B framing forehead -->
+        <path d="M 678 300 C 672 190 715 180 770 180 C 825 180 868 190 862 300 C 858 270 842 240 822 235 C 795 240 770 265 738 270 C 708 272 692 255 678 300 Z" fill="#1E293B" />
+
+        <!-- Cheeks: Rosy Blush (#FCA5A5, 0.6 op) -->
+        <circle cx="728" cy="315" r="14" fill="#FCA5A5" opacity="0.6" />
+        <circle cx="828" cy="315" r="14" fill="#FCA5A5" opacity="0.6" />
+
+        <!-- Arched Brows (#1E293B) -->
+        <path d="M 720 270 Q 738 258 755 266" fill="none" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round" />
+        <path d="M 798 266 Q 815 258 832 270" fill="none" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round" />
+
+        <!-- Sparkling Star-Glint Eyes (#0F172A) -->
+        <g id="tq_eye_left">
+          <circle cx="740" cy="288" r="9.5" fill="#0F172A" />
+          <circle cx="737" cy="284" r="3" fill="#FFFFFF" />
+          <circle cx="743" cy="290" r="1.5" fill="#FFFFFF" />
+        </g>
+        <g id="tq_eye_right">
+          <circle cx="815" cy="288" r="9.5" fill="#0F172A" />
+          <circle cx="812" cy="284" r="3" fill="#FFFFFF" />
+          <circle cx="818" cy="290" r="1.5" fill="#FFFFFF" />
+        </g>
+
+        <!-- Nose (#E2A888) -->
+        <path d="M 780 292 L 780 302 L 786 303" fill="none" stroke="#E2A888" stroke-width="2.8" stroke-linecap="round" />
+
+        <!-- Smile with Teeth & Tongue -->
+        <g id="tq_smile">
+          <path d="M 750 318 Q 778 350 806 318 Z" fill="#EF4444" />
+          <path d="M 755 319 Q 778 328 801 319 Q 778 322 755 319 Z" fill="#FFFFFF" />
+          <path d="M 766 338 Q 778 330 790 338 C 786 348 770 348 766 338 Z" fill="#F87171" />
+          <path d="M 748 317 Q 778 352 808 317" fill="none" stroke="#B91C1C" stroke-width="2.2" stroke-linecap="round" />
+        </g>
+      </g>
+    </g>
+    <!-- 3. PROFILE RIGHT VIEW (90-DEGREE SIDE VIEW WITH AMBER BACKPACK) -->
+    <g id="turnaround_profile_right">
+      <!-- Ground Shadows -->
+      <ellipse cx="1180" cy="1400" rx="90" ry="14" fill="#000000" opacity="0.35" />
+
+      <!-- Amber Backpack securely on back with chest harness -->
+      <g id="profile_backpack">
+        <path d="M 1090 460 C 1090 425 1060 425 1060 460" fill="none" stroke="#D97706" stroke-width="8" stroke-linecap="round" />
+        <path d="M 1110 445 C 1110 560 1105 670 1090 710 C 1055 715 1010 690 1005 640 C 998 570 1005 480 1030 440 C 1060 405 1105 410 1110 445 Z" fill="#F59E0B" stroke="#D97706" stroke-width="3.5" stroke-linejoin="round" />
+        <rect x="1005" y="525" width="28" height="65" rx="8" fill="#D97706" stroke="#B45309" stroke-width="2" />
+        <circle cx="1020" cy="610" r="4" fill="#FBBF24" />
+        <polygon points="1020,615 1026,622 1023,630 1017,630 1014,622" fill="#00E5FF" stroke="#0891B2" stroke-width="1.2" />
+      </g>
+
+      <!-- Leg Assembly (Profile Side View) -->
+      <g id="profile_leg">
+        <path d="M 1150 840 L 1155 1072 L 1205 1072 L 1205 840 Z" fill="#334155" />
+        <path d="M 1155 1072 L 1155 1290 L 1210 1290 L 1205 1072 Z" fill="#334155" />
+        <line x1="1155" y1="1072" x2="1195" y2="1072" stroke="#1E293B" stroke-width="3.5" stroke-linecap="round" />
+        <rect x="1155" y="1285" width="50" height="15" fill="#FFFFFF" />
+        <!-- Sneaker (Profile) -->
+        <g id="profile_sneaker">
+          <path d="M 1145 1300 L 1215 1300 L 1228 1350 L 1255 1365 L 1255 1390 L 1140 1390 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2.5" />
+          <path d="M 1136 1385 L 1258 1385 L 1258 1400 L 1136 1400 Z" fill="#94A3B8" />
+          <path d="M 1165 1345 Q 1195 1352 1225 1345" fill="none" stroke="#2563EB" stroke-width="3.5" stroke-linecap="round" />
+          <line x1="1175" y1="1318" x2="1205" y2="1318" stroke="#CBD5E1" stroke-width="2.5" stroke-linecap="round" />
+        </g>
+      </g>
+
+      <!-- Torso Profile (Royal Blue Hoodie) with Chest Harness -->
+      <g id="profile_hoodie_torso">
+        <path d="M 1100 460 C 1130 450 1190 450 1210 470 C 1220 520 1215 740 1205 825 L 1110 825 C 1098 750 1096 610 1100 460 Z" fill="#2563EB" stroke="#1D4ED8" stroke-width="3" stroke-linejoin="round" />
+        <rect x="1105" y="818" width="105" height="30" rx="6" fill="#1D4ED8" />
+        <!-- Chest Harness Side Strap Anchoring amber backpack -->
+        <path d="M 1110 470 C 1135 530 1160 620 1175 730" fill="none" stroke="#F59E0B" stroke-width="12" stroke-linecap="round" />
+        <path d="M 1110 470 C 1135 530 1160 620 1175 730" fill="none" stroke="#D97706" stroke-width="3" stroke-linecap="round" />
+        <!-- Harness Tension Buckle -->
+        <rect x="1152" y="565" width="16" height="12" rx="3" fill="#00E5FF" stroke="#0891B2" stroke-width="1.8" />
+        <!-- Hoodie drawstring side -->
+        <path d="M 1190 475 Q 1195 520 1192 560" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" />
+        <circle cx="1192" cy="564" r="4" fill="#FFFFFF" />
+      </g>
+
+      <!-- Profile Arm -->
+      <g id="profile_arm">
+        <path d="M 1150 470 C 1160 520 1165 650 1160 750 L 1190 750 C 1195 650 1190 520 1175 470 Z" fill="#2563EB" />
+        <rect x="1150" y="745" width="40" height="18" rx="5" fill="#1D4ED8" stroke="#1E40AF" stroke-width="1.5" />
+        <circle cx="1170" cy="780" r="15" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" />
+        <ellipse cx="1174" cy="785" rx="8" ry="5" fill="#F5CCA8" />
+      </g>
+
+      <!-- Profile Head -->
+      <g id="profile_head">
+        <rect x="1160" y="388" width="34" height="32" fill="#FFE3D1" />
+        <path d="M 1145 425 C 1175 440 1205 440 1220 425 C 1210 450 1155 450 1145 425 Z" fill="#1D4ED8" />
+        <!-- Profile Cranium -->
+        <path d="M 1120 300 C 1120 200 1170 200 1220 220 C 1245 250 1240 310 1225 345 C 1200 380 1165 390 1140 370 C 1120 350 1120 320 1120 300 Z" fill="#FFE3D1" />
+        <!-- Profile Ear -->
+        <circle cx="1165" cy="305" r="14" fill="#FFE3D1" />
+        <path d="M 1165 300 Q 1160 305 1165 310" fill="none" stroke="#E2A888" stroke-width="2" stroke-linecap="round" />
+        <!-- Side-swept slate hair profile -->
+        <path d="M 1115 310 C 1105 200 1165 180 1215 180 C 1245 180 1255 200 1250 240 C 1235 235 1210 245 1195 260 C 1180 275 1160 270 1145 305 Z" fill="#1E293B" />
+        <!-- Eye in Profile (Star Glint) -->
+        <path d="M 1220 285 L 1230 288 L 1220 293 Z" fill="#0F172A" />
+        <circle cx="1223" cy="288" r="1.5" fill="#FFFFFF" />
+        <!-- Brow Profile -->
+        <path d="M 1212 268 Q 1224 262 1234 270" fill="none" stroke="#1E293B" stroke-width="4" stroke-linecap="round" />
+        <!-- Rosy Blush -->
+        <circle cx="1215" cy="315" r="12" fill="#FCA5A5" opacity="0.6" />
+        <!-- Nose Profile -->
+        <path d="M 1235 285 L 1245 298 L 1236 302" fill="none" stroke="#E2A888" stroke-width="2.5" stroke-linecap="round" />
+        <!-- Smile Profile -->
+        <path d="M 1222 322 Q 1232 334 1236 322" fill="none" stroke="#B91C1C" stroke-width="2.2" stroke-linecap="round" />
+      </g>
+    </g>
+  </g>
+  <!-- ======================================================================= -->
+  <!-- SECTION 2: FACIAL ANATOMY & EXPRESSION MATRIX (Zoomed Headshots)       -->
+  <!-- ======================================================================= -->
+  <g id="section2_facial_anatomy">
+    <rect x="1420" y="90" width="950" height="400" rx="10" fill="#131E32" stroke="#334155" stroke-width="1.5" />
+    <text x="1440" y="125" fill="#38BDF8" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" letter-spacing="1">SECTION 2: FACIAL ANATOMY &amp; EXPRESSION MATRIX (ZOOMED HEAD RIGS)</text>
+    <text x="2180" y="125" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="13">3 CANONICAL RIGS</text>
+
+    <!-- 1. expr_neutral_ready (x=1560, y=260) -->
+    <g id="expr_neutral_ready">
+      <rect x="1445" y="145" width="230" height="325" rx="8" fill="#1E293B" stroke="#475569" stroke-width="1" />
+      <text x="1560" y="175" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">1. NEUTRAL READY</text>
+      <text x="1560" y="193" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">id=&quot;expr_neutral_ready&quot;</text>
+
+      <g transform="translate(1560, 275)">
+        <!-- Neck -->
+        <rect x="-18" y="55" width="36" height="32" fill="#FFE3D1" />
+        <path d="M -35 75 C 0 95 0 95 35 75 L 30 100 L -30 100 Z" fill="#2563EB" />
+        <!-- Head -->
+        <circle cx="0" cy="0" r="75" fill="#FFE3D1" />
+        <circle cx="-75" cy="0" r="12" fill="#FFE3D1" />
+        <circle cx="75" cy="0" r="12" fill="#FFE3D1" />
+        <path d="M -75 0 C -70 -90 -35 -100 0 -100 C 35 -100 70 -90 75 0 C 70 -25 55 -50 35 -55 C 15 -50 -5 -30 -30 -25 C -55 -23 -70 -35 -75 0 Z" fill="#1E293B" />
+        <!-- Blush -->
+        <circle cx="-42" cy="12" r="12" fill="#FCA5A5" opacity="0.6" />
+        <circle cx="42" cy="12" r="12" fill="#FCA5A5" opacity="0.6" />
+        <!-- Brows -->
+        <path d="M -46 -26 Q -32 -36 -18 -28" fill="none" stroke="#1E293B" stroke-width="4" stroke-linecap="round" />
+        <path d="M 18 -28 Q 32 -36 46 -26" fill="none" stroke="#1E293B" stroke-width="4" stroke-linecap="round" />
+        <!-- Eyes -->
+        <g id="neutral_eye_l">
+          <circle cx="-32" cy="-10" r="8" fill="#0F172A" />
+          <circle cx="-35" cy="-13" r="2.5" fill="#FFFFFF" />
+          <circle cx="-30" cy="-8" r="1.3" fill="#FFFFFF" />
+        </g>
+        <g id="neutral_eye_r">
+          <circle cx="32" cy="-10" r="8" fill="#0F172A" />
+          <circle cx="29" cy="-13" r="2.5" fill="#FFFFFF" />
+          <circle cx="34" cy="-8" r="1.3" fill="#FFFFFF" />
+        </g>
+        <path d="M 0 -6 L 0 4 L 4 5" fill="none" stroke="#E2A888" stroke-width="2.5" stroke-linecap="round" />
+        <!-- Smile -->
+        <path d="M -22 18 Q 0 44 22 18 Z" fill="#EF4444" />
+        <path d="M -19 19 Q 0 26 19 19 Q 0 21 -19 19 Z" fill="#FFFFFF" />
+        <path d="M -10 34 Q 0 28 10 34 C 7 42 -7 42 -10 34 Z" fill="#F87171" />
+        <path d="M -24 17 Q 0 46 24 17" fill="none" stroke="#B91C1C" stroke-width="2" stroke-linecap="round" />
+      </g>
+      <text x="1560" y="425" fill="#E2E8F0" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Scene 3 Canonical Hero</text>
+      <text x="1560" y="442" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Blush #FCA5A5 (0.6 op) // Glints</text>
+    </g>
+
+    <!-- 2. expr_epiphany_excited (x=1895, y=260) -->
+    <g id="expr_epiphany_excited">
+      <rect x="1780" y="145" width="230" height="325" rx="8" fill="#1E293B" stroke="#475569" stroke-width="1" />
+      <text x="1895" y="175" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">2. EPIPHANY EXCITED</text>
+      <text x="1895" y="193" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">id=&quot;expr_epiphany_excited&quot;</text>
+
+      <g transform="translate(1895, 275)">
+        <!-- Floating Cyan Carats -->
+        <polygon points="70,-55 82,-45 78,-35 64,-35 60,-45" fill="#00E5FF" stroke="#38BDF8" stroke-width="1.5" />
+        <polygon points="-80,-40 -68,-30 -72,-20 -86,-20 -90,-30" fill="#00E5FF" stroke="#38BDF8" stroke-width="1.5" />
+        <path d="M 68 -75 Q 68 -65 58 -65 Q 68 -65 68 -55 Q 68 -65 78 -65 Q 68 -65 68 -75 Z" fill="#FBBF24" />
+
+        <!-- Neck -->
+        <rect x="-18" y="55" width="36" height="32" fill="#FFE3D1" />
+        <path d="M -35 75 C 0 95 0 95 35 75 L 30 100 L -30 100 Z" fill="#2563EB" />
+        <!-- Head -->
+        <circle cx="0" cy="0" r="75" fill="#FFE3D1" />
+        <circle cx="-75" cy="0" r="12" fill="#FFE3D1" />
+        <circle cx="75" cy="0" r="12" fill="#FFE3D1" />
+        <path d="M -75 0 C -70 -90 -35 -100 0 -100 C 35 -100 70 -90 75 0 C 70 -25 55 -50 35 -55 C 15 -50 -5 -30 -30 -25 C -55 -23 -70 -35 -75 0 Z" fill="#1E293B" />
+        <!-- Blush -->
+        <circle cx="-42" cy="12" r="14" fill="#FCA5A5" opacity="0.7" />
+        <circle cx="42" cy="12" r="14" fill="#FCA5A5" opacity="0.7" />
+        <!-- Raised Arched Brows -->
+        <path d="M -48 -35 Q -32 -48 -16 -38" fill="none" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round" />
+        <path d="M 16 -38 Q 32 -48 48 -35" fill="none" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round" />
+        <!-- Starburst Eyes -->
+        <g id="epiphany_star_l" transform="translate(-32, -10)">
+          <polygon points="0,-12 3,-3 12,0 3,3 0,12 -3,3 -12,0 -3,-3" fill="#0F172A" />
+          <circle cx="0" cy="0" r="3" fill="#00E5FF" />
+          <circle cx="0" cy="0" r="1" fill="#FFFFFF" />
+        </g>
+        <g id="epiphany_star_r" transform="translate(32, -10)">
+          <polygon points="0,-12 3,-3 12,0 3,3 0,12 -3,3 -12,0 -3,-3" fill="#0F172A" />
+          <circle cx="0" cy="0" r="3" fill="#00E5FF" />
+          <circle cx="0" cy="0" r="1" fill="#FFFFFF" />
+        </g>
+        <path d="M 0 -6 L 0 4 L 4 5" fill="none" stroke="#E2A888" stroke-width="2.5" stroke-linecap="round" />
+        <!-- Wide Open Epiphany Mouth -->
+        <path d="M -26 15 Q 0 54 26 15 Z" fill="#EF4444" />
+        <path d="M -22 16 Q 0 26 22 16 Q 0 20 -22 16 Z" fill="#FFFFFF" />
+        <path d="M -14 38 Q 0 30 14 38 C 10 50 -10 50 -14 38 Z" fill="#F87171" />
+        <path d="M -28 14 Q 0 57 28 14" fill="none" stroke="#B91C1C" stroke-width="2" stroke-linecap="round" />
+      </g>
+      <text x="1895" y="425" fill="#E2E8F0" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Aha! Discovery Momentum</text>
+      <text x="1895" y="442" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Open Mouth // Starbursts // Carats</text>
+    </g>
+
+    <!-- 3. expr_study_exhausted (x=2230, y=260) -->
+    <g id="expr_study_exhausted">
+      <rect x="2115" y="145" width="230" height="325" rx="8" fill="#1E293B" stroke="#475569" stroke-width="1" />
+      <text x="2230" y="175" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">3. STUDY EXHAUSTED</text>
+      <text x="2230" y="193" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">id=&quot;expr_study_exhausted&quot;</text>
+
+      <g transform="translate(2230, 275)">
+        <!-- Sleep Zzz particles -->
+        <text x="-65" y="-60" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="20" font-weight="800">Z</text>
+        <text x="-52" y="-45" fill="#64748B" font-family="system-ui, sans-serif" font-size="14" font-weight="700">z</text>
+
+        <!-- Neck -->
+        <rect x="-18" y="55" width="36" height="32" fill="#FFE3D1" />
+        <path d="M -35 75 C 0 95 0 95 35 75 L 30 100 L -30 100 Z" fill="#2563EB" />
+        <!-- Head (Slumped / Droopy) -->
+        <circle cx="0" cy="0" r="75" fill="#FFE3D1" />
+        <circle cx="-75" cy="0" r="12" fill="#FFE3D1" />
+        <circle cx="75" cy="0" r="12" fill="#FFE3D1" />
+        <!-- Slumped Slate Hair -->
+        <path d="M -75 0 C -70 -90 -35 -100 0 -100 C 35 -100 70 -90 75 0 C 70 -25 55 -50 35 -55 C 15 -50 -5 -30 -30 -25 C -55 -23 -70 -35 -75 0 Z" fill="#1E293B" />
+        <!-- Sweat Drop on Cheek -->
+        <path d="M -48 -15 C -42 -22 -35 -15 -42 -5 C -48 0 -54 -7 -48 -15 Z" fill="#38BDF8" opacity="0.85" />
+        <path d="M -62 -10 L -42 0 M -62 0 L -42 -10" stroke="#0F172A" stroke-width="4.5" stroke-linecap="round" />
+        <!-- Slumped Droopy Slit Eyes -->
+        <path d="M 16 -12 L 48 -12" stroke="#0F172A" stroke-width="4.5" stroke-linecap="round" />
+        <path d="M 18 -26 Q 32 -20 46 -26" fill="none" stroke="#1E293B" stroke-width="4" stroke-linecap="round" />
+        <!-- Slumped Flat Sigh Mouth -->
+        <path d="M -15 22 Q 0 16 15 22" fill="none" stroke="#64748B" stroke-width="3" stroke-linecap="round" />
+      </g>
+      <text x="2230" y="425" fill="#E2E8F0" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Slumped State A Pose</text>
+      <text x="2230" y="442" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Droopy Slits // Sweat Drop // Sigh</text>
+    </g>
+  </g>
+  <!-- ======================================================================= -->
+  <!-- SECTION 3: LIMB RIGGING & HAND MATRIX                                  -->
+  <!-- ======================================================================= -->
+  <g id="section3_limb_rigging_and_hands">
+    <rect x="1420" y="510" width="950" height="900" rx="10" fill="#131E32" stroke="#334155" stroke-width="1.5" />
+    <text x="1440" y="545" fill="#38BDF8" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" letter-spacing="1">SECTION 3: LIMB RIGGING SPEC &amp; HAND MATRIX</text>
+    <text x="2160" y="545" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="13">KINEMATICS &amp; PIVOTS</text>
+
+    <!-- 1. hand_holding_phone (x=1560, y=670) -->
+    <g id="hand_holding_phone">
+      <rect x="1445" y="565" width="230" height="230" rx="8" fill="#1E293B" stroke="#475569" stroke-width="1" />
+      <text x="1560" y="595" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">HAND: HOLDING PHONE</text>
+      <text x="1560" y="612" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">id=&quot;hand_holding_phone&quot;</text>
+
+      <g transform="translate(1560, 685)">
+        <!-- Smartphone Base (Black & Cyan Screen) -->
+        <rect x="-40" y="-55" width="55" height="95" rx="8" fill="#0F172A" stroke="#38BDF8" stroke-width="2" />
+        <rect x="-35" y="-45" width="45" height="75" rx="4" fill="#0284C7" />
+        <line x1="-20" y1="-50" x2="-5" y2="-50" stroke="#64748B" stroke-width="2" stroke-linecap="round" />
+        <!-- Fingers Wrapped on Left Edge -->
+        <circle cx="20" cy="-25" r="9" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.5" />
+        <circle cx="22" cy="-7" r="9" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.5" />
+        <circle cx="20" cy="11" r="9" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.5" />
+        <circle cx="16" cy="29" r="8" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.5" />
+        <!-- Fleshy Thumb Pad (radius > 16px) hugging the phone edge -->
+        <ellipse cx="-15" cy="12" rx="18" ry="24" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" />
+        <ellipse cx="-26" cy="10" rx="14" ry="17" fill="#FFE3D1" />
+      </g>
+      <text x="1560" y="780" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Soft rounded thumb pad (r &gt; 16px)</text>
+    </g>
+
+    <!-- 2. hand_swiping_index (x=1895, y=670) -->
+    <g id="hand_swiping_index">
+      <rect x="1780" y="565" width="230" height="230" rx="8" fill="#1E293B" stroke="#475569" stroke-width="1" />
+      <text x="1895" y="595" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">HAND: SWIPING INDEX</text>
+      <text x="1895" y="612" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">id=&quot;hand_swiping_index&quot;</text>
+
+      <g transform="translate(1895, 685)">
+        <!-- Phone Surface underneath -->
+        <rect x="-45" y="-55" width="60" height="95" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1.5" />
+        <rect x="-40" y="-45" width="50" height="75" rx="4" fill="#0369A1" opacity="0.6" />
+        <!-- Tap Ripple Glow -->
+        <circle cx="0" cy="-20" r="16" fill="none" stroke="#00E5FF" stroke-width="2" opacity="0.8" />
+        <circle cx="0" cy="-20" r="8" fill="#00E5FF" opacity="0.5" />
+        <rect x="-30" y="-28" width="40" height="16" rx="4" fill="#0284C7" />
+        <text x="-10" y="-17" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="7" font-weight="700" text-anchor="middle">CLAIM</text>
+
+        <!-- Curved Index Finger tapping screen -->
+        <!-- Curled hand base -->
+        <ellipse cx="25" cy="15" rx="18" ry="20" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" />
+        <circle cx="28" cy="2" r="8" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.5" />
+        <circle cx="28" cy="18" r="8" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.5" />
+        <circle cx="24" cy="32" r="7.5" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.5" />
+        <!-- Natural Index Finger Curving to Tap (x=0, y=-20) -->
+        <path d="M 18 -5 C 10 -15 2 -25 0 -20 C -2 -15 6 -3 15 5 Z" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.8" stroke-linejoin="round" />
+        <circle cx="0" cy="-20" r="7" fill="#FFE3D1" />
+        <!-- Forearm sleeve -->
+        <path d="M 28 35 L 50 35 L 50 70 L 28 70 Z" fill="#2563EB" />
+        <rect x="26" y="32" width="26" height="8" rx="2" fill="#1D4ED8" />
+      </g>
+      <text x="1895" y="780" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Articulated curve &amp; tap ripple</text>
+    </g>
+
+    <!-- 3. hand_raised_classroom (x=2230, y=670) -->
+    <g id="hand_raised_classroom">
+      <rect x="2115" y="565" width="230" height="230" rx="8" fill="#1E293B" stroke="#475569" stroke-width="1" />
+      <text x="2230" y="595" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">HAND: RAISED CLASSROOM</text>
+      <text x="2230" y="612" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">id=&quot;hand_raised_classroom&quot;</text>
+
+      <g transform="translate(2230, 685)">
+        <!-- Raised cyan carat spark -->
+        <polygon points="0,-72 8,-64 5,-56 -5,-56 -8,-64" fill="#00E5FF" stroke="#38BDF8" stroke-width="1.2" />
+        <!-- Hand Raised 1:1 from Scene 3 -->
+        <!-- Extended Index Finger pointing upwards with enthusiasm -->
+        <rect x="-5" y="-52" width="10" height="32" rx="5" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" />
+        <!-- Palm and folded fingers -->
+        <ellipse cx="0" cy="-10" rx="16" ry="18" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" />
+        <circle cx="10" cy="-15" r="6" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.2" />
+        <circle cx="12" cy="-3" r="6" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.2" />
+        <circle cx="10" cy="9" r="5.5" fill="#FFE3D1" stroke="#F5CCA8" stroke-width="1.2" />
+        <ellipse cx="-10" cy="-4" rx="7" ry="10" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.2" />
+        <!-- Royal Blue Sleeve -->
+        <path d="M -16 12 L 16 12 L 20 65 L -20 65 Z" fill="#2563EB" />
+        <rect x="-18" y="8" width="36" height="10" rx="3" fill="#1D4ED8" stroke="#1E40AF" stroke-width="1.2" />
+      </g>
+      <text x="2230" y="780" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">1:1 Canonical Golden Ratio Hand</text>
+    </g>
+
+    <!-- 4. leg_joint_rig_spec (x=1895, y=1100) -->
+    <g id="leg_joint_rig_spec">
+      <rect x="1445" y="815" width="900" height="570" rx="8" fill="#1E293B" stroke="#475569" stroke-width="1" />
+      <text x="1465" y="845" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700">4. LEG JOINT RIG SPECIFICATION &amp; HIERARCHICAL KINEMATICS</text>
+      <text x="2230" y="845" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="11">id=&quot;leg_joint_rig_spec&quot;</text>
+
+      <!-- Kinematics diagram: Thigh -> Shin -> Foot -->
+      <!-- Visual Bone Axis Diagram -->
+      <line x1="1750" y1="890" x2="1810" y2="1050" stroke="#00E5FF" stroke-width="4" stroke-dasharray="8 4" />
+      <line x1="1810" y1="1050" x2="1880" y2="1250" stroke="#00E5FF" stroke-width="4" stroke-dasharray="8 4" />
+
+      <!-- Rendered Leg Over Diagram with Opacity -->
+      <!-- Tier 1: Thigh -->
+      <path d="M 1720 890 L 1785 1050 L 1835 1050 L 1780 890 Z" fill="#334155" opacity="0.85" />
+      <!-- Tier 2: Shin -->
+      <path d="M 1785 1050 L 1850 1250 L 1905 1245 L 1835 1050 Z" fill="#334155" opacity="0.85" />
+      <!-- Tier 3: Foot / Sneaker -->
+      <g opacity="0.95">
+        <polygon points="1850,1250 1905,1245 1910,1265 1855,1270" fill="#FFFFFF" />
+        <path d="M 1852 1260 C 1880 1252 1910 1250 1935 1272 L 1975 1275 C 1978 1285 1972 1295 1960 1298 L 1870 1304 C 1860 1304 1850 1293 1845 1280 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+        <path d="M 1848 1296 L 1870 1304 L 1965 1298 L 1970 1306 L 1872 1312 L 1848 1306 Z" fill="#94A3B8" />
+        <path d="M 1880 1280 Q 1910 1282 1940 1275" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
+      </g>
+
+      <!-- Pivot 1: Hip Joint (Tier 1 Parent) -->
+      <circle cx="1750" cy="890" r="16" fill="none" stroke="#EF4444" stroke-width="3" />
+      <line x1="1730" y1="890" x2="1770" y2="890" stroke="#EF4444" stroke-width="2.5" />
+      <line x1="1750" y1="870" x2="1750" y2="910" stroke="#EF4444" stroke-width="2.5" />
+      <text x="1710" y="880" fill="#F87171" font-family="system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="end">ROOT HIP PIVOT (Tier 1)</text>
+      <text x="1710" y="898" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11" text-anchor="end">data-pivot=&quot;1750 1260&quot;</text>
+
+      <!-- Pivot 2: Knee Joint (Tier 2 Child) -->
+      <circle cx="1810" cy="1050" r="14" fill="none" stroke="#EF4444" stroke-width="3" />
+      <line x1="1792" y1="1050" x2="1828" y2="1050" stroke="#EF4444" stroke-width="2.5" />
+      <line x1="1810" y1="1032" x2="1810" y2="1068" stroke="#EF4444" stroke-width="2.5" />
+      <text x="1890" y="1045" fill="#F87171" font-family="system-ui, sans-serif" font-size="13" font-weight="700">KNEE PIVOT (Tier 2 Child)</text>
+      <text x="1890" y="1063" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">data-pivot=&quot;1810 1370&quot;</text>
+
+      <!-- Pivot 3: Ankle Joint (Tier 3 Child) -->
+      <circle cx="1880" cy="1250" r="12" fill="none" stroke="#EF4444" stroke-width="3" />
+      <line x1="1865" y1="1250" x2="1895" y2="1250" stroke="#EF4444" stroke-width="2" />
+      <line x1="1880" y1="1235" x2="1880" y2="1265" stroke="#EF4444" stroke-width="2" />
+      <text x="1960" y="1245" fill="#F87171" font-family="system-ui, sans-serif" font-size="13" font-weight="700">ANKLE PIVOT (Tier 3 Child)</text>
+      <text x="1960" y="1263" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">data-pivot=&quot;1880 1470&quot;</text>
+
+      <!-- Architecture Specification Callouts -->
+      <rect x="1465" y="905" width="160" height="95" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1.5" />
+      <text x="1475" y="925" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="11" font-weight="700">HIERARCHY SPEC:</text>
+      <text x="1475" y="945" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="11">└─ #rig_thigh</text>
+      <text x="1490" y="962" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">└─ #rig_shin</text>
+      <text x="1505" y="979" fill="#64748B" font-family="system-ui, sans-serif" font-size="11">└─ #rig_foot</text>
+
+      <rect x="1465" y="1015" width="160" height="50" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1.5" />
+      <text x="1475" y="1035" fill="#10B981" font-family="system-ui, sans-serif" font-size="11" font-weight="600">✓ Forward Kinematics</text>
+      <text x="1475" y="1052" fill="#10B981" font-family="system-ui, sans-serif" font-size="11" font-weight="600">✓ Remotion Hook Ready</text>
+    </g>
+  </g>
+</svg>

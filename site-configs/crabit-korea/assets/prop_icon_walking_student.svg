@@ -1,30 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
   <defs>
-    <!-- Soft shadow filter for grounding -->
+    <!-- Master Tokens & Swatches -->
+    <linearGradient id="token_hoodie_blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#1D4ED8" />
+    </linearGradient>
+    <solidColor id="token_skin_base" solid-color="#FFE3D1" />
+    <solidColor id="token_hair_slate" solid-color="#1E293B" />
+    <solidColor id="token_pants_navy" solid-color="#334155" />
+    <solidColor id="token_carat_cyan" solid-color="#00E5FF" />
+
     <filter id="soft_shadow_filter" x="-20%" y="-20%" width="140%" height="140%">
       <feGaussianBlur stdDeviation="8" />
     </filter>
   </defs>
 
-  <!-- ======================================================================= -->
-  <!-- 5. ENERGETIC WALK PARTICLES (<g id="walking_sparkles_and_carats">)      -->
-  <!-- ======================================================================= -->
+  <!-- Energetic Walk Particles & Whims -->
   <g id="walking_sparkles_and_carats">
-    <!-- Ground Shadows at Walking Plane y=880 -->
-    <!-- Rear foot toe contact shadow -->
-    <ellipse id="shadow_back_toe" cx="370" cy="882" rx="46" ry="10" fill="#CBD5E1" opacity="0.6" filter="url(#soft_shadow_filter)" />
-    <!-- Front foot landing heel shadow -->
-    <ellipse id="shadow_front_heel" cx="640" cy="882" rx="58" ry="11" fill="#CBD5E1" opacity="0.7" filter="url(#soft_shadow_filter)" />
-    <!-- Body span grounding shadow -->
-    <ellipse id="shadow_body_span" cx="505" cy="885" rx="160" ry="16" fill="#E2E8F0" opacity="0.5" filter="url(#soft_shadow_filter)" />
-
     <!-- Motion Whims (Joyful momentum behind student) -->
     <path id="motion_wind_top" d="M 180 480 Q 240 475 290 485" fill="none" stroke="#00E5FF" stroke-width="4.5" stroke-linecap="round" opacity="0.8" />
     <path id="motion_wind_mid" d="M 150 535 Q 225 530 275 540" fill="none" stroke="#FBBF24" stroke-width="4.5" stroke-linecap="round" opacity="0.85" />
     <path id="motion_wind_low" d="M 190 590 Q 250 585 295 595" fill="none" stroke="#00E5FF" stroke-width="4.5" stroke-linecap="round" opacity="0.7" />
 
     <!-- Floating Cyan Carat Gem Particles (#00E5FF) and Daylight Yellow Sparkles (#FBBF24) -->
-    <!-- Front Reward Carat: Symbolizing joyful motivation -->
     <g id="carat_reward_front" transform="translate(735, 230)">
       <polygon points="20,0 40,15 32,38 8,38 0,15" fill="#00E5FF" stroke="#0891B2" stroke-width="1.8" stroke-linejoin="round" />
       <polygon points="20,0 40,15 28,18 20,5" fill="#67E8F9" opacity="0.9" />
@@ -33,7 +31,6 @@
       <circle cx="74" cy="32" r="3.5" fill="#00E5FF" />
     </g>
 
-    <!-- Top Left Carat near head -->
     <g id="carat_reward_top_left" transform="translate(310, 160)">
       <polygon points="16,0 32,12 26,30 6,30 0,12" fill="#00E5FF" stroke="#0891B2" stroke-width="1.5" stroke-linejoin="round" />
       <polygon points="16,0 32,12 22,14 16,4" fill="#67E8F9" opacity="0.9" />
@@ -41,14 +38,6 @@
       <circle cx="38" cy="-5" r="3.5" fill="#FBBF24" />
     </g>
 
-    <!-- Mid Left Carat behind backpack -->
-    <g id="carat_reward_mid_left" transform="translate(220, 390)">
-      <polygon points="15,0 30,11 24,28 6,28 0,11" fill="#00E5FF" stroke="#0891B2" stroke-width="1.5" stroke-linejoin="round" />
-      <polygon points="15,0 30,11 21,13 15,4" fill="#67E8F9" opacity="0.9" />
-      <circle cx="38" cy="14" r="3.5" fill="#FBBF24" />
-    </g>
-
-    <!-- Ground Level Carat near front foot stride -->
     <g id="carat_reward_ground" transform="translate(745, 840)">
       <polygon points="14,0 28,10 22,26 6,26 0,10" fill="#00E5FF" stroke="#0891B2" stroke-width="1.5" stroke-linejoin="round" />
       <path d="M 38 -5 Q 38 6 27 6 Q 38 6 38 17 Q 38 6 49 6 Q 38 6 38 -5 Z" fill="#FBBF24" />
@@ -56,202 +45,172 @@
     </g>
   </g>
 
-  <!-- ======================================================================= -->
-  <!-- 2. STUDENT CHARACTER RIG                                                -->
-  <!-- ======================================================================= -->
-  <g id="student_walking_character">
+  <!-- Master Character Model Sheet Instantiation (3/4 Dynamic Right View) -->
+  <!-- Scaled and positioned so baseline y=1400 aligns exactly with ground plane y=880 -->
+  <g id="prop_walking_student_root" transform="translate(-11, -37) scale(0.655)">
+<g id="turnaround_three_quarter_right">
+      <!-- Ground Shadows -->
+      <g id="tq_ground_shadows">
+        <ellipse cx="640" cy="1400" rx="60" ry="12" fill="#000000" opacity="0.35" />
+        <ellipse cx="910" cy="1400" rx="70" ry="14" fill="#000000" opacity="0.45" />
+        <ellipse cx="770" cy="1402" rx="160" ry="18" fill="#000000" opacity="0.25" />
+      </g>
 
-    <!-- 4. SWINGING ARMS (<g id="student_walking_arms">) - BACK ARM SUBCOMPONENT -->
-    <!-- Back Arm: Angled slightly back to counterbalance the stride -->
-    <g id="student_walking_arms_back">
-      <!-- Upper arm angled back from shoulder (x=465, y=390) to elbow (x=385, y=475) -->
-      <path d="M 460 385 C 430 420 405 450 380 475 C 370 485 382 498 395 490 C 420 468 450 435 480 400 Z" fill="#1D4ED8" />
-      <!-- Forearm extending down/back to wrist (x=345, y=535) -->
-      <path d="M 385 480 L 345 535 L 368 548 L 405 495 Z" fill="#1D4ED8" />
-      <!-- Ribbed cuff in #1D4ED8 / #1E40AF -->
-      <rect x="338" y="528" width="26" height="12" rx="4" transform="rotate(32 351 534)" fill="#1E40AF" />
-      <!-- Natural hand curled into relaxed happy fist (skin #FFE3D1) -->
-      <circle cx="336" cy="552" r="13" fill="#FFE3D1" />
-      <ellipse cx="330" cy="556" rx="8" ry="5" fill="#F8D3BB" />
-    </g>
+      <!-- 1. Back Arm (Swinging Backwards) -->
+      <g id="tq_back_arm">
+        <path d="M 730 475 L 665 575 L 685 595 L 750 495 Z" fill="#1D4ED8" />
+        <path d="M 665 575 L 625 655 L 650 670 L 685 595 Z" fill="#1D4ED8" />
+        <rect x="615" y="645" width="30" height="15" rx="4" transform="rotate(32 630 652)" fill="#1E40AF" stroke="#1D4ED8" stroke-width="1.5" />
+        <circle cx="620" cy="682" r="15" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" />
+        <ellipse cx="615" cy="688" rx="9" ry="6" fill="#F5CCA8" />
+      </g>
 
-    <!-- 2. TORSO & BACKPACK (<g id="student_walking_torso">) - BACKPACK SUBCOMPONENT -->
-    <!-- Modern student backpack in warm amber gold #F59E0B (contrast pop) strapped securely to back -->
-    <g id="student_walking_backpack">
-      <!-- Top handle loop in darker amber #D97706 -->
-      <path d="M 420 365 C 420 330 390 330 390 365" fill="none" stroke="#D97706" stroke-width="8" stroke-linecap="round" />
-      <!-- Main backpack shell -->
-      <path d="M 440 375 C 452 455 445 535 432 565 C 412 575 372 565 362 540 C 342 500 348 410 368 375 C 388 345 428 348 440 375 Z" fill="#F59E0B" stroke="#D97706" stroke-width="3.5" stroke-linejoin="round" />
-      <!-- Side depth panel (#D97706) -->
-      <path d="M 368 375 C 348 410 342 500 362 540 C 370 525 376 425 390 370 C 380 370 372 372 368 375 Z" fill="#D97706" opacity="0.6" />
-      <!-- Outer utility pocket -->
-      <rect x="348" y="430" width="34" height="60" rx="10" fill="#D97706" stroke="#B45309" stroke-width="2.5" />
-      <line x1="352" y1="448" x2="378" y2="448" stroke="#FDE68A" stroke-width="2.5" stroke-linecap="round" />
-      <!-- Floating Cyan Carat charm on backpack ring -->
-      <circle cx="362" cy="502" r="3.5" fill="#FBBF24" />
-      <polygon points="362,506 368,512 365,520 359,520 356,512" fill="#00E5FF" stroke="#0891B2" stroke-width="1" />
-    </g>
+      <!-- 2. Amber Backpack Subcomponent (#F59E0B) -->
+      <g id="tq_backpack">
+        <path d="M 700 460 C 700 425 665 425 665 460" fill="none" stroke="#D97706" stroke-width="8" stroke-linecap="round" />
+        <path d="M 720 450 C 730 550 722 660 705 700 C 675 715 625 700 615 670 C 590 620 598 505 625 455 C 650 415 705 418 720 450 Z" fill="#F59E0B" stroke="#D97706" stroke-width="3.5" stroke-linejoin="round" />
+        <path d="M 625 455 C 598 505 590 620 615 670 C 625 650 635 520 655 450 C 640 450 630 452 625 455 Z" fill="#D97706" opacity="0.6" />
+        <rect x="600" y="530" width="40" height="70" rx="10" fill="#D97706" stroke="#B45309" stroke-width="2.5" />
+        <line x1="605" y1="550" x2="635" y2="550" stroke="#FDE68A" stroke-width="2.5" stroke-linecap="round" />
+        <circle cx="615" cy="615" r="4" fill="#FBBF24" />
+        <polygon points="615,620 622,628 619,638 611,638 608,628" fill="#00E5FF" stroke="#0891B2" stroke-width="1.2" />
+      </g>
 
-    <!-- ======================================================================= -->
-    <!-- 3. ARTICULATED WALKING LEGS (<g id="student_walking_legs_cycle">)       -->
-    <!-- ======================================================================= -->
-    <g id="student_walking_legs_cycle">
-      <!-- Back Leg: Pushing off behind at a 25-degree angle, toe tapping ground plane (y=880) -->
-      <g id="leg_back_pushing">
-        <!-- Charcoal/Navy school pants #334155 (shaded #243040 for trailing depth) -->
-        <path d="M 448 565 C 440 605 418 650 395 685 C 375 725 348 775 335 825 L 378 832 C 392 785 418 735 438 695 C 458 655 478 610 488 565 Z" fill="#243040" />
-        <!-- Knee bend creases -->
-        <path d="M 395 685 Q 415 698 438 695" fill="none" stroke="#1E293B" stroke-width="3.5" stroke-linecap="round" />
-        <path d="M 388 710 Q 405 720 422 715" fill="none" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" />
-        <!-- White Sock (#FFFFFF) -->
-        <polygon points="335,825 378,832 374,846 331,840" fill="#FFFFFF" />
-        <!-- Back Sneaker: Clean white (#FFFFFF) with light gray soles (#94A3B8), toe tapping ground plane -->
-        <g id="sneaker_back_push">
-          <!-- Sneaker upper -->
-          <path d="M 328 838 L 372 844 L 392 865 L 382 880 L 340 878 L 318 856 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
-          <!-- Light gray sole (#94A3B8) tapping baseline y=880 with heel lifted -->
-          <path d="M 334 876 L 382 880 L 380 886 L 330 882 Z" fill="#94A3B8" />
-          <!-- Blue wave detail -->
-          <path d="M 340 855 Q 360 860 375 858" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
-          <!-- White shoe laces -->
-          <line x1="352" y1="845" x2="366" y2="850" stroke="#CBD5E1" stroke-width="2" stroke-linecap="round" />
+      <!-- 3. HIERARCHICAL ARTICULATED LEGS (PRESERVED 3-JOINT RIG) -->
+      <!-- Back Leg: Pushing off behind, toe contacting ground plane (y=1400) -->
+      <g id="tq_back_leg">
+        <!-- Tier 1: Thigh -->
+        <g id="tq_back_thigh" data-pivot="730 840">
+          <path d="M 720 840 L 660 1072 L 705 1072 L 755 840 Z" fill="#243040" />
+          <!-- Tier 2: Shin -->
+          <g id="tq_back_shin" data-pivot="682 1072">
+            <path d="M 660 1072 L 595 1345 L 648 1355 L 705 1072 Z" fill="#243040" />
+            <path d="M 660 1072 Q 685 1090 705 1072" fill="none" stroke="#1E293B" stroke-width="4" stroke-linecap="round" />
+            <!-- White Sock -->
+            <polygon points="595,1340 648,1350 645,1365 592,1355" fill="#FFFFFF" />
+            <!-- Tier 3: Foot (Sneaker Push-off) -->
+            <g id="tq_back_foot" data-pivot="620 1355">
+              <path d="M 590 1355 L 645 1362 L 670 1385 L 660 1400 L 610 1398 L 580 1375 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2.5" />
+              <path d="M 595 1395 L 660 1400 L 658 1406 L 592 1402 Z" fill="#94A3B8" />
+              <path d="M 605 1375 Q 632 1382 650 1380" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
+              <line x1="615" y1="1362" x2="635" y2="1368" stroke="#CBD5E1" stroke-width="2" stroke-linecap="round" />
+            </g>
+          </g>
         </g>
       </g>
 
-      <!-- Front Leg: Stepping forward at a 30-degree angle, knee flexed naturally, front sneaker heel contacting walking plane (y=880) -->
-      <g id="leg_front_stepping">
-        <!-- Charcoal/Navy school pants #334155 -->
-        <path d="M 485 565 C 512 605 545 645 572 680 C 596 720 618 765 628 815 L 672 810 C 658 765 632 720 605 680 C 575 640 540 600 526 565 Z" fill="#334155" />
-        <!-- Natural knee flexion curves and anatomical fabric creases -->
-        <path d="M 572 680 Q 590 692 605 680" fill="none" stroke="#1E293B" stroke-width="4" stroke-linecap="round" />
-        <path d="M 562 665 Q 578 676 592 668" fill="none" stroke="#475569" stroke-width="2.5" stroke-linecap="round" />
-        <path d="M 580 705 Q 598 715 612 705" fill="none" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" />
-        <!-- White Sock (#FFFFFF) -->
-        <polygon points="628,815 672,810 678,828 634,833" fill="#FFFFFF" />
-        <!-- Front Sneaker: Clean white (#FFFFFF) with light gray soles (#94A3B8), heel contacting walking plane y=880 -->
-        <g id="sneaker_front_contact">
-          <!-- Upper sneaker body: toe lifted ~15 deg with stride momentum -->
-          <path d="M 630 828 C 655 822 680 820 702 842 L 740 845 C 743 855 737 865 725 868 L 646 874 C 636 874 628 863 624 848 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2.5" />
-          <!-- Light gray sole (#94A3B8): Heel contacting walking plane at y=880, front sole angled up -->
-          <path d="M 626 866 L 646 874 L 730 868 L 736 876 L 648 882 L 626 876 Z" fill="#94A3B8" />
-          <!-- Blue wave stripe -->
-          <path d="M 655 850 Q 682 852 710 845" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
-          <!-- Crisp white shoe laces -->
-          <line x1="666" y1="832" x2="682" y2="838" stroke="#CBD5E1" stroke-width="2.5" stroke-linecap="round" />
-          <line x1="678" y1="838" x2="694" y2="845" stroke="#CBD5E1" stroke-width="2.5" stroke-linecap="round" />
+      <!-- Front Leg: Stepping forward, heel contacting ground plane (y=1400) -->
+      <g id="tq_front_leg">
+        <!-- Tier 1: Thigh -->
+        <g id="tq_front_thigh" data-pivot="775 840">
+          <path d="M 755 840 L 805 1072 L 855 1072 L 805 840 Z" fill="#334155" />
+          <!-- Tier 2: Shin -->
+          <g id="tq_front_shin" data-pivot="830 1072">
+            <path d="M 805 1072 L 870 1340 L 925 1335 L 855 1072 Z" fill="#334155" />
+            <path d="M 805 1072 Q 830 1090 855 1072" fill="none" stroke="#1E293B" stroke-width="4" stroke-linecap="round" />
+            <!-- White Sock -->
+            <polygon points="870,1340 925,1335 930,1355 875,1360" fill="#FFFFFF" />
+            <!-- Tier 3: Foot (Sneaker Heel Contact) -->
+            <g id="tq_front_foot" data-pivot="900 1345">
+              <path d="M 872 1350 C 900 1342 930 1340 955 1362 L 995 1365 C 998 1375 992 1385 980 1388 L 890 1394 C 880 1394 870 1383 865 1370 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2.5" />
+              <path d="M 868 1386 L 890 1394 L 985 1388 L 990 1396 L 892 1402 L 868 1396 Z" fill="#94A3B8" />
+              <path d="M 900 1370 Q 930 1372 960 1365" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
+              <line x1="915" y1="1352" x2="935" y2="1358" stroke="#CBD5E1" stroke-width="2" stroke-linecap="round" />
+              <line x1="930" y1="1358" x2="950" y2="1365" stroke="#CBD5E1" stroke-width="2" stroke-linecap="round" />
+            </g>
+          </g>
+        </g>
+      </g>
+
+      <!-- 4. Torso & Royal Blue Hoodie with Backpack Chest Harness -->
+      <g id="tq_hoodie_torso">
+        <path d="M 700 460 C 740 450 810 450 850 470 C 865 520 860 740 845 825 C 805 835 725 832 695 822 C 688 745 695 620 700 460 Z" fill="#2563EB" stroke="#1D4ED8" stroke-width="3" stroke-linejoin="round" />
+        <!-- Ribbed Hem (#1D4ED8) -->
+        <path d="M 692 818 C 740 828 820 830 855 822 L 852 848 C 815 858 735 856 690 844 Z" fill="#1D4ED8" />
+        <line x1="730" y1="822" x2="730" y2="850" stroke="#1E40AF" stroke-width="2.5" />
+        <line x1="770" y1="825" x2="770" y2="854" stroke="#1E40AF" stroke-width="2.5" />
+        <line x1="810" y1="824" x2="810" y2="852" stroke="#1E40AF" stroke-width="2.5" />
+
+        <!-- Kangaroo Front Pocket -->
+        <path d="M 725 700 C 765 692 820 695 845 710 C 840 760 835 788 828 805 C 792 810 740 808 712 800 C 708 780 716 735 725 700 Z" fill="#1D4ED8" opacity="0.95" />
+        <path d="M 725 700 Q 738 735 728 775" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
+        <path d="M 845 710 Q 832 742 828 785" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
+
+        <!-- Front Shoulder Strap from Backpack (#F59E0B) -->
+        <path d="M 765 450 C 780 520 790 620 795 725 L 775 725 C 770 620 760 520 748 450 Z" fill="#F59E0B" stroke="#D97706" stroke-width="2" />
+        <!-- Chest Harness Horizontal Cross Strap crossing hoodie -->
+        <rect x="740" y="565" width="85" height="12" rx="3" fill="#FDE68A" stroke="#D97706" stroke-width="2" />
+        <rect x="770" y="560" width="18" height="22" rx="4" fill="#00E5FF" stroke="#0891B2" stroke-width="2" />
+
+        <!-- White Hoodie Drawstrings (#FFFFFF) -->
+        <path d="M 795 478 Q 792 525 794 560" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
+        <circle cx="794" cy="564" r="4.5" fill="#FFFFFF" />
+        <path d="M 818 478 Q 816 520 818 550" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
+        <circle cx="818" cy="554" r="4.5" fill="#FFFFFF" />
+
+        <!-- Cyan Carat Crest -->
+        <polygon points="832,525 844,535 840,548 826,548 822,535" fill="#00E5FF" stroke="#38BDF8" stroke-width="1.8" />
+      </g>
+
+      <!-- 5. Front Arm (Swinging Forward with Hand) -->
+      <g id="tq_front_arm">
+        <path d="M 830 475 C 870 485 930 535 955 585 L 910 605 C 885 570 840 530 810 505 Z" fill="#2563EB" />
+        <path d="M 915 580 L 1005 525 L 1025 555 L 935 610 Z" fill="#2563EB" stroke="#1D4ED8" stroke-width="2" />
+        <rect x="995" y="520" width="35" height="18" rx="6" transform="rotate(-30 1012 529)" fill="#1D4ED8" stroke="#1E40AF" stroke-width="1.5" />
+        <circle cx="1035" cy="520" r="16" fill="#FFE3D1" stroke="#E2A888" stroke-width="1.5" />
+        <ellipse cx="1042" cy="524" rx="9" ry="6" fill="#F5CCA8" />
+      </g>
+
+      <!-- 6. Head & Expression (3/4 Right Canonical Hero DNA) -->
+      <g id="tq_head_assembly">
+        <!-- Neck Column: #FFE3D1, 22px high -->
+        <rect x="760" y="388" width="36" height="32" fill="#FFE3D1" />
+        <path d="M 760 388 C 772 398 784 398 796 388 L 796 398 C 784 408 772 408 760 398 Z" fill="#E2A888" opacity="0.4" />
+
+        <!-- Hoodie Collar -->
+        <path d="M 740 425 C 775 440 810 440 840 425 C 830 450 760 450 740 425 Z" fill="#1D4ED8" />
+
+        <!-- Head Base: cx=770, cy=300, r=90 -->
+        <circle id="tq_head_base" cx="770" cy="300" r="90" fill="#FFE3D1" />
+
+        <!-- Right Ear -->
+        <circle cx="860" cy="300" r="14" fill="#FFE3D1" />
+        <path d="M 860 295 Q 855 300 860 305" fill="none" stroke="#E2A888" stroke-width="2" stroke-linecap="round" />
+
+        <!-- Hair: Side-swept slate #1E293B framing forehead -->
+        <path d="M 678 300 C 672 190 715 180 770 180 C 825 180 868 190 862 300 C 858 270 842 240 822 235 C 795 240 770 265 738 270 C 708 272 692 255 678 300 Z" fill="#1E293B" />
+
+        <!-- Cheeks: Rosy Blush (#FCA5A5, 0.6 op) -->
+        <circle cx="728" cy="315" r="14" fill="#FCA5A5" opacity="0.6" />
+        <circle cx="828" cy="315" r="14" fill="#FCA5A5" opacity="0.6" />
+
+        <!-- Arched Brows (#1E293B) -->
+        <path d="M 720 270 Q 738 258 755 266" fill="none" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round" />
+        <path d="M 798 266 Q 815 258 832 270" fill="none" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round" />
+
+        <!-- Sparkling Star-Glint Eyes (#0F172A) -->
+        <g id="tq_eye_left">
+          <circle cx="740" cy="288" r="9.5" fill="#0F172A" />
+          <circle cx="737" cy="284" r="3" fill="#FFFFFF" />
+          <circle cx="743" cy="290" r="1.5" fill="#FFFFFF" />
+        </g>
+        <g id="tq_eye_right">
+          <circle cx="815" cy="288" r="9.5" fill="#0F172A" />
+          <circle cx="812" cy="284" r="3" fill="#FFFFFF" />
+          <circle cx="818" cy="290" r="1.5" fill="#FFFFFF" />
+        </g>
+
+        <!-- Nose (#E2A888) -->
+        <path d="M 780 292 L 780 302 L 786 303" fill="none" stroke="#E2A888" stroke-width="2.8" stroke-linecap="round" />
+
+        <!-- Smile with Teeth & Tongue -->
+        <g id="tq_smile">
+          <path d="M 750 318 Q 778 350 806 318 Z" fill="#EF4444" />
+          <path d="M 755 319 Q 778 328 801 319 Q 778 322 755 319 Z" fill="#FFFFFF" />
+          <path d="M 766 338 Q 778 330 790 338 C 786 348 770 348 766 338 Z" fill="#F87171" />
+          <path d="M 748 317 Q 778 352 808 317" fill="none" stroke="#B91C1C" stroke-width="2.2" stroke-linecap="round" />
         </g>
       </g>
     </g>
-
-    <!-- ======================================================================= -->
-    <!-- 2. TORSO & BACKPACK (<g id="student_walking_torso">)                    -->
-    <!-- ======================================================================= -->
-    <!-- Upright, confident posture tilting slightly forward (5 degrees) in a natural walking stride -->
-    <g id="student_walking_torso" transform="rotate(5 500 480)">
-      <!-- Hero Hoodie: Royal Blue (#2563EB) with clean fabric creases -->
-      <path d="M 445 375 C 475 365 530 365 560 380 C 575 420 570 510 560 565 C 530 572 465 570 440 562 C 435 505 440 415 445 375 Z" fill="#2563EB" stroke="#1D4ED8" stroke-width="3" stroke-linejoin="round" />
-      <!-- Ribbed Hem (#1D4ED8) -->
-      <path d="M 438 558 C 475 566 535 568 562 562 L 560 580 C 530 588 470 586 437 578 Z" fill="#1D4ED8" />
-      <line x1="470" y1="562" x2="470" y2="583" stroke="#1E40AF" stroke-width="2" />
-      <line x1="500" y1="565" x2="500" y2="586" stroke="#1E40AF" stroke-width="2" />
-      <line x1="530" y1="564" x2="530" y2="584" stroke="#1E40AF" stroke-width="2" />
-
-      <!-- Kangaroo Front Pocket with clean fabric creases -->
-      <path d="M 465 480 C 495 475 535 477 555 488 C 552 525 548 545 542 558 C 515 562 475 560 455 555 C 452 540 458 505 465 480 Z" fill="#1D4ED8" opacity="0.9" />
-      <path d="M 465 480 Q 475 505 468 535" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" />
-      <path d="M 555 488 Q 546 510 542 542" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" />
-
-      <!-- Amber backpack neat front shoulder strap -->
-      <path d="M 495 368 C 505 420 512 490 516 568" fill="none" stroke="#F59E0B" stroke-width="12" stroke-linecap="round" />
-      <path d="M 495 368 C 505 420 512 490 516 568" fill="none" stroke="#D97706" stroke-width="3" stroke-linecap="round" />
-      <!-- Strap Tension Buckle in Cyan #00E5FF -->
-      <rect x="502" y="445" width="14" height="9" rx="2.5" fill="#00E5FF" stroke="#0891B2" stroke-width="1.8" />
-
-      <!-- White Hoodie Drawstrings (#FFFFFF) with Knots -->
-      <path d="M 518 388 Q 516 420 517 445" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" />
-      <circle cx="517" cy="448" r="3" fill="#FFFFFF" />
-      <path d="M 534 388 Q 533 415 535 438" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" />
-      <circle cx="535" cy="441" r="3" fill="#FFFFFF" />
-
-      <!-- Chest Carat Diamond Crest in Cyan #00E5FF -->
-      <polygon points="545,425 553,432 550,442 540,442 537,432" fill="#00E5FF" stroke="#38BDF8" stroke-width="1.2" />
-    </g>
-
-    <!-- ======================================================================= -->
-    <!-- 4. SWINGING ARMS (<g id="student_walking_arms">) - FRONT ARM            -->
-    <!-- ======================================================================= -->
-    <!-- Front Arm: Swinging forward with elbow slightly bent, holding a relaxed happy hand (natural fingers, skin #FFE3D1) -->
-    <g id="student_walking_arms">
-      <!-- Upper arm swinging forward-downward from shoulder (x=545, y=390) to elbow (x=625, y=470) -->
-      <path d="M 540 388 C 570 395 615 430 632 468 C 626 480 610 484 596 478 C 575 452 545 422 525 405 Z" fill="#2563EB" />
-      <!-- Forearm extending forward-upward from elbow to wrist (x=680, y=435) -->
-      <path d="M 602 465 L 672 425 L 688 447 L 618 485 Z" fill="#2563EB" stroke="#1D4ED8" stroke-width="1.8" />
-      <!-- Ribbed cuff (#1D4ED8) -->
-      <rect x="665" y="422" width="26" height="14" rx="5" transform="rotate(-30 678 429)" fill="#1D4ED8" stroke="#1E40AF" stroke-width="1.2" />
-      <!-- Relaxed happy hand with natural fingers (skin #FFE3D1) -->
-      <g id="front_hand_relaxed" transform="translate(678, 400)">
-        <ellipse cx="20" cy="20" rx="14" ry="12" fill="#FFE3D1" stroke="#F8D3BB" stroke-width="1.2" />
-        <circle cx="26" cy="13" r="5.5" fill="#FFE3D1" stroke="#F8D3BB" stroke-width="1" />
-        <circle cx="30" cy="20" r="5.5" fill="#FFE3D1" stroke="#F8D3BB" stroke-width="1" />
-        <circle cx="27" cy="27" r="5" fill="#FFE3D1" stroke="#F8D3BB" stroke-width="1" />
-        <path d="M 11 16 C 16 12 24 16 24 22 C 24 26 18 26 13 24 Z" fill="#FFE3D1" stroke="#F8D3BB" stroke-width="1.2" />
-      </g>
-    </g>
-
-    <!-- ======================================================================= -->
-    <!-- 1. HEAD & EXPRESSION (<g id="student_walking_head">, centered at x=500, y=280) -->
-    <!-- ======================================================================= -->
-    <g id="student_walking_head">
-      <!-- Neck Column: MUST include a visible neck (fill="#FFE3D1", width 34px, height 26px) connecting chin to hoodie collar -->
-      <rect id="neck_column" x="483" y="348" width="34" height="26" fill="#FFE3D1" />
-      <path d="M 483 348 C 495 358 505 358 517 348 L 517 358 C 505 366 495 366 483 358 Z" fill="#E2A888" opacity="0.45" />
-
-      <!-- Hoodie Collar -->
-      <path d="M 470 372 C 495 385 525 385 545 372 C 538 386 505 394 470 382 Z" fill="#1D4ED8" />
-
-      <!-- Face contour: Clean, youthful rounded jaw (NOT a pointed cone chin!), centered at x=500, y=280 -->
-      <circle id="head_circle" cx="500" cy="280" r="88" fill="#FFE3D1" />
-
-      <!-- Ears: Left & Right in Skin Base #FFE3D1 -->
-      <circle id="ear_left" cx="414" cy="280" r="14" fill="#FFE3D1" />
-      <path d="M 414 276 Q 418 280 414 286" fill="none" stroke="#E2A888" stroke-width="2" stroke-linecap="round" />
-      <circle id="ear_right" cx="586" cy="280" r="14" fill="#FFE3D1" />
-      <path d="M 586 276 Q 582 280 586 286" fill="none" stroke="#E2A888" stroke-width="2" stroke-linecap="round" />
-
-      <!-- Hair: Clean Korean side-swept style "#1E293B" with front bangs framing forehead neatly -->
-      <path id="hair_neat" fill="#1E293B" d="M 408 290 C 402 185 440 170 500 170 C 560 170 598 185 592 290 C 588 262 574 232 555 225 C 529 230 504 254 472 260 C 446 262 426 246 412 270 Z" />
-
-      <!-- Cheeks: Soft rosy blush "#FCA5A5" (opacity 0.6) -->
-      <circle id="blush_left" cx="445" cy="292" r="14" fill="#FCA5A5" opacity="0.6" />
-      <circle id="blush_right" cx="555" cy="292" r="14" fill="#FCA5A5" opacity="0.6" />
-
-      <!-- Eyebrows: Confident, energetic arched brows (#1E293B) -->
-      <path id="brow_left" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round" fill="none" d="M 445 248 Q 462 238 478 246" />
-      <path id="brow_right" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round" fill="none" d="M 522 246 Q 538 238 555 248" />
-
-      <!-- Eyes: Bright, energetic round eyes (#0F172A) with crisp white sparkle stars inside -->
-      <g id="eye_left">
-        <circle cx="465" cy="268" r="9.5" fill="#0F172A" />
-        <circle cx="462" cy="264" r="3" fill="#FFFFFF" />
-        <circle cx="468" cy="270" r="1.6" fill="#FFFFFF" />
-      </g>
-      <g id="eye_right">
-        <circle cx="535" cy="268" r="9.5" fill="#0F172A" />
-        <circle cx="532" cy="264" r="3" fill="#FFFFFF" />
-        <circle cx="538" cy="270" r="1.6" fill="#FFFFFF" />
-      </g>
-
-      <!-- Nose (#E2A888) -->
-      <path id="nose" stroke="#E2A888" stroke-width="2.8" stroke-linecap="round" fill="none" d="M 500 272 L 500 282 L 505 283" />
-
-      <!-- Smile: Wide open, happy smile showing energy and optimism -->
-      <g id="student_smile">
-        <path id="mouth_cavity" fill="#EF4444" d="M 472 298 Q 500 330 528 298 Z" />
-        <path id="teeth" fill="#FFFFFF" d="M 477 299 Q 500 308 523 299 Q 500 302 477 299 Z" />
-        <path id="tongue" fill="#F87171" d="M 488 318 Q 500 310 512 318 C 508 328 492 328 488 318 Z" />
-        <path id="smile_outline" stroke="#B91C1C" stroke-width="2.2" stroke-linecap="round" fill="none" d="M 470 297 Q 500 332 530 297" />
-      </g>
-    </g>
-
   </g>
 </svg>
