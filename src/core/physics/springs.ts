@@ -4,17 +4,11 @@ export interface SpringPreset {
   damping: number;
   mass: number;
   stiffness: number;
-  overshootClamping?: boolean;
+  overshootClamping: boolean;
 }
 
-/**
- * Pre-tuned spring physics presets tailored for high-energy commercial motion graphics.
- */
-export const SPRING_PRESETS = {
-  /**
-   * Snappy / Pop-up: Ideal for UI cards, device reveals, and character pop-ins.
-   * Delivers ~10% overshoot for responsive Korean commercial feel.
-   */
+// CÁCH 1 (Khuyên dùng): Bổ sung đầy đủ trường overshootClamping vào từng preset
+export const springPresets = {
   snappy: {
     damping: 12,
     mass: 0.8,
@@ -22,9 +16,6 @@ export const SPRING_PRESETS = {
     overshootClamping: false,
   } as const satisfies SpringConfig,
 
-  /**
-   * Smooth Morph: Ideal for layout refits, scene transitions, and subtle camera zooms.
-   */
   smooth: {
     damping: 20,
     mass: 1,
@@ -32,9 +23,6 @@ export const SPRING_PRESETS = {
     overshootClamping: false,
   } as const satisfies SpringConfig,
 
-  /**
-   * Bouncy: Exaggerated bounce for particle bursts, coins, and playful UI elements.
-   */
   bouncy: {
     damping: 8,
     mass: 0.5,
@@ -42,6 +30,8 @@ export const SPRING_PRESETS = {
     overshootClamping: false,
   } as const satisfies SpringConfig,
 };
+
+export const SPRING_PRESETS = springPresets;
 
 /**
  * Helper to compute standardized spring animation value.
@@ -56,7 +46,7 @@ export const createSpring = ({
 }: {
   frame: number;
   fps?: number;
-  preset?: keyof typeof SPRING_PRESETS;
+  preset?: keyof typeof springPresets;
   delay?: number;
   from?: number;
   to?: number;
@@ -64,7 +54,7 @@ export const createSpring = ({
   return spring({
     frame: frame - delay,
     fps,
-    config: SPRING_PRESETS[preset],
+    config: springPresets[preset],
     from,
     to,
   });
