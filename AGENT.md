@@ -126,3 +126,34 @@ Use Conventional Commits:
    - Coordinate plots (e.g., CSAT exam curves) must anchor critical target points (maxima/minima) directly onto the curve stroke, never floating detached.
    - Wall clocks must have a legible circular dial with distinct hour and minute hands (preset at 10:10), not arbitrary "L" lines.
 ---
+## 7. VISUAL ASSET RIGGING & QUALITY CONTROL (MANDATORY GATEKEEPERS)
+
+### 7.1. Character Consistency Pipeline (Single Source of Truth)
+- The vector DNA of the hero student is permanently locked in:
+  `site-configs/crabit-korea/assets/character_master_model_sheet.svg`
+- Any asset representing the student (e.g., `prop_icon_walking_student.svg`, `char_student_desk_morph.svg`, `scene3_classroom_peer_contrast.svg`) MUST strictly mirror this geometry:
+  * Hair: Clean side-swept Korean bangs (#1E293B). STRICTLY NO hats, berets, or floating wigs.
+  * Skin & Neck: Base tone #FFE3D1. MUST include a distinct neck column (height 20px–24px).
+  * Hoodie: Royal Blue #2563EB with ribbed cuff/hem #1D4ED8.
+  * Trousers & Shoes: Charcoal navy pants #334155, crisp white sneakers #FFFFFF with gray soles #94A3B8.
+  * Backpack: Amber gold #F59E0B strapped snugly behind the back WITH a visible chest harness strap across the torso.
+
+### 7.2. Autonomous Visual Feedback Loop (The "Mirror Test")
+- Blind SVG coding is strictly prohibited. After creating or modifying any visual SVG asset:
+  1. Render the SVG to a PNG file in the workspace:
+     `npx -y @resvg/resvg-js <path-to-svg> out/audit_preview.png`
+  2. Inspect the rendered image using your multimodal capability before marking the task complete.
+  3. Verify zero mutated hands (no sharp claw thumbs), zero disjointed limbs, and accurate perspective. If defects remain, self-heal immediately.
+
+### 7.3. Motion-Ready Hierarchical Bone Rigging
+- For animated characters (e.g., walk cycles in `prop_icon_walking_student.svg`), never merge limbs into flat paths.
+- Structure limbs into nested parent-child SVG groups with explicit `data-pivot="x y"` attributes:
+  * `leg_thigh` (pivot: hip) -> contains `leg_shin` (pivot: knee) -> contains `leg_foot` (pivot: ankle).
+  * `arm_shoulder` (pivot: shoulder) -> contains `arm_forearm` (pivot: elbow) -> contains `hand_fist`.
+
+### 7.4. Storyboard Fidelity & Scene Requirements
+All scene implementations must respect the core project narrative:
+- Scene 1: Director observing an exhausted student at a Hagwon desk (modesty panel concealing floor).
+- Scene 2: Director presenting the smartphone (suit sleeve/cuff, fleshy rounded thumb) showing the Crabit 50,000 Carats Card.
+- Scene 3: Challenge & Epiphany via Shot-Reverse-Shot (Chalkboard math problem -> 3B student raising hand + 3/4 walking student).
+- Scene 4: Crabit Card reward with active numeric balance updating (+50,000 KRW), Korean recharge badge ("충전 완료"), and inflowing energy particles.
