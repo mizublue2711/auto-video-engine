@@ -1,0 +1,42 @@
+{
+  "id": "hand_swiping_index",
+  "name": "Decoupled Swiping Index Finger Hand",
+  "category": "limb",
+  "viewBox": "0 0 220 260",
+  "dimensions": {
+    "width": 220,
+    "height": 260
+  },
+  "sockets": {
+    "wrist_joint": { "x": 40, "y": 220 },
+    "touch_tip": { "x": 185, "y": 45 }
+  },
+  "pivots": {
+    "wrist": { "x": 40, "y": 220 },
+    "index_knuckle": { "x": 110, "y": 110 }
+  },
+  "immutable_inputs": {
+    "props_allowed": ["style", "opacity", "transform", "filter"],
+    "color_tokens_used": [
+      "#FFE3D1",
+      "#FCA5A5",
+      "#E0A890",
+      "#2563EB",
+      "#1D4ED8",
+      "#1E40AF",
+      "#FFFFFF"
+    ]
+  },
+  "color_tokens_used": [
+    "#FFE3D1",
+    "#FCA5A5",
+    "#E0A890",
+    "#2563EB",
+    "#1D4ED8"
+  ],
+  "dependencies": [
+    "character_master_model_sheet.svg#turnaround_three_quarter_right"
+  ],
+  "tags": ["hand", "swipe", "tap", "index_finger", "touchscreen"],
+  "version": "2.0.0"
+}

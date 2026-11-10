@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-10T18:27:37.044Z",
-  "total_components": 6,
+  "generated_at": "2026-11-10T18:38:23.564Z",
+  "total_components": 8,
   "categories": {
     "head": 1,
-    "limb": 3,
+    "limb": 5,
     "prop": 1,
     "torso": 1
   },
@@ -105,6 +105,131 @@
       "version": "1.0.0",
       "filePath": "student-rig-kit/limbs/arm_raised_classroom.svg",
       "metaPath": "student-rig-kit/limbs/arm_raised_classroom.meta.json"
+    },
+    "hand_cradle_grip": {
+      "id": "hand_cradle_grip",
+      "name": "Decoupled Smartphone Grip Hand (Rear Fingers & Front Thumb)",
+      "category": "limb",
+      "viewBox": "0 0 240 280",
+      "dimensions": {
+        "width": 240,
+        "height": 280
+      },
+      "sockets": {
+        "wrist_joint": {
+          "x": 60,
+          "y": 250
+        },
+        "phone_anchor": {
+          "x": 110,
+          "y": 140
+        }
+      },
+      "pivots": {
+        "wrist": {
+          "x": 60,
+          "y": 250
+        }
+      },
+      "immutable_inputs": {
+        "props_allowed": [
+          "style",
+          "opacity",
+          "transform",
+          "filter"
+        ],
+        "color_tokens_used": [
+          "#FFE3D1",
+          "#FCA5A5",
+          "#E0A890",
+          "#1E293B"
+        ]
+      },
+      "color_tokens_used": [
+        "#FFE3D1",
+        "#FCA5A5",
+        "#E0A890",
+        "#1E293B"
+      ],
+      "dependencies": [
+        "character_master_model_sheet.svg#turnaround_three_quarter_right"
+      ],
+      "tags": [
+        "hand",
+        "grip",
+        "holding_phone",
+        "sandwich_rig"
+      ],
+      "version": "2.0.0",
+      "filePath": "student-rig-kit/limbs/hand_cradle_grip.svg",
+      "metaPath": "student-rig-kit/limbs/hand_cradle_grip.meta.json"
+    },
+    "hand_swiping_index": {
+      "id": "hand_swiping_index",
+      "name": "Decoupled Swiping Index Finger Hand",
+      "category": "limb",
+      "viewBox": "0 0 220 260",
+      "dimensions": {
+        "width": 220,
+        "height": 260
+      },
+      "sockets": {
+        "wrist_joint": {
+          "x": 40,
+          "y": 220
+        },
+        "touch_tip": {
+          "x": 185,
+          "y": 45
+        }
+      },
+      "pivots": {
+        "wrist": {
+          "x": 40,
+          "y": 220
+        },
+        "index_knuckle": {
+          "x": 110,
+          "y": 110
+        }
+      },
+      "immutable_inputs": {
+        "props_allowed": [
+          "style",
+          "opacity",
+          "transform",
+          "filter"
+        ],
+        "color_tokens_used": [
+          "#FFE3D1",
+          "#FCA5A5",
+          "#E0A890",
+          "#2563EB",
+          "#1D4ED8",
+          "#1E40AF",
+          "#FFFFFF"
+        ]
+      },
+      "color_tokens_used": [
+        "#FFE3D1",
+        "#FCA5A5",
+        "#E0A890",
+        "#2563EB",
+        "#1D4ED8"
+      ],
+      "dependencies": [
+        "character_master_model_sheet.svg#turnaround_three_quarter_right"
+      ],
+      "tags": [
+        "hand",
+        "swipe",
+        "tap",
+        "index_finger",
+        "touchscreen"
+      ],
+      "version": "2.0.0",
+      "filePath": "student-rig-kit/limbs/hand_swiping_index.svg",
+      "metaPath": "student-rig-kit/limbs/hand_swiping_index.meta.json"
     },
     "leg_single_master": {
       "id": "leg_single_master",
