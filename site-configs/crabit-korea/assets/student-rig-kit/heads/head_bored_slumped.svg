@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="320" height="320">
+  <!-- Student Head Bored / Study Exhausted Rig Component -->
+  <g id="head_bored_slumped" data-pivot="160 300">
+    <!-- 1. Sleep Zzz Exhaustion Particles -->
+    <g id="sleep_zzz" opacity="0.85">
+      <text x="82" y="105" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="800">Z</text>
+      <text x="98" y="122" fill="#64748B" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700">z</text>
+      <text x="110" y="134" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700">z</text>
+    </g>
+
+    <!-- 2. Clean Neck Column (fill="#FFE3D1", height 24px exposed, terminating at y=300 socket) -->
+    <g id="neck_group">
+      <!-- Neck base connector centered at x=160, terminating cleanly at y=300 -->
+      <rect x="142" y="250" width="36" height="50" fill="#FFE3D1" />
+      <!-- Shadow under chin and crease -->
+      <path d="M 142 254 C 154 266 166 266 178 254 L 178 266 C 166 276 154 276 142 266 Z" fill="#E0A890" opacity="0.5" />
+      <line x1="148" y1="290" x2="172" y2="290" stroke="#E0A890" stroke-width="1.5" stroke-linecap="round" opacity="0.6" />
+    </g>
+
+    <!-- 3. Head Skull Base (Slumped contour) -->
+    <circle id="slumped_head_base" cx="160" cy="180" r="82" fill="#FFE3D1" />
+
+    <!-- 4. Ears (Left and Right) -->
+    <g id="ears">
+      <circle cx="78" cy="182" r="13" fill="#FFE3D1" />
+      <path d="M 78 178 Q 83 182 78 186" fill="none" stroke="#E0A890" stroke-width="2" stroke-linecap="round" />
+      <circle cx="242" cy="182" r="13" fill="#FFE3D1" />
+      <path d="M 242 178 Q 237 182 242 186" fill="none" stroke="#E0A890" stroke-width="2" stroke-linecap="round" />
+    </g>
+
+    <!-- 5. Cheeks & Under-Eye Fatigue (Blush #FCA5A5, Stress Marks #E0A890) -->
+    <g id="cheeks_and_fatigue">
+      <!-- Soft exhausted blush -->
+      <circle cx="114" cy="196" r="13" fill="#FCA5A5" opacity="0.5" />
+      <circle cx="206" cy="196" r="13" fill="#FCA5A5" opacity="0.5" />
+      <!-- Under-eye tired hatching lines -->
+      <line x1="110" y1="184" x2="114" y2="190" stroke="#E0A890" stroke-width="1.8" stroke-linecap="round" opacity="0.75" />
+      <line x1="116" y1="184" x2="120" y2="190" stroke="#E0A890" stroke-width="1.8" stroke-linecap="round" opacity="0.75" />
+      <line x1="200" y1="184" x2="204" y2="190" stroke="#E0A890" stroke-width="1.8" stroke-linecap="round" opacity="0.75" />
+      <line x1="206" y1="184" x2="210" y2="190" stroke="#E0A890" stroke-width="1.8" stroke-linecap="round" opacity="0.75" />
+    </g>
+
+    <!-- 6. Sweat Drop on Temple / Cheek (Visual DNA from model sheet) -->
+    <g id="sweat_drop">
+      <path d="M 112 152 C 118 144 125 151 118 162 C 112 168 106 161 112 152 Z" fill="#38BDF8" opacity="0.9" />
+      <path d="M 114 154 Q 117 151 118 156" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" fill="none" />
+    </g>
+
+    <!-- 7. Eyebrows (Downward drooping tired stress angle) -->
+    <g id="eyebrows">
+      <!-- Left drooping tired brow -->
+      <path d="M 112 150 Q 128 143 144 151" fill="none" stroke="#1E293B" stroke-width="4" stroke-linecap="round" />
+      <!-- Right drooping tired brow -->
+      <path d="M 176 151 Q 192 143 208 150" fill="none" stroke="#1E293B" stroke-width="4" stroke-linecap="round" />
+    </g>
+
+    <!-- 8. Eyes: Closed flat curved lines with downward stress angle (tired anime student) -->
+    <g id="eyes_exhausted">
+      <!-- Left Eye: Drooping closed line with stress ticks -->
+      <path d="M 110 171 Q 126 177 142 171" fill="none" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round" />
+      <line x1="110" y1="171" x2="105" y2="176" stroke="#1E293B" stroke-width="3" stroke-linecap="round" />
+      <line x1="114" y1="173" x2="111" y2="178" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" />
+
+      <!-- Right Eye: Drooping closed line with stress ticks -->
+      <path d="M 178 171 Q 194 177 210 171" fill="none" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round" />
+      <line x1="210" y1="171" x2="215" y2="176" stroke="#1E293B" stroke-width="3" stroke-linecap="round" />
+      <line x1="206" y1="173" x2="209" y2="178" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" />
+    </g>
+
+    <!-- 9. Subtle Anime Nose -->
+    <path id="tired_nose" d="M 160 173 L 160 183 L 164 184" fill="none" stroke="#E0A890" stroke-width="2.5" stroke-linecap="round" />
+
+    <!-- 10. Mouth: Drooping small wavy exhausted line -->
+    <g id="exhausted_mouth">
+      <path d="M 145 209 Q 152 205 160 208 Q 168 211 175 207" fill="none" stroke="#64748B" stroke-width="3.5" stroke-linecap="round" />
+      <!-- Subtle lower lip exhaustion shadow -->
+      <path d="M 156 215 Q 160 217 164 215" fill="none" stroke="#E0A890" stroke-width="2" stroke-linecap="round" />
+    </g>
+
+    <!-- 11. Hair Assembly: Dark slate (#1E293B) with slightly disheveled front bangs -->
+    <g id="disheveled_hair">
+      <!-- Main hair volume (matching model sheet skull curvature) -->
+      <path d="M 78 180 C 72 70 108 55 160 55 C 212 55 248 70 242 180 C 238 148 226 118 206 112 C 182 116 160 138 132 143 C 104 145 92 130 78 180 Z" fill="#1E293B" />
+      <!-- Left sideburn -->
+      <path d="M 80 180 C 78 198 81 210 86 218 C 88 208 89 196 90 184 Z" fill="#1E293B" />
+      <!-- Right sideburn -->
+      <path d="M 240 180 C 242 198 239 210 234 218 C 232 208 231 196 230 184 Z" fill="#1E293B" />
+      <!-- Disheveled front bangs & stray strands -->
+      <!-- Drooping center-left bang overlapping forehead -->
+      <path d="M 125 125 Q 135 152 140 158 Q 142 148 145 135 Z" fill="#1E293B" />
+      <!-- Stray messy tuft sticking up slightly at crown -->
+      <path d="M 152 57 Q 146 42 140 45 Q 144 52 149 59 Z" fill="#1E293B" />
+      <path d="M 166 56 Q 174 44 180 47 Q 174 54 169 58 Z" fill="#1E293B" />
+      <!-- Disheveled right bang strand -->
+      <path d="M 185 122 Q 190 148 196 152 Q 195 140 198 128 Z" fill="#1E293B" />
+    </g>
+  </g>
+</svg>

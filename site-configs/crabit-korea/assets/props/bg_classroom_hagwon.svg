@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" id="bg_classroom_hagwon">
+  <defs>
+    <!-- Soft warm ambient wall gradient -->
+    <linearGradient id="wall_ambient_gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F1F5F9" />
+      <stop offset="60%" stop-color="#F8FAFC" />
+      <stop offset="100%" stop-color="#F8FAFC" />
+    </linearGradient>
+
+    <!-- Floor laminate gradient -->
+    <linearGradient id="floor_laminate_gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E2E8F0" />
+      <stop offset="35%" stop-color="#EDF2F7" />
+      <stop offset="100%" stop-color="#F1F5F9" />
+    </linearGradient>
+
+    <!-- Frosted glass window panes gradient -->
+    <linearGradient id="frosted_glass_gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.55" />
+      <stop offset="50%" stop-color="#E2E8F0" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.45" />
+    </linearGradient>
+
+    <!-- Soft sunlight angle gradient -->
+    <linearGradient id="sunlight_angle_gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.4" />
+      <stop offset="60%" stop-color="#FFFFFF" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.0" />
+    </linearGradient>
+
+    <!-- Floor reflection beam gradient -->
+    <linearGradient id="sunlight_floor_gradient" x1="0%" y1="0%" x2="60%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.22" />
+      <stop offset="70%" stop-color="#FFFFFF" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.0" />
+    </linearGradient>
+  </defs>
+
+  <!-- ======================================================================= -->
+  <!-- LAYER 1: UPPER WALL (y: 0..760)                                         -->
+  <!-- ======================================================================= -->
+  <g id="upper_wall">
+    <!-- Base Wall Plane -->
+    <rect x="0" y="0" width="1920" height="760" fill="url(#wall_ambient_gradient)" />
+
+    <!-- Subtle Architectural Ceiling Cornice Line -->
+    <rect x="0" y="0" width="1920" height="10" fill="#E2E8F0" opacity="0.6" />
+    <line x1="0" y1="10" x2="1920" y2="10" stroke="#CBD5E1" stroke-width="1" opacity="0.5" />
+
+    <!-- Subtle Architectural Wall Seams -->
+    <line x1="640" y1="10" x2="640" y2="750" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="8 8" opacity="0.4" />
+    <line x1="1280" y1="10" x2="1280" y2="750" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="8 8" opacity="0.4" />
+  </g>
+
+  <!-- ======================================================================= -->
+  <!-- LAYER 2: WINDOW ACCENT (Left side, x: 100..450, y: 120..650)            -->
+  <!-- ======================================================================= -->
+  <g id="window_accent">
+    <!-- Window Outer Architectural Trim / Recess -->
+    <rect x="94" y="114" width="362" height="540" rx="5" fill="#CBD5E1" />
+    <rect x="100" y="120" width="350" height="530" rx="4" fill="#F1F5F9" />
+    <rect x="108" y="128" width="334" height="514" rx="2" fill="#E2E8F0" />
+
+    <!-- 4 Frosted Glass Panes -->
+    <!-- Top-Left Pane -->
+    <rect x="116" y="136" width="154" height="246" rx="2" fill="url(#frosted_glass_gradient)" />
+    <!-- Top-Right Pane -->
+    <rect x="278" y="136" width="154" height="246" rx="2" fill="url(#frosted_glass_gradient)" />
+    <!-- Bottom-Left Pane -->
+    <rect x="116" y="390" width="154" height="242" rx="2" fill="url(#frosted_glass_gradient)" />
+    <!-- Bottom-Right Pane -->
+    <rect x="278" y="390" width="154" height="242" rx="2" fill="url(#frosted_glass_gradient)" />
+
+    <!-- Window Pane Mullions / Divider Bars -->
+    <!-- Vertical Center Bar -->
+    <rect x="270" y="128" width="8" height="514" fill="#CBD5E1" />
+    <!-- Horizontal Center Bar -->
+    <rect x="108" y="382" width="334" height="8" fill="#CBD5E1" />
+
+    <!-- Architectural Window Sill Extension -->
+    <rect x="86" y="646" width="378" height="14" rx="2" fill="#CBD5E1" />
+    <line x1="88" y1="647" x2="462" y2="647" stroke="#FFFFFF" stroke-width="1.5" opacity="0.8" />
+    <line x1="90" y1="660" x2="460" y2="660" stroke="#94A3B8" stroke-width="1" opacity="0.5" />
+
+    <!-- Sunlight Beam Casting across Room -->
+    <polygon points="116,136 432,136 940,750 360,750" fill="url(#sunlight_angle_gradient)" />
+  </g>
+
+  <!-- ======================================================================= -->
+  <!-- LAYER 3: BASEBOARD / DIVIDER TRIM (y: 750..770)                         -->
+  <!-- ======================================================================= -->
+  <g id="baseboard_trim">
+    <!-- Top Join Line -->
+    <line x1="0" y1="750" x2="1920" y2="750" stroke="#CBD5E1" stroke-width="1" />
+    <!-- Baseboard Body (Slim 20px architectural profile) -->
+    <rect x="0" y="750" width="1920" height="20" fill="#CBD5E1" />
+    <!-- Top Highlight Bevel -->
+    <line x1="0" y1="752" x2="1920" y2="752" stroke="#FFFFFF" stroke-width="1.5" opacity="0.75" />
+    <!-- Shadow Groove at Floor Junction -->
+    <line x1="0" y1="770" x2="1920" y2="770" stroke="#94A3B8" stroke-width="2" />
+  </g>
+
+  <!-- ======================================================================= -->
+  <!-- LAYER 4: FLOOR PLANE (y: 770..1080)                                     -->
+  <!-- ======================================================================= -->
+  <g id="floor_plane">
+    <!-- Polished Laminate Floor Base -->
+    <rect x="0" y="770" width="1920" height="310" fill="url(#floor_laminate_gradient)" />
+
+    <!-- Subtle Ambient Occlusion Shadow Below Baseboard -->
+    <rect x="0" y="770" width="1920" height="8" fill="#94A3B8" opacity="0.18" />
+
+    <!-- Floor Laminate Seam Lines (Subtle perspective depth) -->
+    <line x1="0" y1="835" x2="1920" y2="835" stroke="#CBD5E1" stroke-width="1.2" opacity="0.6" />
+    <line x1="0" y1="910" x2="1920" y2="910" stroke="#CBD5E1" stroke-width="1.5" opacity="0.55" />
+    <line x1="0" y1="995" x2="1920" y2="995" stroke="#CBD5E1" stroke-width="1.8" opacity="0.5" />
+
+    <!-- Subtle Staggered Plank Joint Ticks -->
+    <line x1="320" y1="770" x2="320" y2="835" stroke="#CBD5E1" stroke-width="1" opacity="0.35" />
+    <line x1="860" y1="770" x2="860" y2="835" stroke="#CBD5E1" stroke-width="1" opacity="0.35" />
+    <line x1="1480" y1="770" x2="1480" y2="835" stroke="#CBD5E1" stroke-width="1" opacity="0.35" />
+
+    <line x1="580" y1="835" x2="580" y2="910" stroke="#CBD5E1" stroke-width="1" opacity="0.35" />
+    <line x1="1160" y1="835" x2="1160" y2="910" stroke="#CBD5E1" stroke-width="1" opacity="0.35" />
+    <line x1="1720" y1="835" x2="1720" y2="910" stroke="#CBD5E1" stroke-width="1" opacity="0.35" />
+
+    <line x1="420" y1="910" x2="420" y2="995" stroke="#CBD5E1" stroke-width="1.2" opacity="0.35" />
+    <line x1="1020" y1="910" x2="1020" y2="995" stroke="#CBD5E1" stroke-width="1.2" opacity="0.35" />
+    <line x1="1600" y1="910" x2="1600" y2="995" stroke="#CBD5E1" stroke-width="1.2" opacity="0.35" />
+
+    <line x1="680" y1="995" x2="680" y2="1080" stroke="#CBD5E1" stroke-width="1.2" opacity="0.3" />
+    <line x1="1340" y1="995" x2="1340" y2="1080" stroke="#CBD5E1" stroke-width="1.2" opacity="0.3" />
+
+    <!-- Sunlight Beam Projection onto Floor -->
+    <polygon points="360,770 540,770 820,1080 440,1080" fill="url(#sunlight_floor_gradient)" />
+  </g>
+
+  <!-- ======================================================================= -->
+  <!-- RIGGING SOCKET LOCATIONS (Metadata Reference Sockets)                    -->
+  <!-- socket: board_mount (960, 350)                                          -->
+  <!-- socket: desk_zone (960, 800)                                            -->
+  <!-- ======================================================================= -->
+</svg>

@@ -1,13 +1,70 @@
 {
-  "generated_at": "2026-11-10T19:42:57.231Z",
-  "total_components": 16,
+  "generated_at": "2026-11-10T19:56:18.467Z",
+  "total_components": 18,
   "categories": {
-    "prop": 7,
-    "head": 2,
+    "prop": 8,
+    "head": 3,
     "limb": 6,
     "torso": 1
   },
   "components": {
+    "bg_classroom_hagwon": {
+      "id": "bg_classroom_hagwon",
+      "name": "Hagwon Classroom Background Plate",
+      "category": "prop",
+      "viewBox": "0 0 1920 1080",
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "sockets": {
+        "board_mount": {
+          "x": 960,
+          "y": 350
+        },
+        "desk_zone": {
+          "x": 960,
+          "y": 800
+        }
+      },
+      "pivots": {
+        "center": {
+          "x": 960,
+          "y": 540
+        }
+      },
+      "immutable_inputs": {
+        "props_allowed": [
+          "style",
+          "opacity",
+          "transform"
+        ],
+        "color_tokens_used": [
+          "#F8FAFC",
+          "#CBD5E1",
+          "#E2E8F0",
+          "#F1F5F9",
+          "#FFFFFF"
+        ]
+      },
+      "color_tokens_used": [
+        "#F8FAFC",
+        "#CBD5E1",
+        "#E2E8F0",
+        "#F1F5F9",
+        "#FFFFFF"
+      ],
+      "tags": [
+        "background",
+        "classroom",
+        "hagwon",
+        "environment",
+        "1080p"
+      ],
+      "version": "2.0.0",
+      "filePath": "props/bg_classroom_hagwon.svg",
+      "metaPath": "props/bg_classroom_hagwon.meta.json"
+    },
     "prop_backpack_sandwich": {
       "id": "prop_backpack_sandwich",
       "name": "Modular Backpack Rig (Rear Pack & Front Straps)",
@@ -451,6 +508,56 @@
       "version": "1.1.0",
       "filePath": "student-rig-kit/heads/head_34_confident.svg",
       "metaPath": "student-rig-kit/heads/head_34_confident.meta.json"
+    },
+    "head_bored_slumped": {
+      "id": "head_bored_slumped",
+      "name": "Student Head (Bored / Study Exhausted)",
+      "category": "head",
+      "viewBox": "0 0 320 320",
+      "dimensions": {
+        "width": 320,
+        "height": 320
+      },
+      "sockets": {
+        "neck_base": {
+          "x": 160,
+          "y": 300
+        }
+      },
+      "pivots": {
+        "neck": {
+          "x": 160,
+          "y": 300
+        }
+      },
+      "immutable_inputs": {
+        "props_allowed": [
+          "style",
+          "opacity"
+        ],
+        "color_tokens_used": [
+          "#FFE3D1",
+          "#1E293B",
+          "#FCA5A5",
+          "#E0A890"
+        ]
+      },
+      "color_tokens_used": [
+        "#FFE3D1",
+        "#1E293B",
+        "#FCA5A5",
+        "#E0A890"
+      ],
+      "tags": [
+        "head",
+        "bored",
+        "exhausted",
+        "student",
+        "scene1"
+      ],
+      "version": "2.0.0",
+      "filePath": "student-rig-kit/heads/head_bored_slumped.svg",
+      "metaPath": "student-rig-kit/heads/head_bored_slumped.meta.json"
     },
     "head_front_alert": {
       "id": "head_front_alert",

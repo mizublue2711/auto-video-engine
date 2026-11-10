@@ -1,0 +1,24 @@
+{
+  "id": "bg_classroom_hagwon",
+  "name": "Hagwon Classroom Background Plate",
+  "category": "prop",
+  "viewBox": "0 0 1920 1080",
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "sockets": {
+    "board_mount": { "x": 960, "y": 350 },
+    "desk_zone": { "x": 960, "y": 800 }
+  },
+  "pivots": {
+    "center": { "x": 960, "y": 540 }
+  },
+  "immutable_inputs": {
+    "props_allowed": ["style", "opacity", "transform"],
+    "color_tokens_used": ["#F8FAFC", "#CBD5E1", "#E2E8F0", "#F1F5F9", "#FFFFFF"]
+  },
+  "color_tokens_used": ["#F8FAFC", "#CBD5E1", "#E2E8F0", "#F1F5F9", "#FFFFFF"],
+  "tags": ["background", "classroom", "hagwon", "environment", "1080p"],
+  "version": "2.0.0"
+}
