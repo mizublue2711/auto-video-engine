@@ -5,16 +5,16 @@
   "viewBox": "0 0 320 320",
   "dimensions": { "width": 320, "height": 320 },
   "sockets": {
-    "neck_base": { "x": 160, "y": 300 }
+    "neck_base": { "x": 160, "y": 288 }
   },
   "pivots": {
-    "neck": { "x": 160, "y": 300 }
+    "neck": { "x": 160, "y": 288 }
   },
   "immutable_inputs": {
     "props_allowed": ["style", "opacity"],
-    "color_tokens_used": ["#FFE3D1", "#1E293B", "#FCA5A5", "#E0A890"]
+    "color_tokens_used": ["#FFE3D1", "#1E293B", "#FCA5A5", "#E0A890", "#38BDF8"]
   },
-  "color_tokens_used": ["#FFE3D1", "#1E293B", "#FCA5A5", "#E0A890"],
+  "color_tokens_used": ["#FFE3D1", "#1E293B", "#FCA5A5", "#E0A890", "#38BDF8"],
   "tags": ["head", "bored", "exhausted", "student", "scene1"],
   "version": "2.0.0"
 }

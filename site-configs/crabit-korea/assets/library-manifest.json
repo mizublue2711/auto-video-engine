@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T19:56:18.467Z",
+  "generated_at": "2026-11-10T20:07:19.774Z",
   "total_components": 18,
   "categories": {
     "prop": 8,
@@ -521,13 +521,13 @@
       "sockets": {
         "neck_base": {
           "x": 160,
-          "y": 300
+          "y": 288
         }
       },
       "pivots": {
         "neck": {
           "x": 160,
-          "y": 300
+          "y": 288
         }
       },
       "immutable_inputs": {
@@ -539,14 +539,16 @@
           "#FFE3D1",
           "#1E293B",
           "#FCA5A5",
-          "#E0A890"
+          "#E0A890",
+          "#38BDF8"
         ]
       },
       "color_tokens_used": [
         "#FFE3D1",
         "#1E293B",
         "#FCA5A5",
-        "#E0A890"
+        "#E0A890",
+        "#38BDF8"
       ],
       "tags": [
         "head",

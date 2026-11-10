@@ -82,3 +82,14 @@ Whenever a corrective feedback is received, a visual inspection fails, or a new 
 * **4. What is the non-negotiable rule for future tasks (Golden Rule)?**
   - All hand assets must feature unified outer silhouettes for the primary mass, zero muddy/gray linear gradients, index fingers <=85px, and must pass autonomous multimodal inspection (the Mirror Test) on rendered PNGs prior to committing.
 
+### 🛑 CASE 06: HEAD VECTOR ARTIFACTS & TOOTHPICK NECK (Updated: 2026-11-10)
+* **1. What was the problem (Visual / Technical Defect)?**
+  - head_bored_slumped.svg contained a stray black polygon spike over the eyebrow, a floating white text artifact outside the hair, clunky doubled eyebrows, and an unnaturally long toothpick neck.
+* **2. How was it resolved (Root Cause & Solution)?**
+  - Purged stray polygon boolean paths and floating glyphs; softened and decoupled eyebrow arcs from downward lashes; widened and flared the neck base (width 42px, height 28px) to anchor cleanly to the torso socket.
+* **3. What is the key lesson (Key Insight)?**
+  - Automated vector extraction from monolithic sheets often carries hidden overlapping path fragments and stray unclosed vertices.
+* **4. What is the non-negotiable rule for future tasks (Golden Rule)?**
+  - After extracting sub-assets, inspect raw path nodes to ensure zero stray boolean fragments exist, and verify the neck base flares outward before socket registration.
+
+
