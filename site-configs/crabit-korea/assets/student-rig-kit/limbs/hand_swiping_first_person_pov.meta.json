@@ -1,0 +1,51 @@
+{
+  "id": "hand_swiping_first_person_pov",
+  "name": "Student Swiping Hand First Person POV",
+  "category": "limb",
+  "viewBox": "0 0 300 320",
+  "dimensions": {
+    "width": 300,
+    "height": 320
+  },
+  "sockets": {
+    "wrist": { "x": 230, "y": 310 },
+    "touch_point": { "x": 100, "y": 70 }
+  },
+  "pivots": {
+    "wrist": { "x": 230, "y": 310 },
+    "index_knuckle": { "x": 150, "y": 170 }
+  },
+  "immutable_inputs": {
+    "props_allowed": ["style", "opacity", "transform", "filter"],
+    "color_tokens_used": [
+      "#FFE3D1",
+      "#FCA5A5",
+      "#E0A890",
+      "#2563EB",
+      "#1D4ED8",
+      "#F5C7AF",
+      "#EDB89D",
+      "#FFFFFF"
+    ]
+  },
+  "color_tokens_used": [
+    "#FFE3D1",
+    "#FCA5A5",
+    "#E0A890",
+    "#2563EB",
+    "#1D4ED8",
+    "#F5C7AF",
+    "#EDB89D",
+    "#FFFFFF"
+  ],
+  "tags": [
+    "hand",
+    "swiping",
+    "pov",
+    "first_person",
+    "tapping",
+    "student",
+    "ui_interaction"
+  ],
+  "version": "2.0.0"
+}

@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-10T18:38:23.564Z",
-  "total_components": 8,
+  "generated_at": "2026-11-10T19:02:02.466Z",
+  "total_components": 9,
   "categories": {
     "head": 1,
-    "limb": 5,
+    "limb": 6,
     "prop": 1,
     "torso": 1
   },
@@ -106,9 +106,9 @@
       "filePath": "student-rig-kit/limbs/arm_raised_classroom.svg",
       "metaPath": "student-rig-kit/limbs/arm_raised_classroom.meta.json"
     },
-    "hand_cradle_grip": {
-      "id": "hand_cradle_grip",
-      "name": "Decoupled Smartphone Grip Hand (Rear Fingers & Front Thumb)",
+    "hand_holding_phone_left": {
+      "id": "hand_holding_phone_left",
+      "name": "Student Holding Hand Left",
       "category": "limb",
       "viewBox": "0 0 240 280",
       "dimensions": {
@@ -116,7 +116,7 @@
         "height": 280
       },
       "sockets": {
-        "wrist_joint": {
+        "wrist": {
           "x": 60,
           "y": 250
         },
@@ -142,55 +142,58 @@
           "#FFE3D1",
           "#FCA5A5",
           "#E0A890",
-          "#1E293B"
+          "#2563EB",
+          "#1D4ED8",
+          "#F5C7AF"
         ]
       },
       "color_tokens_used": [
         "#FFE3D1",
         "#FCA5A5",
         "#E0A890",
-        "#1E293B"
-      ],
-      "dependencies": [
-        "character_master_model_sheet.svg#turnaround_three_quarter_right"
+        "#2563EB",
+        "#1D4ED8",
+        "#F5C7AF"
       ],
       "tags": [
         "hand",
-        "grip",
         "holding_phone",
-        "sandwich_rig"
+        "left_hand",
+        "sandwich_rig",
+        "student",
+        "ui_interaction"
       ],
       "version": "2.0.0",
-      "filePath": "student-rig-kit/limbs/hand_cradle_grip.svg",
-      "metaPath": "student-rig-kit/limbs/hand_cradle_grip.meta.json"
+      "filePath": "student-rig-kit/limbs/hand_holding_phone_left.svg",
+      "metaPath": "student-rig-kit/limbs/hand_holding_phone_left.meta.json"
     },
-    "hand_swiping_index": {
-      "id": "hand_swiping_index",
-      "name": "Decoupled Swiping Index Finger Hand",
+    "hand_swiping_first_person_pov": {
+      "id": "hand_swiping_first_person_pov",
+      "name": "Student Swiping Hand First Person POV",
       "category": "limb",
-      "viewBox": "0 0 220 260",
+      "viewBox": "0 0 300 320",
       "dimensions": {
-        "width": 220,
-        "height": 260
+        "width": 300,
+        "height": 320
       },
       "sockets": {
-        "wrist_joint": {
-          "x": 40,
-          "y": 220
+        "wrist": {
+          "x": 230,
+          "y": 310
         },
-        "touch_tip": {
-          "x": 185,
-          "y": 45
+        "touch_point": {
+          "x": 100,
+          "y": 70
         }
       },
       "pivots": {
         "wrist": {
-          "x": 40,
-          "y": 220
+          "x": 230,
+          "y": 310
         },
         "index_knuckle": {
-          "x": 110,
-          "y": 110
+          "x": 150,
+          "y": 170
         }
       },
       "immutable_inputs": {
@@ -206,7 +209,8 @@
           "#E0A890",
           "#2563EB",
           "#1D4ED8",
-          "#1E40AF",
+          "#F5C7AF",
+          "#EDB89D",
           "#FFFFFF"
         ]
       },
@@ -215,21 +219,89 @@
         "#FCA5A5",
         "#E0A890",
         "#2563EB",
-        "#1D4ED8"
-      ],
-      "dependencies": [
-        "character_master_model_sheet.svg#turnaround_three_quarter_right"
+        "#1D4ED8",
+        "#F5C7AF",
+        "#EDB89D",
+        "#FFFFFF"
       ],
       "tags": [
         "hand",
-        "swipe",
-        "tap",
-        "index_finger",
-        "touchscreen"
+        "swiping",
+        "pov",
+        "first_person",
+        "tapping",
+        "student",
+        "ui_interaction"
       ],
       "version": "2.0.0",
-      "filePath": "student-rig-kit/limbs/hand_swiping_index.svg",
-      "metaPath": "student-rig-kit/limbs/hand_swiping_index.meta.json"
+      "filePath": "student-rig-kit/limbs/hand_swiping_first_person_pov.svg",
+      "metaPath": "student-rig-kit/limbs/hand_swiping_first_person_pov.meta.json"
+    },
+    "hand_swiping_profile_right": {
+      "id": "hand_swiping_profile_right",
+      "name": "Student Swiping Hand Right (3/4 Profile)",
+      "category": "limb",
+      "viewBox": "0 0 240 260",
+      "dimensions": {
+        "width": 240,
+        "height": 260
+      },
+      "sockets": {
+        "wrist": {
+          "x": 45,
+          "y": 220
+        },
+        "touch_point": {
+          "x": 190,
+          "y": 50
+        }
+      },
+      "pivots": {
+        "wrist": {
+          "x": 45,
+          "y": 220
+        },
+        "index_knuckle": {
+          "x": 115,
+          "y": 115
+        }
+      },
+      "immutable_inputs": {
+        "props_allowed": [
+          "style",
+          "opacity",
+          "transform",
+          "filter"
+        ],
+        "color_tokens_used": [
+          "#FFE3D1",
+          "#FCA5A5",
+          "#E0A890",
+          "#2563EB",
+          "#1D4ED8",
+          "#F5C7AF"
+        ]
+      },
+      "color_tokens_used": [
+        "#FFE3D1",
+        "#FCA5A5",
+        "#E0A890",
+        "#2563EB",
+        "#1D4ED8",
+        "#F5C7AF"
+      ],
+      "tags": [
+        "hand",
+        "swiping",
+        "profile_right",
+        "3_4_view",
+        "tapping",
+        "student",
+        "ui_interaction"
+      ],
+      "version": "2.0.0",
+      "filePath": "student-rig-kit/limbs/hand_swiping_profile_right.svg",
+      "metaPath": "student-rig-kit/limbs/hand_swiping_profile_right.meta.json"
     },
     "leg_single_master": {
       "id": "leg_single_master",

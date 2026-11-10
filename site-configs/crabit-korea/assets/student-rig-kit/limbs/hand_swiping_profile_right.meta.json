@@ -1,0 +1,47 @@
+{
+  "id": "hand_swiping_profile_right",
+  "name": "Student Swiping Hand Right (3/4 Profile)",
+  "category": "limb",
+  "viewBox": "0 0 240 260",
+  "dimensions": {
+    "width": 240,
+    "height": 260
+  },
+  "sockets": {
+    "wrist": { "x": 45, "y": 220 },
+    "touch_point": { "x": 190, "y": 50 }
+  },
+  "pivots": {
+    "wrist": { "x": 45, "y": 220 },
+    "index_knuckle": { "x": 115, "y": 115 }
+  },
+  "immutable_inputs": {
+    "props_allowed": ["style", "opacity", "transform", "filter"],
+    "color_tokens_used": [
+      "#FFE3D1",
+      "#FCA5A5",
+      "#E0A890",
+      "#2563EB",
+      "#1D4ED8",
+      "#F5C7AF"
+    ]
+  },
+  "color_tokens_used": [
+    "#FFE3D1",
+    "#FCA5A5",
+    "#E0A890",
+    "#2563EB",
+    "#1D4ED8",
+    "#F5C7AF"
+  ],
+  "tags": [
+    "hand",
+    "swiping",
+    "profile_right",
+    "3_4_view",
+    "tapping",
+    "student",
+    "ui_interaction"
+  ],
+  "version": "2.0.0"
+}

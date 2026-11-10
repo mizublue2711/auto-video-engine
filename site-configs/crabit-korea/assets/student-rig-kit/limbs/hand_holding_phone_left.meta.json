@@ -1,0 +1,45 @@
+{
+  "id": "hand_holding_phone_left",
+  "name": "Student Holding Hand Left",
+  "category": "limb",
+  "viewBox": "0 0 240 280",
+  "dimensions": {
+    "width": 240,
+    "height": 280
+  },
+  "sockets": {
+    "wrist": { "x": 60, "y": 250 },
+    "phone_anchor": { "x": 110, "y": 140 }
+  },
+  "pivots": {
+    "wrist": { "x": 60, "y": 250 }
+  },
+  "immutable_inputs": {
+    "props_allowed": ["style", "opacity", "transform", "filter"],
+    "color_tokens_used": [
+      "#FFE3D1",
+      "#FCA5A5",
+      "#E0A890",
+      "#2563EB",
+      "#1D4ED8",
+      "#F5C7AF"
+    ]
+  },
+  "color_tokens_used": [
+    "#FFE3D1",
+    "#FCA5A5",
+    "#E0A890",
+    "#2563EB",
+    "#1D4ED8",
+    "#F5C7AF"
+  ],
+  "tags": [
+    "hand",
+    "holding_phone",
+    "left_hand",
+    "sandwich_rig",
+    "student",
+    "ui_interaction"
+  ],
+  "version": "2.0.0"
+}
