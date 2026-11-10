@@ -34,10 +34,10 @@
       "durationInFrames": 90
     },
     "scene4": {
-      "headline": "공부하고 당근 모아 크래빗 카드로 쏙!",
+      "headline": "공부하고 캐럿 모아 크래빗 카드로 쏙!",
       "cardHolderName": "KIM CRABIT",
-      "rewardAmount": 25000,
-      "rewardCurrency": "CARROT",
+      "caratBalance": 25000,
+      "rechargeAmountKRW": 50000,
       "durationInFrames": 90
     }
   }
