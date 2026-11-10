@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 260" width="240" height="260">
-  <!-- KOREAN ANIME RIG: Right Hand 3/4 Profile Swiping / Tapping (Single Master Silhouette) -->
+  <!-- KOREAN ANIME RIG: Right Hand 3/4 Profile Swiping / Tapping (Studio Master Anatomy) -->
   <!-- Pure warm skin: #FFE3D1 | Contour: #E0A890 (2.5px) | Accents: #FCA5A5 (0.6 opacity) | Cuff: #2563EB / #1D4ED8 -->
 
   <!-- ========================================================================= -->
@@ -7,57 +7,60 @@
   <!-- ========================================================================= -->
   <g id="hand_swiping_profile" data-socket-wrist="40 220" data-socket-touch="180 55">
 
-    <!-- Wrist emergence from sleeve (under cuff) -->
-    <path d="M 24 220 L 74 226 L 66 248 L 16 242 Z"
+    <!-- Wrist emergence from sleeve (fills completely under cuff) -->
+    <path d="M 24 218 L 76 226 L 68 250 L 16 242 Z"
           fill="#FFE3D1" />
 
-    <!-- MASTER UNIFIED ANIME HAND SILHOUETTE (Zero Seams, Zero Steps) -->
-    <!-- Encompasses dorsal hand, proportional index finger (~75px, 30°), and curled fist block in ONE path -->
-    <path d="M 32 216
-             C 48 180, 76 138, 115 100
-             C 134 82, 156 64, 172 52
-             C 178 47, 184 50, 182 56
-             C 180 62, 160 74, 142 88
-             C 128 98, 122 104, 116 112
-             C 134 114, 146 122, 144 134
-             C 142 142, 134 148, 126 150
-             C 136 154, 140 162, 136 172
-             C 132 180, 124 184, 116 186
-             C 122 190, 124 198, 116 204
-             C 106 210, 88 206, 74 212
-             C 70 216, 68 222, 70 226 Z"
+    <!-- MASTER UNIFIED DORSAL HAND, HERO INDEX FINGER & FIST BLOCK -->
+    <!-- Proportional index finger (~74px), distinct knuckle transition, soft compact fist -->
+    <path d="M 32 214
+             C 48 180, 75 142, 115 106
+             C 134 90, 158 72, 175 52
+             C 181 45, 186 49, 182 56
+             C 176 65, 156 82, 140 96
+             C 130 105, 124 110, 122 114
+             C 142 120, 148 132, 144 142
+             C 140 152, 132 158, 126 162
+             C 132 168, 132 178, 126 186
+             C 120 192, 112 196, 104 198
+             C 92 206, 80 214, 72 224 Z"
           fill="#FFE3D1" stroke="#E0A890" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
 
     <!-- Clean, minimal interior dividing lines between folded fingers -->
-    <path d="M 126 148 C 118 150, 110 152, 102 154"
+    <path d="M 126 162 C 118 164, 110 166, 102 168"
           fill="none" stroke="#E0A890" stroke-width="2" stroke-linecap="round" />
-    <path d="M 116 184 C 108 186, 100 188, 94 190"
+    <path d="M 104 198 C 98 199, 90 200, 84 201"
           fill="none" stroke="#E0A890" stroke-width="2" stroke-linecap="round" />
 
-    <!-- Folded Thumb resting comfortably across the palm block -->
-    <path d="M 46 195
-             C 64 168, 86 142, 106 134
-             C 118 128, 130 130, 132 138
-             C 134 146, 124 152, 110 154"
-          fill="none" stroke="#E0A890" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
+    <!-- Folded Thumb resting naturally across lateral palm (Emerges cleanly from cuff) -->
+    <path d="M 32 216
+             C 46 185, 70 152, 94 135
+             C 108 124, 122 124, 126 132
+             C 129 140, 120 148, 110 152
+             C 94 158, 76 178, 58 222 Z"
+          fill="#FFE3D1" stroke="#E0A890" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
 
     <!-- Subtle thumb knuckle arc (#FCA5A5, opacity 0.6) -->
-    <path d="M 102 138 C 106 142, 104 146, 100 148"
+    <path d="M 98 135 C 102 139, 100 143, 96 145"
           fill="none" stroke="#FCA5A5" stroke-width="2" stroke-linecap="round" opacity="0.6" />
 
-    <!-- Hero Index Finger Details (Exactly two subtle knuckle ticks) -->
-    <!-- PIP joint tick -->
-    <path d="M 144 76 C 148 79, 146 84, 141 87"
-          fill="none" stroke="#FCA5A5" stroke-width="2" stroke-linecap="round" opacity="0.6" />
-    <!-- DIP joint tick -->
-    <path d="M 162 61 C 166 64, 164 69, 160 72"
-          fill="none" stroke="#FCA5A5" stroke-width="2" stroke-linecap="round" opacity="0.6" />
-
-    <!-- Clean oval fingernail reflection -->
-    <path d="M 174 51 C 178 49, 181 51, 180 54 C 179 57, 175 57, 174 54 Z"
+    <!-- Subtle thumb nail reflection -->
+    <path d="M 118 128 C 122 128, 124 131, 122 134 C 120 136, 117 135, 116 131 Z"
           fill="#FFFFFF" opacity="0.35" />
 
-    <!-- Student Hoodie Sleeve Cuff entering bottom-left (x: 40, y: 220) -->
+    <!-- Hero Index Finger Accents (Exactly two subtle knuckle ticks) -->
+    <!-- PIP joint tick -->
+    <path d="M 144 82 C 148 85, 146 90, 141 93"
+          fill="none" stroke="#FCA5A5" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+    <!-- DIP joint tick -->
+    <path d="M 163 65 C 167 68, 165 73, 161 76"
+          fill="none" stroke="#FCA5A5" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+
+    <!-- Clean oval fingernail reflection on Hero Index -->
+    <path d="M 174 52 C 178 50, 181 52, 180 55 C 179 58, 175 58, 174 55 Z"
+          fill="#FFFFFF" opacity="0.35" />
+
+    <!-- Student Royal Blue Sleeve Cuff entering bottom-left (x: 40, y: 220) -->
     <g id="sleeve_cuff_right">
       <!-- Main sleeve fabric -->
       <path d="M 6 260 L 26 216 C 31 206, 42 200, 56 205 L 80 216 C 90 220, 94 230, 88 242 L 74 260 Z"

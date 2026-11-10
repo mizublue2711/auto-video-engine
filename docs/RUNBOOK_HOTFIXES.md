@@ -71,3 +71,14 @@ Whenever a corrective feedback is received, a visual inspection fails, or a new 
   - AI coding agents degrade rapidly on massive monolithic SVG canvases.
 * **4. What is the non-negotiable rule for future tasks?**
   - Work exclusively on decoupled atomic micro-assets (<500px viewBox). Never edit the monolithic model sheet directly.
+
+### 🛑 CASE 06: HAND ANATOMICAL DEFORMITIES & PROFILE SWIPER RESCUE (Updated: 2026-11-11)
+* **1. What was the problem (Visual / Technical Defect)?**
+  - In `hand_swiping_profile_right.svg` (and the hand rig suite), finger paths were severed across knuckles creating visible steps and notches; open unclosed paths for thumbs caused floating wireframe scratches with broken wrist tapers; curled fingers fragmented into lumpy caterpillar lobes; muddy multi-stop gradients caused zombie-gray skin tones; and pointer fingers elongated into alien stilts (>100px).
+* **2. How was it resolved (Root Cause & Solution)?**
+  - Re-engineered the assets with single continuous outer silhouette vectors uniting the dorsal palm, index finger, and compact fist mass. Reconstructed the folded thumb as a solid filled volume (`#FFE3D1`, `#E0A890` 2.5px stroke) emerging seamlessly from within the hoodie cuff opening. Constrained index pointer length strictly to ~74px (well under 0.85x palm length) angled at 30° toward `(180, 55)`. Standardized on pure `#FFE3D1` warm skin fill, and limited accents to at most two subtle crescent arcs in `#FCA5A5` (opacity 0.6).
+* **3. What is the key lesson (Key Insight)?**
+  - In 2D anime/manhwa vector rigging, assembling hands from fragmented sub-paths creates awkward seams and dislocated joints. A hand's primary structural silhouette must be drawn as one continuous contour, with interior details (cuff, thumb overlap, knuckle ticks) layered cleanly on top.
+* **4. What is the non-negotiable rule for future tasks (Golden Rule)?**
+  - All hand assets must feature unified outer silhouettes for the primary mass, zero muddy/gray linear gradients, index fingers <=85px, and must pass autonomous multimodal inspection (the Mirror Test) on rendered PNGs prior to committing.
+
