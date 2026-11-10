@@ -126,13 +126,14 @@
     <!-- Continuous Anatomical Hand Mass: Single clean unbroken contour cradling bottom-left chassis and thumb -->
     <path id="left_hand_skin_mass" fill="#FFE3D1" stroke="#4A2E2B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"
       d="M 195,1340
-         C 220,1220 245,1100 268,970
-         C 285,840 298,700 308,560
-         C 318,430 326,340 334,310
-         C 342,310 348,340 348,380
-         C 346,470 342,590 339,720
-         C 336,850 333,980 332,1100
-         C 331,1170 330,1210 330,1225
+         C 220,1220 245,1080 268,940
+         C 285,800 295,670 304,540
+         C 309,460 312,405 316,375
+         C 319,355 328,348 338,348
+         C 346,348 350,358 350,378
+         C 350,430 346,520 342,640
+         C 338,760 335,880 333,1000
+         C 331,1110 330,1190 330,1225
          C 330,1242 345,1248 385,1248
          C 425,1248 465,1240 495,1230
          C 475,1265 440,1295 400,1320
@@ -141,7 +142,7 @@
 
     <!-- Thumb resting naturally on bezel accent line -->
     <path id="left_thumb_accent" fill="none" stroke="#D97757" stroke-width="2.5" stroke-linecap="round"
-      d="M 320,580 C 324,490 330,410 338,345" />
+      d="M 314,540 C 318,460 324,400 332,365" />
 
     <!-- Palm cradle crease under phone chassis -->
     <path d="M 345,1232 C 375,1240 415,1238 450,1230" fill="none" stroke="#D97757" stroke-width="2.5" stroke-linecap="round" />
