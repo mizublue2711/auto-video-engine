@@ -52,34 +52,70 @@ export const Scene4RewardCard: React.FC<Scene4RewardCardProps> = ({
         />
       </div>
 
-      {/* Animated Currency / Points Deposit Counter */}
+      {/* Animated Carat Balance and Real Scholarship Deposit Counters */}
       <div
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: 16,
-          backgroundColor: '#FFFFFF',
-          padding: '16px 36px',
-          borderRadius: 24,
-          boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1)',
-          border: `2px solid ${palette.accent}`,
+          gap: 20,
           zIndex: 80,
         }}
       >
-        <span style={{ fontSize: 28, fontWeight: 700, color: palette.text }}>
-          +
-        </span>
-        <NumberTicker
-          value={sceneConfig.rewardAmount}
-          suffix={` ${sceneConfig.rewardCurrency}`}
-          durationInFrames={45}
-          delay={25}
+        {/* Carat Balance Counter */}
+        <div
           style={{
-            fontSize: 36,
-            fontWeight: 900,
-            color: palette.accent,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 12,
+            backgroundColor: '#FFFFFF',
+            padding: '14px 28px',
+            borderRadius: 20,
+            boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1)',
+            border: `2px solid ${palette.secondary}`,
           }}
-        />
+        >
+          <NumberTicker
+            value={sceneConfig.caratBalance}
+            suffix=" CARATS"
+            durationInFrames={45}
+            delay={15}
+            style={{
+              fontSize: 26,
+              fontWeight: 800,
+              color: palette.secondary,
+            }}
+          />
+        </div>
+
+        {/* Real Scholarship Recharge Counter */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 10,
+            backgroundColor: '#FFFFFF',
+            padding: '14px 28px',
+            borderRadius: 20,
+            boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1)',
+            border: `2px solid ${palette.accent}`,
+          }}
+        >
+          <span style={{ fontSize: 26, fontWeight: 700, color: palette.accent }}>
+            +
+          </span>
+          <NumberTicker
+            value={sceneConfig.rechargeAmountKRW}
+            prefix="₩"
+            suffix=" KRW"
+            durationInFrames={45}
+            delay={25}
+            style={{
+              fontSize: 28,
+              fontWeight: 900,
+              color: palette.accent,
+            }}
+          />
+        </div>
       </div>
     </AbsoluteFill>
   );

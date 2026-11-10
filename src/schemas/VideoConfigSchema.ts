@@ -33,8 +33,8 @@ export const Scene3ConfigSchema = z.object({
 export const Scene4ConfigSchema = z.object({
   headline: z.string(),
   cardHolderName: z.string(),
-  rewardAmount: z.number().nonnegative(),
-  rewardCurrency: z.string().default('CARROT'),
+  caratBalance: z.number().nonnegative(),
+  rechargeAmountKRW: z.number().nonnegative(),
   durationInFrames: z.number().int().positive().default(90),
 });
 

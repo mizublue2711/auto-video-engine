@@ -36,8 +36,8 @@
     "scene4": {
       "headline": "Earn Real Rewards Every Day",
       "cardHolderName": "ALEX KIM",
-      "rewardAmount": 50000,
-      "rewardCurrency": "POINTS",
+      "caratBalance": 25000,
+      "rechargeAmountKRW": 50000,
       "durationInFrames": 90
     }
   }
