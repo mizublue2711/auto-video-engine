@@ -13,22 +13,22 @@ export const springPresets = {
     damping: 12,
     mass: 0.8,
     stiffness: 120,
-    overshootClamping: false, // cho phép nảy nhẹ (overshoot) chuẩn phong cách Hàn Quốc
-  } satisfies SpringConfig,
+    overshootClamping: false,
+  } as const satisfies SpringConfig,
 
   smooth: {
     damping: 20,
     mass: 1,
     stiffness: 80,
     overshootClamping: false,
-  } satisfies SpringConfig,
+  } as const satisfies SpringConfig,
 
   bouncy: {
     damping: 8,
     mass: 0.5,
     stiffness: 160,
     overshootClamping: false,
-  } satisfies SpringConfig,
+  } as const satisfies SpringConfig,
 };
 
 export const SPRING_PRESETS = springPresets;
