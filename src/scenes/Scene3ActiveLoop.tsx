@@ -1,5 +1,9 @@
 import React from 'react';
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from 'remotion';
+import {
+  KoreanAmbientBackground,
+  SCENE_BACKGROUND_THEMES,
+} from '../components/background/KoreanAmbientBackground';
 import { CharacterRig } from '../components/characters/CharacterRig';
 import { KineticText } from '../components/text/KineticText';
 import { createSpring } from '../core/physics/springs';
@@ -43,6 +47,9 @@ export const Scene3ActiveLoop: React.FC<Scene3ActiveLoopProps> = ({
         padding: 80,
       }}
     >
+      {/* Studio-Grade Korean Ambient Background */}
+      <KoreanAmbientBackground theme={SCENE_BACKGROUND_THEMES.scene3} />
+
       {/* Title */}
       <div style={{ textAlign: 'center', marginBottom: 60, zIndex: 90 }}>
         <KineticText
@@ -61,10 +68,11 @@ export const Scene3ActiveLoop: React.FC<Scene3ActiveLoopProps> = ({
           justifyContent: 'center',
           gap: 100,
           width: '100%',
+          zIndex: 20,
         }}
       >
         {/* Character focused in active loop */}
-        <div style={{ position: 'relative', width: 320, height: 480 }}>
+        <div style={{ position: 'relative', width: 320, height: 480, zIndex: 30 }}>
           <CharacterRig
             emotion="neutral"
             bodyColor={palette.primary}

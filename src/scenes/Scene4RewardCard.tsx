@@ -1,5 +1,9 @@
 import React from 'react';
 import { AbsoluteFill } from 'remotion';
+import {
+  KoreanAmbientBackground,
+  SCENE_BACKGROUND_THEMES,
+} from '../components/background/KoreanAmbientBackground';
 import { CreditCard } from '../components/finance/CreditCard';
 import { NumberTicker } from '../components/finance/NumberTicker';
 import { KineticText } from '../components/text/KineticText';
@@ -31,6 +35,9 @@ export const Scene4RewardCard: React.FC<Scene4RewardCardProps> = ({
         padding: 80,
       }}
     >
+      {/* Studio-Grade Korean Ambient Background */}
+      <KoreanAmbientBackground theme={SCENE_BACKGROUND_THEMES.scene4} />
+
       {/* Title */}
       <div style={{ textAlign: 'center', marginBottom: 50, zIndex: 90 }}>
         <KineticText

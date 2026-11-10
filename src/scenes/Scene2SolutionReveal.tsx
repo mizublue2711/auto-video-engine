@@ -1,5 +1,9 @@
 import React from 'react';
 import { AbsoluteFill } from 'remotion';
+import {
+  KoreanAmbientBackground,
+  SCENE_BACKGROUND_THEMES,
+} from '../components/background/KoreanAmbientBackground';
 import { CharacterRig } from '../components/characters/CharacterRig';
 import { PhoneMockup } from '../components/devices/PhoneMockup';
 import { KineticText } from '../components/text/KineticText';
@@ -31,19 +35,8 @@ export const Scene2SolutionReveal: React.FC<Scene2SolutionRevealProps> = ({
         padding: '0 120px',
       }}
     >
-      {/* Background Accent Disc */}
-      <div
-        style={{
-          position: 'absolute',
-          width: 800,
-          height: 800,
-          borderRadius: '50%',
-          backgroundColor: palette.secondary,
-          opacity: 0.12,
-          right: '10%',
-          zIndex: 8,
-        }}
-      />
+      {/* Studio-Grade Korean Ambient Background */}
+      <KoreanAmbientBackground theme={SCENE_BACKGROUND_THEMES.scene2} />
 
       {/* Solution Copy Group */}
       <div style={{ maxWidth: 750, zIndex: 90 }}>
@@ -66,7 +59,7 @@ export const Scene2SolutionReveal: React.FC<Scene2SolutionRevealProps> = ({
       </div>
 
       {/* Hero Phone Mockup with character interaction */}
-      <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+      <div style={{ position: 'relative', display: 'flex', alignItems: 'center', zIndex: 20 }}>
         <PhoneMockup frameColor="#111827" screenBg="#FFFFFF" delay={12} scale={1.1}>
           <div
             style={{
@@ -110,7 +103,7 @@ export const Scene2SolutionReveal: React.FC<Scene2SolutionRevealProps> = ({
         </PhoneMockup>
 
         {/* Character expression morphed to happy/neutral */}
-        <div style={{ position: 'absolute', right: -180, bottom: -60 }}>
+        <div style={{ position: 'absolute', right: -180, bottom: -60, zIndex: 30 }}>
           <CharacterRig
             emotion="happy"
             bodyColor={palette.secondary}

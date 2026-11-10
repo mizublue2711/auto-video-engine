@@ -1,5 +1,9 @@
 import React from 'react';
 import { AbsoluteFill } from 'remotion';
+import {
+  KoreanAmbientBackground,
+  SCENE_BACKGROUND_THEMES,
+} from '../components/background/KoreanAmbientBackground';
 import { CharacterRig } from '../components/characters/CharacterRig';
 import { KineticText } from '../components/text/KineticText';
 import { Palette, Scene1ConfigSchema } from '../schemas/VideoConfigSchema';
@@ -30,17 +34,8 @@ export const Scene1Frustration: React.FC<Scene1FrustrationProps> = ({
         padding: 80,
       }}
     >
-      {/* Background Graphic Grid */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          opacity: 0.05,
-          backgroundImage: `radial-gradient(${palette.text} 1px, transparent 1px)`,
-          backgroundSize: '40px 40px',
-          zIndex: 5,
-        }}
-      />
+      {/* Studio-Grade Korean Ambient Background */}
+      <KoreanAmbientBackground theme={SCENE_BACKGROUND_THEMES.scene1} />
 
       {/* Main Kinetic Typography */}
       <div
