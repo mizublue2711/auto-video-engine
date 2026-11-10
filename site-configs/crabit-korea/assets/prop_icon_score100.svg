@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500" id="prop_icon_score100" preserveAspectRatio="xMidYMid meet">
+  <!-- Decorative Celebration Sparkles & Dots (Golden Yellow & Mint) -->
+  <g id="score_celebration_fx">
+    <path id="sparkle_tl" d="M 100 95 Q 100 115 80 115 Q 100 115 100 135 Q 100 115 120 115 Q 100 115 100 95 Z" fill="#FFB800" />
+    <path id="sparkle_tr" d="M 400 95 Q 400 115 380 115 Q 400 115 400 135 Q 400 115 420 115 Q 400 115 400 95 Z" fill="#FFB800" />
+    <circle id="fx_dot_1" cx="65" cy="180" r="8" fill="#38BDF8" />
+    <circle id="fx_dot_2" cx="435" cy="180" r="8" fill="#34D399" />
+    <circle id="fx_dot_3" cx="130" cy="55" r="6" fill="#FB7185" />
+    <circle id="fx_dot_4" cx="370" cy="55" r="6" fill="#38BDF8" />
+    <circle id="fx_dot_5" cx="75" cy="360" r="7" fill="#FFB800" />
+    <circle id="fx_dot_6" cx="425" cy="360" r="7" fill="#FB7185" />
+  </g>
+
+  <!-- Hanging Rosette Ribbons (Soft Mint & Sky Blue) -->
+  <g id="badge_ribbons">
+    <!-- Left Ribbon -->
+    <path id="ribbon_left" d="M 195 300 L 140 435 L 185 410 L 225 435 L 215 320 Z" fill="#38BDF8" />
+    <path id="ribbon_left_stripe" d="M 180 305 L 140 435 L 160 425 L 195 315 Z" fill="#34D399" opacity="0.6" />
+
+    <!-- Right Ribbon -->
+    <path id="ribbon_right" d="M 305 300 L 360 435 L 315 410 L 275 435 L 285 320 Z" fill="#38BDF8" />
+    <path id="ribbon_right_stripe" d="M 320 305 L 360 435 L 340 425 L 305 315 Z" fill="#34D399" opacity="0.6" />
+  </g>
+
+  <!-- Rosette Scallop Outer Base (Coral #FB7185) Centered around (250, 220) -->
+  <g id="badge_scallop_outer">
+    <!-- Outer Starburst/Rosette disk -->
+    <circle id="scallop_circle_bg" cx="250" cy="220" r="148" fill="#FB7185" />
+    <!-- Rosette Teeth / Petals -->
+    <circle id="petal_0" cx="250" cy="72" r="24" fill="#FB7185" />
+    <circle id="petal_30" cx="324" cy="92" r="24" fill="#FB7185" />
+    <circle id="petal_60" cx="378" cy="146" r="24" fill="#FB7185" />
+    <circle id="petal_90" cx="398" cy="220" r="24" fill="#FB7185" />
+    <circle id="petal_120" cx="378" cy="294" r="24" fill="#FB7185" />
+    <circle id="petal_150" cx="324" cy="348" r="24" fill="#FB7185" />
+    <circle id="petal_180" cx="250" cy="368" r="24" fill="#FB7185" />
+    <circle id="petal_210" cx="176" cy="348" r="24" fill="#FB7185" />
+    <circle id="petal_240" cx="122" cy="294" r="24" fill="#FB7185" />
+    <circle id="petal_270" cx="102" cy="220" r="24" fill="#FB7185" />
+    <circle id="petal_300" cx="122" cy="146" r="24" fill="#FB7185" />
+    <circle id="petal_330" cx="176" cy="92" r="24" fill="#FB7185" />
+  </g>
+
+  <!-- Gold Medal Inner Shield (Golden Yellow #FFB800) -->
+  <g id="badge_inner_medal">
+    <circle id="medal_rim" cx="250" cy="220" r="132" fill="#FFB800" />
+    <circle id="medal_inner" cx="250" cy="220" r="118" fill="#FFF9F5" />
+    <!-- Circular Stitched / Dashed Border ring -->
+    <circle id="medal_stitch_ring" cx="250" cy="220" r="110" fill="none" stroke="#FFB800" stroke-width="4" stroke-dasharray="8 6" />
+  </g>
+
+  <!-- Score "100" Typography & Korean Test Grading Style Underlines -->
+  <g id="score_100_typography">
+    <!-- Number 1 (Digit One: Bold rounded geometry) -->
+    <!-- Serif hook -->
+    <path id="digit_1_hook" d="M 148 188 C 148 180 156 174 165 174 C 172 174 178 178 184 185 L 194 195" stroke="#FB7185" stroke-width="16" stroke-linecap="round" fill="none" />
+    <!-- Vertical stem -->
+    <path id="digit_1_stem" d="M 194 182 L 194 250" stroke="#FB7185" stroke-width="18" stroke-linecap="round" fill="none" />
+    <!-- Base foot -->
+    <path id="digit_1_foot" d="M 172 250 L 216 250" stroke="#FB7185" stroke-width="16" stroke-linecap="round" fill="none" />
+
+    <!-- Number 0 (First Zero: Centered at 250, 215) -->
+    <rect id="digit_0_first" x="226" y="174" width="48" height="76" rx="24" fill="none" stroke="#FB7185" stroke-width="18" />
+
+    <!-- Number 0 (Second Zero: Centered at 310, 215) -->
+    <rect id="digit_0_second" x="290" y="174" width="48" height="76" rx="24" fill="none" stroke="#FB7185" stroke-width="18" />
+
+    <!-- Distinctive Korean Test 100/A+ Grading Double Underline (Red/Coral Marker stroke) -->
+    <path id="score_underline_top" d="M 160 274 Q 250 268 340 274" stroke="#FB7185" stroke-width="8" stroke-linecap="round" fill="none" />
+    <path id="score_underline_bottom" d="M 175 288 Q 250 284 325 288" stroke="#FB7185" stroke-width="7" stroke-linecap="round" fill="none" />
+
+    <!-- Top Crown / Mini Stars (3 Stars over 100) -->
+    <g id="score_mini_stars">
+      <!-- Center Star -->
+      <path id="top_star_center" d="M 250 128 L 253 138 L 263 138 L 255 144 L 258 154 L 250 148 L 242 154 L 245 144 L 237 138 L 247 138 Z" fill="#FFB800" />
+      <!-- Left Star -->
+      <path id="top_star_left" d="M 220 134 L 222 142 L 230 142 L 224 147 L 226 155 L 220 150 L 214 155 L 216 147 L 210 142 L 218 142 Z" fill="#34D399" />
+      <!-- Right Star -->
+      <path id="top_star_right" d="M 280 134 L 282 142 L 290 142 L 284 147 L 286 155 L 280 150 L 274 155 L 276 147 L 270 142 L 278 142 Z" fill="#38BDF8" />
+    </g>
+  </g>
+</svg>
