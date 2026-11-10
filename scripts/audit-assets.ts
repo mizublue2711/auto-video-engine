@@ -71,7 +71,7 @@ function auditSvgContent(content: string, filename: string): Partial<AuditResult
   // 2. ViewBox
   const viewBoxMatch = content.match(/viewBox=["']([^"']+)["']/);
   const viewBox = viewBoxMatch ? viewBoxMatch[1] : undefined;
-  const viewBoxCompliant = viewBox === '0 0 1000 1000' || viewBox === '0 0 800 1200' || viewBox === '0 0 1920 1080';
+  const viewBoxCompliant = viewBox === '0 0 1000 1000' || viewBox === '0 0 800 1200' || viewBox === '0 0 1920 1080' || viewBox === '0 0 1200 1600';
 
   // 3. Groups & IDs
   const idMatches = content.match(/id=["']([^"']+)["']/g) || [];

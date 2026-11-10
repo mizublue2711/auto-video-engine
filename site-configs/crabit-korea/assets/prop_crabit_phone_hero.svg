@@ -1,90 +1,209 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" id="svg_crabit_phone_carats" preserveAspectRatio="xMidYMid meet">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" id="svg_crabit_phone_hero" preserveAspectRatio="xMidYMid meet">
   <defs>
+    <!-- Faceted Gem Linear Gradient for Scholarship Wallet Card -->
     <linearGradient id="gem_blue_gradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#1E3A8A" />
       <stop offset="50%" stop-color="#3B82F6" />
       <stop offset="100%" stop-color="#7C3AED" />
     </linearGradient>
+
+    <!-- Subtle Radial Glow for Ambient Touch Impact -->
+    <radialGradient id="touch_glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0" />
+    </radialGradient>
   </defs>
 
-  <!-- Group 1: Device Chassis & Bezel -->
-  <g id="device_frame_group">
-     <rect id="device_shadow" x="120" y="120" width="560" height="1000" rx="60" fill="#0F172A" opacity="0.12" />
-     <rect id="device_outer_bezel" x="100" y="80" width="600" height="1040" rx="54" fill="#1E293B" />
-     <rect id="device_screen_bg" x="120" y="100" width="560" height="1000" rx="42" fill="#F8FAFC" />
-     <rect id="device_notch" x="330" y="115" width="140" height="26" rx="13" fill="#0F172A" />
+  <!-- ======================================================================== -->
+  <!-- LAYER 1: AMBIENT BACKDROP GLOW                                           -->
+  <!-- ======================================================================== -->
+  <g id="bg_ambient_layer">
+    <!-- Modern Tech Canvas Plate -->
+    <rect width="1200" height="1600" fill="#F8FAFC" />
+
+    <!-- Soft Ambient Halo Centered Behind Device -->
+    <circle cx="600" cy="725" r="480" fill="#3B82F6" opacity="0.05" />
+
+    <!-- Floating Decorative Knowledge Micro-Sparkles -->
+    <circle cx="220" cy="380" r="4" fill="#38BDF8" opacity="0.7" />
+    <circle cx="980" cy="420" r="5" fill="#F59E0B" opacity="0.7" />
+    <circle cx="180" cy="920" r="3.5" fill="#10B981" opacity="0.6" />
+    <circle cx="1020" cy="880" r="4" fill="#00E5FF" opacity="0.7" />
   </g>
 
-  <!-- Group 2: Crabit Header UI -->
-  <g id="ui_header">
-     <text id="brand_title" x="160" y="210" fill="#0F172A" font-size="32" font-weight="900" letter-spacing="1" font-family="system-ui, -apple-system, sans-serif">CRABIT</text>
-     <!-- Top right: Carat Gem pill badge -->
-     <g id="ui_header_carat_pill">
-        <rect x="500" y="175" width="140" height="48" rx="24" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="2" />
+  <!-- ======================================================================== -->
+  <!-- LAYER 2: LEFT HAND BACK GRIP (FINGERS CURLING FROM BEHIND CHASSIS)       -->
+  <!-- ======================================================================== -->
+  <g id="left_hand_back_grip">
+    <!-- 4 Supporting Fingertips Peeking Around Right Edge of Phone (x=870) -->
+    <!-- Index Fingertip -->
+    <path id="left_back_finger_index" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" stroke-linecap="round" d="M 865,630 C 895,630 905,655 890,675 C 880,682 865,682 865,675 Z" />
+    <line x1="875" y1="655" x2="890" y2="655" stroke="#FDBA74" stroke-width="2" stroke-linecap="round" />
+
+    <!-- Middle Fingertip (Largest Support) -->
+    <path id="left_back_finger_middle" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" stroke-linecap="round" d="M 865,695 C 900,695 910,720 895,745 C 882,752 865,752 865,745 Z" />
+    <line x1="875" y1="720" x2="895" y2="720" stroke="#FDBA74" stroke-width="2" stroke-linecap="round" />
+
+    <!-- Ring Fingertip -->
+    <path id="left_back_finger_ring" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" stroke-linecap="round" d="M 865,760 C 896,760 906,785 892,808 C 880,815 865,815 865,808 Z" />
+    <line x1="875" y1="785" x2="892" y2="785" stroke="#FDBA74" stroke-width="2" stroke-linecap="round" />
+
+    <!-- Pinky Fingertip -->
+    <path id="left_back_finger_pinky" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" stroke-linecap="round" d="M 865,825 C 890,825 900,848 886,870 C 876,876 865,876 865,870 Z" />
+    <line x1="873" y1="848" x2="888" y2="848" stroke="#FDBA74" stroke-width="2" stroke-linecap="round" />
+  </g>
+
+  <!-- ======================================================================== -->
+  <!-- LAYER 3: SMARTPHONE CHASSIS, GLASS SCREEN & CRABIT UI                    -->
+  <!-- ======================================================================== -->
+  <g id="phone_chassis_and_screen">
+    <!-- Device Shadow -->
+    <rect id="phone_shadow" x="345" y="215" width="540" height="1050" rx="52" fill="#0F172A" opacity="0.16" />
+
+    <!-- Outer Phone Chassis & Bezel (Centered at x=600, w=540, h=1050, rx=52) -->
+    <rect id="phone_chassis_bezel" x="330" y="200" width="540" height="1050" rx="52" fill="#1E293B" stroke="#0F172A" stroke-width="4" />
+
+    <!-- Screen Glass (Pure Clean Vector White / Soft Neutral) -->
+    <rect id="phone_screen_glass" x="344" y="214" width="512" height="1022" rx="42" fill="#FFFFFF" />
+
+    <!-- Camera Notch / Dynamic Island -->
+    <rect id="phone_camera_notch" x="530" y="228" width="140" height="26" rx="13" fill="#0F172A" />
+    <circle cx="555" cy="241" r="5" fill="#1E293B" />
+    <circle cx="556" cy="240" r="1.5" fill="#3B82F6" opacity="0.8" />
+    <circle cx="645" cy="241" r="3.5" fill="#1E293B" />
+
+    <!-- Crabit Header UI (Brand Logo & Carats Pill) -->
+    <g id="ui_header">
+      <text id="brand_title" x="375" y="310" fill="#0F172A" font-size="30" font-weight="900" letter-spacing="1" font-family="system-ui, -apple-system, sans-serif">CRABIT</text>
+      <!-- Carat Gem Pill Badge -->
+      <g id="ui_header_carat_pill">
+        <rect x="670" y="280" width="155" height="46" rx="23" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="2" />
         <!-- Faceted Carat Diamond Icon -->
-        <polygon id="carat_mini_gem" points="525,190 535,182 545,190 535,208" fill="#00E5FF" stroke="#0284C7" stroke-width="1.5" />
-        <text x="555" y="206" fill="#1E3A8A" font-size="20" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">1,250</text>
-     </g>
-  </g>
+        <polygon id="carat_mini_gem" points="695,295 705,287 715,295 705,313" fill="#00E5FF" stroke="#0284C7" stroke-width="1.5" />
+        <text x="725" y="311" fill="#1E3A8A" font-size="20" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">1,250</text>
+      </g>
+    </g>
 
-  <!-- Group 3: Hero Scholarship Card with Gemstone Theme -->
-  <g id="ui_hero_wallet_card">
-     <rect id="wallet_card_bg" x="150" y="260" width="500" height="250" rx="28" fill="url(#gem_blue_gradient)" />
-     <text id="wallet_label" x="190" y="315" fill="#BFDBFE" font-size="22" font-weight="600" font-family="system-ui, -apple-system, sans-serif">나의 누적 캐럿 (Accumulated Carats)</text>
+    <!-- Hero Scholarship Card with Faceted Gemstone Theme -->
+    <g id="ui_hero_wallet_card">
+      <rect id="wallet_card_bg" x="370" y="355" width="460" height="240" rx="26" fill="url(#gem_blue_gradient)" />
+      <text id="wallet_label" x="405" y="405" fill="#BFDBFE" font-size="20" font-weight="600" font-family="system-ui, -apple-system, sans-serif">나의 누적 캐럿 (Accumulated Carats)</text>
 
-     <!-- Large Diamond Carat Token Emblem -->
-     <g id="hero_carat_gemstone" transform="translate(510, 310)">
+      <!-- Large Diamond Carat Token Emblem -->
+      <g id="hero_carat_gemstone" transform="translate(695, 395)">
         <polygon points="60,10 90,35 75,85 45,85 30,35" fill="#38BDF8" />
         <polygon points="60,10 75,85 45,85" fill="#0284C7" opacity="0.6" />
         <polygon points="60,10 90,35 75,85" fill="#BAE6FD" opacity="0.8" />
-        <!-- Glint sparkle -->
         <circle cx="85" cy="20" r="4" fill="#FFFFFF" />
-     </g>
-     <text id="wallet_carat_value" x="190" y="385" fill="#FFFFFF" font-size="48" font-weight="900" font-family="system-ui, -apple-system, sans-serif">50,000 <tspan font-size="28" font-weight="600">Carats</tspan></text>
-     <text id="wallet_krw_equiv" x="190" y="440" fill="#93C5FD" font-size="20" font-family="system-ui, -apple-system, sans-serif">≈ 50,000원 장학금 전환 가능</text>
+      </g>
+      <text id="wallet_carat_value" x="405" y="475" fill="#FFFFFF" font-size="44" font-weight="900" font-family="system-ui, -apple-system, sans-serif">50,000 <tspan font-size="24" font-weight="600">Carats</tspan></text>
+      <text id="wallet_krw_equiv" x="405" y="530" fill="#93C5FD" font-size="18" font-family="system-ui, -apple-system, sans-serif">≈ 50,000원 장학금 전환 가능</text>
+    </g>
+
+    <!-- Mission Completed Active Card (Triggers Interaction) -->
+    <g id="ui_mission_card_active">
+      <rect x="370" y="620" width="460" height="125" rx="22" fill="#FFFFFF" stroke="#E0E7FF" stroke-width="2" />
+      <circle cx="430" cy="682" r="30" fill="#E0F2FE" />
+      <polygon id="mission_reward_gem" points="430,664 444,676 436,696 424,696 416,676" fill="#0EA5E9" />
+      <text x="480" y="672" fill="#0F172A" font-size="20" font-weight="700" font-family="system-ui, -apple-system, sans-serif">오늘의 학습 미션 완료!</text>
+      <text x="480" y="705" fill="#0284C7" font-size="17" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">+ 500 Carats 즉시 지급</text>
+    </g>
+
+    <!-- Additional Study Streak Status Card -->
+    <g id="ui_streak_card">
+      <rect x="370" y="765" width="460" height="110" rx="20" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5" />
+      <text x="405" y="805" fill="#334155" font-size="18" font-weight="700" font-family="system-ui, -apple-system, sans-serif">연속 학습 7일차 달성 🔥</text>
+      <rect x="405" y="825" width="390" height="12" rx="6" fill="#E2E8F0" />
+      <rect x="405" y="825" width="290" height="12" rx="6" fill="#10B981" />
+      <text x="405" y="855" fill="#64748B" font-size="14" font-family="system-ui, -apple-system, sans-serif">내일 출석 시 +100 Carats 추가 보너스!</text>
+    </g>
+
+    <!-- Bottom Home Indicator Bar -->
+    <rect id="phone_home_bar" x="520" y="1215" width="160" height="5" rx="2.5" fill="#CBD5E1" />
   </g>
 
-  <!-- Group 4: Mission Completed Action Card (Triggers the Student's Awe) -->
-  <g id="ui_mission_card_active">
-     <rect x="150" y="540" width="500" height="130" rx="24" fill="#FFFFFF" stroke="#E0E7FF" stroke-width="2" />
-     <circle cx="215" cy="605" r="32" fill="#E0F2FE" />
-     <polygon id="mission_reward_gem" points="215,585 230,598 222,620 208,620 200,598" fill="#0EA5E9" />
-     <text x="270" y="595" fill="#0F172A" font-size="22" font-weight="700" font-family="system-ui, -apple-system, sans-serif">오늘의 학습 미션 완료!</text>
-     <text x="270" y="630" fill="#0284C7" font-size="18" font-weight="bold" font-family="system-ui, -apple-system, sans-serif">+ 500 Carats 즉시 지급</text>
+  <!-- ======================================================================== -->
+  <!-- LAYER 4: LEFT HAND HOLDING FRONT (WRIST, PALM & STABILIZING THUMB)       -->
+  <!-- ======================================================================== -->
+  <g id="left_hand_holding_front">
+    <!-- Left Sleeve Originating From Bottom-Left (x=240, y=1600) -->
+    <path id="left_sleeve" fill="#2563EB" d="M 100,1600 L 220,1180 L 370,1215 L 280,1600 Z" />
+
+    <!-- Dark Ribbed Wrist Cuff (#1D4ED8) -->
+    <rect id="left_wrist_cuff" x="200" y="1165" width="160" height="36" rx="10" fill="#1D4ED8" stroke="#1E40AF" stroke-width="2" transform="rotate(12 280 1183)" />
+
+    <!-- Wrist & Thenar Palm Mass Extending Up Along Left Edge of Phone -->
+    <path id="left_palm_wrist" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M 235,1170 C 270,1050 280,950 290,830 C 295,780 305,740 325,710 L 345,710 C 335,800 320,950 330,1190 Z" />
+
+    <!-- Left Thumb Stabilizing Device Along Left Front Bezel (x=330, y=550..750) -->
+    <path id="left_thumb_grip" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M 315,740 C 310,680 315,620 325,580 C 330,565 345,565 352,580 C 360,610 358,660 350,730 Z" />
+
+    <!-- Thumb Knuckle Crease & Warm Peach Accent (#FDBA74) -->
+    <path d="M 324,660 Q 338,655 352,662" stroke="#FDBA74" stroke-width="2.5" stroke-linecap="round" fill="none" />
+
+    <!-- Subtle White Nail/Pad Catchlight -->
+    <path d="M 332,585 C 336,575 344,575 347,585" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.7" />
   </g>
 
-  <!-- Group 5: Unified Hero Student Hand Holding Phone (Exact Visual Vector DNA) -->
-  <g id="student_hand_holding_phone">
-     <!-- Sleeve Originating from Bottom-Right (Royal Blue #2563EB) -->
-     <path id="holding_arm_sleeve" fill="#2563EB" d="M 540,1200 L 760,1050 L 800,1110 L 640,1200 Z" />
+  <!-- ======================================================================== -->
+  <!-- LAYER 5: RIGHT HAND INTERACTING / SWIPING ON TOP OF GLASS                -->
+  <!-- ======================================================================== -->
+  <g id="right_hand_interacting">
+    <!-- Right Sleeve Originating From Bottom-Right (x=960, y=1600) -->
+    <path id="right_sleeve" fill="#2563EB" d="M 880,1600 L 820,1180 L 970,1140 L 1080,1600 Z" />
 
-     <!-- Ribbed Wrist Cuff (#1D4ED8) -->
-     <rect id="holding_wrist_cuff" x="600" y="1030" width="130" height="34" rx="10" fill="#1D4ED8" stroke="#1E40AF" stroke-width="2" transform="rotate(-32 665 1047)" />
+    <!-- Dark Ribbed Wrist Cuff (#1D4ED8) -->
+    <rect id="right_wrist_cuff" x="805" y="1135" width="160" height="36" rx="10" fill="#1D4ED8" stroke="#1E40AF" stroke-width="2" transform="rotate(-15 885 1153)" />
 
-     <!-- Tapered Wrist & Palm Base (#FFE3D1 With Contour #E2A888) -->
-     <path id="holding_palm_wrist" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M 645,1030 C 670,980 685,920 670,860 L 695,845 C 720,910 705,980 675,1045 Z" />
+    <!-- Dorsal Palm Mass Entering From Lower Right -->
+    <path id="right_palm_mass" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M 840,1140 C 800,1050 780,970 760,890 C 755,870 785,855 810,870 C 840,890 870,950 910,1120 Z" />
 
-     <!-- Supporting Fingers Wrapping Right Chassis Bezel (Behind Screen, On Top of Bezel) -->
-     <!-- Pinky Finger -->
-     <path id="finger_hold_pinky" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" stroke-linecap="round" d="M 690,920 C 708,920 714,905 700,895 C 688,890 678,895 675,905 Z" />
-     <!-- Ring Finger -->
-     <path id="finger_hold_ring" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" stroke-linecap="round" d="M 685,885 C 705,885 712,870 698,860 C 686,855 675,860 672,870 Z" />
-     <!-- Middle Finger -->
-     <path id="finger_hold_middle" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" stroke-linecap="round" d="M 682,850 C 704,850 710,835 696,825 C 684,820 672,825 670,835 Z" />
-     <!-- Index Finger -->
-     <path id="finger_hold_index" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" stroke-linecap="round" d="M 678,815 C 700,815 706,800 692,790 C 680,785 668,790 666,800 Z" />
+    <!-- Curled Supporting Digits (Folded Inward Towards Palm) -->
+    <!-- Curled Middle Finger -->
+    <path id="right_finger_curled_middle" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" stroke-linecap="round" d="M 770,885 C 750,875 735,895 745,920 C 755,935 780,935 790,915 Z" />
+    <!-- Curled Ring Finger -->
+    <path id="right_finger_curled_ring" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" stroke-linecap="round" d="M 790,915 C 775,905 765,925 775,945 C 785,960 805,960 815,940 Z" />
+    <!-- Curled Pinky Finger -->
+    <path id="right_finger_curled_pinky" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" stroke-linecap="round" d="M 815,940 C 805,930 798,950 808,970 C 818,980 835,980 842,965 Z" />
 
-     <!-- Ergonomic Thumb Gripping Front Bezel at 35° Natural Angle (Does Not Obscure Active Screen UI) -->
-     <g id="holding_thumb_group" transform="translate(620, 860) rotate(-35)">
-        <!-- Thumb Body -->
-        <rect id="thumb_body" x="0" y="0" width="70" height="34" rx="14" fill="#FFE3D1" stroke="#E2A888" stroke-width="2" />
-        <!-- Joint Accent Line (#FDBA74) -->
-        <line x1="28" y1="4" x2="28" y2="30" stroke="#FDBA74" stroke-width="2" stroke-linecap="round" />
-        <!-- Soft Thumb Tip Highlight -->
-        <circle cx="56" cy="17" r="6" fill="#FFFFFF" opacity="0.4" />
-     </g>
+    <!-- Curled Knuckle Accents in #FDBA74 -->
+    <line x1="755" y1="910" x2="775" y2="905" stroke="#FDBA74" stroke-width="2" stroke-linecap="round" />
+    <line x1="775" y1="935" x2="795" y2="930" stroke="#FDBA74" stroke-width="2" stroke-linecap="round" />
 
-     <!-- Soft Joint & Crease Shadow Lines (#FDBA74) -->
-     <path d="M 665,960 Q 655,930 660,900" stroke="#FDBA74" stroke-width="2" stroke-linecap="round" fill="none" />
+    <!-- Thumb Softly Resting Across Lower Palm -->
+    <path id="right_thumb_folded" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" stroke-linecap="round" d="M 790,960 C 765,950 740,970 755,1000 C 770,1020 805,1010 820,985 Z" />
+    <line x1="770" y1="975" x2="790" y2="985" stroke="#FDBA74" stroke-width="2" stroke-linecap="round" />
+
+    <!-- EXTENDED INDEX FINGER (The Swiping Finger Pointing at x=650, y=680) -->
+    <!-- Gracefully curves upward from knuckle at (750, 860) to tip at (650, 680) -->
+    <path id="right_index_swiping" fill="#FFE3D1" stroke="#E2A888" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M 750,860 C 740,800 705,740 660,685 C 648,670 632,680 640,698 C 655,735 680,810 705,885 Z" />
+
+    <!-- 3 Subtle Phalange Creases (#FDBA74) -->
+    <line x1="682" y1="755" x2="710" y2="768" stroke="#FDBA74" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="658" y1="715" x2="682" y2="728" stroke="#FDBA74" stroke-width="2.5" stroke-linecap="round" />
+
+    <!-- Soft Catchlight on Index Fingertip Pad -->
+    <circle cx="650" cy="682" r="5" fill="#FFFFFF" opacity="0.7" />
+  </g>
+
+  <!-- ======================================================================== -->
+  <!-- LAYER 6: INTERACTIVE TOUCH RIPPLE (INDICATING TAP/SWIPE REWARD ACTION)   -->
+  <!-- ======================================================================== -->
+  <g id="interactive_touch_ripple">
+    <!-- Subtle Radial Glow Behind Tap Point -->
+    <circle cx="650" cy="680" r="60" fill="url(#touch_glow)" />
+
+    <!-- Outer Expanding Cyan Ripple Ring -->
+    <circle id="ripple_outer" cx="650" cy="680" r="42" stroke="#00E5FF" stroke-width="3" stroke-dasharray="8 6" fill="none" opacity="0.8" />
+
+    <!-- Inner Active Cyan Ripple -->
+    <circle id="ripple_mid" cx="650" cy="680" r="26" stroke="#00E5FF" stroke-width="2.5" fill="#00E5FF" fill-opacity="0.25" />
+
+    <!-- Core Contact Point Under Fingertip -->
+    <circle id="ripple_core" cx="650" cy="680" r="7" fill="#00E5FF" />
+
+    <!-- Micro Diamond Reward Particle Emitted on Touch -->
+    <polygon id="touch_mini_carat" points="615,645 625,637 635,645 625,663" fill="#00E5FF" stroke="#0284C7" stroke-width="1.5" />
+    <path id="touch_sparkle_star" d="M 695,630 Q 695,640 685,640 Q 695,640 695,650 Q 695,640 705,640 Q 695,640 695,630 Z" fill="#F59E0B" />
   </g>
 </svg>
