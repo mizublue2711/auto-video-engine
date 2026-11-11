@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-11T09:02:03.117Z",
-  "total_components": 20,
+  "generated_at": "2026-11-11T09:07:47.417Z",
+  "total_components": 21,
   "categories": {
-    "prop": 10,
+    "prop": 11,
     "head": 3,
     "limb": 6,
     "torso": 1
@@ -356,6 +356,58 @@
       "version": "1.0.0",
       "filePath": "props/prop_chalkboard_math.svg",
       "metaPath": "props/prop_chalkboard_math.meta.json"
+    },
+    "prop_clock_dial_master": {
+      "id": "prop_clock_dial_master",
+      "name": "Hollow Analog Clock Dial Master (De-Baked Plate)",
+      "category": "prop",
+      "viewBox": "0 0 500 500",
+      "dimensions": {
+        "width": 500,
+        "height": 500
+      },
+      "sockets": {
+        "clock_center": {
+          "x": 250,
+          "y": 250
+        },
+        "wall_mount": {
+          "x": 250,
+          "y": 20
+        }
+      },
+      "pivots": {
+        "clock_center": {
+          "x": 250,
+          "y": 250
+        }
+      },
+      "immutable_inputs": {
+        "props_allowed": [
+          "style",
+          "opacity",
+          "transform",
+          "className"
+        ],
+        "color_tokens_used": [
+          "#FFFFFF",
+          "#334155",
+          "#1E293B",
+          "#64748B"
+        ]
+      },
+      "tags": [
+        "prop",
+        "classroom",
+        "clock",
+        "dial",
+        "hollow",
+        "debaked",
+        "vector_foundry"
+      ],
+      "version": "1.0.0",
+      "filePath": "props/prop_clock_dial_master.svg",
+      "metaPath": "props/prop_clock_dial_master.meta.json"
     },
     "prop_desk_hagwon": {
       "id": "prop_desk_hagwon",

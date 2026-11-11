@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500" id="prop_clock_dial_master" preserveAspectRatio="xMidYMid meet">
+  <!-- ========================================================================== -->
+  <!-- FOUNDRY ASSET: HOLLOW ANALOG CLOCK DIAL MASTER (DE-BAKED BACKGROUND PLATE) -->
+  <!-- Mechanical hands stripped out for procedural Remotion kinetic animation    -->
+  <!-- Korean Anime Cel-Shaded Aesthetic | ViewBox: 0 0 500 500 | Center: 250, 250 -->
+  <!-- ========================================================================== -->
+
+  <!-- ========================================================================== -->
+  <!-- LAYER 1: Dial Bezel & Cel-Shaded Casing Rim                                -->
+  <!-- ========================================================================== -->
+  <g id="clock_bezel_assembly">
+    <!-- Outer Contour Ring (#1E293B) -->
+    <circle id="clock_bezel_outer_edge" cx="250" cy="250" r="240" fill="#1E293B" />
+
+    <!-- Dark Slate Main Bezel Body (#334155) -->
+    <circle id="clock_bezel_body" cx="250" cy="250" r="234" fill="#334155" />
+
+    <!-- Cel-Shaded Inner Bezel Step (#1E293B) -->
+    <circle id="clock_bezel_inner_step" cx="250" cy="250" r="214" fill="#1E293B" />
+  </g>
+
+  <!-- ========================================================================== -->
+  <!-- LAYER 2: Flat Pure White Dial Face (#FFFFFF)                               -->
+  <!-- ========================================================================== -->
+  <g id="clock_dial_face_plate">
+    <circle id="clock_dial_face" cx="250" cy="250" r="210" fill="#FFFFFF" />
+  </g>
+
+  <!-- ========================================================================== -->
+  <!-- LAYER 3: Dial Ticks & Markers (Hollow Center, Kinematic Ready)             -->
+  <!-- ========================================================================== -->
+  <g id="clock_dial_ticks">
+    <!-- 48 Subtle Minute Tick Marks (#64748B) -->
+    <g id="clock_minute_ticks">
+      <line id="tick_min_1" x1="270.91" y1="51.1" x2="269.65" y2="63.03" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_2" x1="291.58" y1="54.37" x2="289.09" y2="66.11" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_3" x1="311.8" y1="59.79" x2="308.1" y2="71.2" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_4" x1="331.35" y1="67.29" x2="326.47" y2="78.25" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_6" x1="367.56" y1="88.2" x2="360.5" y2="97.9" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_7" x1="383.83" y1="101.37" x2="375.8" y2="110.29" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_8" x1="398.63" y1="116.17" x2="389.71" y2="124.2" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_9" x1="411.8" y1="132.44" x2="402.1" y2="139.5" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_11" x1="432.71" y1="168.65" x2="421.75" y2="173.53" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_12" x1="440.21" y1="188.2" x2="428.8" y2="191.9" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_13" x1="445.63" y1="208.42" x2="433.89" y2="210.91" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_14" x1="448.9" y1="229.09" x2="436.97" y2="230.35" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_16" x1="448.9" y1="270.91" x2="436.97" y2="269.65" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_17" x1="445.63" y1="291.58" x2="433.89" y2="289.09" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_18" x1="440.21" y1="311.8" x2="428.8" y2="308.1" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_19" x1="432.71" y1="331.35" x2="421.75" y2="326.47" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_21" x1="411.8" y1="367.56" x2="402.1" y2="360.5" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_22" x1="398.63" y1="383.83" x2="389.71" y2="375.8" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_23" x1="383.83" y1="398.63" x2="375.8" y2="389.71" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_24" x1="367.56" y1="411.8" x2="360.5" y2="402.1" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_26" x1="331.35" y1="432.71" x2="326.47" y2="421.75" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_27" x1="311.8" y1="440.21" x2="308.1" y2="428.8" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_28" x1="291.58" y1="445.63" x2="289.09" y2="433.89" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_29" x1="270.91" y1="448.9" x2="269.65" y2="436.97" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_31" x1="229.09" y1="448.9" x2="230.35" y2="436.97" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_32" x1="208.42" y1="445.63" x2="210.91" y2="433.89" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_33" x1="188.2" y1="440.21" x2="191.9" y2="428.8" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_34" x1="168.65" y1="432.71" x2="173.53" y2="421.75" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_36" x1="132.44" y1="411.8" x2="139.5" y2="402.1" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_37" x1="116.17" y1="398.63" x2="124.2" y2="389.71" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_38" x1="101.37" y1="383.83" x2="110.29" y2="375.8" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_39" x1="88.2" y1="367.56" x2="97.9" y2="360.5" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_41" x1="67.29" y1="331.35" x2="78.25" y2="326.47" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_42" x1="59.79" y1="311.8" x2="71.2" y2="308.1" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_43" x1="54.37" y1="291.58" x2="66.11" y2="289.09" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_44" x1="51.1" y1="270.91" x2="63.03" y2="269.65" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_46" x1="51.1" y1="229.09" x2="63.03" y2="230.35" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_47" x1="54.37" y1="208.42" x2="66.11" y2="210.91" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_48" x1="59.79" y1="188.2" x2="71.2" y2="191.9" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_49" x1="67.29" y1="168.65" x2="78.25" y2="173.53" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_51" x1="88.2" y1="132.44" x2="97.9" y2="139.5" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_52" x1="101.37" y1="116.17" x2="110.29" y2="124.2" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_53" x1="116.17" y1="101.37" x2="124.2" y2="110.29" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_54" x1="132.44" y1="88.2" x2="139.5" y2="97.9" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_56" x1="168.65" y1="67.29" x2="173.53" y2="78.25" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_57" x1="188.2" y1="59.79" x2="191.9" y2="71.2" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_58" x1="208.42" y1="54.37" x2="210.91" y2="66.11" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+      <line id="tick_min_59" x1="229.09" y1="51.1" x2="230.35" y2="63.03" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+    </g>
+
+    <!-- 12 Major Hour Tick Marks (#1E293B) -->
+    <g id="clock_hour_ticks">
+      <line id="tick_hour_12" x1="250.0" y1="50.0" x2="250.0" y2="74.0" stroke="#1E293B" stroke-width="6" stroke-linecap="round" />
+      <line id="tick_hour_1" x1="350.0" y1="76.79" x2="338.0" y2="97.58" stroke="#1E293B" stroke-width="6" stroke-linecap="round" />
+      <line id="tick_hour_2" x1="423.21" y1="150.0" x2="402.42" y2="162.0" stroke="#1E293B" stroke-width="6" stroke-linecap="round" />
+      <line id="tick_hour_3" x1="450.0" y1="250.0" x2="426.0" y2="250.0" stroke="#1E293B" stroke-width="6" stroke-linecap="round" />
+      <line id="tick_hour_4" x1="423.21" y1="350.0" x2="402.42" y2="338.0" stroke="#1E293B" stroke-width="6" stroke-linecap="round" />
+      <line id="tick_hour_5" x1="350.0" y1="423.21" x2="338.0" y2="402.42" stroke="#1E293B" stroke-width="6" stroke-linecap="round" />
+      <line id="tick_hour_6" x1="250.0" y1="450.0" x2="250.0" y2="426.0" stroke="#1E293B" stroke-width="6" stroke-linecap="round" />
+      <line id="tick_hour_7" x1="150.0" y1="423.21" x2="162.0" y2="402.42" stroke="#1E293B" stroke-width="6" stroke-linecap="round" />
+      <line id="tick_hour_8" x1="76.79" y1="350.0" x2="97.58" y2="338.0" stroke="#1E293B" stroke-width="6" stroke-linecap="round" />
+      <line id="tick_hour_9" x1="50.0" y1="250.0" x2="74.0" y2="250.0" stroke="#1E293B" stroke-width="6" stroke-linecap="round" />
+      <line id="tick_hour_10" x1="76.79" y1="150.0" x2="97.58" y2="162.0" stroke="#1E293B" stroke-width="6" stroke-linecap="round" />
+      <line id="tick_hour_11" x1="150.0" y1="76.79" x2="162.0" y2="97.58" stroke="#1E293B" stroke-width="6" stroke-linecap="round" />
+    </g>
+  </g>
+</svg>

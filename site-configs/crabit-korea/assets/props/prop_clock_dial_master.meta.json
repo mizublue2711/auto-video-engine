@@ -1,0 +1,50 @@
+{
+  "id": "prop_clock_dial_master",
+  "name": "Hollow Analog Clock Dial Master (De-Baked Plate)",
+  "category": "prop",
+  "viewBox": "0 0 500 500",
+  "dimensions": {
+    "width": 500,
+    "height": 500
+  },
+  "sockets": {
+    "clock_center": {
+      "x": 250,
+      "y": 250
+    },
+    "wall_mount": {
+      "x": 250,
+      "y": 20
+    }
+  },
+  "pivots": {
+    "clock_center": {
+      "x": 250,
+      "y": 250
+    }
+  },
+  "immutable_inputs": {
+    "props_allowed": [
+      "style",
+      "opacity",
+      "transform",
+      "className"
+    ],
+    "color_tokens_used": [
+      "#FFFFFF",
+      "#334155",
+      "#1E293B",
+      "#64748B"
+    ]
+  },
+  "tags": [
+    "prop",
+    "classroom",
+    "clock",
+    "dial",
+    "hollow",
+    "debaked",
+    "vector_foundry"
+  ],
+  "version": "1.0.0"
+}
