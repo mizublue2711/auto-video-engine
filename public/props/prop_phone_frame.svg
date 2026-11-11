@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 720" width="360" height="720" id="prop_phone_frame">
+  <!-- ========================================================================== -->
+  <!-- ISOLATED SMARTPHONE CHASSIS & SCREEN FRAME RIG                             -->
+  <!-- ========================================================================== -->
+  <defs>
+    <!-- Screen Viewport Clip Path for Remotion Content Masking -->
+    <clipPath id="screen_viewport_clip">
+      <rect x="20" y="24" width="320" height="672" rx="34" />
+    </clipPath>
+  </defs>
+
+  <!-- Side Hardware Buttons -->
+  <g id="hardware_buttons">
+    <!-- Volume Up Button (Left side) -->
+    <rect id="btn_volume_up" x="9" y="150" width="5" height="50" rx="2" fill="#334155" />
+    <!-- Volume Down Button (Left side) -->
+    <rect id="btn_volume_down" x="9" y="215" width="5" height="50" rx="2" fill="#334155" />
+    <!-- Power / Lock Button (Right side) -->
+    <rect id="btn_power" x="346" y="175" width="5" height="70" rx="2" fill="#334155" />
+  </g>
+
+  <!-- Outer Phone Body / Chassis Frame -->
+  <rect id="phone_outer_chassis" x="14" y="12" width="332" height="696" rx="42" fill="#0F172A" stroke="#334155" stroke-width="4" stroke-linejoin="round" />
+  <!-- Inner Metallic Bezel Rim -->
+  <rect id="phone_inner_rim" x="17" y="15" width="326" height="690" rx="39" fill="none" stroke="#1E293B" stroke-width="2" />
+
+  <!-- Active Screen Viewport Area (Masked by screen_viewport_clip) -->
+  <g id="screen_display_area" clip-path="url(#screen_viewport_clip)">
+    <!-- Default Clean Display Surface (#F8FAFC) -->
+    <rect id="display_background" x="20" y="24" width="320" height="672" fill="#F8FAFC" />
+  </g>
+
+  <!-- Dynamic Island & Front Camera Punch-Hole -->
+  <g id="phone_camera_notch">
+    <!-- Dynamic Island Pill -->
+    <rect id="camera_pill" x="135" y="38" width="90" height="24" rx="12" fill="#020617" />
+    <!-- Front Selfie Camera Lens -->
+    <circle id="camera_lens" cx="152" cy="50" r="5" fill="#0F172A" stroke="#1E293B" stroke-width="1" />
+    <circle id="camera_glint" cx="150.5" cy="48.5" r="1.5" fill="#38BDF8" opacity="0.8" />
+    <!-- Ambient Light Sensor -->
+    <circle id="sensor_dot" cx="202" cy="50" r="3" fill="#0F172A" />
+  </g>
+
+  <!-- Speaker Earpiece Grille -->
+  <rect id="speaker_grille" x="160" y="28" width="40" height="3.5" rx="1.75" fill="#1E293B" />
+
+  <!-- Bottom Home Indicator Bar -->
+  <rect id="home_indicator" x="110" y="682" width="140" height="4.5" rx="2.25" fill="#94A3B8" opacity="0.6" />
+</svg>

@@ -1,0 +1,24 @@
+{
+  "id": "prop_teacher_podium",
+  "name": "Teacher Lecture Podium with Brand Crest",
+  "category": "prop",
+  "viewBox": "0 0 450 650",
+  "dimensions": {
+    "width": 450,
+    "height": 650
+  },
+  "sockets": {
+    "console_surface": { "x": 225, "y": 150 },
+    "floor_contact": { "x": 225, "y": 625 }
+  },
+  "pivots": {
+    "base": { "x": 225, "y": 625 },
+    "console": { "x": 225, "y": 150 }
+  },
+  "immutable_inputs": {
+    "props_allowed": ["style", "opacity", "transform"],
+    "color_tokens_used": ["#64748B", "#475569", "#94A3B8", "#CBD5E1", "#E2E8F0", "#F8FAFC", "#00E5FF"]
+  },
+  "tags": ["prop", "classroom", "podium", "teacher", "furniture"],
+  "version": "1.0.0"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "prop_chair_classroom",
+  "name": "Classroom Ergonomic Student Chair",
+  "category": "prop",
+  "viewBox": "0 0 400 600",
+  "dimensions": {
+    "width": 400,
+    "height": 600
+  },
+  "sockets": {
+    "seat_surface": { "x": 200, "y": 300 },
+    "backrest_center": { "x": 200, "y": 150 },
+    "floor_contact": { "x": 200, "y": 565 }
+  },
+  "pivots": {
+    "seat": { "x": 200, "y": 300 },
+    "base": { "x": 200, "y": 565 }
+  },
+  "immutable_inputs": {
+    "props_allowed": ["style", "opacity", "transform"],
+    "color_tokens_used": ["#475569", "#334155", "#1E293B", "#94A3B8", "#64748B"]
+  },
+  "tags": ["prop", "furniture", "chair", "classroom", "seated"],
+  "version": "1.0.0"
+}

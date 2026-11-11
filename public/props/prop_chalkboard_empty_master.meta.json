@@ -1,0 +1,24 @@
+{
+  "id": "prop_chalkboard_empty_master",
+  "name": "Blank CSAT Chalkboard Master Frame",
+  "category": "prop",
+  "viewBox": "0 0 1200 700",
+  "dimensions": {
+    "width": 1200,
+    "height": 700
+  },
+  "sockets": {
+    "board_center": { "x": 600, "y": 335 },
+    "chalk_tray": { "x": 600, "y": 648 },
+    "drawing_origin": { "x": 260, "y": 460 }
+  },
+  "pivots": {
+    "center": { "x": 600, "y": 350 }
+  },
+  "immutable_inputs": {
+    "props_allowed": ["style", "opacity", "transform"],
+    "color_tokens_used": ["#064E3B", "#1E293B", "#0F172A", "#334155", "#475569", "#FFFFFF", "#FEF08A"]
+  },
+  "tags": ["prop", "chalkboard", "blank", "empty", "canvas", "de-bake", "csat", "hagwon"],
+  "version": "1.0.0"
+}

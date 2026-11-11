@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 650" id="prop_teacher_podium" preserveAspectRatio="xMidYMid meet">
+  <!-- ========================================================================== -->
+  <!-- LAYER 1 (Z-Bottom): Floor Shadow & Podium Grounding Base                   -->
+  <!-- ========================================================================== -->
+  <g id="podium_base_group">
+    <!-- Contact Floor Shadow beneath the podium base plate -->
+    <ellipse id="podium_floor_shadow" cx="225" cy="625" rx="170" ry="14" fill="#94A3B8" opacity="0.3" />
+
+    <!-- Solid Steel/Acrylic Heavy Base Plate -->
+    <rect id="podium_base_plate" x="90" y="600" width="270" height="24" rx="5" fill="#64748B" stroke="#475569" stroke-width="2" />
+    <rect id="podium_base_rim" x="90" y="600" width="270" height="6" rx="3" fill="#94A3B8" />
+
+    <!-- Non-Slip Rubber Base Footers -->
+    <rect id="podium_foot_left" x="110" y="620" width="45" height="6" rx="2" fill="#334155" />
+    <rect id="podium_foot_right" x="295" y="620" width="45" height="6" rx="2" fill="#334155" />
+  </g>
+
+  <!-- ========================================================================== -->
+  <!-- LAYER 2 (Z-Mid): Podium Pedestal Column & Front Modesty Bevel Panel        -->
+  <!-- ========================================================================== -->
+  <g id="podium_body_group">
+    <!-- Main Pedestal Column Structure (Tapered architectural silhouette) -->
+    <path id="podium_pedestal" d="M 125,188 L 325,188 L 338,600 L 112,600 Z" fill="#CBD5E1" stroke="#94A3B8" stroke-width="2" stroke-linejoin="round" />
+
+    <!-- Front Bevel Modesty Panel (#E2E8F0 / #CBD5E1) -->
+    <path id="podium_modesty_bevel" d="M 136,206 L 314,206 L 324,582 L 126,582 Z" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="2" />
+
+    <!-- Recessed Inner Architectural Groove Accent -->
+    <path id="podium_inner_recess" d="M 150,224 L 300,224 L 308,564 L 142,564 Z" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.5" />
+    <line x1="150" y1="248" x2="300" y2="248" stroke="#CBD5E1" stroke-width="1.5" />
+    <line x1="144" y1="538" x2="306" y2="538" stroke="#CBD5E1" stroke-width="1.5" />
+
+    <!-- Hagwon Academy Brand Emblem (Cyan/Teal Faceted Carat Diamond Badge) -->
+    <g id="podium_brand_crest">
+      <polygon id="podium_crest_facet_bottom" points="225,270 248,294 238,318 212,318 202,294" fill="#00E5FF" stroke="#38BDF8" stroke-width="1.5" stroke-linejoin="round" />
+      <polygon id="podium_crest_facet_top" points="225,270 248,294 225,302 202,294" fill="#E0F2FE" opacity="0.65" />
+      <circle cx="225" cy="292" r="3" fill="#FFFFFF" />
+    </g>
+  </g>
+
+  <!-- ========================================================================== -->
+  <!-- LAYER 3 (Z-Top): Angled Console Surface, Lecture Binder & Digital Tablet   -->
+  <!-- ========================================================================== -->
+  <g id="podium_console_group">
+    <!-- Under-Console Structural Support Bracket -->
+    <polygon id="podium_console_bracket" points="105,188 345,188 360,198 90,198" fill="#94A3B8" />
+
+    <!-- Angled Top Reading Surface (15-Degree Oblique Perspective Desk) -->
+    <polygon id="podium_top_surface" points="62,125 388,125 422,184 28,184" fill="#F8FAFC" stroke="#94A3B8" stroke-width="2" stroke-linejoin="round" />
+
+    <!-- Front Reading Ledge / Document Retaining Lip -->
+    <polygon id="podium_front_lip" points="28,184 422,184 416,198 34,198" fill="#E2E8F0" stroke="#94A3B8" stroke-width="2" stroke-linejoin="round" />
+    <line id="podium_lip_highlight" x1="29" y1="185" x2="421" y2="185" stroke="#FFFFFF" stroke-width="2" />
+    <line id="podium_lip_shadow" x1="34" y1="197" x2="416" y2="197" stroke="#64748B" stroke-width="1.5" />
+
+    <!-- Teacher Lecture Props on Reading Surface -->
+    <!-- Prop A: Professional Blue Lecture Binder (#2563EB) -->
+    <g id="podium_lecture_binder">
+      <!-- Binder Outer Hardcover -->
+      <polygon id="binder_hardcover" points="68,136 182,132 198,175 80,179" fill="#2563EB" stroke="#1D4ED8" stroke-width="1.5" stroke-linejoin="round" />
+      <!-- White Lecture Syllabus Pages -->
+      <polygon id="binder_pages" points="74,139 176,135 190,172 86,176" fill="#FFFFFF" />
+      <!-- Binder Spine Crease -->
+      <line id="binder_spine" x1="68" y1="136" x2="80" y2="179" stroke="#1E40AF" stroke-width="3.5" stroke-linecap="round" />
+      <!-- Color Section Tab Dividers -->
+      <polygon points="176,138 186,138 188,146 178,146" fill="#F59E0B" />
+      <polygon points="180,150 190,150 192,158 182,158" fill="#10B981" />
+      <polygon points="184,162 194,162 196,170 186,170" fill="#EF4444" />
+      <!-- Subtle Printed Text Lines -->
+      <line x1="98" y1="148" x2="165" y2="148" stroke="#CBD5E1" stroke-width="1.5" stroke-linecap="round" />
+      <line x1="100" y1="158" x2="168" y2="158" stroke="#CBD5E1" stroke-width="1.5" stroke-linecap="round" />
+      <line x1="103" y1="168" x2="170" y2="168" stroke="#CBD5E1" stroke-width="1.5" stroke-linecap="round" />
+    </g>
+
+    <!-- Prop B: Sleek Digital Tablet with Active Lecture Slide / Waveform -->
+    <g id="podium_digital_tablet">
+      <!-- Tablet Dark Bezel -->
+      <polygon id="tablet_body" points="232,135 365,135 380,176 242,176" fill="#1E293B" stroke="#0F172A" stroke-width="1.5" stroke-linejoin="round" />
+      <!-- Active OLED Glass Display -->
+      <polygon id="tablet_display" points="238,138 359,138 373,173 248,173" fill="#0F172A" />
+      <!-- Tablet Interactive Waveform & Analytical Sparklines -->
+      <path id="tablet_chart_curve" d="M 255,160 Q 280,146 300,164 T 340,150 T 366,156" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" />
+      <circle cx="300" cy="164" r="2.5" fill="#00E5FF" />
+      <circle cx="340" cy="150" r="2.5" fill="#FACC15" />
+      <!-- Front Camera Dot -->
+      <circle cx="302" cy="136.5" r="1.5" fill="#475569" />
+    </g>
+
+    <!-- Prop C: Professional Gooseneck Lecture Microphone -->
+    <g id="podium_gooseneck_mic">
+      <ellipse id="mic_desk_flange" cx="395" cy="136" rx="8" ry="4.5" fill="#334155" />
+      <path id="mic_gooseneck_stem" d="M 395,136 C 408,112 388,86 360,78" fill="none" stroke="#64748B" stroke-width="4" stroke-linecap="round" />
+      <ellipse id="mic_foam_capsule" cx="354" cy="76" rx="10" ry="6" transform="rotate(-15 354 76)" fill="#1E293B" stroke="#475569" stroke-width="1.5" />
+      <circle cx="350" cy="75" r="2" fill="#EF4444" opacity="0.9" />
+    </g>
+  </g>
+</svg>

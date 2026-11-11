@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" id="prop_wall_clock" preserveAspectRatio="xMidYMid meet">
+  <!-- ========================================================================== -->
+  <!-- LAYER 1: Clock Outer Rim & Dial Background Plate                           -->
+  <!-- ========================================================================== -->
+  <!-- Outer Rim (cx=150, cy=150, r=140, fill=#FFFFFF, stroke=#1E293B, stroke-width=12) -->
+  <circle id="clock_outer_rim" cx="150" cy="150" r="140" fill="#FFFFFF" stroke="#1E293B" stroke-width="12" />
+
+  <!-- Subtle Bevel & Shadow Groove Rings -->
+  <circle id="clock_inner_bezel" cx="150" cy="150" r="133" fill="none" stroke="#E2E8F0" stroke-width="2.5" />
+  <circle id="clock_dial_vignette" cx="150" cy="150" r="130" fill="#F8FAFC" opacity="0.4" />
+
+  <!-- ========================================================================== -->
+  <!-- LAYER 2: Dial Hour Ticks, Minute Dots, and Cardinal Numerals               -->
+  <!-- ========================================================================== -->
+  <g id="clock_dial_ticks">
+    <!-- 12 Major Hour Tick Marks (#64748B & #1E293B) -->
+    <!-- 12 O'Clock -->
+    <line id="tick_hour_12" x1="150" y1="24" x2="150" y2="42" stroke="#1E293B" stroke-width="5" stroke-linecap="round" />
+    <!-- 1 O'Clock -->
+    <line id="tick_hour_1" x1="213" y1="40.9" x2="204" y2="56.5" stroke="#64748B" stroke-width="3.5" stroke-linecap="round" />
+    <!-- 2 O'Clock -->
+    <line id="tick_hour_2" x1="259.1" y1="87" x2="243.5" y2="96" stroke="#64748B" stroke-width="3.5" stroke-linecap="round" />
+    <!-- 3 O'Clock -->
+    <line id="tick_hour_3" x1="276" y1="150" x2="258" y2="150" stroke="#1E293B" stroke-width="5" stroke-linecap="round" />
+    <!-- 4 O'Clock -->
+    <line id="tick_hour_4" x1="259.1" y1="213" x2="243.5" y2="204" stroke="#64748B" stroke-width="3.5" stroke-linecap="round" />
+    <!-- 5 O'Clock -->
+    <line id="tick_hour_5" x1="213" y1="259.1" x2="204" y2="243.5" stroke="#64748B" stroke-width="3.5" stroke-linecap="round" />
+    <!-- 6 O'Clock -->
+    <line id="tick_hour_6" x1="150" y1="276" x2="150" y2="258" stroke="#1E293B" stroke-width="5" stroke-linecap="round" />
+    <!-- 7 O'Clock -->
+    <line id="tick_hour_7" x1="87" y1="259.1" x2="96" y2="243.5" stroke="#64748B" stroke-width="3.5" stroke-linecap="round" />
+    <!-- 8 O'Clock -->
+    <line id="tick_hour_8" x1="40.9" y1="213" x2="56.5" y2="204" stroke="#64748B" stroke-width="3.5" stroke-linecap="round" />
+    <!-- 9 O'Clock -->
+    <line id="tick_hour_9" x1="24" y1="150" x2="42" y2="150" stroke="#1E293B" stroke-width="5" stroke-linecap="round" />
+    <!-- 10 O'Clock -->
+    <line id="tick_hour_10" x1="40.9" y1="87" x2="56.5" y2="96" stroke="#64748B" stroke-width="3.5" stroke-linecap="round" />
+    <!-- 11 O'Clock -->
+    <line id="tick_hour_11" x1="87" y1="40.9" x2="96" y2="56.5" stroke="#64748B" stroke-width="3.5" stroke-linecap="round" />
+
+    <!-- Subtle Minute Dots around perimeter (#94A3B8) -->
+    <circle cx="163" cy="24.7" r="1.5" fill="#94A3B8" />
+    <circle cx="176" cy="26.7" r="1.5" fill="#94A3B8" />
+    <circle cx="188.8" cy="30.2" r="1.5" fill="#94A3B8" />
+    <circle cx="201.2" cy="35" r="1.5" fill="#94A3B8" />
+    <circle cx="224.2" cy="48" r="1.5" fill="#94A3B8" />
+    <circle cx="234.6" cy="56.6" r="1.5" fill="#94A3B8" />
+    <circle cx="243.8" cy="66.4" r="1.5" fill="#94A3B8" />
+    <circle cx="251.7" cy="77.3" r="1.5" fill="#94A3B8" />
+    <circle cx="264.4" cy="102" r="1.5" fill="#94A3B8" />
+    <circle cx="268.8" cy="113.8" r="1.5" fill="#94A3B8" />
+    <circle cx="271.8" cy="125.8" r="1.5" fill="#94A3B8" />
+    <circle cx="273.2" cy="137.9" r="1.5" fill="#94A3B8" />
+    <circle cx="273.2" cy="162.1" r="1.5" fill="#94A3B8" />
+    <circle cx="271.8" cy="174.2" r="1.5" fill="#94A3B8" />
+    <circle cx="268.8" cy="186.2" r="1.5" fill="#94A3B8" />
+    <circle cx="264.4" cy="198" r="1.5" fill="#94A3B8" />
+    <circle cx="251.7" cy="222.7" r="1.5" fill="#94A3B8" />
+    <circle cx="243.8" cy="233.6" r="1.5" fill="#94A3B8" />
+    <circle cx="234.6" cy="243.4" r="1.5" fill="#94A3B8" />
+    <circle cx="224.2" cy="252" r="1.5" fill="#94A3B8" />
+    <circle cx="201.2" cy="265" r="1.5" fill="#94A3B8" />
+    <circle cx="188.8" cy="269.8" r="1.5" fill="#94A3B8" />
+    <circle cx="176" cy="273.3" r="1.5" fill="#94A3B8" />
+    <circle cx="163" cy="275.3" r="1.5" fill="#94A3B8" />
+    <circle cx="137" cy="275.3" r="1.5" fill="#94A3B8" />
+    <circle cx="124" cy="273.3" r="1.5" fill="#94A3B8" />
+    <circle cx="111.2" cy="269.8" r="1.5" fill="#94A3B8" />
+    <circle cx="98.8" cy="265" r="1.5" fill="#94A3B8" />
+    <circle cx="75.8" cy="252" r="1.5" fill="#94A3B8" />
+    <circle cx="65.4" cy="243.4" r="1.5" fill="#94A3B8" />
+    <circle cx="56.2" cy="233.6" r="1.5" fill="#94A3B8" />
+    <circle cx="48.3" cy="222.7" r="1.5" fill="#94A3B8" />
+    <circle cx="35.6" cy="198" r="1.5" fill="#94A3B8" />
+    <circle cx="31.2" cy="186.2" r="1.5" fill="#94A3B8" />
+    <circle cx="28.2" cy="174.2" r="1.5" fill="#94A3B8" />
+    <circle cx="26.8" cy="162.1" r="1.5" fill="#94A3B8" />
+    <circle cx="26.8" cy="137.9" r="1.5" fill="#94A3B8" />
+    <circle cx="28.2" cy="125.8" r="1.5" fill="#94A3B8" />
+    <circle cx="31.2" cy="113.8" r="1.5" fill="#94A3B8" />
+    <circle cx="35.6" cy="102" r="1.5" fill="#94A3B8" />
+    <circle cx="48.3" cy="77.3" r="1.5" fill="#94A3B8" />
+    <circle cx="56.2" cy="66.4" r="1.5" fill="#94A3B8" />
+    <circle cx="65.4" cy="56.6" r="1.5" fill="#94A3B8" />
+    <circle cx="75.8" cy="48" r="1.5" fill="#94A3B8" />
+    <circle cx="98.8" cy="35" r="1.5" fill="#94A3B8" />
+    <circle cx="111.2" cy="30.2" r="1.5" fill="#94A3B8" />
+    <circle cx="124" cy="26.7" r="1.5" fill="#94A3B8" />
+    <circle cx="137" cy="24.7" r="1.5" fill="#94A3B8" />
+
+    <!-- Cardinal Hour Numerals: 12, 3, 6, 9 -->
+    <text x="150" y="66" text-anchor="middle" fill="#1E293B" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="20">12</text>
+    <text x="238" y="157" text-anchor="middle" fill="#1E293B" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="20">3</text>
+    <text x="150" y="246" text-anchor="middle" fill="#1E293B" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="20">6</text>
+    <text x="62" y="157" text-anchor="middle" fill="#1E293B" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="20">9</text>
+  </g>
+
+  <!-- ========================================================================== -->
+  <!-- LAYER 3: Decoupled Kinematic Hour Hand (data-pivot="150 150")              -->
+  <!-- Length: 60px, Width: 8px, Fill: #1E293B, Rounded Tip, Points to 10 o'clock -->
+  <!-- Remotion Hook: transform="rotate(${hourDeg} 150 150)"                      -->
+  <!-- ========================================================================== -->
+  <g id="clock_hand_hour" data-pivot="150 150" transform="rotate(-60 150 150)">
+    <!-- Base hand geometry vertically centered at x=150, tip at y=90 (length 60), tail at y=164 -->
+    <rect id="hour_hand_stem" x="146" y="90" width="8" height="74" rx="4" fill="#1E293B" />
+  </g>
+
+  <!-- ========================================================================== -->
+  <!-- LAYER 4: Decoupled Kinematic Minute Hand (data-pivot="150 150")            -->
+  <!-- Length: 95px, Width: 5px, Fill: #2563EB, Rounded Tip, Points to 2 o'clock  -->
+  <!-- Remotion Hook: transform="rotate(${minuteDeg} 150 150)"                    -->
+  <!-- ========================================================================== -->
+  <g id="clock_hand_minute" data-pivot="150 150" transform="rotate(60 150 150)">
+    <!-- Base hand geometry vertically centered at x=150, tip at y=55 (length 95), tail at y=170 -->
+    <rect id="minute_hand_stem" x="147.5" y="55" width="5" height="115" rx="2.5" fill="#2563EB" />
+  </g>
+
+  <!-- ========================================================================== -->
+  <!-- LAYER 5: Center Pin Pivot Cap (Red Accent #EF4444)                         -->
+  <!-- ========================================================================== -->
+  <circle id="clock_center_pin" cx="150" cy="150" r="8" fill="#EF4444" stroke="#DC2626" stroke-width="1.5" />
+  <circle id="clock_pin_highlight" cx="148" cy="148" r="2.5" fill="#FFFFFF" opacity="0.8" />
+</svg>

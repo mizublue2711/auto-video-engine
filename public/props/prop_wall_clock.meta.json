@@ -1,0 +1,25 @@
+{
+  "id": "prop_wall_clock",
+  "name": "Classroom Wall Clock with Decoupled Hands",
+  "category": "prop",
+  "viewBox": "0 0 300 300",
+  "dimensions": {
+    "width": 300,
+    "height": 300
+  },
+  "sockets": {
+    "clock_center": { "x": 150, "y": 150 },
+    "wall_mount": { "x": 150, "y": 20 }
+  },
+  "pivots": {
+    "clock_center": { "x": 150, "y": 150 },
+    "hour_hand": { "x": 150, "y": 150 },
+    "minute_hand": { "x": 150, "y": 150 }
+  },
+  "immutable_inputs": {
+    "props_allowed": ["style", "opacity", "transform", "hourRotation", "minuteRotation"],
+    "color_tokens_used": ["#FFFFFF", "#1E293B", "#64748B", "#2563EB", "#EF4444", "#94A3B8"]
+  },
+  "tags": ["prop", "classroom", "clock", "kinematic", "decoupled_hands"],
+  "version": "1.0.0"
+}

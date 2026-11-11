@@ -1,0 +1,24 @@
+{
+  "id": "prop_chalkboard_math",
+  "name": "Classroom Mathematical Chalkboard",
+  "category": "prop",
+  "viewBox": "0 0 1200 700",
+  "dimensions": {
+    "width": 1200,
+    "height": 700
+  },
+  "sockets": {
+    "board_center": { "x": 600, "y": 350 },
+    "chalk_tray": { "x": 600, "y": 650 },
+    "focus_point": { "x": 760, "y": 240 }
+  },
+  "pivots": {
+    "center": { "x": 600, "y": 350 }
+  },
+  "immutable_inputs": {
+    "props_allowed": ["style", "opacity", "transform"],
+    "color_tokens_used": ["#1E3A2F", "#1E293B", "#334155", "#F8FAFC", "#38BDF8", "#FDE047"]
+  },
+  "tags": ["prop", "classroom", "chalkboard", "math", "background", "hagwon"],
+  "version": "1.0.0"
+}
