@@ -5,3 +5,5 @@ export * from './PropPhoneScreenUI';
 export * from './PropAnimatedHeroPhone';
 export * from './CrabitCard3D';
 export * from './PhoneScreen3D';
+export * from './CrabitKoreaAppScreen';
+export * from './CrabitSmartphone3D';
