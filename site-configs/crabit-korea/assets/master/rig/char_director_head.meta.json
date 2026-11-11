@@ -1,0 +1,43 @@
+{
+  "id": "char_director_head",
+  "name": "Hagwon Director Head Rig Component (Overhauled Proportions)",
+  "category": "head",
+  "viewBox": "0 0 300 300",
+  "dimensions": {
+    "width": 300,
+    "height": 300
+  },
+  "pivots": {
+    "neck_base": { "x": 150, "y": 235 }
+  },
+  "sockets": {
+    "neck_base": { "x": 150, "y": 235 }
+  },
+  "immutable_inputs": {
+    "props_allowed": ["style", "opacity"],
+    "color_tokens_used": [
+      "#F6D6BA",
+      "#E2B380",
+      "#1E2430",
+      "#475569",
+      "#94A3B8",
+      "#111827",
+      "#FFFFFF",
+      "#D97706",
+      "#9A3412"
+    ]
+  },
+  "dependencies": [
+    "thầy giáo 1.jpg"
+  ],
+  "tags": [
+    "director",
+    "hagwon",
+    "korean",
+    "head_rig",
+    "phase1_head_only",
+    "anime_webtoon",
+    "geometric_overhaul"
+  ],
+  "version": "2.0.0"
+}
