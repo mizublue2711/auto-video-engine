@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-11T06:57:34.226Z",
-  "total_components": 19,
+  "generated_at": "2026-11-11T09:02:03.117Z",
+  "total_components": 20,
   "categories": {
-    "prop": 9,
+    "prop": 10,
     "head": 3,
     "limb": 6,
     "torso": 1
@@ -241,6 +241,65 @@
       "version": "1.0.0",
       "filePath": "props/prop_chair_classroom.svg",
       "metaPath": "props/prop_chair_classroom.meta.json"
+    },
+    "prop_chalkboard_empty_master": {
+      "id": "prop_chalkboard_empty_master",
+      "name": "Blank CSAT Chalkboard Master Frame",
+      "category": "prop",
+      "viewBox": "0 0 1200 700",
+      "dimensions": {
+        "width": 1200,
+        "height": 700
+      },
+      "sockets": {
+        "board_center": {
+          "x": 600,
+          "y": 335
+        },
+        "chalk_tray": {
+          "x": 600,
+          "y": 648
+        },
+        "drawing_origin": {
+          "x": 260,
+          "y": 460
+        }
+      },
+      "pivots": {
+        "center": {
+          "x": 600,
+          "y": 350
+        }
+      },
+      "immutable_inputs": {
+        "props_allowed": [
+          "style",
+          "opacity",
+          "transform"
+        ],
+        "color_tokens_used": [
+          "#064E3B",
+          "#1E293B",
+          "#0F172A",
+          "#334155",
+          "#475569",
+          "#FFFFFF",
+          "#FEF08A"
+        ]
+      },
+      "tags": [
+        "prop",
+        "chalkboard",
+        "blank",
+        "empty",
+        "canvas",
+        "de-bake",
+        "csat",
+        "hagwon"
+      ],
+      "version": "1.0.0",
+      "filePath": "props/prop_chalkboard_empty_master.svg",
+      "metaPath": "props/prop_chalkboard_empty_master.meta.json"
     },
     "prop_chalkboard_math": {
       "id": "prop_chalkboard_math",
