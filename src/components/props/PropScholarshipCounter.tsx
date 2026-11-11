@@ -12,6 +12,7 @@ export interface PropScholarshipCounterProps {
   currencySymbol?: string; // Default: "KRW"
   particleCount?: number; // Default: 24
   delay?: number; // Default: 0
+  startFrame?: number; // Optional alias for delay
   durationInFrames?: number; // Default: 45
   style?: React.CSSProperties;
 }
@@ -100,11 +101,13 @@ export const PropScholarshipCounter: React.FC<PropScholarshipCounterProps> = ({
   currencySymbol = 'KRW',
   particleCount = 24,
   delay = 0,
+  startFrame,
   durationInFrames = 45,
   style,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
+  const effectiveDelay = startFrame !== undefined ? startFrame : delay;
 
   // Deterministic Korean Number Formatter
   const formatter = useMemo(() => new Intl.NumberFormat('ko-KR'), []);
@@ -146,7 +149,7 @@ export const PropScholarshipCounter: React.FC<PropScholarshipCounterProps> = ({
 
   // Entrance spring for counter card
   const entranceSpring = spring({
-    frame: frame - delay,
+    frame: frame - effectiveDelay,
     fps,
     config: {
       damping: 14,
@@ -160,7 +163,7 @@ export const PropScholarshipCounter: React.FC<PropScholarshipCounterProps> = ({
 
   // Number roller interpolation (from 0 to targetAmount)
   const rollProgress = interpolate(
-    frame - delay,
+    frame - effectiveDelay,
     [0, durationInFrames],
     [0, 1],
     {
@@ -173,7 +176,7 @@ export const PropScholarshipCounter: React.FC<PropScholarshipCounterProps> = ({
   const formattedText = `+${formatter.format(currentAmount)} ${currencySymbol}`;
 
   // Reveal spring for "충전 완료" (Top-up Complete) badge as roll completes
-  const badgeStartFrame = delay + Math.max(10, durationInFrames - 8);
+  const badgeStartFrame = effectiveDelay + Math.max(10, durationInFrames - 8);
   const badgeSpring = spring({
     frame: frame - badgeStartFrame,
     fps,
@@ -188,8 +191,9 @@ export const PropScholarshipCounter: React.FC<PropScholarshipCounterProps> = ({
   const badgeOpacity = interpolate(badgeSpring, [0, 0.4, 1], [0, 1, 1]);
 
   return (
-    <AbsoluteFill
+    <div
       style={{
+        position: 'relative',
         backgroundColor: 'rgba(0, 0, 0, 0)',
         display: 'flex',
         flexDirection: 'column',
@@ -372,6 +376,6 @@ export const PropScholarshipCounter: React.FC<PropScholarshipCounterProps> = ({
           </div>
         </div>
       </div>
-    </AbsoluteFill>
+    </div>
   );
 };

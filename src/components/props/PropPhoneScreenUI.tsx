@@ -1,1375 +1,800 @@
 import React from 'react';
-import { Easing, interpolate, useCurrentFrame } from 'remotion';
+import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 
 export interface PropPhoneScreenUIProps {
-  /** Optional entrance delay in frames */
-  delay?: number;
+  /** Scroll offset in pixels for feed translation */
+  scrollOffset?: number;
+  /** Whether to render only the internal screen content without outer bezel (Default: false) */
+  bareScreen?: boolean;
+  /** Width in pixels (Default: 440 for chassis, or 480 for bare screen) */
+  width?: number | string;
+  /** Height in pixels (Default: 840 for chassis, or 840 for bare screen) */
+  height?: number | string;
   /** Scale factor (Default: 1) */
   scale?: number;
+  /** Entrance delay in frames (Default: 0) */
+  delay?: number;
   /** Optional container style overrides */
   style?: React.CSSProperties;
   /** Optional container className */
   className?: string;
-  /** Optional scroll start frame (Default: 15) */
-  scrollStartFrame?: number;
-  /** Optional scroll end frame (Default: 105) */
-  scrollEndFrame?: number;
-  /** Optional scroll distance in px (Default: -1400) */
-  scrollDistance?: number;
 }
 
+interface FeedItem {
+  id: string;
+  type: 'balance' | 'mission' | 'director' | 'analytics' | 'milestone' | 'scholarship' | 'streak';
+  title: string;
+  subtitle: string;
+  tag: string;
+  reward?: string;
+  badge?: string;
+}
+
+const FEED_DATA: FeedItem[] = [
+  {
+    id: 'b1',
+    type: 'balance',
+    title: 'My Scholarship Balance',
+    subtitle: '장학금 환산 가치: ₩ 50,000 KRW',
+    tag: '50,000 Carats',
+  },
+  {
+    id: 'm1',
+    type: 'mission',
+    title: '오늘의 미션 완료!',
+    subtitle: '수학 집중 모드 30분 달성',
+    tag: '100% 완료',
+    reward: '+500 C',
+    badge: '연속 7일째 미션 달성 중!',
+  },
+  {
+    id: 'd1',
+    type: 'director',
+    title: '원장 선생님 인증 완료',
+    subtitle: '실시간 캐럿 보상 지급 승인됨',
+    tag: '인증 완료',
+  },
+  {
+    id: 'a1',
+    type: 'analytics',
+    title: '학습 집중도 분석',
+    subtitle: '주간 누적 순수 학습 14시간 30분 돌파',
+    tag: '98% (최상위)',
+  },
+  {
+    id: 'ms1',
+    type: 'milestone',
+    title: '수능 파이널 수학 모의고사 D-14',
+    subtitle: '킬러 문항 22번 풀이 완료 시 캐럿 2배 부스터',
+    tag: 'D-14',
+  },
+  {
+    id: 's1',
+    type: 'scholarship',
+    title: '크래빗 실시간 장학금 적립',
+    subtitle: 'KB국민/신한/하나 카드 연동 실시간 입금',
+    tag: '+50,000 KRW',
+  },
+  {
+    id: 'st1',
+    type: 'streak',
+    title: '7일 연속 완전 학습 스트릭 달성',
+    subtitle: '상위 1% 자기주도학습 우수 장학생 선정',
+    tag: 'STREAK BONUS',
+    reward: '+1,000 C',
+  },
+  {
+    id: 'm2',
+    type: 'mission',
+    title: '미적분 킬러 테마 심화 특강',
+    subtitle: '삼차함수 그래프 추론 5문항 올클리어',
+    tag: '100% 완료',
+    reward: '+600 C',
+    badge: '오답 제로 달성',
+  },
+  {
+    id: 'd2',
+    type: 'director',
+    title: '대치동 대표 강사진 문제 검증',
+    subtitle: 'CSAT 22번 고난도 유형 완벽 마스터 확인',
+    tag: '검증 완료',
+  },
+  {
+    id: 'a2',
+    type: 'analytics',
+    title: '일일 오답률 역대 최저 기록',
+    subtitle: '전일 대비 취약 유형 해결률 +42% 상승',
+    tag: '상위 0.5%',
+  },
+  {
+    id: 's2',
+    type: 'scholarship',
+    title: '누적 장학금 50만원 돌파 축하',
+    subtitle: '자율 출금 가능한 현금형 장학 포인트',
+    tag: '₩ 50,000 KRW',
+  },
+  {
+    id: 'ms2',
+    type: 'milestone',
+    title: '2025학년도 명문대 장학생 챌린지',
+    subtitle: '30일 연속 미션 성공 시 특별 장학금 수여',
+    tag: 'FINAL QUEST',
+  },
+  {
+    id: 'm3',
+    type: 'mission',
+    title: '영어 독해 빈칸 추론 10제',
+    subtitle: '수능 실전 시간 배분 훈련 완료',
+    tag: '100% 완료',
+    reward: '+400 C',
+  },
+  {
+    id: 'st2',
+    type: 'streak',
+    title: '30일 장학생 챌린지 달성 임박',
+    subtitle: '크래빗 마스터 장학생 메달 수여 확정',
+    tag: 'MASTER LEVEL',
+  },
+];
+
 /**
- * PropPhoneScreenUI: High-resolution extended Crabit App UI Mockup
- * engineered for Chroma Matte compositing in Sequence 3.
- *
- * Viewport: 400px x 860px (borderRadius: 36px, overflow: hidden, bg: #0F172A)
- * Feed height: ~2400px with procedural scroll translation (scrollY: 0 -> -1400px)
+ * PropPhoneScreenUI: High-resolution Crabit App UI with kinetic task list scrolling
+ * and dynamic button states. Features an expanded 3200px+ feed to eliminate white freeze.
  */
 export const PropPhoneScreenUI: React.FC<PropPhoneScreenUIProps> = ({
-  delay = 0,
+  scrollOffset,
+  bareScreen = false,
+  width,
+  height,
   scale = 1,
+  delay = 0,
   style,
   className,
-  scrollStartFrame = 15,
-  scrollEndFrame = 105,
-  scrollDistance = -1400,
 }) => {
   const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
 
-  // Procedural Scroll Physics: smoothly translates feed upward across 119 frames
-  const scrollY = interpolate(
-    frame - delay,
-    [scrollStartFrame, scrollEndFrame], // Starts scrolling after frame 15, decelerates before frame 105
-    [0, scrollDistance], // Smoothly translates feed upward by 1400px
-    {
-      extrapolateLeft: 'clamp',
-      extrapolateRight: 'clamp',
-      easing: Easing.bezier(0.25, 0.1, 0.25, 1),
-    }
-  );
+  // Snappy Spring Entrance (used when not bareScreen)
+  const entranceSpring = spring({
+    frame: frame - delay,
+    fps,
+    config: {
+      damping: 13,
+      mass: 0.8,
+      stiffness: 120,
+      overshootClamping: false,
+    },
+  });
 
-  const isPositioned = style?.left !== undefined || style?.top !== undefined;
+  const popupScale = bareScreen ? 1 : interpolate(entranceSpring, [0, 1], [0.65, 1]) * scale;
+  const popupOpacity = bareScreen ? 1 : interpolate(entranceSpring, [0, 1], [0, 1]);
 
-  return (
+  // Subtle floating hover physics when in floating mode
+  const hoverY = bareScreen ? 0 : Math.sin((frame / fps) * 3) * 8;
+  const hoverRotate = bareScreen ? 0 : Math.cos((frame / fps) * 2.2) * 1.2;
+
+  // Kinetic continuous scroll offset across the entire shot
+  const effectiveScrollOffset =
+    typeof scrollOffset === 'number'
+      ? scrollOffset
+      : interpolate(frame - delay, [0, 119], [0, -2200], {
+          extrapolateRight: 'clamp',
+        });
+
+  // Dynamic button pulse & shimmer
+  const buttonPulse = 1 + Math.sin((frame / fps) * 6) * 0.03;
+  const shimmerPos = interpolate((frame - delay) % 48, [0, 48], [-100, 200]);
+
+  const defaultWidth = bareScreen ? 480 : 440;
+  const defaultHeight = bareScreen ? 840 : 840;
+
+  // The internal screen surface content (Expanded to >3200px feed height)
+  const screenContent = (
     <div
       style={{
-        width: 400,
-        height: 860,
-        borderRadius: 36,
+        width: '100%',
+        height: '100%',
+        backgroundColor: '#F8FAFC',
+        borderRadius: bareScreen ? 24 : 42,
+        display: 'flex',
+        flexDirection: 'column',
         overflow: 'hidden',
-        backgroundColor: '#0F172A',
-        position: isPositioned ? 'absolute' : 'relative',
-        transform: isPositioned
-          ? `translate(-50%, -50%) scale(${scale})`
-          : scale !== 1
-          ? `scale(${scale})`
-          : undefined,
-        fontFamily:
-          '-apple-system, BlinkMacSystemFont, "Pretendard", "SF Pro Display", "Segoe UI", Roboto, sans-serif',
+        position: 'relative',
         boxSizing: 'border-box',
-        boxShadow:
-          '0 25px 60px rgba(0, 0, 0, 0.65), 0 0 40px rgba(0, 229, 255, 0.25)',
-        border: '2px solid rgba(255, 255, 255, 0.1)',
         userSelect: 'none',
-        ...style,
       }}
-      className={className}
     >
-      {/* =================================================================== */}
-      {/* 1. STICKY HEADER: Status Bar + Profile + Balance Pill (Z-Index: 50) */}
-      {/* =================================================================== */}
+      {/* Status Bar (Always visible fixed header) */}
       <div
         style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 50,
-          backgroundColor: 'rgba(15, 23, 42, 0.94)',
-          backdropFilter: 'blur(16px)',
-          WebkitBackdropFilter: 'blur(16px)',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5)',
+          height: bareScreen ? 36 : 44,
+          padding: bareScreen ? '0 18px' : '0 24px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          fontSize: bareScreen ? 13 : 14,
+          fontWeight: 700,
+          color: '#0F172A',
+          paddingTop: bareScreen ? 6 : 10,
+          backgroundColor: '#F8FAFC',
+          flexShrink: 0,
+          zIndex: 10,
         }}
       >
-        {/* Status Bar */}
-        <div
-          style={{
-            height: 38,
-            padding: '8px 20px 0 20px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            fontSize: 13,
-            fontWeight: 700,
-            color: '#F8FAFC',
-            letterSpacing: -0.2,
-          }}
-        >
-          <span>22:45</span>
-
-          {/* Dynamic Island Notch */}
+        <span>09:41</span>
+        <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
           <div
             style={{
-              width: 84,
-              height: 18,
-              backgroundColor: '#020617',
-              borderRadius: 10,
+              width: bareScreen ? 20 : 22,
+              height: bareScreen ? 10 : 11,
+              borderRadius: 3,
+              border: '1.5px solid #0F172A',
+              padding: 1.5,
               display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 8,
             }}
           >
             <div
               style={{
-                width: 6,
-                height: 6,
-                borderRadius: '50%',
-                backgroundColor: '#1E293B',
+                flex: 1,
+                backgroundColor: '#10B981',
+                borderRadius: 1,
               }}
             />
-            <div
-              style={{
-                width: 28,
-                height: 3,
-                borderRadius: 2,
-                backgroundColor: '#1E293B',
-              }}
-            />
-          </div>
-
-          {/* System Icons: Cellular + Wifi + Battery */}
-          <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
-            {/* Cellular signal */}
-            <svg width="15" height="11" viewBox="0 0 15 11" fill="none">
-              <rect x="0" y="8" width="2.5" height="3" rx="0.5" fill="#F8FAFC" />
-              <rect x="4" y="5.5" width="2.5" height="5.5" rx="0.5" fill="#F8FAFC" />
-              <rect x="8" y="3" width="2.5" height="8" rx="0.5" fill="#F8FAFC" />
-              <rect x="12" y="0" width="2.5" height="11" rx="0.5" fill="#F8FAFC" />
-            </svg>
-
-            {/* Wifi Icon */}
-            <svg width="15" height="11" viewBox="0 0 16 12" fill="#F8FAFC">
-              <path d="M8 9.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm-4.2-3a5.9 5.9 0 018.4 0 .9.9 0 001.3-1.3 7.7 7.7 0 00-11 0 .9.9 0 001.3 1.3zm-2.8-2.8a9.9 9.9 0 0114 0 .9.9 0 001.3-1.3 11.7 11.7 0 00-16.6 0 .9.9 0 001.3 1.3z" />
-            </svg>
-
-            {/* Battery Pill */}
-            <div
-              style={{
-                width: 22,
-                height: 11,
-                borderRadius: 3,
-                border: '1.5px solid #F8FAFC',
-                padding: 1.5,
-                display: 'flex',
-                alignItems: 'center',
-                position: 'relative',
-              }}
-            >
-              <div
-                style={{
-                  width: '92%',
-                  height: '100%',
-                  backgroundColor: '#10B981',
-                  borderRadius: 1.5,
-                }}
-              />
-              <div
-                style={{
-                  position: 'absolute',
-                  right: -3.5,
-                  width: 2,
-                  height: 4,
-                  backgroundColor: '#F8FAFC',
-                  borderRadius: '0 1px 1px 0',
-                }}
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* User Profile & Balance Pill */}
-        <div
-          style={{
-            padding: '8px 18px 14px 18px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}
-        >
-          {/* User profile */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            {/* Avatar with status indicator */}
-            <div
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: '50%',
-                background: 'linear-gradient(135deg, #0284C7 0%, #00E5FF 100%)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#FFFFFF',
-                fontWeight: 900,
-                fontSize: 15,
-                boxShadow: '0 0 12px rgba(0, 229, 255, 0.45)',
-                position: 'relative',
-              }}
-            >
-              <span>준</span>
-              <div
-                style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  right: 0,
-                  width: 10,
-                  height: 10,
-                  borderRadius: '50%',
-                  backgroundColor: '#10B981',
-                  border: '2px solid #0F172A',
-                }}
-              />
-            </div>
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                <span
-                  style={{
-                    fontSize: 15,
-                    fontWeight: 800,
-                    color: '#FFFFFF',
-                    letterSpacing: -0.3,
-                  }}
-                >
-                  Kim Min-jun
-                </span>
-                <span
-                  style={{
-                    fontSize: 10,
-                    fontWeight: 800,
-                    color: '#38BDF8',
-                    backgroundColor: 'rgba(56, 189, 248, 0.15)',
-                    padding: '2px 6px',
-                    borderRadius: 6,
-                    border: '1px solid rgba(56, 189, 248, 0.3)',
-                  }}
-                >
-                  D-120
-                </span>
-              </div>
-              <div style={{ fontSize: 11, fontWeight: 600, color: '#94A3B8' }}>
-                17yo CSAT candidate (고3)
-              </div>
-            </div>
-          </div>
-
-          {/* Balance Pill: Vibrant Cyan Carat diamond icon + 12,500 Carat */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 6,
-              padding: '7px 12px',
-              borderRadius: 20,
-              backgroundColor: 'rgba(15, 23, 42, 0.85)',
-              border: '1.5px solid rgba(0, 229, 255, 0.55)',
-              boxShadow: '0 0 16px rgba(0, 229, 255, 0.28)',
-              background:
-                'linear-gradient(135deg, rgba(0, 229, 255, 0.18) 0%, rgba(2, 132, 199, 0.28) 100%)',
-            }}
-          >
-            {/* Vibrant Cyan Carat Diamond Icon */}
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 36 36"
-              style={{ filter: 'drop-shadow(0 0 6px #00E5FF)' }}
-            >
-              <polygon
-                points="18,2 34,14 26,34 10,34 2,14"
-                fill="#00E5FF"
-                stroke="#FFFFFF"
-                strokeWidth="1.2"
-              />
-              <polygon points="18,2 34,14 22,18 18,8" fill="#FFFFFF" opacity={0.65} />
-              <polygon points="18,2 2,14 14,18 18,8" fill="#FFFFFF" opacity={0.45} />
-            </svg>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: 3 }}>
-              <span
-                style={{
-                  fontSize: 14,
-                  fontWeight: 900,
-                  color: '#00E5FF',
-                  fontVariantNumeric: 'tabular-nums',
-                }}
-              >
-                12,500
-              </span>
-              <span style={{ fontSize: 11, fontWeight: 800, color: '#E0F2FE' }}>
-                Carat
-              </span>
-            </div>
           </div>
         </div>
       </div>
 
-      {/* =================================================================== */}
-      {/* 2. EXTENDED VERTICAL FEED (Total Height ~2400px, Translates scrollY) */}
-      {/* =================================================================== */}
+      {/* App Brand Header */}
       <div
         style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          transform: `translateY(${scrollY}px)`,
-          padding: '116px 16px 60px 16px',
+          padding: bareScreen ? '10px 18px' : '12px 20px',
           display: 'flex',
-          flexDirection: 'column',
-          gap: 16,
-          boxSizing: 'border-box',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          backgroundColor: '#FFFFFF',
+          borderBottom: '1px solid #E2E8F0',
+          flexShrink: 0,
+          zIndex: 10,
         }}
       >
-        {/* SECTION 1: HERO CHALLENGE CARD */}
-        <div
-          style={{
-            background:
-              'linear-gradient(135deg, #1E1B4B 0%, #0F172A 55%, #0369A1 100%)',
-            borderRadius: 24,
-            padding: '20px 18px',
-            border: '1.5px solid rgba(0, 229, 255, 0.45)',
-            boxShadow:
-              '0 14px 30px -6px rgba(0, 229, 255, 0.22), 0 8px 20px rgba(0, 0, 0, 0.4)',
-            position: 'relative',
-            overflow: 'hidden',
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              marginBottom: 10,
-            }}
+        <div style={{ display: 'flex', alignItems: 'center', gap: bareScreen ? 8 : 10 }}>
+          <svg
+            width={bareScreen ? 24 : 28}
+            height={bareScreen ? 24 : 28}
+            viewBox="0 0 36 36"
           >
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 5,
-                backgroundColor: 'rgba(0, 229, 255, 0.15)',
-                border: '1px solid rgba(0, 229, 255, 0.4)',
-                padding: '3px 9px',
-                borderRadius: 12,
-                fontSize: 10,
-                fontWeight: 800,
-                color: '#00E5FF',
-                letterSpacing: 0.8,
-                textTransform: 'uppercase',
-              }}
-            >
-              <span>⚡ WEEKLY QUEST</span>
-            </div>
-            <div style={{ fontSize: 11, fontWeight: 700, color: '#93C5FD' }}>
-              ⏱ D-3 Days Left
-            </div>
-          </div>
-
-          <div
-            style={{
-              fontSize: 17,
-              fontWeight: 900,
-              color: '#FFFFFF',
-              lineHeight: 1.35,
-              marginBottom: 4,
-            }}
-          >
-            Hagwon Director's Weekly Quest: CSAT Calculus Drill
-          </div>
-          <div
-            style={{
-              fontSize: 11,
-              fontWeight: 600,
-              color: '#94A3B8',
-              marginBottom: 14,
-            }}
-          >
-            대치 미래탐구 이원장 추천 수능 미적분 킬러 드릴 30제
-          </div>
-
-          {/* Reward Badge: +5,000 Carat */}
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              padding: '7px 14px',
-              borderRadius: 14,
-              background:
-                'linear-gradient(135deg, rgba(0, 229, 255, 0.25) 0%, rgba(2, 132, 199, 0.35) 100%)',
-              border: '1.5px solid #00E5FF',
-              boxShadow: '0 0 18px rgba(0, 229, 255, 0.35)',
-              marginBottom: 16,
-            }}
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 36 36"
-              style={{ filter: 'drop-shadow(0 0 6px #00E5FF)' }}
-            >
-              <polygon
-                points="18,2 34,14 26,34 10,34 2,14"
-                fill="#00E5FF"
-                stroke="#FFFFFF"
-                strokeWidth="1.2"
-              />
-              <polygon points="18,2 34,14 22,18 18,8" fill="#FFFFFF" opacity={0.7} />
-              <polygon points="18,2 2,14 14,18 18,8" fill="#FFFFFF" opacity={0.5} />
-            </svg>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
-              <span style={{ fontSize: 11, fontWeight: 700, color: '#E0F2FE' }}>
-                REWARD:
-              </span>
-              <span style={{ fontSize: 16, fontWeight: 900, color: '#00E5FF' }}>
-                +5,000 Carat
-              </span>
-              <span style={{ fontSize: 11, fontWeight: 600, color: '#93C5FD' }}>
-                (₩ 50,000)
-              </span>
-            </div>
-          </div>
-
-          {/* Progress bar */}
-          <div
-            style={{
-              backgroundColor: 'rgba(15, 23, 42, 0.65)',
-              borderRadius: 12,
-              padding: '10px 12px',
-            }}
-          >
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                fontSize: 11,
-                fontWeight: 700,
-                marginBottom: 6,
-              }}
-            >
-              <span style={{ color: '#94A3B8' }}>Drill Completion</span>
-              <span style={{ color: '#00E5FF' }}>24 / 30 Solved (80%)</span>
-            </div>
-            <div
-              style={{
-                height: 8,
-                borderRadius: 4,
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                overflow: 'hidden',
-              }}
-            >
-              <div
-                style={{
-                  width: '80%',
-                  height: '100%',
-                  background: 'linear-gradient(90deg, #38BDF8 0%, #00E5FF 100%)',
-                  boxShadow: '0 0 10px #00E5FF',
-                }}
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* SECTION 2: MISSION CHECKLIST (4 CARDS) */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              padding: '0 4px',
-            }}
-          >
+            <polygon
+              points="18,2 34,14 28,34 8,34 2,14"
+              fill="#00E5FF"
+              stroke="#0284C7"
+              strokeWidth="1.5"
+            />
+            <circle cx="18" cy="18" r="4" fill="#FFFFFF" />
+          </svg>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
             <span
               style={{
-                fontSize: 15,
+                fontSize: bareScreen ? 20 : 22,
+                fontWeight: 900,
+                color: '#FF5E36',
+                letterSpacing: -0.5,
+              }}
+            >
+              Crabit
+            </span>
+            <span
+              style={{
+                fontSize: bareScreen ? 10 : 11,
                 fontWeight: 800,
-                color: '#FFFFFF',
-                letterSpacing: -0.2,
+                color: '#0284C7',
+                backgroundColor: '#E0F2FE',
+                padding: '2px 6px',
+                borderRadius: 6,
               }}
             >
-              Mission Checklist
+              KOREA
             </span>
-            <span style={{ fontSize: 11, fontWeight: 700, color: '#10B981' }}>
-              ● 2 / 4 Completed
-            </span>
-          </div>
-
-          {/* Quest 01: CSAT Math Problem 22 (COMPLETED) */}
-          <div
-            style={{
-              backgroundColor: '#1E293B',
-              borderRadius: 18,
-              padding: '14px 16px',
-              border: '1.5px solid rgba(16, 185, 129, 0.45)',
-              boxShadow: '0 4px 14px rgba(0, 0, 0, 0.25)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: 12,
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, flex: 1 }}>
-              <div
-                style={{
-                  width: 34,
-                  height: 34,
-                  borderRadius: '50%',
-                  backgroundColor: '#10B981',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  boxShadow: '0 0 12px rgba(16, 185, 129, 0.4)',
-                  flexShrink: 0,
-                }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF">
-                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                </svg>
-              </div>
-              <div>
-                <div
-                  style={{
-                    fontSize: 13,
-                    fontWeight: 800,
-                    color: '#FFFFFF',
-                    marginBottom: 2,
-                  }}
-                >
-                  Quest 01: CSAT Math Problem 22
-                </div>
-                <div style={{ fontSize: 11, fontWeight: 600, color: '#94A3B8' }}>
-                  수능 공통 22번 킬러 문항 정복 · 풀이 검증 완료
-                </div>
-              </div>
-            </div>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-end',
-                gap: 4,
-              }}
-            >
-              <div
-                style={{
-                  backgroundColor: 'rgba(16, 185, 129, 0.2)',
-                  color: '#10B981',
-                  fontSize: 10,
-                  fontWeight: 800,
-                  padding: '3px 8px',
-                  borderRadius: 8,
-                  border: '1px solid rgba(16, 185, 129, 0.4)',
-                }}
-              >
-                COMPLETED
-              </div>
-              <span style={{ fontSize: 11, fontWeight: 800, color: '#00E5FF' }}>
-                +1,500 C
-              </span>
-            </div>
-          </div>
-
-          {/* Quest 02: Attendance at Hagwon Evening Study (100%) */}
-          <div
-            style={{
-              backgroundColor: '#1E293B',
-              borderRadius: 18,
-              padding: '14px 16px',
-              border: '1.5px solid rgba(0, 229, 255, 0.35)',
-              boxShadow: '0 4px 14px rgba(0, 0, 0, 0.25)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: 12,
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, flex: 1 }}>
-              <div
-                style={{
-                  width: 34,
-                  height: 34,
-                  borderRadius: '50%',
-                  backgroundColor: '#0284C7',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  boxShadow: '0 0 12px rgba(2, 132, 199, 0.4)',
-                  flexShrink: 0,
-                }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF">
-                  <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
-                </svg>
-              </div>
-              <div>
-                <div
-                  style={{
-                    fontSize: 13,
-                    fontWeight: 800,
-                    color: '#FFFFFF',
-                    marginBottom: 2,
-                  }}
-                >
-                  Quest 02: Attendance at Hagwon Evening Study
-                </div>
-                <div style={{ fontSize: 11, fontWeight: 600, color: '#94A3B8' }}>
-                  학원 야간 자율학습 출석 · 3시간 30분 달성
-                </div>
-              </div>
-            </div>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-end',
-                gap: 4,
-              }}
-            >
-              <div
-                style={{
-                  backgroundColor: 'rgba(0, 229, 255, 0.2)',
-                  color: '#00E5FF',
-                  fontSize: 10,
-                  fontWeight: 800,
-                  padding: '3px 8px',
-                  borderRadius: 8,
-                  border: '1px solid rgba(0, 229, 255, 0.4)',
-                }}
-              >
-                100%
-              </div>
-              <span style={{ fontSize: 11, fontWeight: 800, color: '#00E5FF' }}>
-                +1,000 C
-              </span>
-            </div>
-          </div>
-
-          {/* Quest 03: Speed Quiz Challenge - 30 questions */}
-          <div
-            style={{
-              backgroundColor: '#1E293B',
-              borderRadius: 18,
-              padding: '14px 16px',
-              border: '1.5px solid rgba(255, 255, 255, 0.08)',
-              boxShadow: '0 4px 14px rgba(0, 0, 0, 0.25)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: 12,
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, flex: 1 }}>
-              <div
-                style={{
-                  width: 34,
-                  height: 34,
-                  borderRadius: '50%',
-                  backgroundColor: '#475569',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="#F8FAFC">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z" />
-                </svg>
-              </div>
-              <div>
-                <div
-                  style={{
-                    fontSize: 13,
-                    fontWeight: 800,
-                    color: '#FFFFFF',
-                    marginBottom: 2,
-                  }}
-                >
-                  Quest 03: Speed Quiz Challenge - 30 questions
-                </div>
-                <div style={{ fontSize: 11, fontWeight: 600, color: '#94A3B8' }}>
-                  스피드 개념 퀴즈 30제 · 26/30 진행 중
-                </div>
-              </div>
-            </div>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-end',
-                gap: 4,
-              }}
-            >
-              <div
-                style={{
-                  backgroundColor: 'rgba(56, 189, 248, 0.15)',
-                  color: '#38BDF8',
-                  fontSize: 10,
-                  fontWeight: 800,
-                  padding: '3px 8px',
-                  borderRadius: 8,
-                }}
-              >
-                26/30
-              </div>
-              <span style={{ fontSize: 11, fontWeight: 800, color: '#94A3B8' }}>
-                +1,200 C
-              </span>
-            </div>
-          </div>
-
-          {/* Quest 04: Weekly Homework Submission */}
-          <div
-            style={{
-              backgroundColor: '#1E293B',
-              borderRadius: 18,
-              padding: '14px 16px',
-              border: '1.5px solid rgba(255, 255, 255, 0.08)',
-              boxShadow: '0 4px 14px rgba(0, 0, 0, 0.25)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: 12,
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, flex: 1 }}>
-              <div
-                style={{
-                  width: 34,
-                  height: 34,
-                  borderRadius: '50%',
-                  backgroundColor: '#475569',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="#F8FAFC">
-                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
-                </svg>
-              </div>
-              <div>
-                <div
-                  style={{
-                    fontSize: 13,
-                    fontWeight: 800,
-                    color: '#FFFFFF',
-                    marginBottom: 2,
-                  }}
-                >
-                  Quest 04: Weekly Homework Submission
-                </div>
-                <div style={{ fontSize: 11, fontWeight: 600, color: '#94A3B8' }}>
-                  주간 실전 모의고사 오답노트 제출 · 마감 오늘 23:59
-                </div>
-              </div>
-            </div>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-end',
-                gap: 4,
-              }}
-            >
-              <div
-                style={{
-                  backgroundColor: 'rgba(249, 115, 22, 0.2)',
-                  color: '#FB923C',
-                  fontSize: 10,
-                  fontWeight: 800,
-                  padding: '3px 8px',
-                  borderRadius: 8,
-                  border: '1px solid rgba(249, 115, 22, 0.4)',
-                }}
-              >
-                DUE 23:59
-              </div>
-              <span style={{ fontSize: 11, fontWeight: 800, color: '#94A3B8' }}>
-                +1,300 C
-              </span>
-            </div>
           </div>
         </div>
 
-        {/* SECTION 3: LEARNING GROWTH CHART */}
         <div
           style={{
-            backgroundColor: '#1E293B',
-            borderRadius: 24,
-            padding: '20px 18px',
-            border: '1.5px solid rgba(0, 229, 255, 0.3)',
-            boxShadow: '0 8px 24px rgba(0, 0, 0, 0.35)',
+            width: bareScreen ? 28 : 32,
+            height: bareScreen ? 28 : 32,
+            borderRadius: '50%',
+            backgroundColor: '#F1F5F9',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            position: 'relative',
+          }}
+        >
+          <svg
+            width={bareScreen ? 16 : 18}
+            height={bareScreen ? 16 : 18}
+            viewBox="0 0 24 24"
+            fill="#475569"
+          >
+            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
+          </svg>
+          <div
+            style={{
+              position: 'absolute',
+              top: 2,
+              right: 2,
+              width: 7,
+              height: 7,
+              borderRadius: '50%',
+              backgroundColor: '#FF5E36',
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Kinetic Continuous Scroll Feed Container (Height: 3400px+) */}
+      <div
+        style={{
+          flex: 1,
+          overflow: 'hidden',
+          position: 'relative',
+        }}
+      >
+        <div
+          style={{
+            padding: bareScreen ? '12px 16px 120px 16px' : '16px 18px 120px 18px',
             display: 'flex',
             flexDirection: 'column',
             gap: 14,
+            transform: `translateY(${effectiveScrollOffset}px)`,
+            willChange: 'transform',
           }}
         >
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
-          >
-            <div>
-              <div style={{ fontSize: 15, fontWeight: 800, color: '#FFFFFF' }}>
-                Learning Growth Chart
-              </div>
-              <div style={{ fontSize: 11, fontWeight: 600, color: '#94A3B8' }}>
-                주간 학습 몰입도 & 참여 지표 분석
-              </div>
-            </div>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 4,
-                padding: '4px 8px',
-                borderRadius: 8,
-                backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                color: '#10B981',
-                fontSize: 11,
-                fontWeight: 800,
-              }}
-            >
-              <span>↗ +28%</span>
-            </div>
-          </div>
-
-          {/* Metrics summary */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr 1fr',
-              gap: 8,
-              backgroundColor: 'rgba(15, 23, 42, 0.6)',
-              borderRadius: 14,
-              padding: '10px 12px',
-            }}
-          >
-            <div>
-              <div style={{ fontSize: 10, fontWeight: 700, color: '#64748B' }}>
-                TOTAL TIME
-              </div>
-              <div style={{ fontSize: 15, fontWeight: 900, color: '#FFFFFF' }}>
-                42.5h
-              </div>
-            </div>
-            <div>
-              <div style={{ fontSize: 10, fontWeight: 700, color: '#64748B' }}>
-                AVG FOCUS
-              </div>
-              <div style={{ fontSize: 15, fontWeight: 900, color: '#00E5FF' }}>
-                96.4%
-              </div>
-            </div>
-            <div>
-              <div style={{ fontSize: 10, fontWeight: 700, color: '#64748B' }}>
-                STREAK
-              </div>
-              <div style={{ fontSize: 15, fontWeight: 900, color: '#10B981' }}>
-                14 Days
-              </div>
-            </div>
-          </div>
-
-          {/* Mini Bar Chart */}
-          <div style={{ paddingTop: 10, position: 'relative' }}>
-            {/* Target benchmark dashed line */}
-            <div
-              style={{
-                position: 'absolute',
-                top: 40,
-                left: 0,
-                right: 0,
-                borderTop: '1px dashed rgba(148, 163, 184, 0.3)',
-                display: 'flex',
-                justifyContent: 'flex-end',
-              }}
-            >
-              <span
-                style={{
-                  fontSize: 9,
-                  fontWeight: 600,
-                  color: '#64748B',
-                  marginTop: -14,
-                }}
-              >
-                Target 7.0h
-              </span>
-            </div>
-
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'flex-end',
-                justifyContent: 'space-between',
-                height: 120,
-                padding: '0 4px',
-              }}
-            >
-              {[
-                { day: 'Mon', h: '4.8h', pct: 55, active: false },
-                { day: 'Tue', h: '6.2h', pct: 70, active: false },
-                { day: 'Wed', h: '5.5h', pct: 62, active: false },
-                { day: 'Thu', h: '7.4h', pct: 82, active: false },
-                { day: 'Fri', h: '8.8h', pct: 95, active: true },
-                { day: 'Sat', h: '9.6h', pct: 100, active: true },
-                { day: 'Sun', h: '7.8h', pct: 86, active: true },
-              ].map((item, idx) => (
+          {FEED_DATA.map((item, index) => {
+            if (item.type === 'balance') {
+              return (
                 <div
-                  key={idx}
+                  key={`${item.id}-${index}`}
                   style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    gap: 6,
-                    flex: 1,
+                    background:
+                      'linear-gradient(135deg, #0F172A 0%, #1E293B 55%, #0284C7 100%)',
+                    borderRadius: 22,
+                    padding: '16px 18px',
+                    color: '#FFFFFF',
+                    boxShadow: '0 8px 24px -4px rgba(2, 132, 199, 0.35)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    border: '1.5px solid rgba(0, 229, 255, 0.4)',
+                    flexShrink: 0,
                   }}
                 >
-                  <span
-                    style={{
-                      fontSize: 10,
-                      fontWeight: 700,
-                      color: item.active ? '#00E5FF' : '#64748B',
-                    }}
-                  >
-                    {item.h}
-                  </span>
                   <div
                     style={{
-                      width: 22,
-                      height: `${item.pct}%`,
-                      borderRadius: '6px 6px 2px 2px',
-                      background: item.active
-                        ? 'linear-gradient(180deg, #00E5FF 0%, #0284C7 100%)'
-                        : 'linear-gradient(180deg, #334155 0%, #1E293B 100%)',
-                      boxShadow: item.active
-                        ? '0 0 12px rgba(0, 229, 255, 0.45)'
-                        : 'none',
-                    }}
-                  />
-                  <span
-                    style={{
                       fontSize: 11,
-                      fontWeight: 700,
-                      color: item.active ? '#F8FAFC' : '#94A3B8',
+                      fontWeight: 800,
+                      letterSpacing: 1,
+                      color: '#93C5FD',
+                      textTransform: 'uppercase',
+                      marginBottom: 6,
                     }}
                   >
-                    {item.day}
+                    {item.title}
+                  </div>
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 10,
+                      marginBottom: 10,
+                    }}
+                  >
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 36 36"
+                      style={{ filter: 'drop-shadow(0 0 8px #00E5FF)' }}
+                    >
+                      <polygon
+                        points="18,2 34,14 26,34 10,34 2,14"
+                        fill="#00E5FF"
+                        stroke="#FFFFFF"
+                        strokeWidth="1.5"
+                      />
+                      <polygon points="18,2 34,14 22,18 18,8" fill="#FFFFFF" opacity={0.7} />
+                      <polygon points="18,2 2,14 14,18 18,8" fill="#FFFFFF" opacity={0.5} />
+                    </svg>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
+                      <span style={{ fontSize: 28, fontWeight: 900, color: '#FFFFFF' }}>
+                        50,000
+                      </span>
+                      <span style={{ fontSize: 16, fontWeight: 800, color: '#00E5FF' }}>
+                        Carats
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      backgroundColor: 'rgba(15, 23, 42, 0.75)',
+                      borderRadius: 12,
+                      padding: '8px 12px',
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <span style={{ fontSize: 12, fontWeight: 600, color: '#94A3B8' }}>
+                      장학금 환산 가치
+                    </span>
+                    <span
+                      style={{
+                        fontSize: 14,
+                        fontWeight: 900,
+                        color: '#F8FAFC',
+                        fontVariantNumeric: 'tabular-nums',
+                      }}
+                    >
+                      ₩ 50,000 KRW
+                    </span>
+                  </div>
+                </div>
+              );
+            }
+
+            if (item.type === 'mission') {
+              return (
+                <div
+                  key={`${item.id}-${index}`}
+                  style={{
+                    backgroundColor: '#FFFFFF',
+                    borderRadius: 20,
+                    padding: '14px 16px',
+                    border: '1.5px solid #E2E8F0',
+                    boxShadow: '0 4px 14px rgba(0, 0, 0, 0.05)',
+                    flexShrink: 0,
+                  }}
+                >
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      marginBottom: 8,
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                      <div
+                        style={{
+                          width: 26,
+                          height: 26,
+                          borderRadius: '50%',
+                          backgroundColor: '#10B981',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}
+                      >
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="#FFFFFF">
+                          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <div style={{ fontSize: 14, fontWeight: 800, color: '#0F172A' }}>
+                          {item.title}
+                        </div>
+                        <div style={{ fontSize: 11, fontWeight: 600, color: '#64748B' }}>
+                          {item.subtitle}
+                        </div>
+                      </div>
+                    </div>
+                    {item.reward && (
+                      <div
+                        style={{
+                          backgroundColor: '#E0F2FE',
+                          color: '#0284C7',
+                          fontSize: 12,
+                          fontWeight: 800,
+                          padding: '3px 8px',
+                          borderRadius: 10,
+                        }}
+                      >
+                        {item.reward}
+                      </div>
+                    )}
+                  </div>
+                  <div>
+                    <div
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        fontSize: 11,
+                        fontWeight: 700,
+                        color: '#475569',
+                        marginBottom: 4,
+                      }}
+                    >
+                      <span>목표 달성률</span>
+                      <span style={{ color: '#10B981' }}>{item.tag}</span>
+                    </div>
+                    <div
+                      style={{
+                        height: 7,
+                        borderRadius: 4,
+                        backgroundColor: '#F1F5F9',
+                        overflow: 'hidden',
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          background:
+                            'linear-gradient(90deg, #38BDF8 0%, #00E5FF 100%)',
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            if (item.type === 'director') {
+              return (
+                <div
+                  key={`${item.id}-${index}`}
+                  style={{
+                    backgroundColor: '#FFFFFF',
+                    borderRadius: 18,
+                    padding: '12px 14px',
+                    border: '1.5px solid #E2E8F0',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 12,
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.04)',
+                    flexShrink: 0,
+                  }}
+                >
+                  <div
+                    style={{
+                      width: 36,
+                      height: 36,
+                      borderRadius: '50%',
+                      backgroundColor: '#1E3A8A',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#FFFFFF',
+                      fontSize: 13,
+                      fontWeight: 800,
+                      flexShrink: 0,
+                    }}
+                  >
+                    원장
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: 13, fontWeight: 800, color: '#0F172A' }}>
+                      {item.title}
+                    </div>
+                    <div style={{ fontSize: 11, fontWeight: 700, color: '#10B981' }}>
+                      ● {item.subtitle}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            if (item.type === 'scholarship') {
+              return (
+                <div
+                  key={`${item.id}-${index}`}
+                  style={{
+                    background:
+                      'linear-gradient(135deg, #0284C7 0%, #00E5FF 100%)',
+                    borderRadius: 18,
+                    padding: '14px 16px',
+                    color: '#FFFFFF',
+                    boxShadow: '0 8px 20px rgba(0, 229, 255, 0.35)',
+                    flexShrink: 0,
+                  }}
+                >
+                  <div style={{ fontSize: 11, fontWeight: 800, color: '#E0F2FE' }}>
+                    {item.title}
+                  </div>
+                  <div style={{ fontSize: 20, fontWeight: 900, marginTop: 4 }}>
+                    {item.tag}
+                  </div>
+                  <div style={{ fontSize: 11, opacity: 0.9, marginTop: 2 }}>
+                    {item.subtitle}
+                  </div>
+                </div>
+              );
+            }
+
+            return (
+              <div
+                key={`${item.id}-${index}`}
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: 18,
+                  padding: '12px 14px',
+                  border: '1.5px solid #E2E8F0',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 4,
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.04)',
+                  flexShrink: 0,
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: 13, fontWeight: 800, color: '#0F172A' }}>
+                    {item.title}
+                  </span>
+                  <span style={{ fontSize: 12, fontWeight: 900, color: '#0284C7' }}>
+                    {item.tag}
                   </span>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
+                <div style={{ fontSize: 11, color: '#64748B', fontWeight: 600 }}>
+                  {item.subtitle}
+                </div>
+              </div>
+            );
+          })}
 
-        {/* SECTION 4: CRABIT CARD WALLET PREVIEW */}
-        <div
-          style={{
-            backgroundColor: '#1E293B',
-            borderRadius: 24,
-            padding: '20px 18px',
-            border: '1.5px solid rgba(0, 229, 255, 0.35)',
-            boxShadow: '0 8px 28px rgba(0, 0, 0, 0.4)',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 16,
-          }}
-        >
+          {/* Dynamic Bottom Action Button with Shimmer */}
           <div
             style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
-          >
-            <div>
-              <div style={{ fontSize: 15, fontWeight: 800, color: '#FFFFFF' }}>
-                Crabit Card Wallet
-              </div>
-              <div style={{ fontSize: 11, fontWeight: 600, color: '#94A3B8' }}>
-                수능 수험생 전용 장학 혜택 체크카드
-              </div>
-            </div>
-            <div
-              style={{
-                fontSize: 11,
-                fontWeight: 800,
-                color: '#00E5FF',
-                backgroundColor: 'rgba(0, 229, 255, 0.15)',
-                padding: '3px 8px',
-                borderRadius: 8,
-                border: '1px solid rgba(0, 229, 255, 0.3)',
-              }}
-            >
-              ACTIVE
-            </div>
-          </div>
-
-          {/* Mini Preview of the Midnight Navy Crabit Debit Card */}
-          <div
-            style={{
-              width: '100%',
-              height: 200,
-              borderRadius: 18,
-              background:
-                'linear-gradient(135deg, #020617 0%, #0F172A 45%, #1E293B 80%, #0369A1 100%)',
-              border: '1.5px solid rgba(0, 229, 255, 0.4)',
-              boxShadow:
-                '0 16px 36px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 229, 255, 0.25)',
-              padding: '18px 20px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
+              marginTop: 10,
+              marginBottom: 40,
+              transform: `scale(${buttonPulse})`,
               position: 'relative',
               overflow: 'hidden',
-              boxSizing: 'border-box',
+              borderRadius: 16,
+              boxShadow: '0 8px 24px rgba(0, 229, 255, 0.4)',
+              flexShrink: 0,
             }}
           >
-            {/* Holographic accent wave curve in background */}
+            <div
+              style={{
+                background:
+                  'linear-gradient(135deg, #00E5FF 0%, #0284C7 100%)',
+                padding: '14px 20px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 8,
+                color: '#FFFFFF',
+                fontWeight: 900,
+                fontSize: 14,
+                letterSpacing: -0.2,
+              }}
+            >
+              <span>장학금 50,000원 즉시 수령</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#FFFFFF">
+                <path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2.44z" />
+              </svg>
+            </div>
             <div
               style={{
                 position: 'absolute',
-                top: -40,
-                right: -40,
-                width: 180,
-                height: 180,
-                borderRadius: '50%',
+                top: 0,
+                left: `${shimmerPos}%`,
+                width: '40%',
+                height: '100%',
                 background:
-                  'radial-gradient(circle, rgba(0, 229, 255, 0.2) 0%, transparent 70%)',
+                  'linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent)',
+                transform: 'skewX(-20deg)',
                 pointerEvents: 'none',
               }}
             />
-
-            {/* Card Top: Brand & Contactless */}
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 36 36"
-                  style={{ filter: 'drop-shadow(0 0 6px #00E5FF)' }}
-                >
-                  <polygon
-                    points="18,2 34,14 26,34 10,34 2,14"
-                    fill="#00E5FF"
-                    stroke="#FFFFFF"
-                    strokeWidth="1.2"
-                  />
-                </svg>
-                <span
-                  style={{
-                    fontSize: 17,
-                    fontWeight: 900,
-                    color: '#FFFFFF',
-                    letterSpacing: 1.5,
-                  }}
-                >
-                  CRABIT
-                </span>
-                <span
-                  style={{
-                    fontSize: 10,
-                    fontWeight: 800,
-                    color: '#00E5FF',
-                    backgroundColor: 'rgba(0, 229, 255, 0.2)',
-                    padding: '1px 5px',
-                    borderRadius: 4,
-                  }}
-                >
-                  DEBIT
-                </span>
-              </div>
-
-              {/* Contactless Waves SVG */}
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="#93C5FD">
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
-                  opacity="0.3"
-                />
-                <path d="M7.5 12c0-2.48 2.02-4.5 4.5-4.5s4.5 2.02 4.5 4.5h-2c0-1.38-1.12-2.5-2.5-2.5S9.5 10.62 9.5 12h-2z" />
-                <path d="M5 12c0-3.86 3.14-7 7-7s7 3.14 7 7h-2c0-2.76-2.24-5-5-5s-5 2.24-5 5H5z" />
-              </svg>
-            </div>
-
-            {/* Card Middle: EMV Chip */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-              <div
-                style={{
-                  width: 38,
-                  height: 28,
-                  borderRadius: 6,
-                  background: 'linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%)',
-                  border: '1px solid #D97706',
-                  boxShadow: 'inset 0 0 4px rgba(0,0,0,0.3)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  position: 'relative',
-                }}
-              >
-                <div
-                  style={{
-                    width: '80%',
-                    height: '50%',
-                    border: '1px solid #92400E',
-                    borderRadius: 2,
-                  }}
-                />
-              </div>
-              <span
-                style={{
-                  fontSize: 10,
-                  fontWeight: 700,
-                  color: '#93C5FD',
-                  letterSpacing: 1,
-                }}
-              >
-                MIDNIGHT NAVY EDITION
-              </span>
-            </div>
-
-            {/* Card Bottom: Number, Holder & Expiry */}
-            <div>
-              <div
-                style={{
-                  fontSize: 15,
-                  fontWeight: 700,
-                  color: '#F8FAFC',
-                  letterSpacing: 2.5,
-                  fontFamily: 'monospace',
-                  marginBottom: 6,
-                }}
-              >
-                •••• &nbsp;•••• &nbsp;•••• &nbsp;4821
-              </div>
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'flex-end',
-                }}
-              >
-                <div>
-                  <div style={{ fontSize: 9, fontWeight: 600, color: '#94A3B8' }}>
-                    CARDHOLDER
-                  </div>
-                  <div
-                    style={{
-                      fontSize: 13,
-                      fontWeight: 800,
-                      color: '#FFFFFF',
-                      letterSpacing: 0.5,
-                    }}
-                  >
-                    KIM MIN JUN
-                  </div>
-                </div>
-                <div>
-                  <div style={{ fontSize: 9, fontWeight: 600, color: '#94A3B8' }}>
-                    EXPIRES
-                  </div>
-                  <div
-                    style={{
-                      fontSize: 12,
-                      fontWeight: 800,
-                      color: '#FFFFFF',
-                      letterSpacing: 0.5,
-                    }}
-                  >
-                    08 / 29
-                  </div>
-                </div>
-                <div
-                  style={{
-                    fontSize: 13,
-                    fontWeight: 900,
-                    color: '#00E5FF',
-                    fontStyle: 'italic',
-                  }}
-                >
-                  BC Card
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Linked Balance & Benefits Info */}
-          <div
-            style={{
-              backgroundColor: 'rgba(15, 23, 42, 0.65)',
-              borderRadius: 14,
-              padding: '12px 14px',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
-          >
-            <div>
-              <div style={{ fontSize: 11, fontWeight: 600, color: '#94A3B8' }}>
-                학습 장학 지원금 한도
-              </div>
-              <div style={{ fontSize: 16, fontWeight: 900, color: '#FFFFFF' }}>
-                ₩ 1,250,000 KRW
-              </div>
-            </div>
-            <div
-              style={{
-                backgroundColor: 'rgba(0, 229, 255, 0.15)',
-                color: '#00E5FF',
-                fontSize: 12,
-                fontWeight: 800,
-                padding: '6px 12px',
-                borderRadius: 10,
-                border: '1px solid rgba(0, 229, 255, 0.3)',
-              }}
-            >
-              즉시 출금 가능
-            </div>
           </div>
         </div>
+      </div>
 
-        {/* SECTION 5: RECENT CASHBACK TRANSACTIONS FEED */}
+      {/* Bottom Navigation Dock */}
+      <div
+        style={{
+          height: 48,
+          backgroundColor: '#FFFFFF',
+          borderTop: '1px solid #E2E8F0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-around',
+          paddingBottom: 2,
+          flexShrink: 0,
+          zIndex: 10,
+        }}
+      >
+        <div style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: '#94A3B8' }} />
+        <div style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: '#94A3B8' }} />
         <div
           style={{
-            backgroundColor: '#1E293B',
-            borderRadius: 24,
-            padding: '20px 18px',
-            border: '1.5px solid rgba(255, 255, 255, 0.08)',
-            boxShadow: '0 8px 24px rgba(0, 0, 0, 0.35)',
+            width: 26,
+            height: 26,
+            borderRadius: '50%',
+            backgroundColor: '#00E5FF',
             display: 'flex',
-            flexDirection: 'column',
-            gap: 12,
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 0 12px rgba(0, 229, 255, 0.6)',
           }}
         >
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
-          >
-            <span style={{ fontSize: 15, fontWeight: 800, color: '#FFFFFF' }}>
-              Recent Rewards & Cashback
-            </span>
-            <span style={{ fontSize: 11, fontWeight: 700, color: '#38BDF8' }}>
-              View All →
-            </span>
-          </div>
-
-          {[
-            {
-              title: '대치 미래탐구 학원비 장학 캐시백',
-              cat: 'Academy Tuition',
-              time: 'Today 18:40',
-              amount: '+ ₩15,000',
-              carat: '+1,500 C',
-            },
-            {
-              title: '교보문고 수능특강 과탐 교재',
-              cat: 'Study Materials',
-              time: 'Yesterday',
-              amount: '+ ₩2,400',
-              carat: '+240 C',
-            },
-            {
-              title: '작심 독서실 4주 집중 이용권',
-              cat: 'Study Cafe',
-              time: '2 days ago',
-              amount: '+ ₩8,000',
-              carat: '+800 C',
-            },
-          ].map((tx, idx) => (
-            <div
-              key={idx}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: '10px 12px',
-                backgroundColor: 'rgba(15, 23, 42, 0.5)',
-                borderRadius: 14,
-              }}
-            >
-              <div>
-                <div style={{ fontSize: 12, fontWeight: 800, color: '#FFFFFF' }}>
-                  {tx.title}
-                </div>
-                <div style={{ fontSize: 10, fontWeight: 600, color: '#94A3B8' }}>
-                  {tx.cat} · {tx.time}
-                </div>
-              </div>
-              <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: 13, fontWeight: 900, color: '#10B981' }}>
-                  {tx.amount}
-                </div>
-                <div style={{ fontSize: 10, fontWeight: 700, color: '#00E5FF' }}>
-                  {tx.carat}
-                </div>
-              </div>
-            </div>
-          ))}
+          <div style={{ width: 7, height: 7, borderRadius: 2, backgroundColor: '#FFFFFF' }} />
         </div>
+        <div style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: '#94A3B8' }} />
+      </div>
+    </div>
+  );
 
-        {/* SECTION 6: HAGWON LEADERBOARD PREVIEW */}
+  if (bareScreen) {
+    return (
+      <div
+        style={{
+          width: width || defaultWidth,
+          height: height || defaultHeight,
+          position: 'relative',
+          overflow: 'hidden',
+          ...style,
+        }}
+        className={className}
+      >
+        {screenContent}
+      </div>
+    );
+  }
+
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        left: '50%',
+        top: '50%',
+        transform: `translate(-50%, -50%) translateY(${hoverY}px) rotate(${hoverRotate}deg) scale(${popupScale})`,
+        opacity: popupOpacity,
+        zIndex: 65,
+        pointerEvents: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        ...style,
+      }}
+      className={className}
+    >
+      <div
+        style={{
+          width: width || defaultWidth,
+          height: height || defaultHeight,
+          backgroundColor: '#0F172A',
+          borderRadius: 54,
+          padding: 14,
+          boxShadow:
+            '0 30px 70px -10px rgba(0, 0, 0, 0.65), 0 0 40px rgba(0, 229, 255, 0.35)',
+          border: '3px solid #334155',
+          position: 'relative',
+          display: 'flex',
+          flexDirection: 'column',
+          boxSizing: 'border-box',
+          overflow: 'hidden',
+        }}
+      >
         <div
           style={{
-            backgroundColor: '#1E293B',
-            borderRadius: 24,
-            padding: '18px',
-            border: '1.5px solid rgba(255, 255, 255, 0.08)',
+            position: 'absolute',
+            top: 20,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: 120,
+            height: 24,
+            backgroundColor: '#020617',
+            borderRadius: 12,
+            zIndex: 80,
             display: 'flex',
-            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
             gap: 10,
           }}
         >
-          <div style={{ fontSize: 14, fontWeight: 800, color: '#FFFFFF' }}>
-            🏆 Daechi CSAT Math Squad Top 3
-          </div>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              backgroundColor: 'rgba(0, 229, 255, 0.1)',
-              padding: '10px 12px',
-              borderRadius: 12,
-              border: '1px solid rgba(0, 229, 255, 0.25)',
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <span style={{ fontSize: 16 }}>🥇</span>
-              <span style={{ fontSize: 13, fontWeight: 800, color: '#FFFFFF' }}>
-                Rank 3: Kim Min-jun (You)
-              </span>
-            </div>
-            <span style={{ fontSize: 13, fontWeight: 900, color: '#00E5FF' }}>
-              18,400 Carats
-            </span>
-          </div>
+          <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#1E293B' }} />
+          <div style={{ width: 40, height: 4, borderRadius: 2, backgroundColor: '#1E293B' }} />
         </div>
-
-        {/* Bottom padding safety spacer */}
-        <div style={{ height: 100 }} />
+        {screenContent}
       </div>
     </div>
   );

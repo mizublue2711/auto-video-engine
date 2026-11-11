@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600" id="svg_crabit_phone_hero" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Screen & Card Gradients -->
+    <linearGradient id="phone_body_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="50%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+
+    <linearGradient id="balance_card_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="60%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+
+    <linearGradient id="gem_cyan_glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0F2FE" />
+      <stop offset="40%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#00E5FF" />
+    </linearGradient>
+
+    <linearGradient id="progress_bar_grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#00E5FF" />
+    </linearGradient>
+
+    <linearGradient id="director_sleeve_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="60%" stop-color="#24313F" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+
+    <filter id="phone_chassis_shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#090D16" flood-opacity="0.35" />
+    </filter>
+
+    <filter id="cyan_glow_filter" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Clip path for internal screen contents -->
+    <clipPath id="phone_screen_clip">
+      <rect x="350" y="200" width="500" height="1010" rx="42" />
+    </clipPath>
+  </defs>
+
+  <!-- BACKGROUND FLOATING CARAT PARTICLES (Radiating outward from screen) -->
+  <g id="floating_carat_particles">
+    <!-- Particle 1: Top Right Glow Gem -->
+    <g id="particle_gem_1" transform="translate(930, 260) scale(1.2)" filter="url(#cyan_glow_filter)">
+      <polygon points="25,0 50,18 40,48 10,48 0,18" fill="url(#gem_cyan_glow)" stroke="#FFFFFF" stroke-width="1.5" />
+      <polygon points="25,0 50,18 36,22 25,12" fill="#FFFFFF" opacity="0.6" />
+    </g>
+    <!-- Particle 2: Top Left High Gem -->
+    <g id="particle_gem_2" transform="translate(180, 290) scale(0.9)" filter="url(#cyan_glow_filter)">
+      <polygon points="25,0 50,18 40,48 10,48 0,18" fill="url(#gem_cyan_glow)" stroke="#FFFFFF" stroke-width="1.5" />
+    </g>
+    <!-- Particle 3: Mid Right Floating Gem -->
+    <g id="particle_gem_3" transform="translate(950, 600) scale(1.4)" filter="url(#cyan_glow_filter)">
+      <polygon points="25,0 50,18 40,48 10,48 0,18" fill="url(#gem_cyan_glow)" stroke="#E0F2FE" stroke-width="2" />
+      <circle cx="25" cy="24" r="3" fill="#FFFFFF" />
+    </g>
+    <!-- Particle 4: Left Side Radiant Sparkle -->
+    <g id="particle_gem_4" transform="translate(140, 750) scale(1.1)">
+      <polygon points="25,0 50,18 40,48 10,48 0,18" fill="url(#gem_cyan_glow)" opacity="0.85" />
+    </g>
+    <!-- Particle 5: Top Accent Diamond -->
+    <g id="particle_sparkle_1" transform="translate(300, 120)">
+      <polygon points="16,0 20,12 32,16 20,20 16,32 12,20 0,16 12,12" fill="#00E5FF" />
+    </g>
+    <!-- Particle 6: Bottom Right Orbit Sparkle -->
+    <g id="particle_sparkle_2" transform="translate(910, 880)">
+      <polygon points="20,0 25,15 40,20 25,25 20,40 15,25 0,20 15,15" fill="#38BDF8" opacity="0.9" />
+    </g>
+  </g>
+
+  <!-- SMARTPHONE CHASSIS (Centered Stage: x=330, y=180, w=540, h=1050, rx=54) -->
+  <g id="smartphone_chassis" filter="url(#phone_chassis_shadow)">
+    <!-- Outer Bezel Frame -->
+    <rect id="phone_outer_bezel" x="330" y="180" width="540" height="1050" rx="54" fill="url(#phone_body_grad)" stroke="#334155" stroke-width="4" />
+
+    <!-- Sleek Edge Highlight Trim -->
+    <rect id="phone_inner_bezel_border" x="338" y="188" width="524" height="1034" rx="48" fill="none" stroke="#475569" stroke-width="1.5" opacity="0.6" />
+
+    <!-- Speaker Pill Notch -->
+    <rect id="phone_speaker_notch" x="530" y="194" width="140" height="12" rx="6" fill="#090D16" />
+    <circle id="phone_front_camera" cx="505" cy="200" r="4.5" fill="#1E293B" stroke="#334155" stroke-width="1" />
+
+    <!-- Screen Glass -->
+    <rect id="phone_screen_glass" x="350" y="218" width="500" height="990" rx="36" fill="#F8FAFC" />
+  </g>
+
+  <!-- PHONE SCREEN UI CONTENT (Korean Crabit App Interface) -->
+  <g id="crabit_app_ui" clip-path="url(#phone_screen_clip)">
+    <!-- App Header & Navigation Bar -->
+    <g id="app_header_bar">
+      <!-- Status Icons Mockup -->
+      <text x="380" y="248" fill="#1E293B" font-size="16" font-weight="700" font-family="system-ui, -apple-system, sans-serif">09:41</text>
+      <!-- Battery & Signal -->
+      <circle cx="800" cy="242" r="3.5" fill="#1E293B" />
+      <circle cx="810" cy="242" r="3.5" fill="#1E293B" />
+      <rect x="755" y="236" width="30" height="13" rx="3.5" fill="none" stroke="#1E293B" stroke-width="1.5" />
+      <rect x="757" y="238" width="22" height="9" rx="2" fill="#1E293B" />
+
+      <!-- Crabit Logo Brand Header -->
+      <rect x="350" y="265" width="500" height="75" fill="#FFFFFF" />
+      <g id="crabit_logo_header" transform="translate(380, 280)">
+        <!-- Brand Claw-Diamond Mark -->
+        <polygon points="18,0 36,12 28,34 8,34 0,12" fill="url(#gem_cyan_glow)" />
+        <circle cx="18" cy="16" r="4" fill="#FFFFFF" />
+        <!-- Crabit Logo Text -->
+        <text x="46" y="26" fill="#FF5E36" font-size="28" font-weight="900" letter-spacing="-0.5" font-family="system-ui, -apple-system, sans-serif">Crabit</text>
+        <rect x="135" y="7" width="60" height="22" rx="11" fill="#FFF1EE" />
+        <text x="146" y="22" fill="#FF5E36" font-size="12" font-weight="800" font-family="system-ui, -apple-system, sans-serif">KOREA</text>
+      </g>
+      <!-- Notification Bell -->
+      <circle cx="800" cy="298" r="18" fill="#F1F5F9" />
+      <path d="M795,302 C795,296 805,296 805,302 Z" fill="#64748B" />
+      <circle cx="806" cy="289" r="4" fill="#FF5E36" />
+    </g>
+
+    <!-- UI CARD 1: MAIN BALANCE HERO CARD (Highlighted Box with Glowing Cyan Carat Diamond) -->
+    <g id="main_balance_card" transform="translate(376, 360)">
+      <!-- Card Container Surface -->
+      <rect width="448" height="250" rx="28" fill="url(#balance_card_grad)" />
+      <!-- Subtle Holographic Geometry Accent -->
+      <path d="M0,0 L200,0 L120,250 L0,250 Z" fill="#FFFFFF" opacity="0.06" />
+
+      <!-- Sub-label -->
+      <text x="32" y="44" fill="#93C5FD" font-size="15" font-weight="700" letter-spacing="1" font-family="system-ui, -apple-system, sans-serif">MY SCHOLARSHIP BALANCE</text>
+
+      <!-- Glowing Cyan Carat Diamond Icon -->
+      <g id="balance_carat_icon" transform="translate(32, 65)" filter="url(#cyan_glow_filter)">
+        <polygon points="36,0 72,25 56,72 16,72 0,25" fill="url(#gem_cyan_glow)" stroke="#FFFFFF" stroke-width="2" />
+        <!-- Facet Refraction Highlights -->
+        <polygon points="36,0 72,25 48,32 36,16" fill="#FFFFFF" opacity="0.75" />
+        <polygon points="36,0 0,25 24,32 36,16" fill="#FFFFFF" opacity="0.5" />
+        <polygon points="36,16 48,32 36,68 24,32" fill="#E0F2FE" opacity="0.9" />
+      </g>
+
+      <!-- Bold Balance Numeric Text -->
+      <text x="122" y="112" fill="#FFFFFF" font-size="44" font-weight="900" letter-spacing="-0.5" font-family="system-ui, -apple-system, sans-serif">50,000</text>
+      <text x="286" y="112" fill="#00E5FF" font-size="30" font-weight="800" font-family="system-ui, -apple-system, sans-serif"> Carats</text>
+
+      <!-- Korean Currency Value Mirror -->
+      <rect x="32" y="160" width="384" height="60" rx="16" fill="#0F172A" opacity="0.7" />
+      <text x="52" y="196" fill="#94A3B8" font-size="16" font-weight="600" font-family="system-ui, -apple-system, sans-serif">장학금 환산 가치</text>
+      <text x="390" y="198" fill="#F8FAFC" font-size="20" font-weight="800" text-anchor="end" font-family="system-ui, -apple-system, sans-serif">₩ 50,000 KRW</text>
+    </g>
+
+    <!-- UI CARD 2: ACTIVE MISSION COMPLETE CARD (오늘의 미션 완료! 100%) -->
+    <g id="active_mission_card" transform="translate(376, 635)">
+      <rect width="448" height="230" rx="24" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+
+      <!-- Card Header: Title & Check Icon -->
+      <circle cx="56" cy="48" r="22" fill="#10B981" />
+      <path d="M46,48 L53,55 L67,39" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+
+      <!-- Mission Title in Korean -->
+      <text x="90" y="44" fill="#0F172A" font-size="22" font-weight="800" font-family="system-ui, -apple-system, sans-serif">오늘의 미션 완료!</text>
+      <text x="90" y="66" fill="#64748B" font-size="14" font-weight="600" font-family="system-ui, -apple-system, sans-serif">수학 집중 모드 30분 달성</text>
+
+      <!-- Reward Pill Badge -->
+      <rect x="330" y="32" width="94" height="32" rx="16" fill="#E0F2FE" />
+      <text x="377" y="53" fill="#0284C7" font-size="14" font-weight="800" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">+500 C</text>
+
+      <!-- Progress Meter Container -->
+      <g id="mission_progress_group" transform="translate(32, 98)">
+        <text x="0" y="18" fill="#475569" font-size="15" font-weight="700" font-family="system-ui, -apple-system, sans-serif">목표 달성률</text>
+        <text x="384" y="18" fill="#10B981" font-size="17" font-weight="900" text-anchor="end" font-family="system-ui, -apple-system, sans-serif">100% 완료</text>
+
+        <!-- Background Track -->
+        <rect x="0" y="32" width="384" height="18" rx="9" fill="#F1F5F9" />
+        <!-- Active 100% Filled Progress Bar -->
+        <rect id="mission_progress_fill" x="0" y="32" width="384" height="18" rx="9" fill="url(#progress_bar_grad)" />
+      </g>
+
+      <!-- Daily Streak Badge Info -->
+      <rect x="32" y="168" width="384" height="42" rx="12" fill="#F8FAFC" />
+      <circle cx="54" cy="189" r="6" fill="#FF5E36" />
+      <text x="68" y="195" fill="#334155" font-size="14" font-weight="700" font-family="system-ui, -apple-system, sans-serif">연속 7일째 미션 달성 중! 장학금 보너스 획득</text>
+    </g>
+
+    <!-- UI CARD 3: ACADEMY INSTRUCTOR CONNECTED WIDGET -->
+    <g id="academy_director_status_bar" transform="translate(376, 888)">
+      <rect width="448" height="100" rx="20" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5" />
+      <!-- Academy Director Profile Avatar Thumbnail -->
+      <circle cx="56" cy="50" r="28" fill="#E2E8F0" />
+      <circle cx="56" cy="42" r="14" fill="#FFE3D1" />
+      <path d="M38,68 C38,56 46,54 56,54 C66,54 74,56 74,68 Z" fill="#24313F" />
+      <circle cx="56" cy="42" r="5" fill="none" stroke="#1E252D" stroke-width="1.5" />
+      <!-- Status Text -->
+      <text x="96" y="44" fill="#0F172A" font-size="16" font-weight="800" font-family="system-ui, -apple-system, sans-serif">원장 선생님 인증 완료</text>
+      <text x="96" y="66" fill="#10B981" font-size="14" font-weight="700" font-family="system-ui, -apple-system, sans-serif">● 실시간 캐럿 보상 지급 승인됨</text>
+    </g>
+
+    <!-- Bottom Navigation Bar Dock -->
+    <g id="app_bottom_dock" transform="translate(350, 1140)">
+      <rect width="500" height="70" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+      <!-- Home Icon -->
+      <circle cx="410" cy="1170" r="6" fill="#FF5E36" />
+      <!-- Challenge Icon -->
+      <circle cx="500" cy="1170" r="6" fill="#94A3B8" />
+      <!-- Wallet Icon Active -->
+      <circle cx="600" cy="1170" r="8" fill="#00E5FF" />
+      <!-- Profile Icon -->
+      <circle cx="700" cy="1170" r="6" fill="#94A3B8" />
+      <!-- Home Indicator Bar -->
+      <rect x="520" y="1195" width="160" height="5" rx="2.5" fill="#1E293B" />
+    </g>
+  </g>
+</svg>

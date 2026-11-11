@@ -12,10 +12,13 @@
     "generate:manifest": "tsx scripts/generate-manifest.ts"
   },
   "dependencies": {
+    "@react-three/fiber": "^8.18.0",
     "@remotion/transitions": "4.0.240",
+    "@types/three": "^0.187.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "remotion": "4.0.240",
+    "three": "^0.187.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {

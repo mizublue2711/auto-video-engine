@@ -10,3 +10,5 @@ build/
 # OS and Editor
 .DS_Store
 *.log
+
+build
