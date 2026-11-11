@@ -16,67 +16,140 @@
   </defs>
 
   <!-- LAYER 0: GROUND SHADOW -->
+    <!-- LAYER 0: GROUND SHADOW -->
   <g id="layer-director-ground-shadow">
-    <ellipse cx="250" cy="860" rx="130" ry="16" fill="#0F172A" opacity="0.2"/>
+    <ellipse cx="250" cy="866" rx="145" ry="16" fill="#0F172A" opacity="0.25"/>
+    <ellipse cx="185" cy="867" rx="42" ry="7" fill="#0F172A" opacity="0.35"/>
+    <ellipse cx="315" cy="867" rx="42" ry="7" fill="#0F172A" opacity="0.35"/>
   </g>
 
   <!-- LAYER 1: LOWER BODY (TROUSERS & SHOES) -->
+    <!-- LAYER 1: LOWER BODY (TROUSERS & DYNAMIC 3/4 ANGLED OXFORD SHOES) -->
   <g id="layer-director-legs">
-    <!-- Left Shoe (Viewer Left): Oxford Matte Black #1E293B, Outsole #0F172A -->
-    <path d="M 185 835 L 176 846 L 174 856 L 228 856 L 226 846 L 217 835 Z" fill="#1E293B"/>
-    <path d="M 174 856 L 228 856 L 228 860 L 174 860 Z" fill="#0F172A"/>
-    <path d="M 208 844 C 214 848 220 852 224 856" stroke="#334155" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    <!-- LEFT SHOE (Viewer Left - Diagonal 3/4 Flare to Left): Oxford Matte Black #1E293B, Outsole & Heel #0F172A -->
+    <g id="director-shoe-left">
+      <!-- Outsole & Heel Base: Solid Obsidian #0F172A -->
+      <path d="M 148 858 
+               C 145 861 146 865 152 867 
+               L 212 867 
+               C 220 867 228 866 230 862 
+               L 229 856 
+               L 212 857 
+               C 190 858 165 857 148 858 Z" fill="#0F172A"/>
+      
+      <!-- Heel Block: #0F172A -->
+      <path d="M 210 860 L 229 860 L 228 868 L 208 868 Z" fill="#0F172A"/>
 
-    <!-- Right Shoe (Viewer Right): Oxford Matte Black #1E293B, Outsole #0F172A -->
-    <path d="M 283 835 L 274 846 L 272 856 L 326 856 L 324 846 L 315 835 Z" fill="#1E293B"/>
-    <path d="M 272 856 L 326 856 L 326 860 L 272 860 Z" fill="#0F172A"/>
-    <path d="M 306 844 C 312 848 318 852 322 856" stroke="#334155" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      <!-- Main Upper Leather: Oxford Matte Black #1E293B -->
+      <path d="M 180 835 
+               C 172 842 160 850 150 855 
+               C 146 857 146 860 150 862 
+               C 156 864 180 864 205 862 
+               C 220 861 228 859 228 854 
+               C 228 848 224 841 216 835 
+               Z" fill="#1E293B"/>
+
+      <!-- Toe Cap & Vamp Highlight (Cel-Shading): Slate #334155 -->
+      <path d="M 150 855 
+               C 146 857 146 860 150 862 
+               C 156 864 175 864 180 861 
+               C 175 856 162 853 150 855 Z" fill="#334155" opacity="0.8"/>
+
+      <!-- Toe Cap Seam Line: #0F172A -->
+      <path d="M 166 852 C 170 857 174 862 178 861" stroke="#0F172A" stroke-width="1.2" fill="none"/>
+
+      <!-- Instep Facing & Laces: #0F172A with #475569 laces -->
+      <path d="M 184 838 L 198 841 L 195 852 L 180 848 Z" fill="#172554" opacity="0.5"/>
+      <line x1="183" y1="841" x2="194" y2="843" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="182" y1="845" x2="193" y2="847" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="181" y1="849" x2="191" y2="851" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- RIGHT SHOE (Viewer Right - Diagonal 3/4 Flare to Right): Oxford Matte Black #1E293B, Outsole & Heel #0F172A -->
+    <g id="director-shoe-right">
+      <!-- Outsole & Heel Base: Solid Obsidian #0F172A -->
+      <path d="M 352 858 
+               C 355 861 354 865 348 867 
+               L 288 867 
+               C 280 867 272 866 270 862 
+               L 271 856 
+               L 288 857 
+               C 310 858 335 857 352 858 Z" fill="#0F172A"/>
+      
+      <!-- Heel Block: #0F172A -->
+      <path d="M 290 860 L 271 860 L 272 868 L 292 868 Z" fill="#0F172A"/>
+
+      <!-- Main Upper Leather: Oxford Matte Black #1E293B -->
+      <path d="M 320 835 
+               C 328 842 340 850 350 855 
+               C 354 857 354 860 350 862 
+               C 344 864 320 864 295 862 
+               C 280 861 272 859 272 854 
+               C 272 848 276 841 284 835 
+               Z" fill="#1E293B"/>
+
+      <!-- Toe Cap & Vamp Highlight (Cel-Shading): Slate #334155 -->
+      <path d="M 350 855 
+               C 354 857 354 860 350 862 
+               C 344 864 325 864 320 861 
+               C 325 856 338 853 350 855 Z" fill="#334155" opacity="0.8"/>
+
+      <!-- Toe Cap Seam Line: #0F172A -->
+      <path d="M 334 852 C 330 857 326 862 322 861" stroke="#0F172A" stroke-width="1.2" fill="none"/>
+
+      <!-- Instep Facing & Laces: #0F172A with #475569 laces -->
+      <path d="M 316 838 L 302 841 L 305 852 L 320 848 Z" fill="#172554" opacity="0.5"/>
+      <line x1="317" y1="841" x2="306" y2="843" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="318" y1="845" x2="307" y2="847" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="319" y1="849" x2="309" y2="851" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
 
     <!-- Dress Trousers Base: Slate Gray #475569 -->
     <!-- Clean, continuous vector geometry between legs (Apex at 250, 515; zero triangles, zero gaps) -->
     <path d="M 176 480 
-             C 174 540 176 640 185 835 
-             L 217 835 
+             C 174 540 176 640 180 835 
+             L 218 835 
              C 225 680 236 575 248 518 
              C 249 515 251 515 252 518 
-             C 264 575 275 680 283 835 
-             L 315 835 
+             C 264 575 275 680 282 835 
+             L 320 835 
              C 324 640 326 540 324 480 
              Z" fill="#475569"/>
 
     <!-- Inner Thigh & Side Cel-Shading: #334155 -->
     <path d="M 176 480 
-             C 174 540 176 640 185 835 
-             L 194 835 
+             C 174 540 176 640 180 835 
+             L 192 835 
              C 186 640 184 540 188 480 
              Z" fill="#334155"/>
 
     <!-- Straight Ironed Crease Lines: #334155 -->
-    <line x1="201" y1="510" x2="201" y2="832" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
-    <line x1="299" y1="510" x2="299" y2="832" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
+    <line x1="199" y1="510" x2="199" y2="835" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
+    <line x1="301" y1="510" x2="301" y2="835" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
   </g>
 
   <!-- LAYER 2: TORSO (SHIRT, TIE, CARDIGAN) -->
   <g id="layer-director-torso">
-    <!-- Solid Cardigan Silhouette: Deep Navy #1E3A8A -->
+        <!-- Solid Cardigan Silhouette: Deep Navy #1E3A8A (Broad Deltoid Shoulders matching reference) -->
     <path d="M 218 228 
-             L 170 245 
-             C 174 310 180 390 176 484 
+             L 138 246 
+             C 148 268 174 275 174 310 
+             C 178 390 176 484 176 484 
              C 200 488 300 488 324 484 
-             C 320 390 326 310 330 245 
+             C 324 484 322 390 326 310 
+             C 326 275 352 268 362 246 
              L 282 228 
              L 250 335 
              Z" fill="#1E3A8A"/>
 
     <!-- Cardigan Shadow Side Panels (Flanks & Folds): Dark Navy #172554 -->
-    <path d="M 170 245 
-             C 174 310 180 390 176 484 
+    <path d="M 138 246 
+             C 148 268 174 275 174 310 
+             C 178 390 176 484 176 484 
              L 202 484 
              C 206 410 204 330 198 270 
              L 218 228 
              Z" fill="#172554"/>
-    <path d="M 178 430 Q 195 435 210 430 L 208 434 Q 194 438 178 434 Z" fill="#172554"/>
-    <path d="M 322 432 Q 306 437 292 432 L 294 436 Q 308 440 322 436 Z" fill="#172554"/>
 
     <!-- Oxford Shirt Inside V-Neck: Clean Crisp White #FFFFFF -->
     <polygon points="218,228 250,335 282,228" fill="#FFFFFF"/>
@@ -126,24 +199,26 @@
 
   <!-- LAYER 3: SYMMETRICAL ARMS & HANDS (NO PROPS) -->
     <!-- LAYER 3: SYMMETRICAL ARMS & HANDS (MATCHING REFERENCE GAP & RELAXED HANDS) -->
+    <!-- LAYER 3: SYMMETRICAL ARMS & HANDS (MATCHING REFERENCE THICK DELTOID & UPPER ARM) -->
   <g id="layer-director-arms">
     <!-- ==================== LEFT ARM & HAND ==================== -->
-    <!-- Sleeve: Deep Navy #1E3A8A (Flared from shoulder 168,244 to elbow 126,355, leaving open space to torso) -->
-    <path d="M 168 244 
-             C 150 256 133 300 126 355 
-             C 123 388 123 430 125 476 
+    <!-- Sleeve: Deep Navy #1E3A8A (Broad deltoid 138,246, bicep 47px thick, tapering to cuff 125..156, with clean gap to torso) -->
+    <path d="M 218 228 
+             L 138 246 
+             C 126 265 124 300 123 355 
+             C 122 390 123 430 125 476 
              L 156 476 
-             C 154 430 152 388 154 355 
-             C 155 305 164 268 174 260 
+             C 154 430 152 390 156 355 
+             C 162 305 174 278 174 265 
              Z" fill="#1E3A8A"/>
 
     <!-- Left Sleeve Cel-Shading Shadow: Dark Navy #172554 -->
-    <path d="M 168 244 
-             C 150 256 133 300 126 355 
-             C 123 388 123 430 125 476 
+    <path d="M 138 246 
+             C 126 265 124 300 123 355 
+             C 122 390 123 430 125 476 
              L 134 476 
-             C 133 430 133 388 136 355 
-             C 142 300 155 258 168 244 Z" fill="#172554"/>
+             C 132 430 131 390 134 355 
+             C 138 300 144 265 152 248 Z" fill="#172554"/>
 
     <!-- Left Sleeve Cuff: Dark Navy #172554 -->
     <rect x="124" y="476" width="33" height="8" rx="2" fill="#172554"/>
@@ -179,17 +254,18 @@
 
 
     <!-- ==================== RIGHT ARM & HAND ==================== -->
-    <!-- Sleeve: Deep Navy #1E3A8A (Flared from shoulder 332,244 to elbow 374,355, leaving open space to torso) -->
-    <path d="M 332 244 
-             C 350 256 367 300 374 355 
-             C 377 388 377 430 375 476 
+    <!-- Sleeve: Deep Navy #1E3A8A (Broad deltoid 362,246, bicep 47px thick, tapering to cuff 344..375, with clean gap to torso) -->
+    <path d="M 282 228 
+             L 362 246 
+             C 374 265 376 300 377 355 
+             C 378 390 377 430 375 476 
              L 344 476 
-             C 346 430 348 388 346 355 
-             C 345 305 336 268 326 260 
+             C 346 430 348 390 344 355 
+             C 338 305 326 278 326 265 
              Z" fill="#1E3A8A"/>
 
     <!-- Right Sleeve Cel-Shading Fold: Dark Navy #172554 -->
-    <path d="M 344 476 L 354 476 C 353 430 353 388 350 355 C 347 315 340 275 332 244 L 326 260 C 336 268 345 305 346 355 C 348 388 346 430 344 476 Z" fill="#172554"/>
+    <path d="M 344 476 L 354 476 C 353 430 353 388 350 355 C 347 315 340 275 332 244 L 326 265 C 336 278 344 315 344 355 C 346 390 344 430 344 476 Z" fill="#172554"/>
 
     <!-- Right Sleeve Cuff: Dark Navy #172554 -->
     <rect x="343" y="476" width="33" height="8" rx="2" fill="#172554"/>
