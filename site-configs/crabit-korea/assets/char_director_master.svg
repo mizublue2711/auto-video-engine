@@ -1,0 +1,335 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 900" width="100%" height="100%">
+  <!-- ==========================================================================
+       CRABIT KOREA MASTER RIG ASSET: HAGWON DIRECTOR MASTER PLATE
+       Component: char_director_master.svg
+       Aesthetic: Clean 2D Korean Commercial Anime / Webtoon Semi-Realism
+       Ratio: 1:7.2 Mature Adult Male Proportion (Broad Square Jaw, Symmetrical Arms)
+       Global Pivot: (250, 860)
+       ========================================================================== -->
+  <defs>
+    <!-- Crisp Vector Glare Sheen for Glasses -->
+    <linearGradient id="glassGlare" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#FFFFFF" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- LAYER 0: GROUND SHADOW -->
+  <g id="layer-director-ground-shadow">
+    <ellipse cx="250" cy="860" rx="130" ry="16" fill="#0F172A" opacity="0.2"/>
+  </g>
+
+  <!-- LAYER 1: LOWER BODY (TROUSERS & SHOES) -->
+  <g id="layer-director-legs">
+    <!-- Left Shoe (Viewer Left): Oxford Matte Black #1E293B, Outsole #0F172A -->
+    <path d="M 185 835 L 176 846 L 174 856 L 228 856 L 226 846 L 217 835 Z" fill="#1E293B"/>
+    <path d="M 174 856 L 228 856 L 228 860 L 174 860 Z" fill="#0F172A"/>
+    <path d="M 208 844 C 214 848 220 852 224 856" stroke="#334155" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+
+    <!-- Right Shoe (Viewer Right): Oxford Matte Black #1E293B, Outsole #0F172A -->
+    <path d="M 283 835 L 274 846 L 272 856 L 326 856 L 324 846 L 315 835 Z" fill="#1E293B"/>
+    <path d="M 272 856 L 326 856 L 326 860 L 272 860 Z" fill="#0F172A"/>
+    <path d="M 306 844 C 312 848 318 852 322 856" stroke="#334155" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+
+    <!-- Dress Trousers Base: Slate Gray #475569 -->
+    <!-- Clean, continuous vector geometry between legs (Apex at 250, 515; zero triangles, zero gaps) -->
+    <path d="M 176 480 
+             C 174 540 176 640 185 835 
+             L 217 835 
+             C 225 680 236 575 248 518 
+             C 249 515 251 515 252 518 
+             C 264 575 275 680 283 835 
+             L 315 835 
+             C 324 640 326 540 324 480 
+             Z" fill="#475569"/>
+
+    <!-- Inner Thigh & Side Cel-Shading: #334155 -->
+    <path d="M 176 480 
+             C 174 540 176 640 185 835 
+             L 194 835 
+             C 186 640 184 540 188 480 
+             Z" fill="#334155"/>
+
+    <!-- Straight Ironed Crease Lines: #334155 -->
+    <line x1="201" y1="510" x2="201" y2="832" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
+    <line x1="299" y1="510" x2="299" y2="832" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- LAYER 2: TORSO (SHIRT, TIE, CARDIGAN) -->
+  <g id="layer-director-torso">
+    <!-- Solid Cardigan Silhouette: Deep Navy #1E3A8A -->
+    <path d="M 218 228 
+             L 170 245 
+             C 174 310 180 390 176 484 
+             C 200 488 300 488 324 484 
+             C 320 390 326 310 330 245 
+             L 282 228 
+             L 250 335 
+             Z" fill="#1E3A8A"/>
+
+    <!-- Cardigan Shadow Side Panels (Flanks & Folds): Dark Navy #172554 -->
+    <path d="M 170 245 
+             C 174 310 180 390 176 484 
+             L 202 484 
+             C 206 410 204 330 198 270 
+             L 218 228 
+             Z" fill="#172554"/>
+    <path d="M 178 430 Q 195 435 210 430 L 208 434 Q 194 438 178 434 Z" fill="#172554"/>
+    <path d="M 322 432 Q 306 437 292 432 L 294 436 Q 308 440 322 436 Z" fill="#172554"/>
+
+    <!-- Oxford Shirt Inside V-Neck: Clean Crisp White #FFFFFF -->
+    <polygon points="218,228 250,335 282,228" fill="#FFFFFF"/>
+    <!-- Shirt Folds Shading: #E2E8F0 -->
+    <polygon points="222,230 250,268 278,230 268,230 250,250 232,230" fill="#E2E8F0"/>
+
+    <!-- Necktie: Dark Charcoal Slate #1E293B -->
+    <!-- Knot -->
+    <path d="M 244 242 L 256 242 L 254 262 L 246 262 Z" fill="#1E293B"/>
+    <!-- Knot dimple & crease shadow -->
+    <path d="M 248 260 Q 250 262 252 260" stroke="#0F172A" stroke-width="1.2" fill="none"/>
+    <!-- Blade -->
+    <path d="M 246 262 L 254 262 L 257 345 L 250 358 L 243 345 Z" fill="#1E293B"/>
+    <!-- Blade side shadow: #0F172A -->
+    <path d="M 250 262 L 254 262 L 257 345 L 250 358 Z" fill="#0F172A"/>
+
+    <!-- V-Neck Rib Trim: Dark Navy #172554 -->
+    <polygon points="218,228 250,335 250,344 212,230" fill="#172554"/>
+    <polygon points="282,228 250,335 250,344 288,230" fill="#172554"/>
+
+    <!-- Cardigan Central Placket: #172554 -->
+    <rect x="247" y="340" width="6" height="144" fill="#172554"/>
+
+    <!-- Central Buttons: Minimalist Matte Black #0F172A (diameter: 6px, r=3) -->
+    <circle cx="250" cy="360" r="3" fill="#0F172A"/>
+    <circle cx="250" cy="395" r="3" fill="#0F172A"/>
+    <circle cx="250" cy="430" r="3" fill="#0F172A"/>
+    <circle cx="250" cy="465" r="3" fill="#0F172A"/>
+
+    <!-- Crisp Oxford Shirt Collar: Clean Crisp White #FFFFFF, stroke #E2E8F0 -->
+    <path d="M 218 228 L 244 256 L 224 264 L 216 236 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M 282 228 L 256 256 L 276 264 L 284 236 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" stroke-linejoin="round"/>
+  </g>
+
+  <!-- LAYER 3: SYMMETRICAL ARMS & HANDS (NO PROPS) -->
+  <g id="layer-director-arms">
+    <!-- ==================== LEFT ARM & HAND ==================== -->
+    <!-- Upper arm from shoulder (160, 260) down to elbow (150, 380), forearm down to wrist (145, 490) -->
+    <!-- Sleeve: Deep Navy #1E3A8A -->
+    <path d="M 170 245 
+             C 158 260 152 310 150 380 
+             C 148 420 146 460 145 490 
+             L 165 488 
+             C 166 455 168 415 170 380 
+             C 172 340 176 295 182 260 
+             Z" fill="#1E3A8A"/>
+    <!-- Flank Shadow: Dark Navy #172554 -->
+    <path d="M 150 380 C 148 420 146 460 145 490 L 155 489 C 156 460 158 420 160 380 Z" fill="#172554"/>
+    <!-- Sleeve Cuff: #172554 -->
+    <rect x="144" y="488" width="22" height="6" rx="1" fill="#172554"/>
+    <!-- Crisp White Oxford Shirt Inner Cuff Peeking: #FFFFFF -->
+    <rect x="145" y="494" width="20" height="3" rx="0.5" fill="#FFFFFF"/>
+
+    <!-- Left Hand: Cleanly formed relaxed hand (x: 140-155, y: 497-530) -->
+    <!-- Palm & Hand Base: Base Skin #F5D0A9 -->
+    <path d="M 146 497 
+             C 142 505 141 512 142 522 
+             C 143 527 148 530 152 528 
+             C 156 526 158 518 158 508 
+             L 162 497 
+             Z" fill="#F5D0A9"/>
+    <!-- Articulated relaxed fingers pointing downwards: Base Skin #F5D0A9, lines #E2B380 -->
+    <!-- Thumb (inner side facing body) -->
+    <path d="M 158 502 C 160 506 161 512 160 516 C 159 518 156 517 155 513 C 155 508 156 504 158 502 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.8"/>
+    <!-- Index Finger -->
+    <path d="M 143 514 C 143 524 145 528 147 528 C 148 528 148 524 148 514 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.7"/>
+    <!-- Middle Finger -->
+    <path d="M 147 515 C 147 526 149 530 151 530 C 152 530 152 526 152 515 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.7"/>
+    <!-- Ring Finger -->
+    <path d="M 151 515 C 151 525 153 528 154 528 C 155 528 155 525 155 515 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.7"/>
+    <!-- Little Finger -->
+    <path d="M 154 513 C 154 521 156 524 157 524 C 158 524 158 521 157 513 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.7"/>
+    <!-- Knuckle crease shadows: #E2B380 -->
+    <line x1="144" y1="518" x2="156" y2="518" stroke="#E2B380" stroke-width="0.8"/>
+
+
+    <!-- ==================== RIGHT ARM & HAND ==================== -->
+    <!-- Upper arm from shoulder (340, 260) down to elbow (350, 380), forearm down to wrist (355, 490) -->
+    <!-- Sleeve: Deep Navy #1E3A8A -->
+    <path d="M 330 245 
+             C 342 260 348 310 350 380 
+             C 352 420 354 460 355 490 
+             L 335 488 
+             C 334 455 332 415 330 380 
+             C 328 340 324 295 318 260 
+             Z" fill="#1E3A8A"/>
+    <!-- Flank Shadow: Dark Navy #172554 -->
+    <path d="M 350 380 C 352 420 354 460 355 490 L 345 489 C 344 460 342 420 340 380 Z" fill="#172554"/>
+    <!-- Sleeve Cuff: #172554 -->
+    <rect x="334" y="488" width="22" height="6" rx="1" fill="#172554"/>
+    <!-- Crisp White Oxford Shirt Inner Cuff Peeking: #FFFFFF -->
+    <rect x="335" y="494" width="20" height="3" rx="0.5" fill="#FFFFFF"/>
+
+    <!-- Right Hand: Cleanly formed relaxed hand (x: 345-360, y: 497-530) -->
+    <!-- Palm & Hand Base: Base Skin #F5D0A9 -->
+    <path d="M 354 497 
+             C 358 505 359 512 358 522 
+             C 357 527 352 530 348 528 
+             C 344 526 342 518 342 508 
+             L 338 497 
+             Z" fill="#F5D0A9"/>
+    <!-- Articulated relaxed fingers pointing downwards: Base Skin #F5D0A9, lines #E2B380 -->
+    <!-- Thumb (inner side facing body) -->
+    <path d="M 342 502 C 340 506 339 512 340 516 C 341 518 344 517 345 513 C 345 508 344 504 342 502 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.8"/>
+    <!-- Index Finger -->
+    <path d="M 357 514 C 357 524 355 528 353 528 C 352 528 352 524 352 514 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.7"/>
+    <!-- Middle Finger -->
+    <path d="M 353 515 C 353 526 351 530 349 530 C 348 530 348 526 348 515 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.7"/>
+    <!-- Ring Finger -->
+    <path d="M 349 515 C 349 525 347 528 346 528 C 345 528 345 525 345 515 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.7"/>
+    <!-- Little Finger -->
+    <path d="M 346 513 C 346 521 344 524 343 524 C 342 524 342 521 343 513 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.7"/>
+    <!-- Knuckle crease shadows: #E2B380 -->
+    <line x1="344" y1="518" x2="356" y2="518" stroke="#E2B380" stroke-width="0.8"/>
+  </g>
+
+  <!-- LAYER 4: HEAD, NECK & FACE (MATURE 45-50 YEAR OLD HAGWON DIRECTOR) -->
+  <g id="layer-director-head">
+    <!-- SOLID ANATOMICAL NECK: Exact width ~34px, height ~24px (y: 205 to 228) -->
+    <!-- Base Skin: #F5D0A9 -->
+    <path d="M 233 205 
+             C 231 214 227 222 222 228 
+             L 278 228 
+             C 273 222 269 214 267 205 
+             Z" fill="#F5D0A9"/>
+
+    <!-- Sharp Triangular Cel-Shading Shadow Under Jaw Base: #E2B380 -->
+    <polygon points="234,205 266,205 250,222" fill="#E2B380"/>
+    <!-- Mature Adam's apple & tendon lines: #E2B380 -->
+    <path d="M 248 217 Q 250 219 252 217" stroke="#E2B380" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+    <path d="M 237 207 C 241 214 245 221 247 228" stroke="#E2B380" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+    <path d="M 263 207 C 259 214 255 221 253 228" stroke="#E2B380" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+
+    <!-- EARS ROOTED SEAMLESSLY TO HEAD (Drawn behind jaw, extending 10px inside skull to eliminate all gaps) -->
+    <!-- Left Ear: Base Skin #F5D0A9, Inner Helix #E2B380 -->
+    <path d="M 220 142 C 202 144 198 166 214 172 C 218 173 222 170 222 165 Z" fill="#F5D0A9"/>
+    <path d="M 210 148 C 204 150 203 162 210 166" stroke="#E2B380" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+
+    <!-- Right Ear: Base Skin #F5D0A9, Inner Helix #E2B380 -->
+    <path d="M 280 142 C 298 144 302 166 286 172 C 282 173 278 170 278 165 Z" fill="#F5D0A9"/>
+    <path d="M 290 148 C 296 150 297 162 290 166" stroke="#E2B380" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+
+    <!-- BROAD, MATURE SQUARE JAWLINE (Overlaps ear roots completely, zero gaps) -->
+    <path d="M 210 135 
+             C 210 162 216 182 234 205 
+             L 266 205 
+             C 284 182 290 162 290 135 
+             C 290 102 210 102 210 135 
+             Z" fill="#F5D0A9"/>
+
+    <!-- Square Jawline Cel-Shading on Left Flank: #E2B380 (opacity 0.35) -->
+    <path d="M 210 135 C 210 162 216 182 234 205 L 240 205 C 224 184 220 165 220 135 Z" fill="#E2B380" opacity="0.35"/>
+    <line x1="236" y1="202" x2="264" y2="202" stroke="#E2B380" stroke-width="1.2" stroke-linecap="round"/>
+
+    <!-- MATURE DISTINGUISHED FACIAL FEATURES (45-50 YEAR OLD HAGWON DIRECTOR) -->
+    <!-- Forehead Wisdom Lines: #E2B380 -->
+    <path d="M 235 116 Q 250 114 265 116" stroke="#E2B380" stroke-width="0.8" opacity="0.6" stroke-linecap="round" fill="none"/>
+    <path d="M 238 122 Q 250 120 262 122" stroke="#E2B380" stroke-width="0.8" opacity="0.5" stroke-linecap="round" fill="none"/>
+
+    <!-- Glabellar Furrow Lines between Brows (Suy nghĩ thâm trầm, điềm đạm): #E2B380 -->
+    <line x1="247" y1="138" x2="247" y2="143" stroke="#E2B380" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
+    <line x1="253" y1="138" x2="253" y2="143" stroke="#E2B380" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
+
+    <!-- EYEBROWS: Thick, mature, dark, dignified authority -->
+    <polygon points="218,142 234,138 245,142 244,145 233,142 218,144" fill="#0F172A"/>
+    <polygon points="282,142 266,138 255,142 256,145 267,142 282,144" fill="#0F172A"/>
+
+    <!-- EYES: Composed, Intellectual, Mature Gaze -->
+    <!-- Sclera: #FFFFFF -->
+    <path d="M 223 153 Q 233 148 243 153 Q 233 160 223 153 Z" fill="#FFFFFF"/>
+    <path d="M 257 153 Q 267 148 277 153 Q 267 160 257 153 Z" fill="#FFFFFF"/>
+
+    <!-- Focused Dark Pupils & Irises: #0F172A -->
+    <ellipse cx="233" cy="154" rx="3.5" ry="3.8" fill="#0F172A"/>
+    <ellipse cx="267" cy="154" rx="3.5" ry="3.8" fill="#0F172A"/>
+    <circle cx="233" cy="154" r="1.8" fill="#0F172A"/>
+    <circle cx="267" cy="154" r="1.8" fill="#0F172A"/>
+    <circle cx="231.5" cy="152.5" r="1.1" fill="#FFFFFF"/>
+    <circle cx="265.5" cy="152.5" r="1.1" fill="#FFFFFF"/>
+
+    <!-- Upper Lash Line: #0F172A -->
+    <path d="M 221 153 Q 233 148 244 152" stroke="#0F172A" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    <path d="M 256 152 Q 267 148 279 153" stroke="#0F172A" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+
+    <!-- Mature Hooded Eyelid Fold Line: #0F172A -->
+    <path d="M 222 147 Q 233 144 243 147" stroke="#0F172A" stroke-width="0.8" opacity="0.65" stroke-linecap="round" fill="none"/>
+    <path d="M 257 147 Q 267 144 278 147" stroke="#0F172A" stroke-width="0.8" opacity="0.65" stroke-linecap="round" fill="none"/>
+
+    <!-- Mature Tear Trough / Lower Eyelid Contour (Bọng mắt người lớn tuổi): #E2B380 -->
+    <path d="M 225 159 Q 233 162 241 159" stroke="#E2B380" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+    <path d="M 259 159 Q 267 162 275 159" stroke="#E2B380" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+
+    <!-- Subtle Crow's Feet (Vết chân chim khóe mắt người từng trải): #E2B380 -->
+    <line x1="220" y1="152" x2="216" y2="150" stroke="#E2B380" stroke-width="0.8" stroke-linecap="round"/>
+    <line x1="220" y1="154" x2="215" y2="155" stroke="#E2B380" stroke-width="0.8" stroke-linecap="round"/>
+    <line x1="280" y1="152" x2="284" y2="150" stroke="#E2B380" stroke-width="0.8" stroke-linecap="round"/>
+    <line x1="280" y1="154" x2="285" y2="155" stroke="#E2B380" stroke-width="0.8" stroke-linecap="round"/>
+
+    <!-- NOSE: Straight Dignified Bridge & Realistic Nostril Base: #E2B380 -->
+    <path d="M 248 148 L 247 171" stroke="#E2B380" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+    <path d="M 245 173 Q 250 176 255 173" stroke="#E2B380" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+
+    <!-- NASOLABIAL FOLDS (Rãnh cười / Nếp rãnh mũi má người trung niên): #E2B380 -->
+    <path d="M 239 173 C 237 179 237 186 240 191" stroke="#E2B380" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.65"/>
+    <path d="M 261 173 C 263 179 263 186 260 191" stroke="#E2B380" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.65"/>
+
+    <!-- MOUTH: Firm, Serious, Authoritative Neutral Line: #0F172A -->
+    <line x1="241" y1="188" x2="259" y2="188" stroke="#0F172A" stroke-width="1.8" stroke-linecap="round"/>
+    <!-- Subtle lower lip plane & philtrum definition: #E2B380 -->
+    <line x1="246" y1="194" x2="254" y2="194" stroke="#E2B380" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="249" y1="181" x2="249" y2="185" stroke="#E2B380" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+    <line x1="251" y1="181" x2="251" y2="185" stroke="#E2B380" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+
+    <!-- TITANIUM GLASSES: Crisp Rectangular Titanium Frame (#94A3B8, stroke 1.5) & Glare -->
+    <g id="director-glasses">
+      <rect x="219" y="144" width="25" height="19" rx="2.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
+      <rect x="256" y="144" width="25" height="19" rx="2.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
+      <line x1="244" y1="152" x2="256" y2="152" stroke="#94A3B8" stroke-width="1.6"/>
+      <line x1="219" y1="151" x2="207" y2="152" stroke="#94A3B8" stroke-width="1.4"/>
+      <line x1="281" y1="151" x2="293" y2="152" stroke="#94A3B8" stroke-width="1.4"/>
+      <polygon points="221,146 231,146 225,161 221,161" fill="url(#glassGlare)" stroke="none"/>
+      <polygon points="258,146 268,146 262,161 258,161" fill="url(#glassGlare)" stroke="none"/>
+      <line x1="234" y1="147" x2="226" y2="159" stroke="#FFFFFF" stroke-width="1" opacity="0.35" stroke-linecap="round"/>
+      <line x1="271" y1="147" x2="263" y2="159" stroke="#FFFFFF" stroke-width="1" opacity="0.35" stroke-linecap="round"/>
+    </g>
+
+    <!-- MATURE EXECUTIVE 7/3 PARTED HAIR WITH SILVER/SLATE FLECK ACCENTS -->
+    <!-- Charcoal Obsidian #0F172A Base -->
+    <path d="M 210 142 
+             C 202 104 222 82 250 82 
+             C 278 82 298 104 290 142 
+             C 285 132 278 126 266 126 
+             C 256 126 250 132 244 140 
+             C 242 128 234 120 220 124 
+             C 214 128 211 135 210 142 
+             Z" fill="#0F172A"/>
+
+    <!-- Left 3-Split Clean Corporate Sideburns (Tapered naturally along ear, NO protruding spikes) -->
+    <path d="M 210 140 C 212 126 218 118 232 122 C 227 128 223 136 218 148 Z" fill="#0F172A"/>
+    <path d="M 223 124 C 230 122 237 127 240 138 C 235 135 229 133 223 136 Z" fill="#0F172A"/>
+    <!-- Subtle mature silver/gray temple highlights on left sideburn: #94A3B8 -->
+    <line x1="212" y1="142" x2="215" y2="149" stroke="#94A3B8" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+    <line x1="214" y1="138" x2="217" y2="144" stroke="#94A3B8" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+
+    <!-- Right 7-Split Dignified Executive Sweep -->
+    <path d="M 243 138 C 245 125 254 118 266 120 C 273 121 280 127 282 138 C 277 131 271 128 264 130 C 258 132 252 137 248 142 Z" fill="#0F172A"/>
+    <path d="M 268 124 C 277 126 284 131 286 142 C 282 137 276 133 270 135 Z" fill="#0F172A"/>
+    <!-- Subtle mature silver/gray temple highlights on right sideburn: #94A3B8 -->
+    <line x1="288" y1="142" x2="285" y2="149" stroke="#94A3B8" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+    <line x1="286" y1="138" x2="283" y2="144" stroke="#94A3B8" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+
+    <!-- Muted Slate Specular Sheen: #334155 -->
+    <path d="M 226 98 Q 236 92 246 96" stroke="#334155" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M 254 96 Q 266 92 278 98" stroke="#334155" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  </g>
+</svg>
