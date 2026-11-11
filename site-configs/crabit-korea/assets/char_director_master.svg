@@ -106,91 +106,122 @@
     <circle cx="250" cy="430" r="3" fill="#0F172A"/>
     <circle cx="250" cy="465" r="3" fill="#0F172A"/>
 
-    <!-- Crisp Oxford Shirt Collar: Clean Crisp White #FFFFFF, stroke #E2E8F0 -->
-    <path d="M 218 228 L 244 256 L 224 264 L 216 236 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" stroke-linejoin="round"/>
-    <path d="M 282 228 L 256 256 L 276 264 L 284 236 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" stroke-linejoin="round"/>
+        <!-- Crisp Oxford Shirt Collar (Reference Webtoon Sharp Style) -->
+    <!-- Left Collar Wing: Pure White #FFFFFF with cel-shading fold #E2E8F0 -->
+    <path d="M 218 228 
+             C 214 242 214 256 218 266 
+             L 240 290 
+             L 245 244 
+             C 236 238 226 232 218 228 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" stroke-linejoin="round"/>
+    <path d="M 218 228 C 214 242 214 256 218 266 L 227 274 C 223 258 221 244 223 230 Z" fill="#E2E8F0"/>
+
+    <!-- Right Collar Wing: Pure White #FFFFFF with cel-shading fold #E2E8F0 -->
+    <path d="M 282 228 
+             C 286 242 286 256 282 266 
+             L 260 290 
+             L 255 244 
+             C 264 238 274 232 282 228 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" stroke-linejoin="round"/>
+    <path d="M 282 228 C 286 242 286 256 282 266 L 273 274 C 277 258 279 244 277 230 Z" fill="#E2E8F0"/>
   </g>
 
   <!-- LAYER 3: SYMMETRICAL ARMS & HANDS (NO PROPS) -->
+    <!-- LAYER 3: SYMMETRICAL ARMS & HANDS (MATCHING REFERENCE GAP & RELAXED HANDS) -->
   <g id="layer-director-arms">
     <!-- ==================== LEFT ARM & HAND ==================== -->
-    <!-- Upper arm from shoulder (160, 260) down to elbow (150, 380), forearm down to wrist (145, 490) -->
-    <!-- Sleeve: Deep Navy #1E3A8A -->
-    <path d="M 170 245 
-             C 158 260 152 310 150 380 
-             C 148 420 146 460 145 490 
-             L 165 488 
-             C 166 455 168 415 170 380 
-             C 172 340 176 295 182 260 
+    <!-- Sleeve: Deep Navy #1E3A8A (Flared from shoulder 168,244 to elbow 126,355, leaving open space to torso) -->
+    <path d="M 168 244 
+             C 150 256 133 300 126 355 
+             C 123 388 123 430 125 476 
+             L 156 476 
+             C 154 430 152 388 154 355 
+             C 155 305 164 268 174 260 
              Z" fill="#1E3A8A"/>
-    <!-- Flank Shadow: Dark Navy #172554 -->
-    <path d="M 150 380 C 148 420 146 460 145 490 L 155 489 C 156 460 158 420 160 380 Z" fill="#172554"/>
-    <!-- Sleeve Cuff: #172554 -->
-    <rect x="144" y="488" width="22" height="6" rx="1" fill="#172554"/>
-    <!-- Crisp White Oxford Shirt Inner Cuff Peeking: #FFFFFF -->
-    <rect x="145" y="494" width="20" height="3" rx="0.5" fill="#FFFFFF"/>
 
-    <!-- Left Hand: Cleanly formed relaxed hand (x: 140-155, y: 497-530) -->
-    <!-- Palm & Hand Base: Base Skin #F5D0A9 -->
-    <path d="M 146 497 
-             C 142 505 141 512 142 522 
-             C 143 527 148 530 152 528 
-             C 156 526 158 518 158 508 
-             L 162 497 
-             Z" fill="#F5D0A9"/>
-    <!-- Articulated relaxed fingers pointing downwards: Base Skin #F5D0A9, lines #E2B380 -->
-    <!-- Thumb (inner side facing body) -->
-    <path d="M 158 502 C 160 506 161 512 160 516 C 159 518 156 517 155 513 C 155 508 156 504 158 502 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.8"/>
-    <!-- Index Finger -->
-    <path d="M 143 514 C 143 524 145 528 147 528 C 148 528 148 524 148 514 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.7"/>
-    <!-- Middle Finger -->
-    <path d="M 147 515 C 147 526 149 530 151 530 C 152 530 152 526 152 515 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.7"/>
-    <!-- Ring Finger -->
-    <path d="M 151 515 C 151 525 153 528 154 528 C 155 528 155 525 155 515 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.7"/>
-    <!-- Little Finger -->
-    <path d="M 154 513 C 154 521 156 524 157 524 C 158 524 158 521 157 513 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.7"/>
-    <!-- Knuckle crease shadows: #E2B380 -->
-    <line x1="144" y1="518" x2="156" y2="518" stroke="#E2B380" stroke-width="0.8"/>
+    <!-- Left Sleeve Cel-Shading Shadow: Dark Navy #172554 -->
+    <path d="M 168 244 
+             C 150 256 133 300 126 355 
+             C 123 388 123 430 125 476 
+             L 134 476 
+             C 133 430 133 388 136 355 
+             C 142 300 155 258 168 244 Z" fill="#172554"/>
+
+    <!-- Left Sleeve Cuff: Dark Navy #172554 -->
+    <rect x="124" y="476" width="33" height="8" rx="2" fill="#172554"/>
+    <!-- Left Inner Shirt Cuff: Clean White #FFFFFF -->
+    <rect x="126" y="484" width="29" height="4" rx="1" fill="#FFFFFF"/>
+
+    <!-- Left Hand: Relaxed anatomical hand with inward-curving fingers & inner thumb -->
+    <!-- Palm & Finger Silhouette: Base Skin #F5D0A9 -->
+    <path d="M 129 488 
+             C 127 500 128 514 131 524 
+             C 134 532 138 538 143 540 
+             C 148 541 151 536 151 528 
+             C 151 520 150 514 150 514 
+             C 154 514 156 508 156 502 
+             C 156 496 153 490 150 488 
+             Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.8" stroke-linejoin="round"/>
+
+    <!-- Left Thumb: Articulated on inner side facing thigh -->
+    <path d="M 149 494 
+             C 153 496 156 500 156 506 
+             C 156 512 153 516 150 514 
+             C 148 512 148 506 148 500 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.7"/>
+
+    <!-- Left Hand Finger Definition Lines: #E2B380 -->
+    <!-- Pinky crease -->
+    <path d="M 134 516 C 134 524 136 532 139 536" stroke="#E2B380" stroke-width="0.7" fill="none"/>
+    <!-- Ring finger crease -->
+    <path d="M 139 514 C 140 524 142 534 144 539" stroke="#E2B380" stroke-width="0.7" fill="none"/>
+    <!-- Middle finger crease -->
+    <path d="M 144 514 C 145 522 147 530 148 536" stroke="#E2B380" stroke-width="0.7" fill="none"/>
+    <!-- Knuckle shadow band -->
+    <path d="M 130 512 Q 140 515 150 512" stroke="#E2B380" stroke-width="0.8" fill="none"/>
 
 
     <!-- ==================== RIGHT ARM & HAND ==================== -->
-    <!-- Upper arm from shoulder (340, 260) down to elbow (350, 380), forearm down to wrist (355, 490) -->
-    <!-- Sleeve: Deep Navy #1E3A8A -->
-    <path d="M 330 245 
-             C 342 260 348 310 350 380 
-             C 352 420 354 460 355 490 
-             L 335 488 
-             C 334 455 332 415 330 380 
-             C 328 340 324 295 318 260 
+    <!-- Sleeve: Deep Navy #1E3A8A (Flared from shoulder 332,244 to elbow 374,355, leaving open space to torso) -->
+    <path d="M 332 244 
+             C 350 256 367 300 374 355 
+             C 377 388 377 430 375 476 
+             L 344 476 
+             C 346 430 348 388 346 355 
+             C 345 305 336 268 326 260 
              Z" fill="#1E3A8A"/>
-    <!-- Flank Shadow: Dark Navy #172554 -->
-    <path d="M 350 380 C 352 420 354 460 355 490 L 345 489 C 344 460 342 420 340 380 Z" fill="#172554"/>
-    <!-- Sleeve Cuff: #172554 -->
-    <rect x="334" y="488" width="22" height="6" rx="1" fill="#172554"/>
-    <!-- Crisp White Oxford Shirt Inner Cuff Peeking: #FFFFFF -->
-    <rect x="335" y="494" width="20" height="3" rx="0.5" fill="#FFFFFF"/>
 
-    <!-- Right Hand: Cleanly formed relaxed hand (x: 345-360, y: 497-530) -->
-    <!-- Palm & Hand Base: Base Skin #F5D0A9 -->
-    <path d="M 354 497 
-             C 358 505 359 512 358 522 
-             C 357 527 352 530 348 528 
-             C 344 526 342 518 342 508 
-             L 338 497 
-             Z" fill="#F5D0A9"/>
-    <!-- Articulated relaxed fingers pointing downwards: Base Skin #F5D0A9, lines #E2B380 -->
-    <!-- Thumb (inner side facing body) -->
-    <path d="M 342 502 C 340 506 339 512 340 516 C 341 518 344 517 345 513 C 345 508 344 504 342 502 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.8"/>
-    <!-- Index Finger -->
-    <path d="M 357 514 C 357 524 355 528 353 528 C 352 528 352 524 352 514 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.7"/>
-    <!-- Middle Finger -->
-    <path d="M 353 515 C 353 526 351 530 349 530 C 348 530 348 526 348 515 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.7"/>
-    <!-- Ring Finger -->
-    <path d="M 349 515 C 349 525 347 528 346 528 C 345 528 345 525 345 515 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.7"/>
-    <!-- Little Finger -->
-    <path d="M 346 513 C 346 521 344 524 343 524 C 342 524 342 521 343 513 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.7"/>
-    <!-- Knuckle crease shadows: #E2B380 -->
-    <line x1="344" y1="518" x2="356" y2="518" stroke="#E2B380" stroke-width="0.8"/>
+    <!-- Right Sleeve Cel-Shading Fold: Dark Navy #172554 -->
+    <path d="M 344 476 L 354 476 C 353 430 353 388 350 355 C 347 315 340 275 332 244 L 326 260 C 336 268 345 305 346 355 C 348 388 346 430 344 476 Z" fill="#172554"/>
+
+    <!-- Right Sleeve Cuff: Dark Navy #172554 -->
+    <rect x="343" y="476" width="33" height="8" rx="2" fill="#172554"/>
+    <!-- Right Inner Shirt Cuff: Clean White #FFFFFF -->
+    <rect x="345" y="484" width="29" height="4" rx="1" fill="#FFFFFF"/>
+
+    <!-- Right Hand: Relaxed anatomical hand with inward-curving fingers & inner thumb -->
+    <!-- Palm & Finger Silhouette: Base Skin #F5D0A9 -->
+    <path d="M 371 488 
+             C 373 500 372 514 369 524 
+             C 366 532 362 538 357 540 
+             C 352 541 349 536 349 528 
+             C 349 520 350 514 350 514 
+             C 346 514 344 508 344 502 
+             C 344 496 347 490 350 488 
+             Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.8" stroke-linejoin="round"/>
+
+    <!-- Right Thumb: Articulated on inner side facing thigh -->
+    <path d="M 351 494 
+             C 347 496 344 500 344 506 
+             C 344 512 347 516 350 514 
+             C 352 512 352 506 352 500 Z" fill="#F5D0A9" stroke="#E2B380" stroke-width="0.7"/>
+
+    <!-- Right Hand Finger Definition Lines: #E2B380 -->
+    <!-- Pinky crease -->
+    <path d="M 366 516 C 366 524 364 532 361 536" stroke="#E2B380" stroke-width="0.7" fill="none"/>
+    <!-- Ring finger crease -->
+    <path d="M 361 514 C 360 524 358 534 356 539" stroke="#E2B380" stroke-width="0.7" fill="none"/>
+    <!-- Middle finger crease -->
+    <path d="M 356 514 C 355 522 353 530 352 536" stroke="#E2B380" stroke-width="0.7" fill="none"/>
+    <!-- Knuckle shadow band -->
+    <path d="M 370 512 Q 360 515 350 512" stroke="#E2B380" stroke-width="0.8" fill="none"/>
   </g>
 
   <!-- LAYER 4: HEAD, NECK & FACE (MATURE 45-50 YEAR OLD HAGWON DIRECTOR) -->
