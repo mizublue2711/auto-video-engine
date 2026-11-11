@@ -1,0 +1,67 @@
+{
+  "id": "mascot_crabit_carat_crystal",
+  "name": "Master Diamond Carat Crab Mascot",
+  "category": "prop",
+  "viewBox": "0 0 400 350",
+  "dimensions": {
+    "width": 400,
+    "height": 350
+  },
+  "pivots": {
+    "global_pivot": {
+      "x": 200,
+      "y": 280
+    },
+    "body_center": {
+      "x": 200,
+      "y": 185
+    },
+    "head_eyes": {
+      "x": 200,
+      "y": 98
+    }
+  },
+  "sockets": {
+    "floor_contact": {
+      "x": 200,
+      "y": 280
+    },
+    "claw_left_root": {
+      "x": 128,
+      "y": 145
+    },
+    "claw_right_root": {
+      "x": 272,
+      "y": 145
+    },
+    "eye_stalk_left": {
+      "x": 168,
+      "y": 98
+    },
+    "eye_stalk_right": {
+      "x": 232,
+      "y": 98
+    }
+  },
+  "immutable_inputs": {
+    "color_tokens_used": [
+      "#E0F7FA",
+      "#00E5FF",
+      "#00B4D8",
+      "#0077B6",
+      "#023E8A",
+      "#0F172A",
+      "#FFFFFF"
+    ]
+  },
+  "tags": [
+    "mascot",
+    "crabit",
+    "carat",
+    "crystal",
+    "diamond",
+    "anime",
+    "faceted"
+  ],
+  "version": "1.0.0"
+}

@@ -92,4 +92,15 @@ Whenever a corrective feedback is received, a visual inspection fails, or a new 
 * **4. What is the non-negotiable rule for future tasks (Golden Rule)?**
   - After extracting sub-assets, inspect raw path nodes to ensure zero stray boolean fragments exist, and verify the neck base flares outward before socket registration.
 
+### 🛑 CASE 07: XML COMMENT SYNTAX & HIGH-CONTRAST VECTOR GEM MASCOT INTEGRATION (Updated: 2026-11-11)
+* **1. What was the problem (Visual / Technical Defect)?**
+  - Standard SVG/XML parsers (such as resvg-js and strict headless browsers) aborted rendering with syntax error `SVG data parsing failed cause invalid comment at line X: '--' is not allowed in comments`. Visually, initial spectacle white stroke lacked depth against light backgrounds, and claw arms appeared blocky rather than flowing in dynamic anime crescent arcs.
+* **2. How was it resolved (Root Cause & Solution)?**
+  - Purged all double hyphens `--` inside SVG comment blocks to strictly satisfy XML 1.0 specifications. Enhanced spectacle frames with a subtle dual-rim contrast underlayer (`#0077B6` 4.8px at opacity 0.45) beneath the brilliant `#FFFFFF` stroke, scaled intellect eyes to expressive anime proportions (R=24) with 4-point star sparkle highlights, and sculpted claw arms into sweeping faceted crescent prisms with gradient-illuminated pincer tips (`#00E5FF` to `#E0F7FA`).
+* **3. What is the key lesson (Key Insight)?**
+  - SVG files are XML documents subject to strict XML 1.0 comment grammar; using ASCII separators like `<!-- --- -->` causes fatal parser crashes. Furthermore, white vector lines intended as highlights must include dark or ambient depth rims to avoid washing out across white or transparent canvas backgrounds.
+* **4. What is the non-negotiable rule for future tasks (Golden Rule)?**
+  - Never include `--` inside SVG comments. All white foreground line accents and spectacles must feature contrast backdrops or rim underlayers. Every newly created mascot or prop must pass the offline resvg-js render and multimodal Mirror Test before landing.
+
+
 
