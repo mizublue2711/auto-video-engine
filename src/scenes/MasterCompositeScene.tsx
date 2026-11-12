@@ -26,6 +26,16 @@ import {
 } from '../components/fx';
 import { FxMascotRunTrail } from '../components/fx/FxMascotRunTrail';
 import { KineticText } from '../components/text/KineticText';
+import {
+  IconCaratDiamond,
+  IconFlashQuest,
+  IconTargetMission,
+} from '../components/ui/VectorIcons';
+import { CouponTicketCard } from '../components/ui/CouponTicketCard';
+import {
+  KineticStaggerWrapper,
+  SpatialCameraDolly,
+} from '../components/motion';
 
 // ============================================================================
 // 🎨 GLOBAL K-FINTECH DESIGN TOKENS (SINGLE SOURCE OF TRUTH)
@@ -66,6 +76,39 @@ export const THEME_TOKENS = {
   accents: {
     goldReward: '#F59E0B',        // Vàng cam cho Carat / Học bổng
     cyanBrand: '#0284C7',         // Xanh thương hiệu Crabit
+  },
+
+  // 🎨 UNIFIED CRABIT BRAND ICON TOKENS (ZERO RED/ORANGE - PURE BRAND CYAN & SKY BLUE)
+  icons: {
+    // 1. 🎯 Target Mission Icon (Quest & Killer Exam Auth)
+    target: {
+      primary: '#0284C7',          // Royal Sky Blue (Vòng ngoài và khía laser)
+      accent: '#00E5FF',           // Electric Cyan phát quang (Vòng đồng tâm giữa)
+      center: '#0369A1',           // Deep Blue (Tâm điểm hồng tâm)
+      glow: 'rgba(0, 229, 255, 0.35)',
+    },
+
+    // 2. 💎 Carat Diamond Icon (Crabit Cyan Gemstone)
+    diamond: {
+      gradientStart: '#0284C7',    // Royal Sky Blue (Mặt chính)
+      gradientEnd: '#00E5FF',      // Electric Cyan tươi sáng (Đỉnh giác cắt)
+      facetLight: '#E0F2FE',       // Phản quang trắng xanh ngọc bích
+      facetShadow: '#0369A1',      // Xanh thẫm chiều sâu vát cạnh
+      glow: 'rgba(0, 229, 255, 0.45)', // Hào quang xanh ngọc êm dịu
+    },
+
+    // 3. ⚡ Flash Quest Icon (Realtime Engine Pill Tag)
+    lightning: {
+      fill: '#00E5FF',             // Electric Cyan phát sáng
+      glow: 'rgba(0, 229, 255, 0.5)',
+    },
+
+    // 4. Standardized Sizing
+    size: {
+      badge: 20,                   // Tag viên thuốc
+      card: 32,                    // Thẻ tính năng
+      hero: 48,                    // Điểm nhấn lớn
+    },
   },
 } as const;
 
@@ -648,139 +691,202 @@ export const MasterCompositeScene: React.FC = () => {
           Layout: Split-screen composition (Left: 3D Phone / Right: Feature Typography)
          ========================================================================= */}
       <Series.Sequence durationInFrames={119}>
-        <div
-          style={{
-            position: 'relative',
-            width: 1920,
-            height: 1080,
-            background: THEME_TOKENS.background.global,
-            overflow: 'hidden',
-          }}
-        >
-          {/* Ambient glow layer behind phone */}
+        <SpatialCameraDolly durationInFrames={119}>
           <div
             style={{
-              position: 'absolute',
-              inset: 0,
-              background: THEME_TOKENS.background.ambientGlow,
-              pointerEvents: 'none',
-            }}
-          />
-
-          {/* REUSABLE LEGO WRAPPER: Handles positioning and real-time visual tuning */}
-          <SpatialTunerFrame
-            storageKey="scene3_phone"
-            enabled={false}
-            initialValues={{
-              leftPercent: -2,
-              topPercent: 21,
-              boxWidth: 1080,
-              boxHeight: 1080,
-              scale: 1.2,
+              position: 'relative',
+              width: 1920,
+              height: 1080,
+              background: THEME_TOKENS.background.global,
+              overflow: 'hidden',
             }}
           >
-            <CrabitSmartphone3D />
-          </SpatialTunerFrame>
-
-          {/* 3. RIGHT 50% FEATURE TYPOGRAPHY & TELEMETRY PANEL */}
-          <div
-            style={{
-              position: 'absolute',
-              right: '6%',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              width: 740,
-              zIndex: 3,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 20,
-              fontFamily: 'system-ui, -apple-system, sans-serif',
-            }}
-          >
-            {/* Category Pill Tag */}
+            {/* Ambient glow layer behind phone */}
             <div
               style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 10,
-                backgroundColor: THEME_TOKENS.cards.surfaceBg,
-                border: THEME_TOKENS.cards.surfaceBorder,
-                boxShadow: THEME_TOKENS.cards.surfaceShadow,
-                borderRadius: THEME_TOKENS.cards.borderRadiusPill,
-                padding: '8px 22px',
-                width: 'fit-content',
-                backdropFilter: 'blur(16px)',
-                WebkitBackdropFilter: 'blur(16px)',
+                position: 'absolute',
+                inset: 0,
+                background: THEME_TOKENS.background.ambientGlow,
+                pointerEvents: 'none',
+              }}
+            />
+
+            {/* REUSABLE LEGO WRAPPER: Handles positioning and real-time visual tuning */}
+            <SpatialTunerFrame
+              storageKey="scene3_phone"
+              enabled={false}
+              initialValues={{
+                leftPercent: -2,
+                topPercent: 21,
+                boxWidth: 1080,
+                boxHeight: 1080,
+                scale: 1.2,
               }}
             >
-              <span style={{ color: THEME_TOKENS.typography.badgeText, fontSize: 18, fontWeight: 700 }}>◆ QUEST ENGINE</span>
-              <span style={{ color: '#94A3B8', fontSize: 16 }}>|</span>
-              <span style={{ color: THEME_TOKENS.typography.titleHighlight, fontSize: 18, fontWeight: 600 }}>실시간 동기화</span>
-            </div>
+              <CrabitSmartphone3D />
+            </SpatialTunerFrame>
 
-            {/* Main Feature Title */}
+            {/* RIGHT COLUMN: K-FINTECH FEATURE CARDS & SQUIRCLE BADGES */}
             <div
               style={{
-                fontSize: 54,
-                fontWeight: 900,
-                color: THEME_TOKENS.typography.titlePrimary,
-                lineHeight: 1.15,
-                letterSpacing: -1,
+                position: 'absolute',
+                right: '5%',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                width: 760,
+                zIndex: 10,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 22,
+                fontFamily:
+                  'Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
               }}
             >
-              학원 미션 수행하고 <br />
-              <span
-                style={{
-                  color: THEME_TOKENS.typography.titleHighlight,
-                }}
-              >
-                캐럿 장학금
-              </span>
-              을 즉시 획득
+              {/* Stagger 0: Top Pill Badge */}
+              <KineticStaggerWrapper staggerIndex={0} inFrame={12} direction="up">
+                <div
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 12,
+                    background: 'rgba(255, 255, 255, 0.85)',
+                    border: '1.5px solid rgba(2, 132, 199, 0.25)',
+                    borderRadius: THEME_TOKENS.cards.borderRadiusPill,
+                    padding: '10px 24px',
+                    width: 'fit-content',
+                    boxShadow: '0 8px 20px rgba(2, 132, 199, 0.12)',
+                    backdropFilter: 'blur(12px)',
+                  }}
+                >
+                  <IconFlashQuest
+                    size={THEME_TOKENS.icons.size.badge}
+                    fillColor={THEME_TOKENS.icons.lightning.fill}
+                  />
+                  <span
+                    style={{
+                      color: THEME_TOKENS.typography.titleHighlight,
+                      fontSize: 19,
+                      fontWeight: 800,
+                      letterSpacing: 0.5,
+                    }}
+                  >
+                    실시간 퀘스트 연동
+                  </span>
+                  <span style={{ color: '#94A3B8', fontSize: 16 }}>•</span>
+                  <span style={{ color: '#475569', fontSize: 17, fontWeight: 600 }}>
+                    Hagwon Quest Engine
+                  </span>
+                </div>
+              </KineticStaggerWrapper>
+
+              {/* Stagger 1: Hero Kinetic Headline */}
+              <KineticStaggerWrapper staggerIndex={1} inFrame={16} direction="up">
+                <div
+                  style={{
+                    fontSize: 52,
+                    fontWeight: 900,
+                    color: THEME_TOKENS.typography.titlePrimary,
+                    lineHeight: 1.2,
+                    letterSpacing: -1.2,
+                  }}
+                >
+                  학원 미션 완료하면 <br />
+                  <span
+                    style={{
+                      color: THEME_TOKENS.typography.titleHighlight,
+                      background: 'linear-gradient(90deg, #0284C7 0%, #0369A1 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                    }}
+                  >
+                    캐럿 장학금
+                  </span>
+                  이 바로 쏟아져요
+                </div>
+              </KineticStaggerWrapper>
+
+              {/* 3. K-FINTECH INTERACTIVE COUPON TICKET CARDS */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 18, marginTop: 8 }}>
+                {/* Stagger 2: First Coupon Ticket Card */}
+                <KineticStaggerWrapper staggerIndex={2} inFrame={22} direction="up">
+                  <CouponTicketCard
+                    category="수능 킬러 문항 & 자습 인증"
+                    heroValue="100% REWARD"
+                    heroHighlightColor="#0284C7"
+                    description="문제를 풀고 인증하면 미션 달성 즉시 지급"
+                    icon={
+                      <div
+                        style={{
+                          width: 52,
+                          height: 52,
+                          borderRadius: 18,
+                          background: '#E0F2FE',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}
+                      >
+                        <IconTargetMission size={30} />
+                      </div>
+                    }
+                  />
+                </KineticStaggerWrapper>
+
+                {/* Stagger 3: Second Coupon Ticket Card */}
+                <KineticStaggerWrapper staggerIndex={3} inFrame={28} direction="up">
+                  <CouponTicketCard
+                    category="학원 캐럿 장학금 적립"
+                    heroValue="+5,000 CARAT"
+                    heroHighlightColor="#0284C7"
+                    description="쌓인 캐럿은 체크카드로 편의점/서점 즉시 결제"
+                    icon={
+                      <div
+                        style={{
+                          width: 52,
+                          height: 52,
+                          borderRadius: 18,
+                          background: '#E0F2FE',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}
+                      >
+                        <IconCaratDiamond size={30} />
+                      </div>
+                    }
+                  />
+                </KineticStaggerWrapper>
+              </div>
             </div>
 
-            {/* Feature Bullet Points */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginTop: 10 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: THEME_TOKENS.typography.titleHighlight }} />
-                <span style={{ fontSize: 24, color: THEME_TOKENS.typography.bodyText, fontWeight: 500 }}>
-                  수능 킬러 문항 및 심야 자습 출석 자동 인증
-                </span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: THEME_TOKENS.accents.cyanBrand }} />
-                <span style={{ fontSize: 24, color: THEME_TOKENS.typography.bodyText, fontWeight: 500 }}>
-                  적립된 캐럿은 Crabit 체크카드로 즉시 전환
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* 4. Bottom Centered Subtitle Glow Line */}
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '5%',
-              left: 0,
-              width: '100%',
-              textAlign: 'center',
-              zIndex: 4,
-              pointerEvents: 'none',
-            }}
-          >
-            <span
+            {/* 4. Bottom Centered Subtitle Glow Line */}
+            <div
               style={{
-                color: THEME_TOKENS.typography.badgeText,
-                fontSize: 22,
-                fontWeight: 600,
-                letterSpacing: 2,
-                fontFamily: 'monospace',
+                position: 'absolute',
+                bottom: '5%',
+                left: 0,
+                width: '100%',
+                textAlign: 'center',
+                zIndex: 4,
+                pointerEvents: 'none',
               }}
             >
-              CRABIT KOREA // DUAL-TRACK FINTECH REWARD SYSTEM
-            </span>
+              <KineticStaggerWrapper staggerIndex={4} inFrame={32} direction="up">
+                <span
+                  style={{
+                    color: THEME_TOKENS.typography.badgeText,
+                    fontSize: 22,
+                    fontWeight: 600,
+                    letterSpacing: 2,
+                    fontFamily: 'monospace',
+                  }}
+                >
+                  CRABIT KOREA // DUAL-TRACK FINTECH REWARD SYSTEM
+                </span>
+              </KineticStaggerWrapper>
+            </div>
           </div>
-        </div>
+        </SpatialCameraDolly>
       </Series.Sequence>
 
       {/* 4A. SCENE 4A: CHALKBOARD IMPACT INSERT (36 frames / 1.5s) */}
