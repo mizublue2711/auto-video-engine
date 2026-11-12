@@ -195,7 +195,7 @@ export const PropPhoneScreenUI: React.FC<PropPhoneScreenUIProps> = ({
         width: '100%',
         height: '100%',
         backgroundColor: '#F8FAFC',
-        borderRadius: bareScreen ? 24 : 42,
+        borderRadius: bareScreen ? 0 : 42,
         display: 'flex',
         flexDirection: 'column',
         overflow: 'hidden',

@@ -1031,102 +1031,170 @@ export const MasterCompositeScene: React.FC = () => {
               <Audio src={staticFile('audio/sfx/bubble_pop_ui.mp3')} volume={0.5} />
             </Sequence>
 
-            {/* REUSABLE LEGO WRAPPER: Handles positioning and real-time visual tuning */}
-            <SpatialTunerFrame
-              storageKey="scene3_phone"
-              enabled={false}
-              initialValues={{
-                leftPercent: -2,
-                topPercent: 21,
-                boxWidth: 1080,
-                boxHeight: 1080,
-                scale: 1.2,
-              }}
-            >
-              <CrabitSmartphone3D />
-            </SpatialTunerFrame>
-
-            {/* RIGHT COLUMN: K-FINTECH FEATURE CARDS & SQUIRCLE BADGES */}
+            {/* 1. Lớp 3D riêng biệt cho Điện thoại */}
             <div
               style={{
                 position: 'absolute',
-                right: '5%',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                width: 760,
+                left: 200, // Cố định tâm máy ở 1920x1080
+                top: 150,
+                width: 600,
+                height: 900,
                 zIndex: 10,
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 22,
-                fontFamily:
-                  'Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                transform: 'translate3d(0, 0, 0)',
+                backfaceVisibility: 'hidden',
+                WebkitBackfaceVisibility: 'hidden',
               }}
             >
-              {/* Stagger 0: Top Pill Badge */}
-              <KineticStaggerWrapper staggerIndex={0} inFrame={12} direction="up">
-                <div
+              <CrabitSmartphone3D />
+            </div>
+
+            {/* 2. Lớp HUD 2D riêng biệt (Không bị ảnh hưởng bởi perspective của 3D) */}
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                pointerEvents: 'none',
+                zIndex: 30, // Nổi hoàn toàn bên trên
+              }}
+            >
+              {/* Badge Carat Engine - Khóa chết tọa độ góc trên bên trái an toàn */}
+              <div
+                style={{
+                  position: 'absolute',
+                  left: 80,
+                  top: 80,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 10,
+                  background: 'rgba(255, 255, 255, 0.95)',
+                  border: '1.5px solid rgba(2, 132, 199, 0.35)',
+                  borderRadius: 9999,
+                  padding: '10px 22px',
+                  boxShadow: '0 8px 24px rgba(2, 132, 199, 0.16)',
+                  zIndex: 50,
+                  fontFamily: '"Pretendard", -apple-system, sans-serif',
+                }}
+              >
+                <span style={{ fontSize: 18 }}>💎</span>
+                <span
                   style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: 12,
-                    background: 'rgba(255, 255, 255, 0.85)',
-                    border: '1.5px solid rgba(2, 132, 199, 0.25)',
-                    borderRadius: THEME_TOKENS.cards.borderRadiusPill,
-                    padding: '10px 24px',
-                    width: 'fit-content',
-                    boxShadow: '0 8px 20px rgba(2, 132, 199, 0.12)',
-                    backdropFilter: 'blur(12px)',
+                    fontSize: 16,
+                    fontWeight: 800,
+                    color: '#0F172A',
+                    letterSpacing: -0.2,
+                    whiteSpace: 'nowrap',
                   }}
                 >
-                  <IconFlashQuest
-                    size={THEME_TOKENS.icons.size.badge}
-                    fillColor={THEME_TOKENS.icons.lightning.fill}
-                  />
-                  <span
+                  캐럿 장학금 엔진 <span style={{ color: '#0284C7', fontWeight: 700 }}>// Carat Engine</span>
+                </span>
+              </div>
+
+              {/* Top Pill Badge - Tọa độ cố định trên khung 1920x1080 */}
+              <div
+                style={{
+                  position: 'absolute',
+                  left: 1100,
+                  top: 240,
+                  zIndex: 30,
+                }}
+              >
+                <KineticStaggerWrapper staggerIndex={0} inFrame={12} direction="up">
+                  <div
                     style={{
-                      color: THEME_TOKENS.typography.titleHighlight,
-                      fontSize: 19,
-                      fontWeight: 800,
-                      letterSpacing: 0.5,
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 12,
+                      background: 'rgba(255, 255, 255, 0.95)',
+                      border: '1.5px solid rgba(2, 132, 199, 0.25)',
+                      borderRadius: THEME_TOKENS.cards.borderRadiusPill,
+                      padding: '10px 24px',
+                      width: 'fit-content',
+                      boxShadow: '0 8px 20px rgba(2, 132, 199, 0.12)',
                     }}
                   >
-                    실시간 퀘스트 연동
-                  </span>
-                  <span style={{ color: '#94A3B8', fontSize: 16 }}>•</span>
-                  <span style={{ color: '#475569', fontSize: 17, fontWeight: 600 }}>
-                    Hagwon Quest Engine
-                  </span>
-                </div>
-              </KineticStaggerWrapper>
+                    <IconFlashQuest
+                      size={THEME_TOKENS.icons.size.badge}
+                      fillColor={THEME_TOKENS.icons.lightning.fill}
+                    />
+                    <span
+                      style={{
+                        color: THEME_TOKENS.typography.titleHighlight,
+                        fontSize: 19,
+                        fontWeight: 800,
+                        letterSpacing: 0.5,
+                      }}
+                    >
+                      실시간 퀘스트 연동
+                    </span>
+                    <span style={{ color: '#94A3B8', fontSize: 16 }}>•</span>
+                    <span style={{ color: '#475569', fontSize: 17, fontWeight: 600 }}>
+                      Hagwon Quest Engine
+                    </span>
+                  </div>
+                </KineticStaggerWrapper>
+              </div>
 
-              {/* Stagger 1: Hero Kinetic Headline */}
-              <KineticStaggerWrapper staggerIndex={1} inFrame={16} direction="up">
-                <div
+              {/* Container bọc cụm Text bên phải - Tọa độ cố định trên khung 1920x1080 */}
+              <div
+                style={{
+                  position: 'absolute',
+                  left: 1100, // Cố định nằm ở mảng bên phải, tuyệt đối không đè điện thoại
+                  top: 320,  // Cao độ chuẩn ngang tầm nửa trên điện thoại
+                  width: 700,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  gap: 16, // Khoảng cách tự nhiên giữa 2 dòng, không bao giờ bị đè chữ
+                  zIndex: 30,
+                  fontFamily: '"Pretendard", sans-serif',
+                }}
+              >
+                {/* Dòng 1: Chữ đen */}
+                <h2
                   style={{
-                    fontSize: 52,
+                    margin: 0,
+                    padding: 0,
+                    fontSize: 48,
                     fontWeight: 900,
-                    color: THEME_TOKENS.typography.titlePrimary,
+                    color: '#0f172a',
                     lineHeight: 1.2,
-                    letterSpacing: -1.2,
+                    letterSpacing: '-0.03em',
+                    whiteSpace: 'nowrap',
                   }}
                 >
-                  학원 미션 완료하면 <br />
-                  <span
-                    style={{
-                      color: THEME_TOKENS.typography.titleHighlight,
-                      background: 'linear-gradient(90deg, #0284C7 0%, #0369A1 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                    }}
-                  >
-                    캐럿 장학금
-                  </span>
-                  이 바로 쏟아져요
-                </div>
-              </KineticStaggerWrapper>
+                  학원 미션 완료하면
+                </h2>
 
-              {/* 3. K-FINTECH INTERACTIVE COUPON TICKET CARDS */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 18, marginTop: 8 }}>
+                {/* Dòng 2: Chữ xanh Cyan K-Fintech */}
+                <h2
+                  style={{
+                    margin: 0,
+                    padding: 0,
+                    fontSize: 48,
+                    fontWeight: 900,
+                    color: '#0284c7',
+                    lineHeight: 1.2,
+                    letterSpacing: '-0.03em',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  캐럿 장학금이 바로 쏟아져요
+                </h2>
+              </div>
+
+              {/* 3. K-FINTECH INTERACTIVE COUPON TICKET CARDS - Tọa độ cố định trên khung 1920x1080 */}
+              <div
+                style={{
+                  position: 'absolute',
+                  left: 1100,
+                  top: 485,
+                  width: 700,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 18,
+                  zIndex: 30,
+                }}
+              >
                 {/* Stagger 2: First Coupon Ticket Card */}
                 <KineticStaggerWrapper staggerIndex={2} inFrame={22} direction="up">
                   <CouponTicketCard
