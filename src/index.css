@@ -1,11 +1,100 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
+  --bg-void: #05050A;
+  --surface-panel: #0A0C14;
+  --surface-elevated: #0D0E17;
+  --border-muted: #1F1F2E;
+  --border-subtle: #2D2D44;
+  --brand-cyan: #00E5FF;
+  --brand-violet: #5322FF;
+  --brand-satellite: #10B981;
+  --text-primary: #FFFFFF;
+  --text-muted: #8A8FA3;
   --font-korean: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-  --font-numeric: "Pretendard", "SF Pro Display", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-heading: "Space Grotesk", var(--font-korean);
 }
 
-body, * {
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-void);
+  color: var(--text-primary);
   font-family: var(--font-korean);
-  letter-spacing: -0.02em; /* Chuẩn tracking giao diện app Hàn Quốc */
+  letter-spacing: -0.015em;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* CYBERNETIC SWISS BRUTALISM: ZERO RADIUS MANDATE ON SHOWCASE COMPONENTS */
+.brutalist-strict,
+.brutalist-strict *,
+.brutalist-strict *::before,
+.brutalist-strict *::after {
+  border-radius: 0px !important;
+}
+
+/* Mechanical Chiseled Corner 45-degree Notch */
+.mechanical-chisel {
+  clip-path: polygon(
+    0 0, 
+    calc(100% - 10px) 0, 
+    100% 10px, 
+    100% 100%, 
+    10px 100%, 
+    0 calc(100% - 10px)
+  );
+}
+
+.mechanical-chisel-sm {
+  clip-path: polygon(
+    0 0, 
+    calc(100% - 6px) 0, 
+    100% 6px, 
+    100% 100%, 
+    6px 100%, 
+    0 calc(100% - 6px)
+  );
+}
+
+/* CAD Grid Background */
+.cad-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(31, 31, 46, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(31, 31, 46, 0.4) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.cad-cross-bg {
+  background-image: radial-gradient(rgba(0, 229, 255, 0.15) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05050A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1F1F2E;
+  border: 1px solid #2D2D44;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00E5FF;
 }

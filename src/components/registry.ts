@@ -38,6 +38,19 @@ export {
   type HyperspeedProps,
 } from './backgrounds/HyperspeedWarpBackground';
 
+// 6. Showcase Landing Page Components
+export {
+  Navbar,
+  RemotionPlayerFrame,
+  StrategicPillars,
+  DualTrackPipeline,
+  TelemetrySection,
+  DeliverablesHub,
+  StoryboardFrameModal,
+  ContactTransmission,
+  ShowcaseLandingPage,
+} from './showcase';
+
 /**
  * 🏷️ Component Catalog Metadata (Dành cho AI Worker tra cứu mục đích sử dụng)
  */
@@ -61,6 +74,18 @@ export const ASSET_CATALOG = {
       name: 'HyperspeedWarpBackground',
       tag: 'Background/FX',
       desc: 'Nền tốc độ cao đa tầng gồm vệt tia pill, hạt warp và vệt mờ parallax',
+    },
+  },
+  showcase: {
+    landingPage: {
+      name: 'ShowcaseLandingPage',
+      tag: 'Showcase/Web',
+      desc: 'Master Showcase Landing Page for Crabit Korea Video-as-Code Automation',
+    },
+    playerFrame: {
+      name: 'RemotionPlayerFrame',
+      tag: 'Showcase/Player',
+      desc: 'Embedded Remotion Player with ambient glow, telemetry HUD & composition selector',
     },
   },
 } as const;
