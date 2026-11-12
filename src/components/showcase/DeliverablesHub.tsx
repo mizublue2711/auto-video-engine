@@ -86,7 +86,9 @@ export const DeliverablesHub: React.FC<DeliverablesHubProps> = ({
 
         {/* Nút 3: MP4 Master Commercial */}
         <a
-          href="/downloads/Crabit_Korea_Commercial_1080p.mp4"
+          href="https://pub-b61e4ba5294d47b594f0d427db0aa7b5.r2.dev/Crabit/Crabit_Korea_Commercial_1080p.mp4"
+          target="_blank"
+          rel="noopener noreferrer"
           download="Crabit_Korea_Commercial_1080p.mp4"
           className="p-6 bg-[#0A0C14] border-2 border-[#00E5FF] shadow-cyan-glow hover:scale-[1.02] transition-all flex flex-col justify-between group relative"
         >

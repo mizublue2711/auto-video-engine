@@ -236,7 +236,9 @@ export const RemotionPlayerFrame: React.FC<RemotionPlayerFrameProps> = ({ dict }
 
         {/* --- TOP-RIGHT OVERLAY: DOWNLOAD MASTER MP4 BUTTON --- */}
         <a
-          href="/downloads/Crabit_Korea_Commercial_1080p.mp4"
+          href="https://pub-b61e4ba5294d47b594f0d427db0aa7b5.r2.dev/Crabit/Crabit_Korea_Commercial_1080p.mp4"
+          target="_blank"
+          rel="noopener noreferrer"
           download="Crabit_Korea_Commercial_1080p.mp4"
           className="absolute top-3 right-3 z-30 px-3 py-1.5 bg-[#05050A]/90 hover:bg-[#00E5FF] text-[#00E5FF] hover:text-[#05050A] border border-[#00E5FF]/60 hover:border-[#00E5FF] shadow-lg shadow-[#00E5FF]/20 flex items-center gap-2 font-mono text-[11px] font-bold tracking-wider transition-all backdrop-blur-md group/dl cursor-pointer"
           title="Download Master Commercial Video (1080p 60FPS MP4)"
@@ -397,7 +399,9 @@ export const RemotionPlayerFrame: React.FC<RemotionPlayerFrameProps> = ({ dict }
 
           {/* Quick Download in Control Bar */}
           <a
-            href="/downloads/Crabit_Korea_Commercial_1080p.mp4"
+            href="https://pub-b61e4ba5294d47b594f0d427db0aa7b5.r2.dev/Crabit/Crabit_Korea_Commercial_1080p.mp4"
+            target="_blank"
+            rel="noopener noreferrer"
             download="Crabit_Korea_Commercial_1080p.mp4"
             className="ml-2 px-2.5 py-1 bg-[#031E2B] border border-[#00E5FF]/60 hover:border-[#00E5FF] text-[#00E5FF] hover:bg-[#00E5FF] hover:text-[#05050A] text-[10px] font-mono font-bold flex items-center gap-1.5 transition-all"
             title="Download Master MP4"

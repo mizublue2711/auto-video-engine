@@ -6,6 +6,8 @@ out/
 dist/
 build/
 .remotion/
+*.mp4
+public/downloads/*.mp4
 
 # OS and Editor
 .DS_Store
