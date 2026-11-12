@@ -4,10 +4,11 @@
   "description": "Scalable, multi-tenant programmatic video engine powered by Remotion, React, and Zod",
   "scripts": {
     "dev": "vite",
+    "build": "vite build",
+    "build:remotion": "remotion bundle src/index.ts",
     "build:showcase": "vite build",
     "preview": "vite preview",
     "start": "remotion preview src/index.ts",
-    "build": "remotion bundle src/index.ts",
     "render": "remotion render src/index.ts MasterComposition out/video.mp4",
     "render:still": "remotion still src/index.ts MasterComposition out/still.png",
     "type-check": "tsc --noEmit",
@@ -16,7 +17,7 @@
   },
   "dependencies": {
     "@react-three/fiber": "^8.18.0",
-    "@remotion/player": "^4.0.539",
+    "@remotion/player": "4.0.240",
     "@remotion/transitions": "4.0.240",
     "@types/three": "^0.187.0",
     "lucide-react": "^0.446.0",
@@ -32,7 +33,12 @@
     "@types/node": "^20.14.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
     "tsx": "^4.19.0",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "vite": "^5.4.14"
   }
 }
