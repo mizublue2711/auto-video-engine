@@ -2,11 +2,15 @@ import React, { useMemo, useRef } from 'react';
 import * as THREE from 'three';
 import { useCurrentFrame, interpolate, Easing } from 'remotion';
 import { Canvas } from '@react-three/fiber';
+import {
+  CrabitSmartphone3DMotionSchema,
+  CrabitSmartphone3DMotionProps,
+} from '../../schemas/ComponentSchema';
 
 export interface CrabitSmartphone3DProps {
-  config?: Record<string, unknown>;
+  config?: Partial<CrabitSmartphone3DMotionProps>;
   frame?: number;
-  motionConfig?: Record<string, unknown>;
+  motionConfig?: Partial<CrabitSmartphone3DMotionProps>;
   primaryColor?: string;
   accentColor?: string;
   scale?: number;
@@ -150,22 +154,113 @@ function generateCrabitTexture(scrollY: number): THREE.CanvasTexture {
   return texture;
 }
 
-export const CrabitSmartphone3D: React.FC<CrabitSmartphone3DProps> = () => {
+// PROCEDURAL BIONIC PCB CIRCUIT TEXTURE (512 x 1024)
+function generateBionicPCBTexture(): THREE.CanvasTexture {
+  const canvas = document.createElement('canvas');
+  canvas.width = 512;
+  canvas.height = 1024;
+  const ctx = canvas.getContext('2d')!;
+
+  ctx.fillStyle = '#050B16';
+  ctx.fillRect(0, 0, 512, 1024);
+
+  // Circuit traces
+  ctx.strokeStyle = 'rgba(0, 229, 255, 0.45)';
+  ctx.lineWidth = 2;
+  for (let i = 40; i < 480; i += 32) {
+    ctx.beginPath();
+    ctx.moveTo(i, 60);
+    ctx.lineTo(i, 960);
+    ctx.stroke();
+  }
+  for (let j = 80; j < 960; j += 48) {
+    ctx.beginPath();
+    ctx.moveTo(40, j);
+    ctx.lineTo(472, j);
+    ctx.stroke();
+  }
+
+  // Neural Co-Engine Core Die
+  ctx.fillStyle = '#0F172A';
+  ctx.strokeStyle = '#00E5FF';
+  ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.roundRect(136, 360, 240, 240, 16);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle = '#00E5FF';
+  ctx.font = 'bold 26px monospace';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('CRABIT 4nm', 256, 460);
+  ctx.fillStyle = '#38BDF8';
+  ctx.font = 'bold 20px monospace';
+  ctx.fillText('NEURAL CO-ENGINE', 256, 500);
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.needsUpdate = true;
+  return texture;
+}
+
+// PROCEDURAL 3D LASER TELEMETRY CALLOUT HUD TEXTURE
+function generateTelemetryCalloutTexture(label: string): THREE.CanvasTexture {
+  const canvas = document.createElement('canvas');
+  canvas.width = 640;
+  canvas.height = 120;
+  const ctx = canvas.getContext('2d')!;
+
+  ctx.clearRect(0, 0, 640, 120);
+
+  // Sleek dark glass HUD pill
+  ctx.fillStyle = 'rgba(11, 19, 43, 0.9)';
+  ctx.beginPath();
+  ctx.roundRect(8, 12, 624, 96, 14);
+  ctx.fill();
+
+  // Neon Cyan border
+  ctx.strokeStyle = '#00E5FF';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  // Left accent bar
+  ctx.fillStyle = '#00E5FF';
+  ctx.fillRect(22, 30, 8, 60);
+
+  // Telemetry text
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = 'bold 25px "SF Mono", "JetBrains Mono", Menlo, monospace';
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(label, 46, 62);
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.anisotropy = 4;
+  texture.needsUpdate = true;
+  return texture;
+}
+
+export const CrabitSmartphone3D: React.FC<CrabitSmartphone3DProps> = ({
+  config: rawConfig,
+  dispersionAmount: propDispersionAmount,
+}) => {
   const frame = useCurrentFrame();
   const groupRef = useRef<THREE.Group>(null);
 
-  // Kích thước chuẩn có độ dày thực tế
-  const bodyWidth = 2.2;
-  const bodyHeight = 4.6;
-  const bodyThickness = 0.24;
+  // Validate config with Schema Gatekeeper while enforcing mathematical invariants
+  useMemo(() => {
+    CrabitSmartphone3DMotionSchema.safeParse(rawConfig ?? {});
+  }, [rawConfig]);
 
-  // 1. Safe Bounded Rotations (Chống sập 2D)
-  const rotXBase = 0.36; // Góc nghiêng Isometric chuẩn 20.5 độ
-  const rotZBase = 0.04;
+  // 1. Mathematical Invariants (Strict 28° Isometric Pitch & Safe Bounded Y Oscillation)
+  const rotX = 0.488; // Strict 28° isometric pitch (>= 0.35 rad)
+  const rotZ = 0.06;
   const rotY = interpolate(
     frame,
     [0, 60, 119],
-    [-0.48, -0.28, -0.42],
+    [-0.42, -0.25, -0.35],
     {
       easing: Easing.bezier(0.2, 0.8, 0.3, 1),
       extrapolateLeft: 'clamp',
@@ -173,10 +268,35 @@ export const CrabitSmartphone3D: React.FC<CrabitSmartphone3DProps> = () => {
     }
   );
 
-  // 2. Nhịp thở không gian điều hòa tại tâm X = 0
+  // Harmonic vertical float locked at X = 0
   const floatY = Math.sin(frame / 16) * 0.035;
 
-  // Cuộn dữ liệu màn hình mượt mà
+  // Dynamic dispersion amount (interpolated over frames 20-50 when not explicitly overridden)
+  const timelineDispersion = interpolate(
+    frame,
+    [20, 35, 50],
+    [0, 0.35, 0],
+    {
+      easing: Easing.bezier(0.2, 0.8, 0.3, 1),
+      extrapolateLeft: 'clamp',
+      extrapolateRight: 'clamp',
+    }
+  );
+  const dispersionAmount =
+    propDispersionAmount !== undefined ? propDispersionAmount : timelineDispersion;
+
+  // Laser reflection sweep along chamfered edge
+  const laserSweepY = interpolate(
+    frame % 60,
+    [0, 59],
+    [-2.3, 2.3],
+    {
+      extrapolateLeft: 'clamp',
+      extrapolateRight: 'clamp',
+    }
+  );
+
+  // Smooth App UI Scroll
   const scrollY = interpolate(frame, [0, 119], [0, 1200], {
     easing: Easing.bezier(0.2, 0.8, 0.3, 1),
     extrapolateLeft: 'clamp',
@@ -184,35 +304,180 @@ export const CrabitSmartphone3D: React.FC<CrabitSmartphone3DProps> = () => {
   });
 
   const screenTex = useMemo(() => generateCrabitTexture(scrollY), [scrollY]);
+  const pcbTex = useMemo(() => generateBionicPCBTexture(), []);
 
-  const chassisMat = useMemo(
-    () => new THREE.MeshStandardMaterial({ color: '#1E293B', roughness: 0.25, metalness: 0.85 }),
+  // Telemetry HUD Callout Textures
+  const nodeATex = useMemo(
+    () => generateTelemetryCalloutTexture('DISPLAY // 9:19.5 OLED 120Hz'),
     []
   );
+  const nodeBTex = useMemo(
+    () => generateTelemetryCalloutTexture('PROCESSOR // 4nm NEURAL CO-ENGINE'),
+    []
+  );
+  const nodeCTex = useMemo(
+    () => generateTelemetryCalloutTexture('STATUS // REAL-TIME CSAT SYNC'),
+    []
+  );
+
+  // Geometries & Materials
+  const chassisGeo = useMemo(() => new THREE.BoxGeometry(2.2, 4.6, 0.24), []);
+  const chassisEdgesGeo = useMemo(() => new THREE.EdgesGeometry(chassisGeo), [chassisGeo]);
+
+  const oledGlassGeo = useMemo(() => new THREE.BoxGeometry(2.14, 4.54, 0.01), []);
+  const oledEdgesGeo = useMemo(() => new THREE.EdgesGeometry(oledGlassGeo), [oledGlassGeo]);
+
+  const pcbGeo = useMemo(() => new THREE.BoxGeometry(1.9, 4.2, 0.02), []);
+  const pcbEdgesGeo = useMemo(() => new THREE.EdgesGeometry(pcbGeo), [pcbGeo]);
+
+  const cameraBumpGeo = useMemo(() => new THREE.BoxGeometry(0.85, 1.15, 0.05), []);
+  const cameraBumpEdgesGeo = useMemo(
+    () => new THREE.EdgesGeometry(cameraBumpGeo),
+    [cameraBumpGeo]
+  );
+
+  const chassisMat = useMemo(
+    () =>
+      new THREE.MeshStandardMaterial({
+        color: '#1E293B',
+        metalness: 0.85,
+        roughness: 0.25,
+      }),
+    []
+  );
+
   const screenMat = useMemo(
     () => new THREE.MeshBasicMaterial({ map: screenTex }),
     [screenTex]
   );
 
-  const boxGeo = useMemo(() => new THREE.BoxGeometry(bodyWidth, bodyHeight, bodyThickness), []);
-  const edgesGeo = useMemo(() => new THREE.EdgesGeometry(boxGeo), []);
-  const lineMat = useMemo(() => new THREE.LineBasicMaterial({ color: '#00E5FF', linewidth: 2 }), []);
+  const pcbMat = useMemo(
+    () =>
+      new THREE.MeshStandardMaterial({
+        map: pcbTex,
+        metalness: 0.7,
+        roughness: 0.3,
+      }),
+    [pcbTex]
+  );
+
+  const cyanLineMat = useMemo(
+    () => new THREE.LineBasicMaterial({ color: '#00E5FF', linewidth: 2 }),
+    []
+  );
+
+  const leaderLineMat = useMemo(
+    () => new THREE.LineBasicMaterial({ color: '#00E5FF', linewidth: 1 }),
+    []
+  );
+
+  // 1px #00E5FF Leader Line Geometries connecting Telemetry Nodes to Chassis
+  const leaderLineAGeo = useMemo(() => {
+    const pts = [
+      new THREE.Vector3(1.1, 1.55, 0.12),
+      new THREE.Vector3(1.4, 1.8, 0.2),
+    ];
+    return new THREE.BufferGeometry().setFromPoints(pts);
+  }, []);
+
+  const leaderLineBGeo = useMemo(() => {
+    const pts = [
+      new THREE.Vector3(-1.1, 0.0, 0.0),
+      new THREE.Vector3(-1.4, 0.0, 0.0),
+    ];
+    return new THREE.BufferGeometry().setFromPoints(pts);
+  }, []);
+
+  const leaderLineCGeo = useMemo(() => {
+    const pts = [
+      new THREE.Vector3(1.1, -1.35, 0.12),
+      new THREE.Vector3(1.4, -1.6, 0.2),
+    ];
+    return new THREE.BufferGeometry().setFromPoints(pts);
+  }, []);
+
+  // Lens positions for Layer 3 Triple Camera Island
+  const lensPositions: [number, number, number][] = [
+    [-0.22, 0.28, -0.03],
+    [-0.22, -0.28, -0.03],
+    [0.22, 0.0, -0.03],
+  ];
 
   return (
-    <div style={{ position: 'absolute', inset: 0, width: 1920, height: 1080, pointerEvents: 'none' }}>
-      <Canvas camera={{ position: [0, 0, 5.0], fov: 40 }} gl={{ alpha: true, antialias: true }}>
-        <ambientLight intensity={1.6} />
-        <directionalLight position={[3, 5, 4]} intensity={2.2} color="#FFFFFF" />
-        <directionalLight position={[-4, -3, 2]} intensity={0.9} color="#00E5FF" />
+    <div
+      style={{
+        position: 'absolute',
+        inset: 0,
+        width: 1920,
+        height: 1080,
+        pointerEvents: 'none',
+      }}
+    >
+      <Canvas
+        camera={{ position: [0, 0, 5.0], fov: 40 }}
+        gl={{ alpha: true, antialias: true }}
+      >
+        <ambientLight intensity={1.8} />
+        <directionalLight position={[3, 5, 4]} intensity={2.4} color="#FFFFFF" />
+        <pointLight position={[-4, -3, 2]} intensity={1.2} color="#00E5FF" />
 
-        {/* Khóa chặt vị trí X = 0 tại gốc tọa độ */}
+        {/* Strictly anchored at X = 0 with scale = 0.62 */}
         <group
           ref={groupRef}
           position={[0, floatY, 0]}
-          rotation={[rotXBase, rotY, rotZBase]}
+          rotation={[rotX, rotY, rotZ]}
           scale={0.62}
         >
-          <mesh geometry={boxGeo}>
+          {/* ============================================================
+              LAYER 1: TITANIUM UNIBODY MIDFRAME & CHASSIS
+             ============================================================ */}
+          <mesh geometry={chassisGeo} material={chassisMat} />
+          <lineSegments geometry={chassisEdgesGeo} material={cyanLineMat} />
+
+          {/* Laser Reflection Sweep sliding along the chamfered edge */}
+          <mesh position={[1.105, laserSweepY, 0]} rotation={[0, Math.PI / 2, 0]}>
+            <planeGeometry args={[0.24, 0.55]} />
+            <meshBasicMaterial
+              color="#38BDF8"
+              transparent
+              opacity={0.4}
+              side={THREE.DoubleSide}
+            />
+          </mesh>
+          <mesh position={[-1.105, -laserSweepY, 0]} rotation={[0, Math.PI / 2, 0]}>
+            <planeGeometry args={[0.24, 0.55]} />
+            <meshBasicMaterial
+              color="#38BDF8"
+              transparent
+              opacity={0.4}
+              side={THREE.DoubleSide}
+            />
+          </mesh>
+
+          {/* Side Hardware Buttons */}
+          {/* Right: Power Button */}
+          <mesh position={[1.12, 0.5, 0]}>
+            <boxGeometry args={[0.04, 0.5, 0.08]} />
+            <meshStandardMaterial color="#38BDF8" metalness={0.9} roughness={0.2} />
+          </mesh>
+          {/* Left: Volume Up */}
+          <mesh position={[-1.12, 0.8, 0]}>
+            <boxGeometry args={[0.04, 0.35, 0.08]} />
+            <meshStandardMaterial color="#38BDF8" metalness={0.9} roughness={0.2} />
+          </mesh>
+          {/* Left: Volume Down */}
+          <mesh position={[-1.12, 0.3, 0]}>
+            <boxGeometry args={[0.04, 0.35, 0.08]} />
+            <meshStandardMaterial color="#38BDF8" metalness={0.9} roughness={0.2} />
+          </mesh>
+
+          {/* ============================================================
+              LAYER 2: OLED DISPLAY GLASS & FRONT CAMERA
+             ============================================================ */}
+          <mesh
+            position={[0, 0, 0.122 + dispersionAmount * 0.4]}
+            geometry={oledGlassGeo}
+          >
             <primitive object={chassisMat} attach="material-0" />
             <primitive object={chassisMat} attach="material-1" />
             <primitive object={chassisMat} attach="material-2" />
@@ -220,12 +485,134 @@ export const CrabitSmartphone3D: React.FC<CrabitSmartphone3DProps> = () => {
             <primitive object={screenMat} attach="material-4" />
             <primitive object={chassisMat} attach="material-5" />
           </mesh>
-          <lineSegments geometry={edgesGeo} material={lineMat} />
-          {/* Dynamic Island Notch */}
-          <mesh position={[0, 2.15, bodyThickness / 2 + 0.005]}>
-            <boxGeometry args={[0.5, 0.08, 0.01]} />
+          <lineSegments
+            position={[0, 0, 0.122 + dispersionAmount * 0.4]}
+            geometry={oledEdgesGeo}
+            material={leaderLineMat}
+          />
+
+          {/* Dynamic Island Punch-Hole */}
+          <mesh position={[0, 2.12, 0.128 + dispersionAmount * 0.4]}>
+            <boxGeometry args={[0.48, 0.08, 0.015]} />
             <meshBasicMaterial color="#00E5FF" />
           </mesh>
+
+          {/* ============================================================
+              LAYER 3: AEROSPACE TRIPLE CAMERA ISLAND (REAR)
+             ============================================================ */}
+          <group position={[-0.55, 1.45, -0.125 - dispersionAmount * 0.35]}>
+            {/* Camera Base Bump */}
+            <mesh geometry={cameraBumpGeo}>
+              <meshStandardMaterial color="#0B132B" metalness={0.9} roughness={0.25} />
+            </mesh>
+            <lineSegments geometry={cameraBumpEdgesGeo} material={leaderLineMat} />
+
+            {/* 3 Precision Lens Rings (Sapphire Glass Meshes) */}
+            {lensPositions.map((pos, idx) => (
+              <group key={idx} position={pos}>
+                <mesh rotation={[Math.PI / 2, 0, 0]}>
+                  <cylinderGeometry args={[0.16, 0.16, 0.04, 32]} />
+                  <meshStandardMaterial color="#1E293B" metalness={0.95} roughness={0.1} />
+                </mesh>
+                {/* Inner Glowing Cyan Ring */}
+                <mesh position={[0, 0, -0.022]} rotation={[0, Math.PI, 0]}>
+                  <ringGeometry args={[0.11, 0.155, 32]} />
+                  <meshBasicMaterial color="#00E5FF" side={THREE.DoubleSide} />
+                </mesh>
+                {/* Sapphire Optical Core */}
+                <mesh position={[0, 0, -0.021]} rotation={[0, Math.PI, 0]}>
+                  <circleGeometry args={[0.105, 24]} />
+                  <meshBasicMaterial color="#020617" side={THREE.DoubleSide} />
+                </mesh>
+              </group>
+            ))}
+
+            {/* Laser LiDAR & Optical Flash */}
+            <mesh position={[0.22, 0.35, -0.02]} rotation={[Math.PI / 2, 0, 0]}>
+              <cylinderGeometry args={[0.065, 0.065, 0.03, 24]} />
+              <meshBasicMaterial color="#38BDF8" />
+            </mesh>
+          </group>
+
+          {/* ============================================================
+              LAYER 4: INTERNAL BIONIC CIRCUIT & DISPERSION
+             ============================================================ */}
+          {dispersionAmount > 0 && (
+            <group position={[0, 0, 0.121 + dispersionAmount * 0.2]}>
+              <mesh geometry={pcbGeo} material={pcbMat} />
+              <lineSegments geometry={pcbEdgesGeo} material={cyanLineMat} />
+            </group>
+          )}
+
+          {/* ============================================================
+              LAYER 5: 3D LASER TELEMETRY NODES (CALLOUTS)
+             ============================================================ */}
+          {/* Leader Lines & Chassis Pin Dots */}
+          <lineSegments geometry={leaderLineAGeo} material={leaderLineMat} />
+          <mesh position={[1.1, 1.55, 0.12]}>
+            <sphereGeometry args={[0.035, 16, 16]} />
+            <meshBasicMaterial color="#00E5FF" />
+          </mesh>
+
+          <lineSegments geometry={leaderLineBGeo} material={leaderLineMat} />
+          <mesh position={[-1.1, 0.0, 0.0]}>
+            <sphereGeometry args={[0.035, 16, 16]} />
+            <meshBasicMaterial color="#00E5FF" />
+          </mesh>
+
+          <lineSegments geometry={leaderLineCGeo} material={leaderLineMat} />
+          <mesh position={[1.1, -1.35, 0.12]}>
+            <sphereGeometry args={[0.035, 16, 16]} />
+            <meshBasicMaterial color="#00E5FF" />
+          </mesh>
+
+          {/* Node A (Top-Right): DISPLAY // 9:19.5 OLED 120Hz */}
+          <group position={[1.4, 1.8, 0.2]}>
+            <mesh>
+              <sphereGeometry args={[0.03, 12, 12]} />
+              <meshBasicMaterial color="#00E5FF" />
+            </mesh>
+            <mesh position={[0.78, 0, 0]}>
+              <planeGeometry args={[1.55, 0.29]} />
+              <meshBasicMaterial
+                map={nodeATex}
+                transparent
+                side={THREE.DoubleSide}
+              />
+            </mesh>
+          </group>
+
+          {/* Node B (Left-Middle): PROCESSOR // 4nm NEURAL CO-ENGINE */}
+          <group position={[-1.4, 0.0, 0]}>
+            <mesh>
+              <sphereGeometry args={[0.03, 12, 12]} />
+              <meshBasicMaterial color="#00E5FF" />
+            </mesh>
+            <mesh position={[-0.78, 0, 0]}>
+              <planeGeometry args={[1.55, 0.29]} />
+              <meshBasicMaterial
+                map={nodeBTex}
+                transparent
+                side={THREE.DoubleSide}
+              />
+            </mesh>
+          </group>
+
+          {/* Node C (Bottom-Right): STATUS // REAL-TIME CSAT SYNC */}
+          <group position={[1.4, -1.6, 0.2]}>
+            <mesh>
+              <sphereGeometry args={[0.03, 12, 12]} />
+              <meshBasicMaterial color="#00E5FF" />
+            </mesh>
+            <mesh position={[0.78, 0, 0]}>
+              <planeGeometry args={[1.55, 0.29]} />
+              <meshBasicMaterial
+                map={nodeCTex}
+                transparent
+                side={THREE.DoubleSide}
+              />
+            </mesh>
+          </group>
         </group>
       </Canvas>
     </div>

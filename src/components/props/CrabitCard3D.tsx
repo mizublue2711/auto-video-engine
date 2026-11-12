@@ -679,8 +679,8 @@ const RemotionSync: React.FC<{ handle: number }> = ({ handle }) => {
 };
 
 export const CrabitCard3D: React.FC<CrabitCard3DProps> = ({
-  width = 960,
-  height = 600,
+  width = '100%',
+  height = '100%',
   style,
   className,
   cardholderName = 'KIM MIN-JUN',

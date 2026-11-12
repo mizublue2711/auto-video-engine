@@ -17,12 +17,14 @@ import {
   PropScholarshipCounter,
 } from '../components/props';
 import { CrabitSmartphone3D } from '../components/props/CrabitSmartphone3D';
+import { SpatialTunerFrame } from '../components/dev/SpatialTunerFrame';
 import {
   FxCrabit_SpawnSparkles,
   FxHandover_PhoneBurst,
   FxScholarshipCoinExplosion,
   FxStudy_IdeaPop,
 } from '../components/fx';
+import { FxMascotRunTrail } from '../components/fx/FxMascotRunTrail';
 import { KineticText } from '../components/text/KineticText';
 
 /**
@@ -125,29 +127,32 @@ export const Sequence2Handover: React.FC = () => {
         }}
       />
 
-      {/* Floating App Preview Popup Phone at relative frame 60 */}
-      <PropAnimatedHeroPhone
-        entranceFrame={60}
-        top="12%"
-        right="8%"
-        scale={0.85}
-        style={{ zIndex: 10 }}
-      />
+      {/* 2. HANDOVER PHONE POPUP (LOCKED COORDINATES) */}
+      <SpatialTunerFrame
+        storageKey="scene2_phone_popup"
+        enabled={false}
+        initialValues={{
+          leftPercent: 34,
+          topPercent: 15,
+          boxWidth: 700,
+          boxHeight: 900,
+          scale: 1.5,
+        }}
+      >
+        <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+          {/* FX Phone Burst Light Flare */}
+          <FxHandover_PhoneBurst startFrame={60} x={350} y={450} scale={1.5} />
 
-      {/* Burst FX anchored directly around the popup phone */}
-      {frame >= 60 && (
-        <div
-          style={{
-            position: 'absolute',
-            top: '38%',
-            right: '20%',
-            zIndex: 15,
-            pointerEvents: 'none',
-          }}
-        >
-          <FxHandover_PhoneBurst startFrame={60} scale={1.5} />
+          {/* Handover Smartphone / App Screen Component */}
+          <PropAnimatedHeroPhone
+            entranceFrame={60}
+            top={0}
+            right={80}
+            scale={0.85}
+            style={{ zIndex: 10, transformOrigin: 'center center' }}
+          />
         </div>
-      )}
+      </SpatialTunerFrame>
     </AbsoluteFill>
   );
 };
@@ -413,6 +418,13 @@ export const MascotCrabitSVG: React.FC = () => {
   );
 };
 
+export const CrabitMascot: React.FC = () => (
+  <>
+    <MascotCrabitSVG />
+    <FxCrabit_SpawnSparkles startFrame={10} x={190} y={260} />
+  </>
+);
+
 /**
  * SEQUENCE 6 (Frames 595 – 714): Dedicated FinTech Showcase Outro.
  * 3D Flip Card + Scholarship Balance Counter + Mascot Crabit + Micro FX Bursts.
@@ -431,18 +443,20 @@ export const Sequence6DecoupledShowcase: React.FC = () => {
         overflow: 'hidden',
       }}
     >
-      {/* Centered 3D Crabit Card - bold ~60% width */}
-      <div
-        style={{
-          position: 'absolute',
-          left: '50%',
-          top: '38%',
-          transform: 'translate(-50%, -50%)',
-          zIndex: 2,
+      {/* 3D HERO CARD WITH SPATIAL TUNER */}
+      <SpatialTunerFrame
+        storageKey="scene6_card"
+        enabled={false}
+        initialValues={{
+          leftPercent: 28,
+          topPercent: 13,
+          boxWidth: 1400,
+          boxHeight: 900,
+          scale: 1.16,
         }}
       >
-        <CrabitCard3D width={1280} height={800} />
-      </div>
+        <CrabitCard3D />
+      </SpatialTunerFrame>
 
       {/* Scholarship Balance Counter below Card */}
       <div
@@ -457,30 +471,44 @@ export const Sequence6DecoupledShowcase: React.FC = () => {
         <PropScholarshipCounter targetAmount={50000} startFrame={15} />
       </div>
 
-      {/* Mascot Crabit SVG on the left */}
-      <div
-        style={{
-          position: 'absolute',
-          left: '14%',
-          bottom: '8%',
-          zIndex: 3,
-        }}
-      >
-        <MascotCrabitSVG />
-      </div>
+      {(() => {
+        const isRunning = frame >= 20 && frame <= 85;
+        const mascotLeft = interpolate(frame, [20, 85], [6, 68], {
+          easing: Easing.bezier(0.25, 0.1, 0.25, 1),
+          extrapolateLeft: 'clamp',
+          extrapolateRight: 'clamp',
+        });
+        const stepBounce = isRunning ? Math.abs(Math.sin(frame * 0.45)) * 14 : 0;
+        const runTilt = isRunning ? Math.sin(frame * 0.45) * 5 : 0;
 
-      {/* 1. Mascot Spawning Sparkles around Crabit */}
-      <div
-        style={{
-          position: 'absolute',
-          left: '12%',
-          bottom: '6%',
-          zIndex: 4,
-          pointerEvents: 'none',
-        }}
-      >
-        <FxCrabit_SpawnSparkles startFrame={10} />
-      </div>
+        return (
+          <>
+            {/* 1. FX RUNNING TRAIL (DUST & SPARKLES EMITTED FROM FEET) */}
+            <FxMascotRunTrail
+              isRunning={isRunning}
+              anchorXPercent={mascotLeft + 5} // Canh ngay gót chân chú cua
+              anchorYPercent={66}
+            />
+
+            {/* 2. CRABIT MASCOT WITH RUNNING DYNAMICS */}
+            <div
+              style={{
+                position: 'absolute',
+                left: `${mascotLeft}%`,
+                top: `calc(52% - ${stepBounce}px)`,
+                width: 600,
+                height: 600,
+                transform: `scale(1.12) rotate(${runTilt}deg)`,
+                transformOrigin: 'center bottom',
+                zIndex: 4,
+                pointerEvents: 'none',
+              }}
+            >
+              <CrabitMascot />
+            </div>
+          </>
+        );
+      })()}
 
       {/* 2. Coin & Carat Explosion around CrabitCard3D when Counter hits 50,000 KRW */}
       {frame >= 45 && (
@@ -523,52 +551,142 @@ export const MasterCompositeScene: React.FC = () => {
         <Sequence2Handover />
       </Series.Sequence>
 
-      {/* 3. SCENE 3: DEDICATED 3D SMARTPHONE SHOWCASE (119 frames) */}
+      {/* =========================================================================
+          SEQUENCE 3: DEDICATED 3D SMARTPHONE SHOWCASE (119 frames / ~5s / 24 FPS)
+          Layout: Split-screen composition (Left: 3D Phone / Right: Feature Typography)
+         ========================================================================= */}
       <Series.Sequence durationInFrames={119}>
         <div
           style={{
             position: 'relative',
             width: 1920,
             height: 1080,
+            // Dynamic vibrant cyber-blue background blending into navy
             background:
-              'radial-gradient(circle at 50% 45%, #1E3A8A 0%, #0F172A 65%, #090D16 100%)',
+              'radial-gradient(circle at 35% 50%, #1E3A8A 0%, #0F172A 60%, #070B14 100%)',
             overflow: 'hidden',
           }}
         >
-          {/* Bound with Safe Schema Configuration */}
-          <CrabitSmartphone3D
-            config={{
-              rotXBase: 0.15,
-              rotYMin: -0.50,
-              rotYMax: -0.30,
-              anchorX: -0.40,
-              cameraZ: 4.8,
-              cameraFOV: 42,
-            }}
-          />
-
+          {/* 1. Subtle Background Grid Texture & Ambient Light Sweep */}
           <div
             style={{
               position: 'absolute',
-              bottom: '4.5%',
+              inset: 0,
+              background:
+                'radial-gradient(circle at 25% 45%, rgba(0, 229, 255, 0.15) 0%, transparent 60%)',
+              pointerEvents: 'none',
+            }}
+          />
+
+          {/* REUSABLE LEGO WRAPPER: Handles positioning and real-time visual tuning */}
+          <SpatialTunerFrame
+            storageKey="scene3_phone"
+            enabled={false}
+            initialValues={{
+              leftPercent: -2,
+              topPercent: 21,
+              boxWidth: 1080,
+              boxHeight: 1080,
+              scale: 1.2,
+            }}
+          >
+            <CrabitSmartphone3D />
+          </SpatialTunerFrame>
+
+          {/* 3. RIGHT 50% FEATURE TYPOGRAPHY & TELEMETRY PANEL */}
+          <div
+            style={{
+              position: 'absolute',
+              right: '6%',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              width: 740,
+              zIndex: 3,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 20,
+              fontFamily: 'system-ui, -apple-system, sans-serif',
+            }}
+          >
+            {/* Category Pill Tag */}
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 10,
+                backgroundColor: 'rgba(0, 229, 255, 0.12)',
+                border: '1.5px solid #00E5FF',
+                borderRadius: 24,
+                padding: '8px 22px',
+                width: 'fit-content',
+              }}
+            >
+              <span style={{ color: '#00E5FF', fontSize: 18, fontWeight: 700 }}>◆ QUEST ENGINE</span>
+              <span style={{ color: '#94A3B8', fontSize: 16 }}>|</span>
+              <span style={{ color: '#38BDF8', fontSize: 18, fontWeight: 600 }}>실시간 동기화</span>
+            </div>
+
+            {/* Main Feature Title */}
+            <div
+              style={{
+                fontSize: 54,
+                fontWeight: 900,
+                color: '#FFFFFF',
+                lineHeight: 1.15,
+                letterSpacing: -1,
+              }}
+            >
+              학원 미션 수행하고 <br />
+              <span
+                style={{
+                  color: '#00E5FF',
+                  textShadow: '0 0 24px rgba(0, 229, 255, 0.6)',
+                }}
+              >
+                캐럿 장학금
+              </span>
+              을 즉시 획득
+            </div>
+
+            {/* Feature Bullet Points */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginTop: 10 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#00E5FF', boxShadow: '0 0 10px #00E5FF' }} />
+                <span style={{ fontSize: 24, color: '#CBD5E1', fontWeight: 500 }}>
+                  수능 킬러 문항 및 심야 자습 출석 자동 인증
+                </span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#38BDF8', boxShadow: '0 0 10px #38BDF8' }} />
+                <span style={{ fontSize: 24, color: '#CBD5E1', fontWeight: 500 }}>
+                  적립된 캐럿은 Crabit 체크카드로 즉시 전환
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* 4. Bottom Centered Subtitle Glow Line */}
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '5%',
               left: 0,
               width: '100%',
               textAlign: 'center',
-              zIndex: 10,
+              zIndex: 4,
               pointerEvents: 'none',
             }}
           >
             <span
               style={{
-                color: '#00E5FF',
-                fontSize: 28,
-                fontWeight: 700,
+                color: '#94A3B8',
+                fontSize: 22,
+                fontWeight: 600,
                 letterSpacing: 2,
-                textShadow: '0 0 16px rgba(0, 229, 255, 0.5)',
-                fontFamily: 'system-ui, -apple-system, sans-serif',
+                fontFamily: 'monospace',
               }}
             >
-              실시간 학습 퀘스트 & 캐럿 리워드 시스템
+              CRABIT KOREA // DUAL-TRACK FINTECH REWARD SYSTEM
             </span>
           </div>
         </div>
