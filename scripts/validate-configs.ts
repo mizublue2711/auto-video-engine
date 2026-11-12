@@ -1,6 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { VideoConfigSchema } from '../src/schemas/VideoConfigSchema';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function findJsonFiles(dir: string): string[] {
   const results: string[] = [];

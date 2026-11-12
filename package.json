@@ -1,6 +1,7 @@
 {
   "name": "auto-video-engine",
   "version": "1.0.0",
+  "type": "module",
   "description": "Scalable, multi-tenant programmatic video engine powered by Remotion, React, and Zod",
   "scripts": {
     "dev": "vite",

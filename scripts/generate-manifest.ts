@@ -1,6 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { AtomicComponentMetaSchema } from '../src/schemas/ComponentSchema';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const ASSETS_ROOT = path.resolve(__dirname, '../site-configs/crabit-korea/assets');
 const MANIFEST_PATH = path.join(ASSETS_ROOT, 'library-manifest.json');
