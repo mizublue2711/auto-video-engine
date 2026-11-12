@@ -4,6 +4,7 @@ export * from './PropScholarshipCounter';
 export * from './PropPhoneScreenUI';
 export * from './PropAnimatedHeroPhone';
 export * from './CrabitCard3D';
+export * from './CrabitDebitCard';
 export * from './PhoneScreen3D';
 export * from './CrabitKoreaAppScreen';
 export * from './CrabitSmartphone3D';

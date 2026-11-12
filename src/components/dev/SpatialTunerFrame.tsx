@@ -76,6 +76,7 @@ export const SpatialTunerFrame: React.FC<SpatialTunerFrameProps> = ({
           transformOrigin: 'center center',
           zIndex: 2,
           pointerEvents: 'none',
+          overflow: 'visible',
         }}
       >
         {children}

@@ -11,6 +11,7 @@ import {
 } from 'remotion';
 import {
   CrabitCard3D,
+  CrabitDebitCard,
   PropAnalogClock,
   PropAnimatedHeroPhone,
   PropChalkboardMath,
@@ -578,20 +579,32 @@ export const Sequence6DecoupledShowcase: React.FC = () => {
           pointerEvents: 'none',
         }}
       />
-      {/* 3D HERO CARD WITH SPATIAL TUNER */}
-      <SpatialTunerFrame
-        storageKey="scene6_card"
-        enabled={false}
-        initialValues={{
-          leftPercent: 28,
-          topPercent: 13,
-          boxWidth: 1400,
-          boxHeight: 900,
-          scale: 1.16,
+    {/* 2. SPATIAL TUNER WRAPPER FOR REFACTORED DEBIT CARD */}
+    <SpatialTunerFrame
+      storageKey="scene6_card"
+      enabled={false}
+      initialValues={{
+        leftPercent: 12,
+        topPercent: -4,
+        boxWidth: 1400,
+        boxHeight: 900,
+        scale: 1.34,
+      }}
+    >
+      <div
+        style={{
+          position: 'relative',
+          width: '100%',
+          height: '100%',
+          overflow: 'visible',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
-        <CrabitCard3D />
-      </SpatialTunerFrame>
+        <CrabitDebitCard />
+      </div>
+    </SpatialTunerFrame>
 
       {/* Scholarship Balance Counter below Card */}
       <div
