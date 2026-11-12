@@ -285,11 +285,27 @@ export const CrabitSmartphone3D: React.FC<CrabitSmartphone3DProps> = ({
   const dispersionAmount =
     propDispersionAmount !== undefined ? propDispersionAmount : timelineDispersion;
 
-  // Laser reflection sweep along chamfered edge
-  const laserSweepY = interpolate(
-    frame % 60,
-    [0, 59],
-    [-2.3, 2.3],
+  // Calculate safe travel range (accounting for half the laser strip's height)
+  const bodyHeight = 4.6;
+  const laserStripHeight = 0.6;
+  const maxLaserY = bodyHeight / 2 - laserStripHeight / 2 - 0.05; // ~1.95
+  const minLaserY = -(bodyHeight / 2) + laserStripHeight / 2 + 0.05; // ~ -1.95
+
+  const laserY = interpolate(
+    frame % 75,
+    [0, 74],
+    [minLaserY, maxLaserY],
+    {
+      extrapolateLeft: 'clamp',
+      extrapolateRight: 'clamp',
+    }
+  );
+
+  // Fade out smoothly near the top and bottom edges so it never abruptly clips
+  const laserOpacity = interpolate(
+    laserY,
+    [minLaserY, minLaserY + 0.4, maxLaserY - 0.4, maxLaserY],
+    [0, 0.45, 0.45, 0],
     {
       extrapolateLeft: 'clamp',
       extrapolateRight: 'clamp',
@@ -417,9 +433,11 @@ export const CrabitSmartphone3D: React.FC<CrabitSmartphone3DProps> = ({
         camera={{ position: [0, 0, 5.0], fov: 40 }}
         gl={{ alpha: true, antialias: true }}
       >
-        <ambientLight intensity={1.8} />
-        <directionalLight position={[3, 5, 4]} intensity={2.4} color="#FFFFFF" />
-        <pointLight position={[-4, -3, 2]} intensity={1.2} color="#00E5FF" />
+        {/* Upgraded Clean Studio Lighting for K-Fintech Polish */}
+        <ambientLight intensity={2.4} color="#F8FAFC" />
+        <directionalLight position={[3, 5, 4]} intensity={2.8} color="#FFFFFF" />
+        <directionalLight position={[-4, -2, 3]} intensity={1.4} color="#38BDF8" />
+        <pointLight position={[0, 0, 4]} intensity={0.8} color="#E0F2FE" />
 
         {/* Strictly anchored at X = 0 with scale = 0.62 */}
         <group
@@ -435,22 +453,22 @@ export const CrabitSmartphone3D: React.FC<CrabitSmartphone3DProps> = ({
           <lineSegments geometry={chassisEdgesGeo} material={cyanLineMat} />
 
           {/* Laser Reflection Sweep sliding along the chamfered edge */}
-          <mesh position={[1.105, laserSweepY, 0]} rotation={[0, Math.PI / 2, 0]}>
-            <planeGeometry args={[0.24, 0.55]} />
+          <mesh position={[-1.11, laserY, 0.125]}>
+            <planeGeometry args={[0.03, laserStripHeight]} />
             <meshBasicMaterial
               color="#38BDF8"
               transparent
-              opacity={0.4}
-              side={THREE.DoubleSide}
+              opacity={laserOpacity}
+              depthWrite={false}
             />
           </mesh>
-          <mesh position={[-1.105, -laserSweepY, 0]} rotation={[0, Math.PI / 2, 0]}>
-            <planeGeometry args={[0.24, 0.55]} />
+          <mesh position={[1.11, -laserY, 0.125]}>
+            <planeGeometry args={[0.03, laserStripHeight]} />
             <meshBasicMaterial
               color="#38BDF8"
               transparent
-              opacity={0.4}
-              side={THREE.DoubleSide}
+              opacity={laserOpacity}
+              depthWrite={false}
             />
           </mesh>
 

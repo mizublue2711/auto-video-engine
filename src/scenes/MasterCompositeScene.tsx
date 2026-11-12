@@ -27,6 +27,48 @@ import {
 import { FxMascotRunTrail } from '../components/fx/FxMascotRunTrail';
 import { KineticText } from '../components/text/KineticText';
 
+// ============================================================================
+// 🎨 GLOBAL K-FINTECH DESIGN TOKENS (SINGLE SOURCE OF TRUTH)
+// Soft Pastel & Squircle Aesthetics for Korean Commercial Style
+// ============================================================================
+export const THEME_TOKENS = {
+  // 1. NỀN DÙNG CHUNG DUY NHẤT (Soft Pastel Sky Blue - Dịu mắt, không chói)
+  background: {
+    // 1. Nền chung cho các cảnh 3D Fintech
+    global:
+      'radial-gradient(circle at 40% 40%, #E0F2FE 0%, #BAE6FD 45%, #7DD3FC 100%)',
+    ambientGlow:
+      'radial-gradient(circle at 30% 35%, rgba(255, 255, 255, 0.6) 0%, transparent 65%)',
+
+    // 2. NỀN TƯỜNG LỚP HỌC HAGWON (Khớp 100% với không gian Anime lớp học)
+    classroomWall:
+      'linear-gradient(145deg, #FAF6EE 0%, #F3ECE0 50%, #E6DAC8 100%)',
+  },
+
+  // 2. MÀU VĂN BẢN & CHI TIẾT (Độ tương phản cao trên nền Pastel)
+  typography: {
+    titlePrimary: '#0F172A',      // Xanh đen đậm sang trọng (dễ đọc trên nền sáng)
+    titleHighlight: '#0284C7',    // Xanh dương tươi làm điểm nhấn thương hiệu
+    bodyText: '#334155',          // Xanh xám trung tính cho nội dung phụ
+    badgeText: '#0369A1',         // Chữ trên các pill tag
+  },
+
+  // 3. THẺ GIAO DIỆN KÍNH MỜ HÀN QUỐC (Glassmorphism & Bo góc tròn)
+  cards: {
+    surfaceBg: 'rgba(255, 255, 255, 0.72)',
+    surfaceBorder: '1.5px solid rgba(255, 255, 255, 0.9)',
+    surfaceShadow: '0 12px 32px rgba(14, 165, 233, 0.12)',
+    borderRadiusLarge: 28,        // Bo góc tròn lớn chuẩn Toss/Kakao
+    borderRadiusPill: 999,        // Bo tròn viên thuốc cho Badge
+  },
+
+  // 4. MÀU ĐỒ HỌA ĐIỂM XUYẾT
+  accents: {
+    goldReward: '#F59E0B',        // Vàng cam cho Carat / Học bổng
+    cyanBrand: '#0284C7',         // Xanh thương hiệu Crabit
+  },
+} as const;
+
 /**
  * SEQUENCE 1 (Frames 0 – 119): Academy Struggle & Clock Camera Zoom-Out.
  * Anchored strictly within 1920x1080 canvas without bleed.
@@ -112,6 +154,7 @@ export const Sequence2Handover: React.FC = () => {
       style={{
         overflow: 'hidden',
         opacity: fadeIn * fadeOut,
+        background: THEME_TOKENS.background.global,
       }}
     >
       <Video
@@ -160,6 +203,7 @@ export const Sequence2Handover: React.FC = () => {
 /**
  * 4A. CHALKBOARD PROBLEM INSERT (36 frames / 1.5s):
  * Standalone Math Problem CSAT 22 impact cut with animated chalk equations.
+ * Integrated Hagwon classroom wall with natural diagonal sunlight beam.
  */
 export const ChalkboardImpactCut: React.FC = () => {
   const frame = useCurrentFrame();
@@ -169,42 +213,83 @@ export const ChalkboardImpactCut: React.FC = () => {
   });
 
   return (
-    <AbsoluteFill
+    <div
       style={{
-        backgroundColor: '#0F172A',
+        position: 'relative',
+        width: 1920,
+        height: 1080,
+        background: THEME_TOKENS.background.classroomWall,
         overflow: 'hidden',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
       }}
     >
+      {/* 1. Natural Diagonal Window Sunlight Beam (Chiếu xiên từ góc trên phải) */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
           background:
-            'radial-gradient(circle at 50% 50%, #1E293B 0%, #0F172A 70%, #020617 100%)',
-          zIndex: 0,
+            'linear-gradient(125deg, transparent 40%, rgba(255, 253, 245, 0.55) 60%, transparent 75%)',
+          pointerEvents: 'none',
+          zIndex: 1,
         }}
       />
 
+      {/* 2. Soft Ambient Vignette / Wall Trim Shadow */}
       <div
         style={{
-          transform: `scale(${cameraScale})`,
-          transformOrigin: 'center center',
-          zIndex: 20,
-          filter:
-            'drop-shadow(0 25px 60px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 40px rgba(0, 229, 255, 0.25))',
+          position: 'absolute',
+          inset: 0,
+          background:
+            'radial-gradient(circle at 50% 50%, transparent 60%, rgba(180, 160, 140, 0.22) 100%)',
+          pointerEvents: 'none',
+          zIndex: 1,
+        }}
+      />
+
+      {/* 3. Chalkboard Drop Shadow onto the Classroom Wall (Bóng đổ sau lưng bảng) */}
+      <div
+        style={{
+          position: 'absolute',
+          left: '50%',
+          top: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: '82%',
+          height: '78%',
+          boxShadow:
+            '0 24px 60px -10px rgba(78, 64, 48, 0.28), 0 12px 24px -5px rgba(0, 0, 0, 0.08)',
+          borderRadius: 16,
+          pointerEvents: 'none',
+          zIndex: 1,
+        }}
+      />
+
+      {/* 4. BLACKBOARD COMPONENT CONTAINER (Mounted as normal) */}
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 2,
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
-        <PropChalkboardMath
-          width={1320}
-          height={769}
-          revealStartFrame={0}
-          revealDuration={32}
-        />
+        <div
+          style={{
+            transform: `scale(${cameraScale})`,
+            transformOrigin: 'center center',
+          }}
+        >
+          <PropChalkboardMath
+            width={1320}
+            height={769}
+            revealStartFrame={0}
+            revealDuration={32}
+          />
+        </div>
       </div>
-    </AbsoluteFill>
+    </div>
   );
 };
 
@@ -438,11 +523,18 @@ export const Sequence6DecoupledShowcase: React.FC = () => {
         position: 'relative',
         width: 1920,
         height: 1080,
-        background:
-          'radial-gradient(circle at 50% 45%, #1E3A8A 0%, #0F172A 65%, #090D16 100%)',
+        background: THEME_TOKENS.background.global,
         overflow: 'hidden',
       }}
     >
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: THEME_TOKENS.background.ambientGlow,
+          pointerEvents: 'none',
+        }}
+      />
       {/* 3D HERO CARD WITH SPATIAL TUNER */}
       <SpatialTunerFrame
         storageKey="scene6_card"
@@ -561,19 +653,16 @@ export const MasterCompositeScene: React.FC = () => {
             position: 'relative',
             width: 1920,
             height: 1080,
-            // Dynamic vibrant cyber-blue background blending into navy
-            background:
-              'radial-gradient(circle at 35% 50%, #1E3A8A 0%, #0F172A 60%, #070B14 100%)',
+            background: THEME_TOKENS.background.global,
             overflow: 'hidden',
           }}
         >
-          {/* 1. Subtle Background Grid Texture & Ambient Light Sweep */}
+          {/* Ambient glow layer behind phone */}
           <div
             style={{
               position: 'absolute',
               inset: 0,
-              background:
-                'radial-gradient(circle at 25% 45%, rgba(0, 229, 255, 0.15) 0%, transparent 60%)',
+              background: THEME_TOKENS.background.ambientGlow,
               pointerEvents: 'none',
             }}
           />
@@ -614,16 +703,19 @@ export const MasterCompositeScene: React.FC = () => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 10,
-                backgroundColor: 'rgba(0, 229, 255, 0.12)',
-                border: '1.5px solid #00E5FF',
-                borderRadius: 24,
+                backgroundColor: THEME_TOKENS.cards.surfaceBg,
+                border: THEME_TOKENS.cards.surfaceBorder,
+                boxShadow: THEME_TOKENS.cards.surfaceShadow,
+                borderRadius: THEME_TOKENS.cards.borderRadiusPill,
                 padding: '8px 22px',
                 width: 'fit-content',
+                backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
               }}
             >
-              <span style={{ color: '#00E5FF', fontSize: 18, fontWeight: 700 }}>◆ QUEST ENGINE</span>
+              <span style={{ color: THEME_TOKENS.typography.badgeText, fontSize: 18, fontWeight: 700 }}>◆ QUEST ENGINE</span>
               <span style={{ color: '#94A3B8', fontSize: 16 }}>|</span>
-              <span style={{ color: '#38BDF8', fontSize: 18, fontWeight: 600 }}>실시간 동기화</span>
+              <span style={{ color: THEME_TOKENS.typography.titleHighlight, fontSize: 18, fontWeight: 600 }}>실시간 동기화</span>
             </div>
 
             {/* Main Feature Title */}
@@ -631,7 +723,7 @@ export const MasterCompositeScene: React.FC = () => {
               style={{
                 fontSize: 54,
                 fontWeight: 900,
-                color: '#FFFFFF',
+                color: THEME_TOKENS.typography.titlePrimary,
                 lineHeight: 1.15,
                 letterSpacing: -1,
               }}
@@ -639,8 +731,7 @@ export const MasterCompositeScene: React.FC = () => {
               학원 미션 수행하고 <br />
               <span
                 style={{
-                  color: '#00E5FF',
-                  textShadow: '0 0 24px rgba(0, 229, 255, 0.6)',
+                  color: THEME_TOKENS.typography.titleHighlight,
                 }}
               >
                 캐럿 장학금
@@ -651,14 +742,14 @@ export const MasterCompositeScene: React.FC = () => {
             {/* Feature Bullet Points */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginTop: 10 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#00E5FF', boxShadow: '0 0 10px #00E5FF' }} />
-                <span style={{ fontSize: 24, color: '#CBD5E1', fontWeight: 500 }}>
+                <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: THEME_TOKENS.typography.titleHighlight }} />
+                <span style={{ fontSize: 24, color: THEME_TOKENS.typography.bodyText, fontWeight: 500 }}>
                   수능 킬러 문항 및 심야 자습 출석 자동 인증
                 </span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#38BDF8', boxShadow: '0 0 10px #38BDF8' }} />
-                <span style={{ fontSize: 24, color: '#CBD5E1', fontWeight: 500 }}>
+                <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: THEME_TOKENS.accents.cyanBrand }} />
+                <span style={{ fontSize: 24, color: THEME_TOKENS.typography.bodyText, fontWeight: 500 }}>
                   적립된 캐럿은 Crabit 체크카드로 즉시 전환
                 </span>
               </div>
@@ -679,7 +770,7 @@ export const MasterCompositeScene: React.FC = () => {
           >
             <span
               style={{
-                color: '#94A3B8',
+                color: THEME_TOKENS.typography.badgeText,
                 fontSize: 22,
                 fontWeight: 600,
                 letterSpacing: 2,
