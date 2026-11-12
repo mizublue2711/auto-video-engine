@@ -65,9 +65,47 @@ Mandatory Visual Self-Check:
 [ ] Are physical hardware features (buttons, camera bump, chamfered edges) clearly visible?
 [ ] Is 3D depth preserved with distinct lighting highlights on metallic chamfers?
 
-📁 5. DIRECTORY STRUCTURE RULES
-Schemas: src/schemas/
-Sub-components / Props: src/components/props/
-FX Particles: src/components/fx/
-Master Scenes: src/scenes/
-Flow Plates / Video Assets: public/flow_plates/ready/*.mp4
+## 📁 5. DIRECTORY STRUCTURE RULES
+- Schemas: `src/schemas/`
+- Sub-components / Props: `src/components/props/`
+- FX Particles: `src/components/fx/`
+- Master Scenes: `src/scenes/`
+- Flow Plates / Video Assets: `public/flow_plates/ready/*.mp4`
+
+---
+
+## 🏛️ REGISTRY PROTOCOL & ASSET GOVERNANCE (MANDATORY GATE)
+
+Every AI Worker operating in this repository MUST strictly enforce the Centralized Registry Protocol. Zero asset or motion wrapper shall exist as an unregistered orphan file.
+
+### 1. The Dual-Registry Architecture
+- **Visual Assets & Props:** ALL visual Lego components (UI cards, 3D props, study gear, badges, icons) MUST be housed under `src/components/` and registered immediately in:
+  👉 `src/components/registry.ts`
+- **Motion Wrappers:** ALL motion controllers and kinetic animation wrappers MUST be housed under `src/components/motion/` and registered immediately in:
+  👉 `src/components/motion/registry.ts`
+
+### 2. Auto-Registration Rule on Asset Creation (STRICT)
+Whenever you create or refactor:
+1. A new component in `src/components/**`:
+   - [MUST] Add an `export { YourComponent } from './path/YourComponent';` statement into `src/components/registry.ts`.
+   - [MUST] Update `ASSET_CATALOG` with a 1-line description and tag.
+2. A new motion wrapper in `src/components/motion/**`:
+   - [MUST] Add an `export { YourMotionWrapper } from './YourMotionWrapper';` statement into `src/components/motion/registry.ts`.
+   - [MUST] Update `MOTION_CATALOG` with its motion physics signature.
+
+### 3. Consumption Standard in Scenes & Sequences
+- [NEVER] Do NOT import assets or motion wrappers using messy relative paths like `../../components/study-gear/GearTextbook3D` or `../../components/motion/OrbitalSwapWrapper`.
+- [ALWAYS] Import exclusively via the clean Barrel Registries:
+  ```tsx
+  // ✅ CLEAN & COMPLIANT
+  import { GearTextbook3D, GearSmartCalculator, CouponTicketCard } from '../components/registry';
+  import { OrbitalSwapWrapper, VortexSuckWrapper, ZeroGFloatWrapper } from '../components/motion/registry';
+  ```
+
+### 4. Quality Gate Checklist (Pre-Completion Audit)
+Before declaring any task complete, run:
+`npx tsc --noEmit`
+Verify that:
+1. The new asset/motion wrapper is exported in its respective `registry.ts`.
+2. Master scenes consume the new component via the registry import, proving end-to-end integration without broken links.
+

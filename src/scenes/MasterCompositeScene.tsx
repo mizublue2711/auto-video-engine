@@ -37,6 +37,7 @@ import {
   KineticStaggerWrapper,
   SpatialCameraDolly,
 } from '../components/motion';
+import { StudyGearConvergenceScene } from './StudyGearConvergenceScene';
 
 // ============================================================================
 // 🎨 GLOBAL K-FINTECH DESIGN TOKENS (SINGLE SOURCE OF TRUTH)
@@ -697,6 +698,14 @@ export const MasterCompositeScene: React.FC = () => {
       {/* 2. SCENE 2: HANDOVER SOLUTION (119 frames) */}
       <Series.Sequence durationInFrames={119}>
         <Sequence2Handover />
+      </Series.Sequence>
+
+      {/* =========================================================================
+          SEQUENCE 2.5: STUDY GEAR CONVERGENCE BRIDGE (150 FRAMES ~ 5.0 SECONDS)
+          Kinetic Orbital Swap & Portal Convergence into Crabit App
+         ========================================================================= */}
+      <Series.Sequence durationInFrames={150}>
+        <StudyGearConvergenceScene />
       </Series.Sequence>
 
       {/* =========================================================================

@@ -20,7 +20,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="CrabitMasterCommercial"
         component={MasterCompositeScene}
-        durationInFrames={714}
+        durationInFrames={864}
         fps={24}
         width={1920}
         height={1080}
