@@ -13,6 +13,7 @@ import {
   CheckCircle,
   Eye,
   Camera,
+  Download,
 } from 'lucide-react';
 import { MasterCompositeScene } from '../../scenes/MasterCompositeScene';
 import { StudyGearConvergenceScene } from '../../scenes/StudyGearConvergenceScene';
@@ -233,6 +234,18 @@ export const RemotionPlayerFrame: React.FC<RemotionPlayerFrameProps> = ({ dict }
           </PlayerErrorBoundary>
         </div>
 
+        {/* --- TOP-RIGHT OVERLAY: DOWNLOAD MASTER MP4 BUTTON --- */}
+        <a
+          href="/downloads/Crabit_Korea_Commercial_1080p.mp4"
+          download="Crabit_Korea_Commercial_1080p.mp4"
+          className="absolute top-3 right-3 z-30 px-3 py-1.5 bg-[#05050A]/90 hover:bg-[#00E5FF] text-[#00E5FF] hover:text-[#05050A] border border-[#00E5FF]/60 hover:border-[#00E5FF] shadow-lg shadow-[#00E5FF]/20 flex items-center gap-2 font-mono text-[11px] font-bold tracking-wider transition-all backdrop-blur-md group/dl cursor-pointer"
+          title="Download Master Commercial Video (1080p 60FPS MP4)"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <Download size={13} strokeWidth={2} className="group-hover/dl:translate-y-0.5 transition-transform" />
+          <span>[ 📥 1080P MASTER MP4 ]</span>
+        </a>
+
         {/* --- OVERLAY: TELEMETRY HUD MODE --- */}
         {telemetryMode && (
           <div className="absolute inset-0 pointer-events-none z-20 flex flex-col justify-between p-4 sm:p-6 font-mono text-[10px] sm:text-xs">
@@ -381,6 +394,17 @@ export const RemotionPlayerFrame: React.FC<RemotionPlayerFrameProps> = ({ dict }
               {cue.label}
             </button>
           ))}
+
+          {/* Quick Download in Control Bar */}
+          <a
+            href="/downloads/Crabit_Korea_Commercial_1080p.mp4"
+            download="Crabit_Korea_Commercial_1080p.mp4"
+            className="ml-2 px-2.5 py-1 bg-[#031E2B] border border-[#00E5FF]/60 hover:border-[#00E5FF] text-[#00E5FF] hover:bg-[#00E5FF] hover:text-[#05050A] text-[10px] font-mono font-bold flex items-center gap-1.5 transition-all"
+            title="Download Master MP4"
+          >
+            <Download size={12} strokeWidth={2} />
+            <span className="hidden sm:inline">MP4</span>
+          </a>
         </div>
       </div>
     </div>

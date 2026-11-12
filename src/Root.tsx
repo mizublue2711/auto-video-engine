@@ -19,21 +19,14 @@ export const RemotionRoot: React.FC = () => {
 
   return (
     <>
-      <style>
-        {`
-          @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css");
-
-          :root {
-            --font-korean: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-            --font-numeric: "Pretendard", "SF Pro Display", sans-serif;
-          }
-
-          body, * {
-            font-family: var(--font-korean);
-            letter-spacing: -0.02em;
-          }
-        `}
-      </style>
+      <Composition
+        id="MasterCompositeScene"
+        component={MasterCompositeScene}
+        durationInFrames={894}
+        fps={24}
+        width={1920}
+        height={1080}
+      />
       <Composition
         id="CrabitMasterCommercial"
         component={MasterCompositeScene}

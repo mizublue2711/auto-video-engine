@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCurrentFrame, interpolate, spring, Easing, Audio, Sequence, staticFile } from 'remotion';
-import { THEME_TOKENS } from './MasterCompositeScene';
+import { THEME_TOKENS } from './config/themeTokens';
 
 // 1. Assets from Registry
 import {
