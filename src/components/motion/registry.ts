@@ -8,10 +8,13 @@
 // 1. Entrance & Exit Springs
 export { SpringBurstWrapper } from './SpringBurstWrapper';
 export { KineticStaggerWrapper } from './KineticStaggerWrapper';
+export { BottomSheetDrawerReveal } from './BottomSheetDrawerReveal';
+export { MenuSlotSnapBounce } from './MenuSlotSnapBounce';
 
 // 2. Trajectory & Positional Choreography
 export { OrbitalSwapWrapper } from './OrbitalSwapWrapper';
 export { VortexSuckWrapper } from './VortexSuckWrapper';
+export { KineticTrajectoryLaunch } from './KineticTrajectoryLaunch';
 
 // 3. Ambient & Spatial Breathing
 export { ZeroGFloatWrapper } from './ZeroGFloatWrapper';

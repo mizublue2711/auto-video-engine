@@ -2,6 +2,7 @@ import React from 'react';
 import { Composition } from 'remotion';
 import { MasterComposition } from './MasterComposition';
 import { MasterCompositeScene } from './scenes/MasterCompositeScene';
+import { StudyGearConvergenceScene } from './scenes/StudyGearConvergenceScene';
 import { VideoConfig, VideoConfigSchema } from './schemas/VideoConfigSchema';
 import defaultTenantConfig from '../site-configs/crabit-korea/config.json';
 
@@ -20,8 +21,16 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="CrabitMasterCommercial"
         component={MasterCompositeScene}
-        durationInFrames={864}
+        durationInFrames={894}
         fps={24}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="StudyGearConvergenceScene"
+        component={StudyGearConvergenceScene}
+        durationInFrames={180}
+        fps={30}
         width={1920}
         height={1080}
       />

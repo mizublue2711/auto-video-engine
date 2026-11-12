@@ -13,6 +13,9 @@ export { GearSmartCalculator } from './study-gear/GearSmartCalculator';
 export { GearTimer3D } from './study-gear/GearTimer3D';
 export { GearTablet3D } from './study-gear/GearTablet3D';
 export { GearPlanner3D } from './study-gear/GearPlanner3D';
+export { GearStylusPen } from './study-gear/GearStylusPen';
+export { GearMagnifyingGlass } from './study-gear/GearMagnifyingGlass';
+export { GearCompassGeometry } from './study-gear/GearCompassGeometry';
 
 // 2. K-Fintech Cards & Vouchers (Thẻ ngân hàng & Vé thưởng)
 export { CouponTicketCard } from './ui/CouponTicketCard';
@@ -28,6 +31,12 @@ export {
 
 // 4. Spatial Dev Tools
 export { SpatialTunerFrame } from './dev/SpatialTunerFrame';
+
+// 5. Dynamic Backgrounds & Warp FX
+export {
+  HyperspeedWarpBackground,
+  type HyperspeedProps,
+} from './backgrounds/HyperspeedWarpBackground';
 
 /**
  * 🏷️ Component Catalog Metadata (Dành cho AI Worker tra cứu mục đích sử dụng)
@@ -46,5 +55,12 @@ export const ASSET_CATALOG = {
     couponCard: { name: 'CouponTicketCard', tag: 'Voucher', desc: 'Vé thưởng xé nẹp đục lỗ chuẩn K-Fintech' },
     debitCard: { name: 'CrabitDebitCard', tag: 'Fintech', desc: 'Thẻ ngân hàng bo góc 28px squircle' },
     appScreen: { name: 'CrabitAppScreenUI', tag: 'Mobile', desc: 'Màn hình app 50,000 Carats dùng chung Scene 2 & 3' },
+  },
+  fx: {
+    hyperspeedWarp: {
+      name: 'HyperspeedWarpBackground',
+      tag: 'Background/FX',
+      desc: 'Nền tốc độ cao đa tầng gồm vệt tia pill, hạt warp và vệt mờ parallax',
+    },
   },
 } as const;

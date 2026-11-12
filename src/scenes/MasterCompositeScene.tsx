@@ -701,10 +701,10 @@ export const MasterCompositeScene: React.FC = () => {
       </Series.Sequence>
 
       {/* =========================================================================
-          SEQUENCE 2.5: STUDY GEAR CONVERGENCE BRIDGE (150 FRAMES ~ 5.0 SECONDS)
+          SEQUENCE 2.5: STUDY GEAR CONVERGENCE BRIDGE (180 FRAMES ~ 6.0 SECONDS)
           Kinetic Orbital Swap & Portal Convergence into Crabit App
          ========================================================================= */}
-      <Series.Sequence durationInFrames={150}>
+      <Series.Sequence durationInFrames={180}>
         <StudyGearConvergenceScene />
       </Series.Sequence>
 
