@@ -5,6 +5,7 @@ import { MasterCompositeScene } from './scenes/MasterCompositeScene';
 import { StudyGearConvergenceScene } from './scenes/StudyGearConvergenceScene';
 import { VideoConfig, VideoConfigSchema } from './schemas/VideoConfigSchema';
 import defaultTenantConfig from '../site-configs/crabit-korea/config.json';
+import './index.css';
 
 export const RemotionRoot: React.FC = () => {
   const config = defaultTenantConfig as VideoConfig;
@@ -18,6 +19,21 @@ export const RemotionRoot: React.FC = () => {
 
   return (
     <>
+      <style>
+        {`
+          @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css");
+
+          :root {
+            --font-korean: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            --font-numeric: "Pretendard", "SF Pro Display", sans-serif;
+          }
+
+          body, * {
+            font-family: var(--font-korean);
+            letter-spacing: -0.02em;
+          }
+        `}
+      </style>
       <Composition
         id="CrabitMasterCommercial"
         component={MasterCompositeScene}

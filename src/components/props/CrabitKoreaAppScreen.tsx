@@ -872,7 +872,7 @@ export const CrabitKoreaAppScreen: React.FC<CrabitKoreaAppScreenProps> = ({
                       }}
                     >
                       <span style={{ fontSize: 9.5, color: '#64748B', fontWeight: 600 }}>
-                        크래빗 대치 학원 본원 인증
+                        크래빗 대치학원 본원 인증
                       </span>
 
                       {/* Reward Badge */}

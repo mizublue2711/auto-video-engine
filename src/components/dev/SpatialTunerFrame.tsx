@@ -21,6 +21,7 @@ interface SpatialTunerFrameProps {
   storageKey?: string;                     // Key lưu vào localStorage (ví dụ: 'phone_seq3')
   initialValues?: Partial<TunerTransform>; // Tọa độ mặc định khi khóa code
   enabled?: boolean;                       // Bật/tắt thanh điều khiển UI
+  zIndex?: number;                         // Layering zIndex (Default: 2)
 }
 
 export const SpatialTunerFrame: React.FC<SpatialTunerFrameProps> = ({
@@ -28,6 +29,7 @@ export const SpatialTunerFrame: React.FC<SpatialTunerFrameProps> = ({
   storageKey = 'crabit_spatial_tuner',
   initialValues,
   enabled = true,
+  zIndex = 2,
 }) => {
   const [transform, setTransform] = useState<TunerTransform>(() => {
     // 1. Khôi phục từ LocalStorage nếu có (khi đang bật tuner)
@@ -74,7 +76,7 @@ export const SpatialTunerFrame: React.FC<SpatialTunerFrameProps> = ({
           height: transform.boxHeight,
           transform: `scale(${transform.scale})`,
           transformOrigin: 'center center',
-          zIndex: 2,
+          zIndex,
           pointerEvents: 'none',
           overflow: 'visible',
         }}

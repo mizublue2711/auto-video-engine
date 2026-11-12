@@ -11,6 +11,8 @@ export interface PropAnalogClockProps {
   initialMinute?: number;
   /** Speed multiplier for time passing (Default: 1) */
   speedMultiplier?: number;
+  /** Frame offset for cross-scene timeline continuity */
+  frameOffset?: number;
   /** Asset path to empty clock dial plate SVG (Default: 'props/prop_clock_dial_master.svg') */
   dialSvgPath?: string;
   /** Optional container style overrides */
@@ -29,6 +31,7 @@ export const PropAnalogClock: React.FC<PropAnalogClockProps> = ({
   initialHour = 10,
   initialMinute = 10,
   speedMultiplier = 1,
+  frameOffset = 0,
   dialSvgPath = 'props/prop_clock_dial_master.svg',
   style,
   className,
@@ -36,8 +39,8 @@ export const PropAnalogClock: React.FC<PropAnalogClockProps> = ({
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Elapsed virtual seconds driven deterministically by frame and fps
-  const elapsedVirtualSeconds = (frame / fps) * speedMultiplier;
+  // Elapsed virtual seconds driven deterministically by frame and fps (supports cross-scene continuity via frameOffset)
+  const elapsedVirtualSeconds = ((frame + frameOffset) / fps) * speedMultiplier;
   const currentSecondInt = Math.floor(elapsedVirtualSeconds);
   const currentSecondFraction = elapsedVirtualSeconds - currentSecondInt;
 

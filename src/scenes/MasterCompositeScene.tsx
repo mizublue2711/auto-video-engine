@@ -1,12 +1,16 @@
 import React from 'react';
 import {
   AbsoluteFill,
+  Audio,
   Easing,
   Img,
   interpolate,
+  Sequence,
   Series,
+  spring,
   staticFile,
   useCurrentFrame,
+  useVideoConfig,
   Video,
 } from 'remotion';
 import {
@@ -43,76 +47,9 @@ import { StudyGearConvergenceScene } from './StudyGearConvergenceScene';
 // 🎨 GLOBAL K-FINTECH DESIGN TOKENS (SINGLE SOURCE OF TRUTH)
 // Soft Pastel & Squircle Aesthetics for Korean Commercial Style
 // ============================================================================
-export const THEME_TOKENS = {
-  // 1. NỀN DÙNG CHUNG DUY NHẤT (Soft Pastel Sky Blue - Dịu mắt, không chói)
-  background: {
-    // 1. Nền chung cho các cảnh 3D Fintech
-    global:
-      'radial-gradient(circle at 40% 40%, #E0F2FE 0%, #BAE6FD 45%, #7DD3FC 100%)',
-    ambientGlow:
-      'radial-gradient(circle at 30% 35%, rgba(255, 255, 255, 0.6) 0%, transparent 65%)',
+export { THEME_TOKENS } from './config/themeTokens';
+import { THEME_TOKENS } from './config/themeTokens';
 
-    // 2. NỀN TƯỜNG LỚP HỌC HAGWON (Khớp 100% với không gian Anime lớp học)
-    classroomWall:
-      'linear-gradient(145deg, #FAF6EE 0%, #F3ECE0 50%, #E6DAC8 100%)',
-  },
-
-  // 2. MÀU VĂN BẢN & CHI TIẾT (Độ tương phản cao trên nền Pastel)
-  typography: {
-    titlePrimary: '#0F172A',      // Xanh đen đậm sang trọng (dễ đọc trên nền sáng)
-    titleHighlight: '#0284C7',    // Xanh dương tươi làm điểm nhấn thương hiệu
-    bodyText: '#334155',          // Xanh xám trung tính cho nội dung phụ
-    badgeText: '#0369A1',         // Chữ trên các pill tag
-  },
-
-  // 3. THẺ GIAO DIỆN KÍNH MỜ HÀN QUỐC (Glassmorphism & Bo góc tròn)
-  cards: {
-    surfaceBg: 'rgba(255, 255, 255, 0.72)',
-    surfaceBorder: '1.5px solid rgba(255, 255, 255, 0.9)',
-    surfaceShadow: '0 12px 32px rgba(14, 165, 233, 0.12)',
-    borderRadiusLarge: 28,        // Bo góc tròn lớn chuẩn Toss/Kakao
-    borderRadiusPill: 999,        // Bo tròn viên thuốc cho Badge
-  },
-
-  // 4. MÀU ĐỒ HỌA ĐIỂM XUYẾT
-  accents: {
-    goldReward: '#F59E0B',        // Vàng cam cho Carat / Học bổng
-    cyanBrand: '#0284C7',         // Xanh thương hiệu Crabit
-  },
-
-  // 🎨 UNIFIED CRABIT BRAND ICON TOKENS (ZERO RED/ORANGE - PURE BRAND CYAN & SKY BLUE)
-  icons: {
-    // 1. 🎯 Target Mission Icon (Quest & Killer Exam Auth)
-    target: {
-      primary: '#0284C7',          // Royal Sky Blue (Vòng ngoài và khía laser)
-      accent: '#00E5FF',           // Electric Cyan phát quang (Vòng đồng tâm giữa)
-      center: '#0369A1',           // Deep Blue (Tâm điểm hồng tâm)
-      glow: 'rgba(0, 229, 255, 0.35)',
-    },
-
-    // 2. 💎 Carat Diamond Icon (Crabit Cyan Gemstone)
-    diamond: {
-      gradientStart: '#0284C7',    // Royal Sky Blue (Mặt chính)
-      gradientEnd: '#00E5FF',      // Electric Cyan tươi sáng (Đỉnh giác cắt)
-      facetLight: '#E0F2FE',       // Phản quang trắng xanh ngọc bích
-      facetShadow: '#0369A1',      // Xanh thẫm chiều sâu vát cạnh
-      glow: 'rgba(0, 229, 255, 0.45)', // Hào quang xanh ngọc êm dịu
-    },
-
-    // 3. ⚡ Flash Quest Icon (Realtime Engine Pill Tag)
-    lightning: {
-      fill: '#00E5FF',             // Electric Cyan phát sáng
-      glow: 'rgba(0, 229, 255, 0.5)',
-    },
-
-    // 4. Standardized Sizing
-    size: {
-      badge: 20,                   // Tag viên thuốc
-      card: 32,                    // Thẻ tính năng
-      hero: 48,                    // Điểm nhấn lớn
-    },
-  },
-} as const;
 
 /**
  * SEQUENCE 1 (Frames 0 – 119): Academy Struggle & Clock Camera Zoom-Out.
@@ -215,10 +152,32 @@ export const Sequence2Handover: React.FC = () => {
         }}
       />
 
-      {/* 2. HANDOVER PHONE POPUP (LOCKED COORDINATES) */}
+      {/* 1. CONTINUITY: CLASSROOM WALL CLOCK (Layering: Background wall layer zIndex: 10) */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '18%',
+          left: '46%',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 10,
+          filter: 'drop-shadow(0 12px 24px rgba(0, 0, 0, 0.45))',
+          pointerEvents: 'none',
+        }}
+      >
+        <PropAnalogClock
+          size={210}
+          initialHour={10}
+          initialMinute={10}
+          speedMultiplier={2}
+          frameOffset={119}
+        />
+      </div>
+
+      {/* 2. HANDOVER PHONE POPUP (Layering: Foreground near-camera popup zIndex: 50) */}
       <SpatialTunerFrame
         storageKey="scene2_phone_popup"
         enabled={false}
+        zIndex={50}
         initialValues={{
           leftPercent: 34,
           topPercent: 15,
@@ -227,7 +186,7 @@ export const Sequence2Handover: React.FC = () => {
           scale: 1.5,
         }}
       >
-        <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+        <div style={{ position: 'relative', width: '100%', height: '100%', zIndex: 50 }}>
           {/* FX Phone Burst Light Flare */}
           <FxHandover_PhoneBurst startFrame={60} x={350} y={450} scale={1.5} />
 
@@ -237,7 +196,7 @@ export const Sequence2Handover: React.FC = () => {
             top={0}
             right={80}
             scale={0.85}
-            style={{ zIndex: 10, transformOrigin: 'center center' }}
+            style={{ zIndex: 50, transformOrigin: 'center center' }}
           />
         </div>
       </SpatialTunerFrame>
@@ -249,12 +208,218 @@ export const Sequence2Handover: React.FC = () => {
  * 4A. CHALKBOARD PROBLEM INSERT (36 frames / 1.5s):
  * Standalone Math Problem CSAT 22 impact cut with animated chalk equations.
  * Integrated Hagwon classroom wall with natural diagonal sunlight beam.
+ * Directional Whip Pan & Focus Blur Exit with Chalk Dust / Light Bleed into Scene 4B.
  */
+/**
+ * 4. SEQUENCE 4: CHALKBOARD TO ACTIVE STUDY (119 frames ~ 5.0s / 24 FPS)
+ * Seamless Overlapping Crossfade & Focus Pull:
+ * 1. CSAT Math Chalkboard formula reveals dynamically (Frames 0 - 20).
+ * 2. 18-frame Overlapping Crossfade (Frames 18 - 36):
+ *    - Chalkboard: opacity 1 -> 0, scale 1.0 -> 1.05, blur 0 -> 6px.
+ *    - Student Volunteering: opacity 0 -> 1, scale 0.98 -> 1.0, blur 6px -> 0px.
+ * 3. Student Active Study & Idea Pop (Frames 36 - 119).
+ */
+export const Sequence4BlackboardToActiveStudy: React.FC = () => {
+  const frame = useCurrentFrame();
+
+  const endFrame = 36;
+  const startTransition = endFrame - 18; // Frame 18 (18 frames of overlap: frames 18 to 36)
+
+  const transitionProgress = interpolate(frame, [startTransition, endFrame], [0, 1], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
+
+  // Blackboard motion properties during crossfade (Clip Bảng đen: opacity 1 -> 0, scale 1.0 -> 1.05)
+  const boardOpacity = interpolate(transitionProgress, [0, 1], [1, 0]);
+  const boardScale = interpolate(transitionProgress, [0, 1], [1.0, 1.05]);
+  const boardBlur = interpolate(transitionProgress, [0, 1], [0, 6]);
+
+  // Student video motion properties during crossfade (Clip Học sinh: opacity 0 -> 1, scale 0.98 -> 1.0)
+  const studentOpacity = interpolate(transitionProgress, [0, 1], [0, 1]);
+  const studentScale = interpolate(transitionProgress, [0, 1], [0.98, 1.0]);
+  const studentBlur = interpolate(transitionProgress, [0, 1], [6, 0]);
+
+  return (
+    <AbsoluteFill
+      style={{
+        overflow: 'hidden',
+        backgroundColor: THEME_TOKENS.background.classroomWall,
+      }}
+    >
+      {/* LAYER 1: ACTIVE STUDY VOLUNTEER (Pre-mounted and rolling from startTransition = frame 18) */}
+      {frame >= startTransition && (
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            opacity: studentOpacity,
+            transform: `scale(${studentScale})`,
+            filter: studentBlur > 0.05 ? `blur(${studentBlur}px)` : undefined,
+            zIndex: 10,
+          }}
+        >
+          <Video
+            src={staticFile('flow_plates/ready/flow_shot04_active_study.mp4')}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
+          />
+
+          {/* Idea Pop FX */}
+          {frame >= 45 && (
+            <div
+              style={{
+                position: 'absolute',
+                left: '46%',
+                top: '22%',
+                zIndex: 4,
+                pointerEvents: 'none',
+              }}
+            >
+              <FxStudy_IdeaPop startFrame={45} />
+            </div>
+          )}
+
+          {/* Kinetic Headline Banner */}
+          {frame >= 32 && (
+            <div
+              style={{
+                position: 'absolute',
+                bottom: 80,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                zIndex: 85,
+                backgroundColor: 'rgba(15, 23, 42, 0.85)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                padding: '16px 44px',
+                borderRadius: 32,
+                border: '2px solid rgba(0, 229, 255, 0.45)',
+                boxShadow:
+                  '0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 229, 255, 0.25)',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              <KineticText
+                text="자신감 넘치는 참여와 질문으로 성적 수직 상승!"
+                color="#FFFFFF"
+                fontSize={46}
+                fontWeight={900}
+                delay={4}
+                staggerDelay={2}
+              />
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* LAYER 2: CHALKBOARD MATH IMPACT CUT (Frames 0 to 36) */}
+      {frame < endFrame && (
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            opacity: boardOpacity,
+            transform: `scale(${boardScale})`,
+            filter: boardBlur > 0.05 ? `blur(${boardBlur}px)` : undefined,
+            zIndex: 20,
+            pointerEvents: 'none',
+          }}
+        >
+          {/* Natural Diagonal Window Sunlight Beam */}
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background:
+                'linear-gradient(125deg, transparent 40%, rgba(255, 253, 245, 0.55) 60%, transparent 75%)',
+              zIndex: 1,
+            }}
+          />
+
+          {/* Soft Ambient Vignette / Wall Trim Shadow */}
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background:
+                'radial-gradient(circle at 50% 50%, transparent 60%, rgba(180, 160, 140, 0.22) 100%)',
+              zIndex: 1,
+            }}
+          />
+
+          {/* Chalkboard Drop Shadow onto Classroom Wall */}
+          <div
+            style={{
+              position: 'absolute',
+              left: '50%',
+              top: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: '82%',
+              height: '78%',
+              boxShadow:
+                '0 24px 60px -10px rgba(78, 64, 48, 0.28), 0 12px 24px -5px rgba(0, 0, 0, 0.08)',
+              borderRadius: 16,
+              zIndex: 1,
+            }}
+          />
+
+          {/* BLACKBOARD COMPONENT CONTAINER */}
+          <div
+            style={{
+              position: 'relative',
+              zIndex: 2,
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <PropChalkboardMath
+              width={1320}
+              height={769}
+              revealStartFrame={0}
+              revealDuration={24}
+            />
+          </div>
+
+          {/* SFX: Chalk Writing Audio Loop (Frames 0 to 24) */}
+          <Audio
+            src={staticFile('audio/sfx/chalk_writing_loop.mp3')}
+            startFrom={0}
+            volume={0.55}
+          />
+        </div>
+      )}
+    </AbsoluteFill>
+  );
+};
+
 export const ChalkboardImpactCut: React.FC = () => {
   const frame = useCurrentFrame();
 
   const cameraScale = interpolate(frame, [0, 36], [1.0, 1.05], {
     easing: Easing.bezier(0.2, 0.8, 0.2, 1),
+  });
+
+  // Focus Blur & Directional Whip Pan exit (Frames 24 to 36)
+  const exitProgress = interpolate(frame, [24, 36], [0, 1], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+    easing: Easing.bezier(0.4, 0, 0.2, 1),
+  });
+  const panX = interpolate(exitProgress, [0, 1], [0, -60]);
+  const blurAmount = interpolate(exitProgress, [0, 1], [0, 8]);
+  const chalkDustBleed = interpolate(frame, [24, 36], [0, 0.65], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
   });
 
   return (
@@ -265,6 +430,8 @@ export const ChalkboardImpactCut: React.FC = () => {
         height: 1080,
         background: THEME_TOKENS.background.classroomWall,
         overflow: 'hidden',
+        transform: `translateX(${panX}px)`,
+        filter: blurAmount > 0.05 ? `blur(${blurAmount}px)` : undefined,
       }}
     >
       {/* 1. Natural Diagonal Window Sunlight Beam (Chiếu xiên từ góc trên phải) */}
@@ -290,6 +457,22 @@ export const ChalkboardImpactCut: React.FC = () => {
           zIndex: 1,
         }}
       />
+
+      {/* Chalk Dust / Light Bleed Exit (Frames 24 to 36 - Softens the cut into Scene 4B) */}
+      {chalkDustBleed > 0.01 && (
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background:
+              'radial-gradient(circle at 60% 45%, rgba(255, 255, 255, 0.85) 0%, rgba(254, 243, 199, 0.5) 45%, rgba(224, 242, 254, 0.2) 75%, transparent 100%)',
+            opacity: chalkDustBleed,
+            pointerEvents: 'none',
+            mixBlendMode: 'screen',
+            zIndex: 50,
+          }}
+        />
+      )}
 
       {/* 3. Chalkboard Drop Shadow onto the Classroom Wall (Bóng đổ sau lưng bảng) */}
       <div
@@ -334,6 +517,13 @@ export const ChalkboardImpactCut: React.FC = () => {
           />
         </div>
       </div>
+
+      {/* 5. SFX: CHALKBOARD WRITING LOOP (Equations & graph drawing audio) */}
+      <Audio
+        src={staticFile('audio/sfx/chalk_writing_loop.mp3')}
+        startFrom={0}
+        volume={0.55}
+      />
     </div>
   );
 };
@@ -341,12 +531,32 @@ export const ChalkboardImpactCut: React.FC = () => {
 /**
  * 4B. ACTIVE STUDY VOLUNTEER (83 frames):
  * Student volunteers and participates actively in class (flow_shot04_active_study.mp4).
+ * Directional Whip Pan & Focus Blur Entrance matching Scene 4A exit.
  */
 export const Sequence4ActiveStudy: React.FC = () => {
   const frame = useCurrentFrame();
 
+  // Focus Blur & Directional Whip Pan enter (Frames 0 to 14)
+  const enterProgress = interpolate(frame, [0, 14], [0, 1], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+    easing: Easing.bezier(0.16, 1, 0.3, 1),
+  });
+  const enterPanX = interpolate(enterProgress, [0, 1], [60, 0]);
+  const enterBlur = interpolate(enterProgress, [0, 1], [8, 0]);
+  const lightBleedFade = interpolate(frame, [0, 14], [0.65, 0], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
+
   return (
-    <AbsoluteFill style={{ overflow: 'hidden' }}>
+    <AbsoluteFill
+      style={{
+        overflow: 'hidden',
+        transform: `translateX(${enterPanX}px)`,
+        filter: enterBlur > 0.05 ? `blur(${enterBlur}px)` : undefined,
+      }}
+    >
       <Video
         src={staticFile('flow_plates/ready/flow_shot04_active_study.mp4')}
         style={{
@@ -355,6 +565,22 @@ export const Sequence4ActiveStudy: React.FC = () => {
           objectFit: 'cover',
         }}
       />
+
+      {/* Chalk Dust / Light Bleed Entrance Dissolve */}
+      {lightBleedFade > 0.01 && (
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background:
+              'radial-gradient(circle at 40% 45%, rgba(255, 255, 255, 0.85) 0%, rgba(254, 243, 199, 0.5) 45%, rgba(224, 242, 254, 0.2) 75%, transparent 100%)',
+            opacity: lightBleedFade,
+            pointerEvents: 'none',
+            mixBlendMode: 'screen',
+            zIndex: 50,
+          }}
+        />
+      )}
 
       {frame >= 15 && (
         <div
@@ -561,6 +787,24 @@ export const CrabitMascot: React.FC = () => (
  */
 export const Sequence6DecoupledShowcase: React.FC = () => {
   const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+
+  // 2. Card Spring 3D Flip Entrance (Bắt đầu nảy từ frame 10 của Scene 6)
+  const cardEntrance = spring({
+    frame: Math.max(0, frame - 10),
+    fps,
+    config: { damping: 13, stiffness: 85, mass: 0.9 },
+  });
+
+  // Xoay lật 3D từ 90 độ (úp cạnh bên) vung ra chính diện 0 độ
+  const cardRotateY = interpolate(cardEntrance, [0, 1], [-75, 0]);
+  const cardRotateX = interpolate(cardEntrance, [0, 1], [24, 6]);
+  const cardTranslateY = interpolate(cardEntrance, [0, 1], [80, 0]);
+  const cardScale = interpolate(cardEntrance, [0, 1], [0.65, 1]);
+  const cardOpacity = interpolate(cardEntrance, [0, 0.3], [0, 1], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
 
   return (
     <div
@@ -580,7 +824,25 @@ export const Sequence6DecoupledShowcase: React.FC = () => {
           pointerEvents: 'none',
         }}
       />
-    {/* 2. SPATIAL TUNER WRAPPER FOR REFACTORED DEBIT CARD */}
+
+      {/* =====================================================================
+          SFX SOUND DESIGN: TRIUMPHANT ASCENDING MAGIC CHIME & REWARD CELEBRATION
+         ===================================================================== */}
+      {/* Âm thanh chiến thắng tươi sáng khi thẻ hoàn tất cú xoay lật 3D đáp xuống chính diện (Frame 22) */}
+      <Sequence from={22} durationInFrames={60}>
+        <Audio
+          src={staticFile('audio/sfx/magic_ascending_chime.mp3')}
+          startFrom={0}
+          volume={0.65}
+        />
+      </Sequence>
+
+      {/* Reward Climax Coin Explosion (Frame 45) */}
+      <Sequence from={45} durationInFrames={50}>
+        <Audio src={staticFile('audio/sfx/success_chime.mp3')} volume={0.7} />
+      </Sequence>
+
+    {/* 2. SPATIAL TUNER WRAPPER FOR REFACTORED DEBIT CARD WITH 3D FLIP */}
     <SpatialTunerFrame
       storageKey="scene6_card"
       enabled={false}
@@ -597,13 +859,21 @@ export const Sequence6DecoupledShowcase: React.FC = () => {
           position: 'relative',
           width: '100%',
           height: '100%',
-          overflow: 'visible',
+          perspective: 1400,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
         }}
       >
-        <CrabitDebitCard />
+        <div
+          style={{
+            transform: `translateY(${cardTranslateY}px) scale(${cardScale}) rotateY(${cardRotateY}deg) rotateX(${cardRotateX}deg)`,
+            opacity: cardOpacity,
+            transformStyle: 'preserve-3d',
+          }}
+        >
+          <CrabitDebitCard />
+        </div>
       </div>
     </SpatialTunerFrame>
 
@@ -682,6 +952,11 @@ export const Sequence6DecoupledShowcase: React.FC = () => {
 export const Sequence3Interaction = CrabitSmartphone3D;
 export const Sequence4GateTakeoff = Sequence5GateTakeoff;
 export const Sequence6Outro = Sequence6DecoupledShowcase;
+export const Seq2_ClassroomHandover = Sequence2Handover;
+export const Seq6_FintechCelebration = Sequence6DecoupledShowcase;
+export const Seq4_BlackboardToActiveStudy = Sequence4BlackboardToActiveStudy;
+export { Seq4_AppInterface } from './sequences/Seq4_AppInterface';
+export { Seq5_BlackboardMath } from './sequences/Seq5_BlackboardMath';
 
 /**
  * MASTER COMPOSITE SCENE ARCHITECTURE (714 frames / ~30s / 24 FPS)
@@ -732,6 +1007,29 @@ export const MasterCompositeScene: React.FC = () => {
                 pointerEvents: 'none',
               }}
             />
+
+            {/* =====================================================================
+                SFX SOUND DESIGN: APP SLIDE-IN & MISSION BADGES POP-IN
+               ===================================================================== */}
+            {/* 1. App Interface Slide-in (Frame 0) */}
+            <Sequence from={0} durationInFrames={35}>
+              <Audio src={staticFile('audio/sfx/app_swoosh_soft.mp3')} volume={0.45} />
+            </Sequence>
+
+            {/* 2. Badge 1 Pop-in (Frame 15) */}
+            <Sequence from={15} durationInFrames={15}>
+              <Audio src={staticFile('audio/sfx/bubble_pop_ui.mp3')} volume={0.5} />
+            </Sequence>
+
+            {/* 3. Badge 2 Pop-in (Frame 22) */}
+            <Sequence from={22} durationInFrames={15}>
+              <Audio src={staticFile('audio/sfx/bubble_pop_ui.mp3')} volume={0.5} />
+            </Sequence>
+
+            {/* 4. Badge 3 Pop-in (Frame 29) */}
+            <Sequence from={29} durationInFrames={15}>
+              <Audio src={staticFile('audio/sfx/bubble_pop_ui.mp3')} volume={0.5} />
+            </Sequence>
 
             {/* REUSABLE LEGO WRAPPER: Handles positioning and real-time visual tuning */}
             <SpatialTunerFrame
@@ -832,10 +1130,10 @@ export const MasterCompositeScene: React.FC = () => {
                 {/* Stagger 2: First Coupon Ticket Card */}
                 <KineticStaggerWrapper staggerIndex={2} inFrame={22} direction="up">
                   <CouponTicketCard
-                    category="수능 킬러 문항 & 자습 인증"
+                    category="수능 킬러 문항 & 자습 체크"
                     heroValue="100% REWARD"
                     heroHighlightColor="#0284C7"
-                    description="문제를 풀고 인증하면 미션 달성 즉시 지급"
+                    description="문제 풀고 인증하면 장학금 즉시 지급"
                     icon={
                       <div
                         style={{
@@ -860,7 +1158,7 @@ export const MasterCompositeScene: React.FC = () => {
                     category="학원 캐럿 장학금 적립"
                     heroValue="+5,000 CARAT"
                     heroHighlightColor="#0284C7"
-                    description="쌓인 캐럿은 체크카드로 편의점/서점 즉시 결제"
+                    description="모은 캐럿은 체크카드로 편의점·서점 바로 결제"
                     icon={
                       <div
                         style={{
@@ -911,14 +1209,9 @@ export const MasterCompositeScene: React.FC = () => {
         </SpatialCameraDolly>
       </Series.Sequence>
 
-      {/* 4A. SCENE 4A: CHALKBOARD IMPACT INSERT (36 frames / 1.5s) */}
-      <Series.Sequence durationInFrames={36}>
-        <ChalkboardImpactCut />
-      </Series.Sequence>
-
-      {/* 4B. SCENE 4B: ACTIVE STUDY VOLUNTEER (83 frames) */}
-      <Series.Sequence durationInFrames={83}>
-        <Sequence4ActiveStudy />
+      {/* 4. SCENE 4: CHALKBOARD TO ACTIVE STUDY (119 frames ~ 5.0s / 24 FPS) - Seamless Overlapping Crossfade */}
+      <Series.Sequence durationInFrames={119}>
+        <Sequence4BlackboardToActiveStudy />
       </Series.Sequence>
 
       {/* 5. SCENE 5: GATE TAKEOFF & 3D SPATIAL FLIP (119 frames) */}

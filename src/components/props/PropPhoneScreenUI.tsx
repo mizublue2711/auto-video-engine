@@ -35,7 +35,7 @@ const FEED_DATA: FeedItem[] = [
     id: 'b1',
     type: 'balance',
     title: 'My Scholarship Balance',
-    subtitle: '장학금 환산 가치: ₩ 50,000 KRW',
+    subtitle: '장학금 환산 가치: 50,000원 (1 CARAT = 1원)',
     tag: '50,000 Carats',
   },
   {
@@ -72,7 +72,7 @@ const FEED_DATA: FeedItem[] = [
     id: 's1',
     type: 'scholarship',
     title: '크래빗 실시간 장학금 적립',
-    subtitle: 'KB국민/신한/하나 카드 연동 실시간 입금',
+    subtitle: 'KB국민·신한·하나 체크카드 실시간 연동',
     tag: '+50,000 KRW',
   },
   {
@@ -666,7 +666,7 @@ export const PropPhoneScreenUI: React.FC<PropPhoneScreenUIProps> = ({
                 letterSpacing: -0.2,
               }}
             >
-              <span>장학금 50,000원 즉시 수령</span>
+              <span>장학금 50,000원 바로 받기</span>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="#FFFFFF">
                 <path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2.44z" />
               </svg>

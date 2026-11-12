@@ -212,7 +212,7 @@ export const GearPlanner3D: React.FC<GearPlanner3DProps> = ({
           {[
             { tag: '수학', text: '킬러 문항 10제 완벽 정복', done: true },
             { tag: '국어', text: '수능특강 비문학 지문 분석', done: true },
-            { tag: '영어', text: '고난도 빈칸추론 5문항 풀이', done: true },
+            { tag: '영어', text: '고난도 빈칸 추론 5문항 풀이', done: true },
           ].map((item, idx) => (
             <div
               key={idx}

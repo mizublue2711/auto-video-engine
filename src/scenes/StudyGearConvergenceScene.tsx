@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCurrentFrame, interpolate, spring, Easing } from 'remotion';
+import { useCurrentFrame, interpolate, spring, Easing, Audio, Sequence, staticFile } from 'remotion';
 import { THEME_TOKENS } from './MasterCompositeScene';
 
 // 1. Assets from Registry
@@ -17,7 +17,6 @@ import {
 // 2. Motion Wrappers from Registry
 import {
   OrbitalSwapWrapper,
-  VortexSuckWrapper,
   ZeroGFloatWrapper,
   BottomSheetDrawerReveal,
   MenuSlotSnapBounce,
@@ -106,6 +105,60 @@ export const StudyGearConvergenceScene: React.FC<StudyGearConvergenceSceneProps>
   const burstScale = interpolate(burstSpring, [0, 1], [0.1, 1]);
 
   // =========================================================================
+  // 3. RADIAL FUNNEL SNAP & CRASH-ZOOM PORTAL CALCULATIONS (Frames 135 - 180)
+  // =========================================================================
+
+  // --- Pha 4: 7 Dụng cụ hút xuyên tâm thẳng vào tâm quả cầu kim cương (Frames 135 - 155) ---
+  const absorbProgress = interpolate(frame, [135, 155], [0, 1], {
+    easing: Easing.bezier(0.6, 0, 0.8, 0.2),
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
+
+  // Mỗi vật thể khi đến frame 135 sẽ tịnh tiến thẳng từ vị trí hiện tại về (960, 540)
+  // scale = (1 - absorbProgress) * burstScale;
+  const getFunnelTransform = (target: { x: number; y: number }) => {
+    const absorbX = (CX - target.x) * absorbProgress;
+    const absorbY = (CY - target.y) * absorbProgress;
+    const currentScale = (1 - absorbProgress) * burstScale;
+
+    return {
+      transform: `translate(${absorbX}px, ${absorbY}px) scale(${currentScale})`,
+      opacity: currentScale > 0.001 ? 1 : 0,
+      transformOrigin: 'center center',
+    };
+  };
+
+  // --- Pha 5: Quả cầu kim cương tích tụ hào quang & Crash-Zoom xuyên camera (Frames 160 - 180) ---
+  // Quả cầu hồi tụ tại tâm khi 7 vật thể bắt đầu bị hút vào (Frames 135 - 150)
+  const orbAppearScale = interpolate(frame, [135, 150], [0, 1], {
+    easing: Easing.out(Easing.cubic),
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
+
+  // Hào quang năng lượng tích tụ tăng dần (Frames 150 - 162)
+  const orbAuraGlow = interpolate(frame, [150, 162], [60, 140], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
+
+  // Crash-zoom xuyên màn hình để nối sang scene kế tiếp (Frames 162 - 180)
+  const crashZoomScale = interpolate(frame, [162, 180], [1, 28], {
+    easing: Easing.bezier(0.7, 0, 0.95, 0.3),
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
+
+  const crashZoomOpacity = interpolate(frame, [172, 180], [1, 0], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
+
+  const diamondOrbScale = frame >= 162 ? crashZoomScale : orbAppearScale;
+  const diamondOrbOpacity = frame >= 162 ? crashZoomOpacity : orbAppearScale;
+
+  // =========================================================================
   // 4. BOTTOM SHEET FLICKER-FREE EXIT PROGRESS (Frames 142 - 165)
   // =========================================================================
   const drawerExitProgress = interpolate(frame, [142, 165], [0, 1], {
@@ -128,6 +181,45 @@ export const StudyGearConvergenceScene: React.FC<StudyGearConvergenceSceneProps>
     >
       {/* 1. BACKGROUND AMBIENT GLOW */}
       <div style={{ position: 'absolute', inset: 0, background: THEME_TOKENS.background.ambientGlow }} />
+
+      {/* =====================================================================
+          SFX SOUND DESIGN INTEGRATION (5-PHASE AUDIO-VISUAL FLOW)
+         ===================================================================== */}
+      {/* 1. Whoosh / Hyperspeed Fly-by (Frames 0 - 30) */}
+      <Sequence from={0} durationInFrames={35}>
+        <Audio src={staticFile('audio/sfx/whoosh_fast.mp3')} volume={0.6} />
+      </Sequence>
+
+      {/* 2. Glass / Energy Detonation (Frames 48 - 75) */}
+      <Sequence from={48} durationInFrames={40}>
+        <Audio src={staticFile('audio/sfx/energy_burst.mp3')} volume={0.7} />
+      </Sequence>
+
+      {/* 3. Air Swish / Swapping Chimes (Frames 70 - 110) */}
+      <Sequence from={70} durationInFrames={45}>
+        <Audio src={staticFile('audio/sfx/swapping_chimes.mp3')} volume={0.55} />
+      </Sequence>
+
+      {/* 4A. App Drawer Slide (Frames 105 - 130) */}
+      <Sequence from={105} durationInFrames={30}>
+        <Audio src={staticFile('audio/sfx/drawer_slide.mp3')} volume={0.55} />
+      </Sequence>
+
+      {/* 4B. 3 Pop / Clicks for 3 Menu Blocks (Frames 115, 119, 123) */}
+      <Sequence from={115} durationInFrames={15}>
+        <Audio src={staticFile('audio/sfx/pop_click.mp3')} volume={0.45} />
+      </Sequence>
+      <Sequence from={119} durationInFrames={15}>
+        <Audio src={staticFile('audio/sfx/pop_click.mp3')} volume={0.5} />
+      </Sequence>
+      <Sequence from={123} durationInFrames={15}>
+        <Audio src={staticFile('audio/sfx/pop_click.mp3')} volume={0.55} />
+      </Sequence>
+
+      {/* 5. Crash-Zoom Portal / Bass Drop (Frames 152 - 180) */}
+      <Sequence from={152} durationInFrames={28}>
+        <Audio src={staticFile('audio/sfx/portal_zoom.mp3')} volume={0.75} />
+      </Sequence>
 
       {/* =====================================================================
           DYNAMIC HYPERSPEED BACKGROUND (Frames 0 - 55)
@@ -257,71 +349,72 @@ export const StudyGearConvergenceScene: React.FC<StudyGearConvergenceSceneProps>
       />
 
       {/* =====================================================================
-          PHA 3 & 4: 7 DỤNG CỤ BUNG TỪ TÂM TẠI FRAME 50 & HOÁN ĐỔI VỊ TRÍ
+          PHA 3 & 4: 7 DỤNG CỤ BUNG TỪ TÂM TẠI FRAME 50 & HOÁN ĐỔI VỊ TRÍ,
+          SAU ĐÓ HÚT XUYÊN TÂM VÀO QUẢ CẦU KIM CƯƠNG (FRAMES 135 - 155)
          ===================================================================== */}
-      {isBurstTriggered && (
+      {isBurstTriggered && frame < 156 && (
         <div style={{ transform: `scale(${burstScale})`, transformOrigin: '960px 540px' }}>
           {/* 1. TEXTBOOK */}
           <OrbitalSwapWrapper from={pos1} to={P7_BR} arcHeight={80} startFrame={70} durationInFrames={45} tiltAngle={[-12, 14]}>
-            <VortexSuckWrapper startFrame={142} durationInFrames={30} spins={1.2}>
-              <ZeroGFloatWrapper amplitude={12} phaseOffset={0}>
+            <div style={getFunnelTransform(P7_BR)}>
+              <ZeroGFloatWrapper amplitude={12 * (1 - absorbProgress)} phaseOffset={0}>
                 <GearTextbook3D size={200} />
               </ZeroGFloatWrapper>
-            </VortexSuckWrapper>
+            </div>
           </OrbitalSwapWrapper>
 
           {/* 2. STYLUS PEN */}
           <OrbitalSwapWrapper from={pos2} to={P6_BL} arcHeight={-60} startFrame={70} durationInFrames={45} tiltAngle={[-40, 20]}>
-            <VortexSuckWrapper startFrame={142} durationInFrames={30} spins={-1.5}>
-              <ZeroGFloatWrapper amplitude={14} phaseOffset={1.0}>
+            <div style={getFunnelTransform(P6_BL)}>
+              <ZeroGFloatWrapper amplitude={14 * (1 - absorbProgress)} phaseOffset={1.0}>
                 <GearStylusPen size={170} />
               </ZeroGFloatWrapper>
-            </VortexSuckWrapper>
+            </div>
           </OrbitalSwapWrapper>
 
           {/* 3. TRIANGLE RULER */}
           <OrbitalSwapWrapper from={pos3} to={P1_TL} arcHeight={70} startFrame={75} durationInFrames={40} tiltAngle={[10, -15]}>
-            <VortexSuckWrapper startFrame={142} durationInFrames={30} spins={1}>
-              <ZeroGFloatWrapper amplitude={10} phaseOffset={2.0}>
+            <div style={getFunnelTransform(P1_TL)}>
+              <ZeroGFloatWrapper amplitude={10 * (1 - absorbProgress)} phaseOffset={2.0}>
                 <GearTriangleRuler size={180} />
               </ZeroGFloatWrapper>
-            </VortexSuckWrapper>
+            </div>
           </OrbitalSwapWrapper>
 
           {/* 4. COMPASS GEOMETRY */}
           <OrbitalSwapWrapper from={pos4} to={P5_MR} arcHeight={-50} startFrame={75} durationInFrames={40} tiltAngle={[-15, 25]}>
-            <VortexSuckWrapper startFrame={142} durationInFrames={30} spins={-1}>
-              <ZeroGFloatWrapper amplitude={12} phaseOffset={3.0}>
+            <div style={getFunnelTransform(P5_MR)}>
+              <ZeroGFloatWrapper amplitude={12 * (1 - absorbProgress)} phaseOffset={3.0}>
                 <GearCompassGeometry size={165} />
               </ZeroGFloatWrapper>
-            </VortexSuckWrapper>
+            </div>
           </OrbitalSwapWrapper>
 
           {/* 5. MAGNIFYING GLASS */}
           <OrbitalSwapWrapper from={pos5} to={P4_ML} arcHeight={50} startFrame={75} durationInFrames={40} tiltAngle={[15, -20]}>
-            <VortexSuckWrapper startFrame={142} durationInFrames={30} spins={1.2}>
-              <ZeroGFloatWrapper amplitude={11} phaseOffset={4.0}>
+            <div style={getFunnelTransform(P4_ML)}>
+              <ZeroGFloatWrapper amplitude={11 * (1 - absorbProgress)} phaseOffset={4.0}>
                 <GearMagnifyingGlass size={170} />
               </ZeroGFloatWrapper>
-            </VortexSuckWrapper>
+            </div>
           </OrbitalSwapWrapper>
 
           {/* 6. EXAM PAPER 100 */}
           <OrbitalSwapWrapper from={pos6} to={P3_TR} arcHeight={-75} startFrame={70} durationInFrames={45} tiltAngle={[-16, 12]}>
-            <VortexSuckWrapper startFrame={142} durationInFrames={30} spins={-1}>
-              <ZeroGFloatWrapper amplitude={13} phaseOffset={5.0}>
+            <div style={getFunnelTransform(P3_TR)}>
+              <ZeroGFloatWrapper amplitude={13 * (1 - absorbProgress)} phaseOffset={5.0}>
                 <GearExamPaper100 size={190} />
               </ZeroGFloatWrapper>
-            </VortexSuckWrapper>
+            </div>
           </OrbitalSwapWrapper>
 
           {/* 7. SMART CALCULATOR */}
           <OrbitalSwapWrapper from={pos7} to={P2_TC} arcHeight={-80} startFrame={70} durationInFrames={45} tiltAngle={[12, -18]}>
-            <VortexSuckWrapper startFrame={142} durationInFrames={30} spins={-1.2}>
-              <ZeroGFloatWrapper amplitude={14} phaseOffset={6.0}>
+            <div style={getFunnelTransform(P2_TC)}>
+              <ZeroGFloatWrapper amplitude={14 * (1 - absorbProgress)} phaseOffset={6.0}>
                 <GearSmartCalculator size={170} />
               </ZeroGFloatWrapper>
-            </VortexSuckWrapper>
+            </div>
           </OrbitalSwapWrapper>
         </div>
       )}
@@ -365,7 +458,7 @@ export const StudyGearConvergenceScene: React.FC<StudyGearConvergenceSceneProps>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
-                <span style={{ fontSize: 28, fontWeight: 900, color: '#0F172A' }}>학원 미션 퀘스트</span>
+                <span style={{ fontSize: 28, fontWeight: 900, color: '#0F172A' }}>오늘의 학원 퀘스트</span>
                 <span style={{ fontSize: 16, color: '#0284C7', fontWeight: 700, marginLeft: 12 }}>● LIVE SYNC</span>
               </div>
               <div style={{ background: '#E0F2FE', padding: '6px 18px', borderRadius: 999, color: '#0284C7', fontWeight: 800 }}>
@@ -384,8 +477,8 @@ export const StudyGearConvergenceScene: React.FC<StudyGearConvergenceSceneProps>
                     boxShadow: '0 8px 20px rgba(2, 132, 199, 0.08)',
                   }}
                 >
-                  <div style={{ fontSize: 13, color: '#64748B', fontWeight: 700 }}>수학 I 킬러 문항</div>
-                  <div style={{ fontSize: 18, fontWeight: 900, color: '#0F172A', marginTop: 4 }}>+1,500 C 즉시 적립</div>
+                  <div style={{ fontSize: 13, color: '#64748B', fontWeight: 700 }}>수학 II 킬러 문항</div>
+                  <div style={{ fontSize: 18, fontWeight: 900, color: '#0F172A', marginTop: 4 }}>+1,500 CARAT 즉시 적립</div>
                 </div>
               </MenuSlotSnapBounce>
 
@@ -400,7 +493,7 @@ export const StudyGearConvergenceScene: React.FC<StudyGearConvergenceSceneProps>
                   }}
                 >
                   <div style={{ fontSize: 13, color: '#64748B', fontWeight: 700 }}>학원 자습 2시간</div>
-                  <div style={{ fontSize: 18, fontWeight: 900, color: '#0F172A', marginTop: 4 }}>출석 인증 완료</div>
+                  <div style={{ fontSize: 18, fontWeight: 900, color: '#0F172A', marginTop: 4 }}>출석 체크 완료</div>
                 </div>
               </MenuSlotSnapBounce>
 
@@ -414,8 +507,8 @@ export const StudyGearConvergenceScene: React.FC<StudyGearConvergenceSceneProps>
                     boxShadow: '0 8px 22px rgba(0, 229, 255, 0.35)',
                   }}
                 >
-                  <div style={{ fontSize: 13, fontWeight: 700, opacity: 0.9 }}>체크카드 전환</div>
-                  <div style={{ fontSize: 18, fontWeight: 900, marginTop: 4 }}>편의점 즉시 결제</div>
+                  <div style={{ fontSize: 13, fontWeight: 700, opacity: 0.9 }}>체크카드로 바로 쓰기</div>
+                  <div style={{ fontSize: 18, fontWeight: 900, marginTop: 4 }}>CU·GS25 1초 결제</div>
                 </div>
               </MenuSlotSnapBounce>
             </div>
@@ -423,35 +516,36 @@ export const StudyGearConvergenceScene: React.FC<StudyGearConvergenceSceneProps>
         </BottomSheetDrawerReveal>
       </div>
 
-      {/* BRAND PORTAL LOGO CORE (Frames 145+) */}
-      {frame >= 142 && (
+      {/* =====================================================================
+          PHA 5: QUẢ CẦU KIM CƯƠNG TÍCH TỤ HÀO QUANG & CRASH-ZOOM XUYÊN CAMERA
+         ===================================================================== */}
+      {frame >= 135 && (
         <div
           style={{
             position: 'absolute',
             left: CX,
             top: CY,
-            transform: 'translate(-50%, -50%)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: 16,
-            zIndex: 60,
+            transform: `translate(-50%, -50%) scale(${diamondOrbScale})`,
+            opacity: diamondOrbOpacity,
+            zIndex: 90,
+            pointerEvents: 'none',
           }}
         >
+          {/* Quả cầu kim cương phóng cực đại */}
           <div
             style={{
-              width: 130,
-              height: 130,
-              borderRadius: 36,
-              background: 'linear-gradient(135deg, #0284C7 0%, #00E5FF 100%)',
+              width: 150,
+              height: 150,
+              borderRadius: '50%',
+              background: 'radial-gradient(circle at 35% 35%, #FFFFFF 0%, #A5F3FC 35%, #0284C7 85%, #082F49 100%)',
+              boxShadow: `0 0 ${orbAuraGlow}px rgba(0, 229, 255, 0.95), 0 0 ${orbAuraGlow * 1.5}px rgba(2, 132, 199, 0.7), inset 0 0 35px rgba(255, 255, 255, 0.9)`,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 0 60px rgba(0, 229, 255, 0.8), 0 16px 36px rgba(2, 132, 199, 0.4)',
-              transform: `scale(${interpolate(frame, [145, 165], [0.3, 1], { extrapolateRight: 'clamp' })})`,
+              border: '2.5px solid rgba(255, 255, 255, 0.95)',
             }}
           >
-            <span style={{ fontSize: 62 }}>💎</span>
+            <span style={{ fontSize: 56, filter: 'drop-shadow(0 0 16px #00E5FF)' }}>💎</span>
           </div>
         </div>
       )}
