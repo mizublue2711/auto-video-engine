@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Navbar } from './Navbar';
 import { RemotionPlayerFrame } from './RemotionPlayerFrame';
 import { StrategicPillars } from './StrategicPillars';
+import { CharacterCastSection } from './CharacterCastSection';
 import { DualTrackPipeline } from './DualTrackPipeline';
 import { TelemetrySection } from './TelemetrySection';
 import { StoryboardBlueprintSection } from './StoryboardBlueprintSection';
@@ -81,7 +82,10 @@ export const ShowcaseLandingPage: React.FC = () => {
       {/* 3. SECTION 2: BA TRỤ CỘT ĐỘT PHÁ (STRATEGIC VALUE ADDITIONS) */}
       <StrategicPillars dict={dict.pillars} />
 
-      {/* 4. SECTION 3: QUY TRÌNH KÉP (DUAL-TRACK PIPELINE) */}
+      {/* 4. CANONICAL 3-CHARACTER CAST RIGS SECTION */}
+      <CharacterCastSection currentLang={currentLang} />
+
+      {/* 5. SECTION 3: QUY TRÌNH KÉP (DUAL-TRACK PIPELINE) */}
       <DualTrackPipeline dict={dict.pipeline} />
 
       {/* 5. TELEMETRY & MOTION PHYSICS SECTION */}

@@ -1,6 +1,7 @@
 export { Navbar } from './Navbar';
 export { RemotionPlayerFrame } from './RemotionPlayerFrame';
 export { StrategicPillars } from './StrategicPillars';
+export { CharacterCastSection } from './CharacterCastSection';
 export { DualTrackPipeline } from './DualTrackPipeline';
 export { TelemetrySection } from './TelemetrySection';
 export { StoryboardBlueprintSection } from './StoryboardBlueprintSection';

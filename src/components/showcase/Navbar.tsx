@@ -70,6 +70,19 @@ export const Navbar: React.FC<NavbarProps> = ({
           <span>{dict.links.brandAssets}</span>
         </a>
         <a
+          href="#character-cast"
+          className="hover:text-[#00E5FF] transition-colors flex items-center gap-1.5 py-1"
+        >
+          <span className="text-[#00E5FF]/60">[CAST]</span>
+          <span>
+            {currentLang === 'vi'
+              ? 'NHÂN VẬT'
+              : currentLang === 'kr'
+              ? '캐릭터 리그'
+              : 'CHARACTERS'}
+          </span>
+        </a>
+        <a
           href="#telemetry"
           className="hover:text-[#00E5FF] transition-colors flex items-center gap-1.5 py-1"
         >

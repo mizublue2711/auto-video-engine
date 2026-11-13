@@ -329,7 +329,7 @@ export const showcaseDict: Record<Language, ShowcaseDictionary> = {
       },
       svgAssets: {
         title: 'Vector Assets (.ZIP)',
-        desc: '7 Study Gear props, Carat Crab Diamond Mascot & student rig vectors.',
+        desc: 'Full 3-Character Rigs (Student, Carat Mascot, Hagwon Director) & 7 Study Gear SVG Props.',
         action: 'DOWNLOAD SVG ASSETS',
       },
       masterVideo: {
@@ -631,7 +631,7 @@ export const showcaseDict: Record<Language, ShowcaseDictionary> = {
       },
       svgAssets: {
         title: '벡터 에셋 (.ZIP)',
-        desc: '7가지 학습 도구, 캐럿 게 다이아몬드 마스코트 및 학생 리깅 벡터 풀세트.',
+        desc: '3대 핵심 캐릭터(학생, 마스코트, 원장선생님) 리깅 및 7가지 학습 도구 SVG 풀세트.',
         action: 'SVG 에셋 다운로드',
       },
       masterVideo: {
@@ -932,9 +932,9 @@ export const showcaseDict: Record<Language, ShowcaseDictionary> = {
         action: 'MỞ XEM STORYBOARD',
       },
       svgAssets: {
-        title: 'Vector Assets (.ZIP)',
-        desc: '7 dụng cụ học tập, Mascot Cua kim cương & bộ Rig nhân vật học sinh.',
-        action: 'TẢI BỘ VECTOR SVG',
+        title: 'Trọn Bộ Vector Assets (.ZIP)',
+        desc: 'Trọn bộ 3 nhân vật chính (Học sinh, Cua Carat, Thầy Viện trưởng) & 7 đạo cụ học tập chuẩn SVG.',
+        action: 'TẢI BỘ VECTOR SVG (.ZIP)',
       },
       masterVideo: {
         title: 'Video Master (.MP4)',
