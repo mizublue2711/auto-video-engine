@@ -4,6 +4,7 @@ import { RemotionPlayerFrame } from './RemotionPlayerFrame';
 import { StrategicPillars } from './StrategicPillars';
 import { DualTrackPipeline } from './DualTrackPipeline';
 import { TelemetrySection } from './TelemetrySection';
+import { StoryboardBlueprintSection } from './StoryboardBlueprintSection';
 import { DeliverablesHub } from './DeliverablesHub';
 import { StoryboardFrameModal } from './StoryboardFrameModal';
 import { ContactTransmission } from './ContactTransmission';
@@ -86,23 +87,29 @@ export const ShowcaseLandingPage: React.FC = () => {
       {/* 5. TELEMETRY & MOTION PHYSICS SECTION */}
       <TelemetrySection dict={dict.telemetrySection} />
 
-      {/* 6. SECTION 4: DELIVERABLES HUB & THE MANUAL TRAP MODAL */}
+      {/* 6. PRODUCTION BLUEPRINT & 9-PHASE STORYBOARD SECTION */}
+      <StoryboardBlueprintSection
+        dict={dict.storyboardViewer}
+        onOpenModal={() => setIsStoryboardOpen(true)}
+      />
+
+      {/* 7. SECTION 4: DELIVERABLES HUB & THE MANUAL TRAP MODAL */}
       <DeliverablesHub
         dict={dict.deliverables}
         onOpenStoryboard={() => setIsStoryboardOpen(true)}
       />
 
-      {/* 7. SECTION 05: TELEMETRY TRANSMISSION & DIRECT CONTACT HUB */}
+      {/* 8. SECTION 05: TELEMETRY TRANSMISSION & DIRECT CONTACT HUB */}
       <ContactTransmission currentLang={currentLang} />
 
-      {/* 8. INTERACTIVE STORYBOARD MODAL (PROJECT SAMPLE) */}
+      {/* 9. INTERACTIVE STORYBOARD MODAL (PROJECT SAMPLE) */}
       <StoryboardFrameModal
         isOpen={isStoryboardOpen}
         onClose={() => setIsStoryboardOpen(false)}
         dict={dict.storyboardViewer}
       />
 
-      {/* 9. FOOTER */}
+      {/* 10. FOOTER */}
       <footer className="border-t border-[#1F1F2E] bg-[#05050A] py-12 px-6 lg:px-12 mt-20 text-center font-mono text-xs text-[#8A8FA3]">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">

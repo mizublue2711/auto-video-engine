@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:pdf": "python3 scripts/generate_storyboard_pdf.py",
     "build:remotion": "remotion bundle src/index.ts",
     "build:showcase": "vite build",
     "preview": "vite preview",

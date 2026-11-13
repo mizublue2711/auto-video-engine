@@ -77,17 +77,24 @@ export const Navbar: React.FC<NavbarProps> = ({
           <span>{dict.links.telemetry}</span>
         </a>
         <a
-          href="#deliverables"
+          href="#storyboard"
           className="hover:text-[#00E5FF] transition-colors flex items-center gap-1.5 py-1"
         >
           <span className="text-[#00E5FF]/60">[04]</span>
+          <span>STORYBOARD</span>
+        </a>
+        <a
+          href="#deliverables"
+          className="hover:text-[#00E5FF] transition-colors flex items-center gap-1.5 py-1"
+        >
+          <span className="text-[#00E5FF]/60">[05]</span>
           <span>{dict.links.deliverables}</span>
         </a>
         <a
           href="#contact"
           className="hover:text-[#00E5FF] transition-colors flex items-center gap-1.5 py-1"
         >
-          <span className="text-[#00E5FF]/60">[05]</span>
+          <span className="text-[#00E5FF]/60">[06]</span>
           <span>TRANSMIT</span>
         </a>
       </nav>

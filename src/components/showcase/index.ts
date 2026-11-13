@@ -3,6 +3,7 @@ export { RemotionPlayerFrame } from './RemotionPlayerFrame';
 export { StrategicPillars } from './StrategicPillars';
 export { DualTrackPipeline } from './DualTrackPipeline';
 export { TelemetrySection } from './TelemetrySection';
+export { StoryboardBlueprintSection } from './StoryboardBlueprintSection';
 export { DeliverablesHub } from './DeliverablesHub';
 export { StoryboardFrameModal } from './StoryboardFrameModal';
 export { ContactTransmission } from './ContactTransmission';

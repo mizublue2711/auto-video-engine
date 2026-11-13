@@ -31,11 +31,8 @@ export const DeliverablesHub: React.FC<DeliverablesHubProps> = ({
 
       {/* GRID NÚT BÀN GIAO */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-        {/* Nút 1: Storyboard Showcase (Opens Interactive In-Project Storyboard Modal) */}
-        <button
-          onClick={onOpenStoryboard}
-          className="p-6 bg-[#0A0C14] border border-[#1F1F2E] hover:border-[#00E5FF] transition-all flex flex-col justify-between group shadow-lg relative cursor-pointer"
-        >
+        {/* Nút 1: Storyboard Showcase (Opens Interactive In-Project Storyboard Modal & Direct PDF Download) */}
+        <div className="p-6 bg-[#0A0C14] border border-[#1F1F2E] hover:border-[#00E5FF] transition-all flex flex-col justify-between group shadow-lg relative">
           <div>
             <div className="flex items-center justify-between mb-4">
               <span className="text-[10px] font-mono text-[#00E5FF] font-bold">[ 01 // SPEC ]</span>
@@ -51,11 +48,24 @@ export const DeliverablesHub: React.FC<DeliverablesHubProps> = ({
             </p>
           </div>
 
-          <div className="pt-3 border-t border-[#1F1F2E] flex items-center justify-between text-xs font-mono font-bold text-[#00E5FF]">
-            <span>{dict.storyboard.action}</span>
-            <span>↗</span>
+          <div className="pt-3 border-t border-[#1F1F2E] flex items-center justify-between gap-2">
+            <button
+              onClick={onOpenStoryboard}
+              className="px-3 py-1.5 bg-[#031E2B] border border-[#00E5FF]/40 text-[#00E5FF] hover:bg-[#00E5FF] hover:text-[#05050A] font-mono font-bold text-xs transition-all cursor-pointer"
+            >
+              {dict.storyboard.action} ↗
+            </button>
+            <a
+              href="/downloads/Crabit_Storyboard_Master.pdf"
+              download="Crabit_Storyboard_Master.pdf"
+              className="px-2.5 py-1.5 bg-[#0D0E17] border border-[#1F1F2E] hover:border-[#10B981] text-[#10B981] transition-all flex items-center gap-1 text-[11px] font-mono font-bold"
+              title="Download Master Blueprint PDF"
+            >
+              <Download size={13} />
+              <span>PDF</span>
+            </a>
           </div>
-        </button>
+        </div>
 
         {/* Nút 2: SVG Assets Zip */}
         <a
