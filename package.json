@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.69.1",
-    "@remotion/cli": "^4.0.240",
+    "@remotion/cli": "^4.0.545",
     "@resvg/resvg-js-cli": "^2.6.2-beta.1",
     "@types/node": "^20.14.0",
     "@types/react": "^18.3.3",
