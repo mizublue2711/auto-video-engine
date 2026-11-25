@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Gem, Github, ExternalLink, Terminal, ChevronDown, Linkedin, Globe } from 'lucide-react';
+import { Github, ExternalLink, Terminal, ChevronDown, Linkedin, Globe } from 'lucide-react';
 import { Language, ShowcaseDictionary } from '../../i18n/showcaseDict';
+import BrutalistLogo from './BrutalistLogo';
 
 interface NavbarProps {
   currentLang: Language;
@@ -32,24 +33,23 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className="fixed top-0 left-0 right-0 z-50 h-20 bg-[#05050A]/90 backdrop-blur-xl border-b border-[#1F1F2E] px-4 md:px-8 lg:px-12 flex items-center justify-between brutalist-strict">
       {/* 1. BRAND LOGO */}
-      <div className="flex items-center gap-3">
-        <div className="w-10 h-10 bg-[#0A0C14] border border-[#00E5FF] flex items-center justify-center shadow-cyan-border">
-          <Gem size={20} className="text-[#00E5FF]" strokeWidth={1.5} />
-        </div>
-        <div>
-          <div className="font-sans font-black text-white text-sm md:text-base tracking-wider flex items-center gap-2">
-            CRABIT
-            <span className="text-[#00E5FF] text-[10px] font-mono font-bold px-2 py-0.5 bg-[#031E2B] border border-[#00E5FF]/40">
-              CODE ENGINE
+      <div className="flex items-center gap-3 cursor-pointer">
+        {/* Original ARTIFICIAL CRAFT Brutalist SVG Logo */}
+        <BrutalistLogo size={36} showText={false} />
+
+        {/* Text Hierarchy */}
+        <div className="flex flex-col text-left">
+          <div className="flex items-center gap-2">
+            <span className="font-mono font-black text-white tracking-wider text-sm">
+              ARTIFICIAL CRAFT
             </span>
-            <span className="hidden lg:inline-flex items-center gap-1.5 text-[10px] font-mono text-[#10B981] px-2 py-0.5 bg-[#0A1A14] border border-[#10B981]/40">
-              <span className="w-1.5 h-1.5 bg-[#10B981] animate-pulse" />
-              {dict.engineLiveBadge}
+            <span className="px-1.5 py-0.5 rounded bg-cyan-500/10 border border-cyan-400/40 text-[10px] font-mono text-cyan-300">
+              ENGINE
             </span>
           </div>
-          <div className="text-[10px] text-[#8A8FA3] font-mono tracking-tight uppercase">
-            {dict.brandSubtitle}
-          </div>
+          <span className="text-[10px] font-mono text-slate-400 tracking-tight">
+            AUTO-VIDEO PLATFORM // MULTI-PROJECT
+          </span>
         </div>
       </div>
 
