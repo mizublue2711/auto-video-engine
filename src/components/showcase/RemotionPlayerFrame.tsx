@@ -18,6 +18,7 @@ import {
 import { MasterCompositeScene } from '../../scenes/MasterCompositeScene';
 import { StudyGearConvergenceScene } from '../../scenes/StudyGearConvergenceScene';
 import { ShowcaseDictionary } from '../../i18n/showcaseDict';
+import { ProjectMetadata, SupportedLang } from '../../data/projectsConfig';
 
 class PlayerErrorBoundary extends React.Component<
   { children: React.ReactNode },
@@ -60,14 +61,27 @@ class PlayerErrorBoundary extends React.Component<
 
 interface RemotionPlayerFrameProps {
   dict: ShowcaseDictionary['hero']['player'];
+  activeProject: ProjectMetadata;
+  currentLang: SupportedLang;
 }
 
-export const RemotionPlayerFrame: React.FC<RemotionPlayerFrameProps> = ({ dict }) => {
+export const RemotionPlayerFrame: React.FC<RemotionPlayerFrameProps> = ({
+  dict,
+  activeProject,
+  currentLang,
+}) => {
   const playerRef = useRef<PlayerRef>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentFrame, setCurrentFrame] = useState(0);
   const [telemetryMode, setTelemetryMode] = useState(false);
   const [selectedComp, setSelectedComp] = useState<'commercial' | 'convergence'>('commercial');
+  const [mp4Format, setMp4Format] = useState<'9:16' | '1:1'>('9:16');
+
+  useEffect(() => {
+    setMp4Format('9:16');
+    setIsPlaying(false);
+    setCurrentFrame(0);
+  }, [activeProject.id]);
 
   // Active composition specs
   const activeConfig = selectedComp === 'commercial'
@@ -141,6 +155,112 @@ export const RemotionPlayerFrame: React.FC<RemotionPlayerFrameProps> = ({ dict }
   const framesMod = currentFrame % activeConfig.fps;
   const timecode = `00:${String(seconds).padStart(2, '0')}:${String(framesMod).padStart(2, '0')}`;
   const progressPercent = ((currentFrame / activeConfig.durationInFrames) * 100).toFixed(1);
+
+  if (activeProject.video.type === 'mp4-direct') {
+    const activeMp4Src =
+      mp4Format === '1:1' && activeProject.video.mp4SquareUrl
+        ? activeProject.video.mp4SquareUrl
+        : activeProject.video.mp4Url;
+    const isSquare = mp4Format === '1:1' && Boolean(activeProject.video.mp4SquareUrl);
+    const isVertical = !isSquare && activeProject.aspectRatio === '9:16';
+
+    const downloadLabel =
+      currentLang === 'kr' ? '⬇ MP4 다운로드' : currentLang === 'en' ? '⬇ Download MP4' : '⬇ Tải MP4';
+    const formatLabel =
+      currentLang === 'kr' ? '포맷:' : currentLang === 'en' ? 'FORMAT:' : 'ĐỊNH DẠNG:';
+
+    return (
+      <div className="flex flex-col items-center justify-center max-w-6xl mx-auto px-4 sm:px-6 mb-10">
+        {/* Khung chứa Video thích ứng theo tỷ lệ 9:16, 1:1 hoặc 16:9 */}
+        <div
+          style={{
+            borderColor: `${activeProject.themeColor}66`,
+            boxShadow: `0 25px 50px -12px ${activeProject.themeColor}33`,
+          }}
+          className={`relative rounded-3xl overflow-hidden border bg-black flex items-center justify-center transition-all duration-300 ${
+            isVertical
+              ? 'w-full max-w-[400px] aspect-[9/16]'
+              : isSquare
+              ? 'w-full max-w-[540px] aspect-square'
+              : 'w-full aspect-video'
+          }`}
+        >
+          <video
+            key={activeMp4Src}
+            src={activeMp4Src}
+            controls
+            playsInline
+            className="w-full h-full object-cover"
+          />
+
+          {/* Badge hiển thị chuẩn Frame Rate góc trái trên Player */}
+          <div className="absolute top-4 left-4 z-20 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md border border-white/10 text-white font-mono text-[11px] pointer-events-none">
+            ● {activeProject.telemetry.fps} FPS CINEMATIC // {activeProject.telemetry.totalFrames} FRAMES
+          </div>
+
+          {/* Nút tải nhanh MP4 góc phải trên Player */}
+          <a
+            href={activeMp4Src}
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+            className="absolute top-4 right-4 z-20 px-3 py-1.5 rounded-xl bg-slate-950/80 backdrop-blur-md border border-cyan-400/60 text-cyan-300 text-xs font-mono font-bold hover:bg-cyan-500 hover:text-black transition-all"
+          >
+            {downloadLabel}
+          </a>
+        </div>
+
+        {/* Thanh chuyển đổi nhanh & tải xuống bản 9:16 và 1:1 cho dự án Chai Meritz */}
+        {activeProject.video.mp4SquareUrl && (
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+            <span className="text-xs text-slate-400 font-mono">{formatLabel}</span>
+            <button
+              type="button"
+              onClick={() => setMp4Format('9:16')}
+              className={`px-3 py-1.5 rounded-lg border text-xs font-mono transition-all cursor-pointer ${
+                mp4Format === '9:16'
+                  ? 'bg-orange-500/20 border-orange-400 text-white font-bold'
+                  : 'bg-slate-900 border-slate-700 text-slate-300 hover:border-cyan-400'
+              }`}
+            >
+              📱 9:16 Vertical (Shorts/TikTok)
+            </button>
+            <button
+              type="button"
+              onClick={() => setMp4Format('1:1')}
+              className={`px-3 py-1.5 rounded-lg border text-xs font-mono transition-all cursor-pointer ${
+                mp4Format === '1:1'
+                  ? 'bg-orange-500/20 border-orange-400 text-white font-bold'
+                  : 'bg-slate-900 border-slate-700 text-slate-300 hover:border-cyan-400'
+              }`}
+            >
+              ⬛ 1:1 Square (Kakao/In-Feed)
+            </button>
+            <a
+              href={activeProject.downloads.mp4Vertical}
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs text-cyan-300 font-mono hover:border-cyan-400"
+            >
+              ⬇ 9:16 MP4
+            </a>
+            {activeProject.downloads.mp4Square && (
+              <a
+                href={activeProject.downloads.mp4Square}
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+                className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs text-cyan-300 font-mono hover:border-cyan-400"
+              >
+                ⬇ 1:1 MP4
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className="w-full max-w-6xl mx-auto brutalist-strict">
