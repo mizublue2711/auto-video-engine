@@ -18,7 +18,7 @@ import {
 import { MasterCompositeScene } from '../../scenes/MasterCompositeScene';
 import { StudyGearConvergenceScene } from '../../scenes/StudyGearConvergenceScene';
 import { ShowcaseDictionary } from '../../i18n/showcaseDict';
-import { ProjectMetadata, SupportedLang } from '../../data/projectsConfig';
+import { ProjectComprehensive, SupportedLang } from '../../data/projectsConfig';
 
 class PlayerErrorBoundary extends React.Component<
   { children: React.ReactNode },
@@ -61,7 +61,7 @@ class PlayerErrorBoundary extends React.Component<
 
 interface RemotionPlayerFrameProps {
   dict: ShowcaseDictionary['hero']['player'];
-  activeProject: ProjectMetadata;
+  activeProject: ProjectComprehensive;
   currentLang: SupportedLang;
 }
 
@@ -237,7 +237,7 @@ export const RemotionPlayerFrame: React.FC<RemotionPlayerFrameProps> = ({
               ⬛ 1:1 Square (Kakao/In-Feed)
             </button>
             <a
-              href={activeProject.downloads.mp4Vertical}
+              href={activeProject.downloads.mp4Master}
               target="_blank"
               rel="noopener noreferrer"
               download

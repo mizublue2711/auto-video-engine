@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { FileText, Download, Film, AlertTriangle, X, Mail, Sparkles, Gem, HardDriveDownload } from 'lucide-react';
 import { ShowcaseDictionary } from '../../i18n/showcaseDict';
-import { ProjectMetadata, SupportedLang } from '../../data/projectsConfig';
+import { ProjectComprehensive, SupportedLang } from '../../data/projectsConfig';
 
 interface DeliverablesHubProps {
   dict: ShowcaseDictionary['deliverables'];
-  activeProject: ProjectMetadata;
+  activeProject: ProjectComprehensive;
   currentLang: SupportedLang;
   onOpenStoryboard: () => void;
 }
@@ -130,7 +130,7 @@ export const DeliverablesHub: React.FC<DeliverablesHubProps> = ({
 
         {/* Nút 2: SVG Assets / Keyframe Stills Zip */}
         <a
-          href={activeProject.downloads.keyframeStillsZip || '/downloads/Crabit_Lego_Assets_SVG.zip'}
+          href={activeProject.downloads.assetsZip || '/downloads/Crabit_Lego_Assets_SVG.zip'}
           download
           className="p-6 bg-[#0A0C14] border border-[#1F1F2E] hover:border-[#00E5FF] transition-all flex flex-col justify-between group shadow-lg relative"
         >
@@ -173,16 +173,16 @@ export const DeliverablesHub: React.FC<DeliverablesHubProps> = ({
             </h3>
             <p className="text-xs text-[#00E5FF]/80 font-sans leading-relaxed mb-6">
               {isChaiProject
-                ? `${activeProject.telemetry.resolution} • ${activeProject.telemetry.audioStandard}`
+                ? `${activeProject.telemetry.resolution} • ${activeProject.telemetry.audioSpec}`
                 : dict.masterVideo.desc}
             </p>
           </div>
 
           <div className="pt-3 border-t border-[#00E5FF]/30 flex flex-wrap items-center justify-between gap-2 text-xs font-mono font-bold text-white">
             <a
-              href={activeProject.downloads.mp4Vertical}
-              target={activeProject.downloads.mp4Vertical.startsWith('http') ? '_blank' : undefined}
-              rel={activeProject.downloads.mp4Vertical.startsWith('http') ? 'noopener noreferrer' : undefined}
+              href={activeProject.downloads.mp4Master}
+              target={activeProject.downloads.mp4Master.startsWith('http') ? '_blank' : undefined}
+              rel={activeProject.downloads.mp4Master.startsWith('http') ? 'noopener noreferrer' : undefined}
               download
               className="flex items-center gap-1.5 hover:text-[#00E5FF] transition-colors"
             >

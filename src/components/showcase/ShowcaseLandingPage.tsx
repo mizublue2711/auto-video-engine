@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from './Navbar';
 import { RemotionPlayerFrame } from './RemotionPlayerFrame';
 import { StrategicPillars } from './StrategicPillars';
@@ -9,18 +9,49 @@ import { StoryboardBlueprintSection } from './StoryboardBlueprintSection';
 import { DeliverablesHub } from './DeliverablesHub';
 import { StoryboardFrameModal } from './StoryboardFrameModal';
 import { ContactTransmission } from './ContactTransmission';
+import { ProjectTabs } from './ProjectTabs';
 import { Language, showcaseDict } from '../../i18n/showcaseDict';
-import { SHOWCASE_PROJECTS, ProjectMetadata } from '../../data/projectsConfig';
+import { SHOWCASE_PROJECTS, ProjectComprehensive } from '../../data/projectsConfig';
 import { Sparkles, Activity, ShieldCheck, Terminal, Cpu, Film, Monitor } from 'lucide-react';
 
 export const ShowcaseLandingPage: React.FC = () => {
   const [currentLang, setCurrentLang] = useState<Language>('vi');
   const [isStoryboardOpen, setIsStoryboardOpen] = useState(false);
-  const [activeProjectId, setActiveProjectId] = useState<string>(SHOWCASE_PROJECTS[0].id);
+  const [copySuccess, setCopySuccess] = useState(false);
+
+  // 1. Khởi tạo project dựa vào hash trên URL, mặc định là dự án đầu tiên
+  const getInitialProject = (): ProjectComprehensive => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash.replace('#', '');
+      const found = SHOWCASE_PROJECTS.find((p) => p.id === hash);
+      if (found) return found;
+    }
+    return SHOWCASE_PROJECTS[0];
+  };
+
+  const [activeProject, setActiveProject] = useState<ProjectComprehensive>(getInitialProject);
+
+  // 2. Lắng nghe sự kiện đổi URL (khi bấm nút Back / Forward trên trình duyệt)
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      const found = SHOWCASE_PROJECTS.find((p) => p.id === hash);
+      if (found) {
+        setActiveProject(found);
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  // 3. Hàm xử lý khi người dùng click chọn Tab
+  const handleSelectProject = (project: ProjectComprehensive) => {
+    setActiveProject(project);
+    window.history.pushState(null, '', `#${project.id}`);
+  };
 
   const dict = showcaseDict[currentLang];
-  const activeProject: ProjectMetadata =
-    SHOWCASE_PROJECTS.find((project) => project.id === activeProjectId) || SHOWCASE_PROJECTS[0];
   const isChaiProject = activeProject.id === 'chai-meritz-2611';
 
   return (
@@ -40,40 +71,28 @@ export const ShowcaseLandingPage: React.FC = () => {
         <div className="absolute top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#00E5FF]/5 blur-3xl pointer-events-none rounded-full" />
 
         {/* PROJECT SWITCHER TABS */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
-          {SHOWCASE_PROJECTS.map((project, index) => {
-            const isActive = project.id === activeProject.id;
-            return (
-              <button
-                key={project.id}
-                onClick={() => setActiveProjectId(project.id)}
-                style={{
-                  borderColor: isActive ? project.themeColor : undefined,
-                  boxShadow: isActive ? `0 0 24px ${project.themeColor}28` : undefined,
-                }}
-                className={`px-4 py-2.5 bg-[#0A0C14] border text-left transition-all font-mono cursor-pointer flex items-center gap-3 ${
-                  isActive
-                    ? 'text-white'
-                    : 'border-[#1F1F2E] text-[#8A8FA3] hover:border-slate-500 hover:text-white'
-                }`}
-              >
-                <span
-                  className="text-[10px] font-bold px-1.5 py-0.5 border"
-                  style={{
-                    color: project.themeColor,
-                    borderColor: `${project.themeColor}55`,
-                    backgroundColor: `${project.themeColor}14`,
-                  }}
-                >
-                  0{index + 1} // {project.aspectRatio}
-                </span>
-                <div>
-                  <div className="text-xs font-bold tracking-wide">{project.title}</div>
-                  <div className="text-[10px] text-[#8A8FA3]">{project.badge}</div>
-                </div>
-              </button>
-            );
-          })}
+        <ProjectTabs
+          activeProjectId={activeProject.id}
+          onSelectProject={handleSelectProject}
+        />
+
+        {/* NÚT SAO CHÉP LIÊN KẾT TRỰC TIẾP ĐẾN DỰ ÁN HIỆN TẠI */}
+        <div className="flex justify-center mb-6">
+          <button
+            onClick={() => {
+              const shareUrl = `${window.location.origin}/#${activeProject.id}`;
+              navigator.clipboard.writeText(shareUrl);
+              setCopySuccess(true);
+              setTimeout(() => setCopySuccess(false), 2000);
+            }}
+            className="text-xs font-mono px-3.5 py-1.5 bg-[#0A0C14] border border-[#1F1F2E] text-slate-300 hover:text-white transition-all flex items-center gap-2 cursor-pointer shadow-sm hover:border-[#00E5FF]/50"
+            style={{
+              borderColor: copySuccess ? activeProject.themeColor : undefined,
+            }}
+          >
+            <span>🔗 {copySuccess ? 'Copied to Clipboard!' : 'Copy Direct Link:'}</span>
+            <span style={{ color: activeProject.themeColor }}>/#{activeProject.id}</span>
+          </button>
         </div>
 
         {/* Top Machine Category Badge */}
@@ -91,7 +110,7 @@ export const ShowcaseLandingPage: React.FC = () => {
           />
           <span>
             {isChaiProject
-              ? `PROJECT 2611 // ${activeProject.badge} • ${activeProject.client}`
+              ? `PROJECT 2611 // ${activeProject.categoryBadge} • ${activeProject.client}`
               : dict.hero.categoryBadge}
           </span>
         </div>
@@ -110,7 +129,7 @@ export const ShowcaseLandingPage: React.FC = () => {
 
         {isChaiProject && (
           <p className="mt-3 text-sm text-slate-400 max-w-3xl mx-auto leading-relaxed font-sans">
-            {activeProject.description[currentLang]}
+            {activeProject.heroSummary[currentLang]}
           </p>
         )}
 
@@ -131,7 +150,9 @@ export const ShowcaseLandingPage: React.FC = () => {
 
           <div className="flex items-center gap-2 px-3 py-1.5 bg-[#0A0C14] border border-[#5322FF]/50 text-white">
             <Cpu size={13} className="text-[#5322FF]" />
-            <span>{activeProject.telemetry.engine}</span>
+            <span>
+              {activeProject.architecture.visualTrack.tool} + {activeProject.architecture.codeTrack.tool}
+            </span>
           </div>
 
           <div className="flex items-center gap-2 px-3 py-1.5 bg-[#0A0C14] border border-[#1F1F2E] text-slate-300">
@@ -141,7 +162,7 @@ export const ShowcaseLandingPage: React.FC = () => {
 
           <div className="flex items-center gap-2 px-3 py-1.5 bg-[#0A0C14] border border-amber-500/40 text-amber-300">
             <Film size={13} className="text-amber-400" />
-            <span>{activeProject.telemetry.audioStandard}</span>
+            <span>{activeProject.telemetry.audioSpec}</span>
           </div>
         </div>
 
@@ -172,6 +193,117 @@ export const ShowcaseLandingPage: React.FC = () => {
         dict={dict.storyboardViewer}
         onOpenModal={() => setIsStoryboardOpen(true)}
       />
+
+      {/* 6.5. DYNAMIC 8-PILLAR PROJECT MATRIX (READS FROM activeProject) */}
+      <section className="py-16 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto space-y-16">
+        {/* DUAL-TRACK ARCHITECTURE */}
+        <div className="border border-[#1F1F2E] bg-[#0A0C14] p-6 sm:p-8">
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-6 border-b border-[#1F1F2E] pb-4">
+            <div className="flex items-center gap-2 font-mono text-xs font-bold" style={{ color: activeProject.themeColor }}>
+              <Activity size={14} />
+              <span>DUAL-TRACK ARCHITECTURE // {activeProject.id.toUpperCase()}</span>
+            </div>
+            <span className="font-mono text-[11px] text-[#8A8FA3]">
+              {activeProject.telemetry.linesOfCode} LOC • RENDER {activeProject.telemetry.renderTime}
+            </span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div className="p-4 bg-[#05050A] border border-[#1F1F2E]">
+              <div className="text-[11px] font-mono text-[#8A8FA3] mb-1">VISUAL TRACK</div>
+              <div className="text-sm font-bold text-white mb-2">{activeProject.architecture.visualTrack.tool}</div>
+              <p className="text-xs text-slate-400 leading-relaxed">{activeProject.architecture.visualTrack.role[currentLang]}</p>
+            </div>
+            <div className="p-4 bg-[#05050A] border border-[#1F1F2E]">
+              <div className="text-[11px] font-mono text-[#8A8FA3] mb-1">CODE TRACK</div>
+              <div className="text-sm font-bold text-white mb-2">{activeProject.architecture.codeTrack.tool}</div>
+              <p className="text-xs text-slate-400 leading-relaxed">{activeProject.architecture.codeTrack.role[currentLang]}</p>
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {activeProject.architecture.guardrails.map((rule) => (
+              <span
+                key={rule}
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#05050A] border border-[#1F1F2E] font-mono text-[11px] text-slate-300"
+              >
+                <ShieldCheck size={12} style={{ color: activeProject.themeColor }} />
+                {rule}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* SCENE MATRIX BREAKDOWN */}
+        <div>
+          <div className="flex items-center gap-2 font-mono text-xs font-bold mb-4" style={{ color: activeProject.themeColor }}>
+            <Sparkles size={14} />
+            <span>SCENE MATRIX BREAKDOWN ({activeProject.sceneMatrix.length} CUTS)</span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {activeProject.sceneMatrix.map((cut) => (
+              <div key={cut.cutNumber} className="p-5 bg-[#0A0C14] border border-[#1F1F2E] flex flex-col justify-between gap-3">
+                <div>
+                  <div className="flex items-center justify-between font-mono text-[11px] mb-2">
+                    <span className="font-bold" style={{ color: activeProject.themeColor }}>{cut.cutNumber}</span>
+                    <span className="text-[#8A8FA3]">{cut.frameRange}</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-white mb-2">{cut.title[currentLang]}</h3>
+                  <p className="text-xs text-slate-400 mb-2">{cut.visualPrompt}</p>
+                  <div className="p-2.5 bg-[#05050A] border border-[#1F1F2E] text-xs font-mono text-amber-300 mb-2">
+                    “{cut.koreanDialogue}”
+                  </div>
+                  <p className="text-xs text-slate-300">{cut.translation[currentLang]}</p>
+                </div>
+                <div className="pt-2 border-t border-[#1F1F2E] font-mono text-[10px] text-[#8A8FA3]">
+                  {cut.remotionPhysics}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* COMPONENT FOUNDRY & BUSINESS COMPARISON */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="border border-[#1F1F2E] bg-[#0A0C14] p-6">
+            <div className="font-mono text-xs font-bold mb-4" style={{ color: activeProject.themeColor }}>
+              LEGO COMPONENT FOUNDRY ({activeProject.components.length})
+            </div>
+            <div className="space-y-3">
+              {activeProject.components.map((comp) => (
+                <div key={comp.name} className="p-3 bg-[#05050A] border border-[#1F1F2E]">
+                  <div className="flex items-center justify-between gap-2 mb-1">
+                    <span className="font-mono text-xs font-bold text-white">{comp.name}</span>
+                    <span className="font-mono text-[10px] px-2 py-0.5 border border-[#1F1F2E] text-[#8A8FA3]">
+                      {comp.category} • {comp.techStack}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-400">{comp.role[currentLang]}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="border border-[#1F1F2E] bg-[#0A0C14] p-6">
+            <div className="font-mono text-xs font-bold mb-4" style={{ color: activeProject.themeColor }}>
+              BUSINESS COST & SPEED MATRIX
+            </div>
+            <div className="space-y-3">
+              {activeProject.comparison.map((row, idx) => (
+                <div key={idx} className="p-3 bg-[#05050A] border border-[#1F1F2E] text-xs">
+                  <div className="font-bold text-white mb-2">{row.criteria[currentLang]}</div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <div className="text-rose-300/90">AE: {row.traditionalAe}</div>
+                    <div className="text-emerald-300">Code: {row.videoAsCode}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-4 p-3 bg-[#05050A] border border-[#1F1F2E] flex items-center gap-2 font-mono text-[11px] text-slate-300 overflow-x-auto">
+              <Terminal size={13} style={{ color: activeProject.themeColor }} className="shrink-0" />
+              <code>{activeProject.cliCommand}</code>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* 7. SECTION 4: DELIVERABLES HUB & THE MANUAL TRAP MODAL */}
       <DeliverablesHub

@@ -9,3 +9,4 @@ export { DeliverablesHub } from './DeliverablesHub';
 export { StoryboardFrameModal } from './StoryboardFrameModal';
 export { ContactTransmission } from './ContactTransmission';
 export { ShowcaseLandingPage } from './ShowcaseLandingPage';
+export { ProjectTabs } from './ProjectTabs';
