@@ -25,6 +25,32 @@ export interface ComparisonRow {
   videoAsCode: string;      // Phương pháp Video-as-Code
 }
 
+export interface StrategicPillar {
+  id: string;
+  category: string;
+  title: string;
+  description: string;
+  checkpoints: string[];
+}
+
+export interface CharacterCastRig {
+  id: string;
+  fileName: string;
+  fileSize: string;
+  name: string;
+  roleTag: string;
+  ratio: string;
+  svgUrl: string;
+  viewBox?: string;
+  details?: {
+    leftSide: string;
+    rightSide: string;
+    heightMetric: string;
+    ratioBreakdown: string;
+    groundContact: string;
+  };
+}
+
 export interface ProjectComprehensive {
   // ─── KHỐI 1: ĐỊNH DANH & HERO IDENTITY ───
   id: string;               // 'crabit-korea' | 'chai-meritz-2611'
@@ -91,6 +117,10 @@ export interface ProjectComprehensive {
 
   // ─── KHỐI 8: CLI REPRODUCTION SNIPPET (LỆNH REPRODUCE) ───
   cliCommand: string;
+
+  // ─── KHỐI 9 & 10: STRATEGIC PILLARS & CHARACTER CAST RIGS ───
+  strategicPillars?: StrategicPillar[];
+  characterCastRigs?: CharacterCastRig[];
 }
 
 export const CRABIT_PROJECT: ProjectComprehensive = {
@@ -296,6 +326,82 @@ export const CRABIT_PROJECT: ProjectComprehensive = {
 
   // KHỐI 8: CLI REPRODUCTION
   cliCommand: 'npx remotion render src/index.ts MasterCompositeScene out/Crabit_1080p.mp4 --gl=angle',
+
+  // 1. Khối 3 Trụ Cột Chiến Lược (Strategic Pillars)
+  strategicPillars: [
+    {
+      id: '01',
+      category: 'HỆ THỐNG THIẾT KẾ',
+      title: 'Brand Identity Foundry',
+      description: 'Chuẩn hóa bảng màu K-Fintech pastel & dark squircle, thiết kế UI/UX ứng dụng Crabit mô phỏng chuẩn xác Toss & KakaoBank.',
+      checkpoints: [
+        'Hệ phông Pretendard Hàn Quốc chuẩn mực (Tracking -0.02em)',
+        'Bảng màu Toss Blue (#3182F6) & Ngọc Lục Bảo Carat (#10B981)',
+        'Vết cắt cơ học 45° CAD Chisel & Phản hồi xúc giác UI'
+      ],
+    },
+    {
+      id: '02',
+      category: 'RIGGING & TÍNH LIỀN MẠCH',
+      title: 'Character & Context Locking',
+      description: 'Khóa cứng tỷ lệ cơ thể nhân vật học sinh Hàn Quốc, loại bỏ triệt để asset rác và duy trì tính liền mạch trong bối cảnh lớp học Hagwon.',
+      checkpoints: [
+        'Bộ Rigging Vector 2D tháo rời chuẩn mực (Đầu/Thân/Tứ chi)',
+        'Hình chiếu phối cảnh không trôi lệch tọa độ theo thời gian',
+        'Vùng biên an toàn 80px Safe Margin không bao giờ bị cắt mép'
+      ],
+    },
+    {
+      id: '03',
+      category: 'LINH VẬT & BIỂU TƯỢNG',
+      title: 'Mascot Engineering (Chú Cua Crabit)',
+      description: 'Chơi chữ Crabit -> Cua với hai càng giơ cao biểu trưng cho học sinh tích cực phát biểu; thân hình ma trận code & kim cương biểu trưng Carat học bổng.',
+      checkpoints: [
+        'Hai càng giơ cao = Sự tự tin chủ động phát biểu trong lớp',
+        'Mặt cắt kim cương = Carat học bổng tích lũy sau mỗi bài học',
+        'Truyền mã SVG trực tiếp vào Three.js với vật lý phản xạ sáng'
+      ],
+    }
+  ],
+
+  // 2. Khối Bộ Ba Nhân Vật (Canonical Character Cast Rigs)
+  characterCastRigs: [
+    {
+      id: 'student',
+      fileName: 'char_student.svg',
+      fileSize: '23.8 KB',
+      name: 'Nhân Vật Học Sinh',
+      roleTag: 'NHÂN VẬT TRUNG TÂM (PROTAGONIST)',
+      ratio: '1 : 6',
+      svgUrl: '/assets/crabit/char_student.svg',
+      viewBox: '0 0 1000 900',
+      details: {
+        leftSide: 'Nửa trái (Front View): <g id="view-student-front"> [x: 0-500, Tâm: 250, Chân tiếp đất: 850]',
+        rightSide: 'Nửa phải (Walk Stride): <g id="view-student-walk"> [x: 500-1000, Tâm: 750, Chân tiếp đất: 850]',
+        heightMetric: 'Chiều cao chuẩn: 700px (Đỉnh y: 150 -> Tiếp đất y: 850 đồng bộ 100%)',
+        ratioBreakdown: 'Tỷ lệ đầu:thân (1:6) [Đầu: 115px | Thân áo: 255px | Chân quần: 280px | Giày: 50px]',
+        groundContact: 'Tiếp đất toàn cục: y: 850 (Ellipse bóng sàn #0F172A opacity 0.45)'
+      }
+    },
+    {
+      id: 'mascot',
+      fileName: 'mascot_crabit_carat_crystal.svg',
+      fileSize: '16.3 KB',
+      name: 'Chú Cua Linh Vật Carat',
+      roleTag: 'LINH VẬT THƯƠNG HIỆU (BRAND MASCOT)',
+      ratio: 'Khối kim cương',
+      svgUrl: '/assets/crabit/mascot_crabit_carat_crystal.svg',
+    },
+    {
+      id: 'director',
+      fileName: 'char_director_master.svg',
+      fileSize: '29.2 KB',
+      name: 'Thầy Giáo Viện Trưởng',
+      roleTag: 'NGƯỜI HƯỚNG DẪN UY TÍN (CHIEF MENTOR)',
+      ratio: '1 : 7.2',
+      svgUrl: '/assets/crabit/char_director_master.svg',
+    }
+  ],
 };
 
 export const CHAI_MERITZ_PROJECT: ProjectComprehensive = {
