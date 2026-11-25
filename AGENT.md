@@ -1,111 +1,67 @@
 # 🤖 AGENT.md - CORE OPERATIONAL DIRECTIVES & QUALITY GATES
-**Project:** Auto Video Engine (Google Flow + Remotion + Three.js)  
-**Agent Role:** Execution Engine & Precision Code Assembler  
+**Project:** Auto Video Engine (Google Flow / Genie 4 + Remotion + AI Audio Engine)  
+**Agent Role:** Execution Engine, Modular Component Assembler & Motion Coder  
 **Status:** MANDATORY ENFORCEMENT ON ALL TASKS
 
 ---
 
-## ⛔ 1. THE NON-NEGOTIABLE 3D INVIOLABILITY RULES (RÀO CHẮN 3D BẤT KHẢ XÂM PHẠM)
+## ⛔ 1. CORE VIDEO-AS-CODE INVIOLABILITY RULES
 
-When refactoring, optimizing, or fixing bugs in 3D props (e.g., `CrabitSmartphone3D.tsx`, `CrabitCard3D.tsx`):
+### Rule 1.1: Audio-Driven Sequence Determinism (MANDATORY FOR K-DRAMA ADS)
+- When building timeline sequences driven by voiceovers (e.g., `Chai Communication` Joseon drama cuts):
+  - **NEVER hardcode frame durations blindly.** All cut durations MUST be derived from measured audio durations: `durationInFrames = Math.ceil(audioSeconds * 30) + paddingFrames`.
+  - Master sequence compositions MUST use `<Series>` and `<Series.Sequence>` to eliminate cumulative sync drift.
 
-### 🚫 STRICT PROHIBITIONS (CẤM TUYỆT ĐỐI)
-1. **NEVER STRIP HARDWARE DETAILING (CẤM RÚT RUỘT LINH KIỆN):**
-   - You are **STRICTLY FORBIDDEN** from simplifying a detailed multi-layer 3D assembly into a bare single `BoxGeometry` or a flat 2D sheet.
-   - Physical hardware features (Side Power/Volume buttons, Rear Camera Bump, Precision Lens rings, Chamfered wireframes, Bevels, Dynamic Island) are **PERMANENT ARCHITECTURAL ASSETS**.
-   - If a layout or clipping issue occurs, **ONLY adjust the outer Canvas/Camera or Group `scale` / `position` / `rotation`**. NEVER delete the sub-meshes!
+### Rule 1.2: Mobile Safe-Zone & Layer Hierarchy (9:16 & 1:1 Adaptive)
+- **Top 18%-20%**: Reserved exclusively for sticky banners (`ChaiTopBanner`). No actor headgear or critical focal points allowed here.
+- **Center 55%**: Core visual stage for Genie 4 clean plates.
+- **Bottom 22%-25%**: Reserved for `DynamicSubtitles` and TikTok/Reels native platform UI.
+- All overlay text, badges, and kinetic typography MUST have high contrast with backdrop blur or drop shadows.
 
-2. **NEVER ELIMINATE ISOMETRIC BASE PITCH (CHỐNG SẬP 2D DEPTH COLLAPSE):**
-   - In 3D isometric commercial scenes, the downward pitch (`rotXBase` or `rotateXDeg`) must **NEVER be 0 or lower than 0.30 rad (~17°)**.
-   - Eliminating the pitch angle collapses 3D geometry into a flat 2D line or plane when rotated on the Y-axis.
-
-3. **NEVER TRANSLATE MESH X/Y FREELY INSIDE THREE.JS (CHỐNG VĂNG KHUNG HÌNH):**
-   - The primary 3D mesh must be centered at origin `[0, floatY, 0]`.
-   - Do NOT apply large translation offsets (e.g. `anchorX: -0.4`) inside the 3D perspective camera. If the prop needs to be on the left 1/3 of the screen, position the outer Canvas container via CSS layout!
-
-4. **100% MANDATORY CLAMPING ON REMOTION INTERPOLATIONS:**
-   - Every `interpolate()` call driving rotation, position, or scale MUST include:
-     `{ extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }`
-   - Unclamped interpolations cause infinite visual drift beyond frame boundaries.
+### Rule 1.3: 100% Mandatory Clamping on Remotion Interpolations
+- Every `interpolate()` call driving rotation, position, opacity, or scale MUST include:
+  `{ extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }`
+- Unclamped interpolations cause infinite visual drift beyond frame boundaries.
 
 ---
 
-## 📐 2. 3D CAMERA & FRUSTUM MATHEMATICAL PROTOCOL
-
-Before modifying 3D scene parameters, calculate the vertical frustum to prevent clipping top/bottom edges:
-$$\text{Frustum Height at } Z=0: \quad H_{\text{frustum}} = 2 \times \text{cameraZ} \times \tan\left(\frac{\text{cameraFOV} \times \pi}{360}\right)$$
-
-- If total mesh height $\times \cos(\text{pitch}) > H_{\text{frustum}}$, you **MUST scale down the mesh group** (`scale={0.62}`) rather than pushing the camera into infinity.
-- Maintain a **safe margin of at least 80px** from the top and bottom of the 1080p frame.
+## 📜 2. CONTRACT-FIRST ARCHITECTURE (ZOD SCHEMAS)
+1. **Schema Authority:** All component, scene props, and client configs must be strictly governed by Zod schemas in `src/schemas/`.
+2. **Runtime Safety:** When consuming props, always validate via `.parse(props || {})` with complete fallback defaults. Zero unhandled undefined values allowed in production renders.
 
 ---
 
-## 📜 3. CONTRACT-FIRST ARCHITECTURE (ZOD SCHEMAS)
+## 🏛️ 3. REGISTRY PROTOCOL & BARREL GOVERNANCE (MANDATORY GATE)
 
-1. **Schema Authority:** All component and scene props must be governed by contracts defined in `src/schemas/` (e.g., `ComponentSchema.ts`).
-2. **Strict Range Enforcement:**
-   - When consuming props, always parse via `.parse(props || {})` with safe fallback defaults.
-   - Props must enforce physical bounds: `rotXBase: z.number().min(0.30).max(0.45)`, `scale: z.number().min(0.5).max(0.7)`.
+Zero visual component or motion wrapper shall exist as an unregistered orphan file.
 
----
-
-## 🚦 4. TWO-TIER VERIFICATION GATE (FAIL-FAST AUDIT)
-
-A task is **NOT COMPLETE** just because `tsc --noEmit` exited with code 0! You must execute the following two verification steps before reporting completion:
-
-### Tier 1: Static Typecheck
-```bash
-npx tsc --noEmit
-(Must exit with 0 errors).
-Tier 2: Visual Boundary & Frame Still Render
-Render target still frames at critical inflection frames (start, peak rotation, and end):
-npx remotion still src/index.ts CrabitMasterCommercial --frame=275 /tmp/audit_frame.png
-Mandatory Visual Self-Check:
-[ ] Is the 3D object fully visible inside the frame (zero top/bottom clipping)?
-[ ] Are physical hardware features (buttons, camera bump, chamfered edges) clearly visible?
-[ ] Is 3D depth preserved with distinct lighting highlights on metallic chamfers?
-
-## 📁 5. DIRECTORY STRUCTURE RULES
-- Schemas: `src/schemas/`
-- Sub-components / Props: `src/components/props/`
-- FX Particles: `src/components/fx/`
-- Master Scenes: `src/scenes/`
-- Flow Plates / Video Assets: `public/flow_plates/ready/*.mp4`
-
----
-
-## 🏛️ REGISTRY PROTOCOL & ASSET GOVERNANCE (MANDATORY GATE)
-
-Every AI Worker operating in this repository MUST strictly enforce the Centralized Registry Protocol. Zero asset or motion wrapper shall exist as an unregistered orphan file.
-
-### 1. The Dual-Registry Architecture
-- **Visual Assets & Props:** ALL visual Lego components (UI cards, 3D props, study gear, badges, icons) MUST be housed under `src/components/` and registered immediately in:
+### 3.1 Dual-Registry Architecture
+- **Visual Assets & Sub-Components:** All UI cards, badges, banners, subtitle containers, and ending cards MUST be registered in:
   👉 `src/components/registry.ts`
-- **Motion Wrappers:** ALL motion controllers and kinetic animation wrappers MUST be housed under `src/components/motion/` and registered immediately in:
+- **Motion Wrappers:** All kinetic spring animators, text bouncy wrappers, and transitions MUST be registered in:
   👉 `src/components/motion/registry.ts`
 
-### 2. Auto-Registration Rule on Asset Creation (STRICT)
-Whenever you create or refactor:
-1. A new component in `src/components/**`:
-   - [MUST] Add an `export { YourComponent } from './path/YourComponent';` statement into `src/components/registry.ts`.
-   - [MUST] Update `ASSET_CATALOG` with a 1-line description and tag.
-2. A new motion wrapper in `src/components/motion/**`:
-   - [MUST] Add an `export { YourMotionWrapper } from './YourMotionWrapper';` statement into `src/components/motion/registry.ts`.
-   - [MUST] Update `MOTION_CATALOG` with its motion physics signature.
-
-### 3. Consumption Standard in Scenes & Sequences
-- [NEVER] Do NOT import assets or motion wrappers using messy relative paths like `../../components/study-gear/GearTextbook3D` or `../../components/motion/OrbitalSwapWrapper`.
-- [ALWAYS] Import exclusively via the clean Barrel Registries:
+### 3.2 Clean Barrel Imports
+- [STRICT] NEVER import via deeply nested relative paths.
+- [ALWAYS] Import exclusively via the clean registries:
   ```tsx
-  // ✅ CLEAN & COMPLIANT
-  import { GearTextbook3D, GearSmartCalculator, CouponTicketCard } from '../components/registry';
-  import { OrbitalSwapWrapper, VortexSuckWrapper, ZeroGFloatWrapper } from '../components/motion/registry';
+  import { ChaiTopBanner, ChaiDynamicSubtitle, ChaiEndingCard } from '../components/registry';
+  import { KineticPopWrapper, FadeSlideWrapper } from '../components/motion/registry';
   ```
+  
+📁 4. DIRECTORY STRUCTURE CONVENTIONS
+Schemas: src/schemas/
+Sub-components / Graphic UI: src/components/chai/ or src/components/props/
+Motion Wrappers: src/components/motion/
+Master Scenes: src/scenes/
+Multi-tenant Client Configs & Audio: site-configs/{client-id}/ (e.g., site-configs/chai-communication/voice cut/)
+AI Video Master Plates: public/video_plates/{client-id}/*.mp4
 
-### 4. Quality Gate Checklist (Pre-Completion Audit)
-Before declaring any task complete, run:
-`npx tsc --noEmit`
-Verify that:
-1. The new asset/motion wrapper is exported in its respective `registry.ts`.
-2. Master scenes consume the new component via the registry import, proving end-to-end integration without broken links.
-
+🚦 5. TWO-TIER VERIFICATION GATE (FAIL-FAST AUDIT)
+A task is NOT complete until both verification tiers pass:
+Tier 1 - Static Verification:
+npm run validate:configs
+npx tsc --noEmit
+(Must exit with 0 errors).
+Tier 2 - Visual Boundary Still Render:
+npx remotion still src/index.ts ChaiAdShortDramaVertical --frame=45 /tmp/audit_chai_frame.png

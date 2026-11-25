@@ -1,0 +1,51 @@
+{
+  "fps": 24,
+  "width": 1080,
+  "height": 1920,
+  "totalDurationInFrames": 720,
+  "topBannerText": "150만원 소문에 장터가 뒤집혔다",
+  "cuts": [
+    {
+      "id": "cut_01",
+      "videoPath": "assets/chai/video/cut_01.mp4",
+      "audioPath": "assets/chai/audio/voice_01.mp3",
+      "durationInFrames": 120,
+      "subtitleText": "듣거라! 보험설계사 위촉응시자 모집, 첫 달 평균 백오십냥!",
+      "speaker": "포고"
+    },
+    {
+      "id": "cut_02",
+      "videoPath": "assets/chai/video/cut_02.mp4",
+      "audioPath": "assets/chai/audio/voice_02.mp3",
+      "durationInFrames": 72,
+      "subtitleText": "백오십냥?! 진짜 그 정도 준대?",
+      "speaker": "군중",
+      "badgeText": "150냥"
+    },
+    {
+      "id": "cut_03",
+      "videoPath": "assets/chai/video/cut_03.mp4",
+      "audioPath": "assets/chai/audio/voice_03.mp3",
+      "durationInFrames": 192,
+      "subtitleText": "상인: 첫 달에 백오십냥을 벌 수 있단 말이오?\n메리: 그렇소! 마음만 먹으면 누구나 도전할 수 있소!",
+      "speaker": "상인 · 메리"
+    },
+    {
+      "id": "cut_04",
+      "videoPath": "assets/chai/video/cut_04.mp4",
+      "audioPath": "assets/chai/audio/voice_04.mp3",
+      "durationInFrames": 144,
+      "subtitleText": "선비: 과거시험 같은 것이오?\n메리: 그렇소. 대신 멘토 스승이 붙어 길잡이부터 다 알려주오!",
+      "speaker": "선비 · 메리",
+      "badgeText": "멘토 스승"
+    },
+    {
+      "id": "cut_05",
+      "videoPath": "assets/chai/video/cut_05.mp4",
+      "audioPath": "assets/chai/audio/voice_05.mp3",
+      "durationInFrames": 192,
+      "subtitleText": "군중: 나도 신청하겠소! 내가 먼저 도전하겠소!\n메리: 먼저 준비하는 사람이 임자, 메리츠파트너스!",
+      "speaker": "군중 · 메리"
+    }
+  ]
+}

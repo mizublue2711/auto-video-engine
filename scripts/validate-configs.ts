@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { VideoConfigSchema } from '../src/schemas/VideoConfigSchema';
+import { ChaiStorySchema } from '../src/schemas/chaiStorySchema';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -40,6 +41,31 @@ function runValidation() {
     try {
       const rawContent = fs.readFileSync(filePath, 'utf-8');
       const parsedData = JSON.parse(rawContent);
+
+      if (relativePath.includes('chai-communication')) {
+        const chaiResult = ChaiStorySchema.safeParse(parsedData);
+        if (!chaiResult.success) {
+          console.error(`\n❌ [Validation Failed - ChaiStorySchema] ${relativePath}`);
+          console.error(JSON.stringify(chaiResult.error.format(), null, 2));
+          errorCount++;
+        } else {
+          const sumFrames = chaiResult.data.cuts.reduce(
+            (acc, cut) => acc + cut.durationInFrames,
+            0
+          );
+          if (sumFrames !== chaiResult.data.totalDurationInFrames) {
+            console.error(
+              `\n❌ [Frame Budget Mismatch] ${relativePath}: sum of cuts (${sumFrames}) !== totalDurationInFrames (${chaiResult.data.totalDurationInFrames})`
+            );
+            errorCount++;
+          } else {
+            console.log(
+              `✅ [Valid Chai Story Config] ${relativePath} (FPS: ${chaiResult.data.fps}, Frames: ${sumFrames}, Cuts: ${chaiResult.data.cuts.length})`
+            );
+          }
+        }
+        continue;
+      }
 
       const result = VideoConfigSchema.safeParse(parsedData);
       if (!result.success) {

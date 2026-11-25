@@ -51,6 +51,11 @@ export {
   ShowcaseLandingPage,
 } from './showcase';
 
+// 7. Chai Communication Joseon K-Drama Ad Components
+export { ChaiTopBanner } from './chai/ChaiTopBanner';
+export { ChaiDynamicSubtitle } from './chai/ChaiDynamicSubtitle';
+export { ChaiEndingCard, ChaiMeritzEndingCard } from './chai/ChaiMeritzEndingCard';
+
 /**
  * 🏷️ Component Catalog Metadata (Dành cho AI Worker tra cứu mục đích sử dụng)
  */
