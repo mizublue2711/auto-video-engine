@@ -18,7 +18,7 @@ import {
 import { MasterCompositeScene } from '../../scenes/MasterCompositeScene';
 import { StudyGearConvergenceScene } from '../../scenes/StudyGearConvergenceScene';
 import { ShowcaseDictionary } from '../../i18n/showcaseDict';
-import { ProjectComprehensive, SupportedLang } from '../../data/projectsConfig';
+import { ProjectComprehensive, SupportedLang } from '../../data/types';
 
 class PlayerErrorBoundary extends React.Component<
   { children: React.ReactNode },

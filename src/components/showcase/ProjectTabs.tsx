@@ -1,11 +1,22 @@
 // src/components/showcase/ProjectTabs.tsx
 import React from 'react';
-import { SHOWCASE_PROJECTS, ProjectComprehensive } from '../../data/projectsConfig';
+import { SHOWCASE_PROJECTS } from '../../data/projects';
+import { ProjectComprehensive } from '../../data/types';
 
 interface ProjectTabsProps {
   activeProjectId: string;
   onSelectProject: (project: ProjectComprehensive) => void;
 }
+
+const getTabLabel = (project: ProjectComprehensive): string => {
+  if (project.id === 'chai-meritz-2611') {
+    return '🔥 Chai Communication (Joseon 2611)';
+  }
+  if (project.id === 'crabit-korea') {
+    return '📱 Crabit Korea (3D Spatial)';
+  }
+  return project.title;
+};
 
 export const ProjectTabs: React.FC<ProjectTabsProps> = ({
   activeProjectId,
@@ -40,7 +51,7 @@ export const ProjectTabs: React.FC<ProjectTabsProps> = ({
               0{index + 1} // {project.aspectRatio}
             </span>
             <div>
-              <div className="text-xs font-bold tracking-wide">{project.title}</div>
+              <div className="text-xs font-bold tracking-wide">{getTabLabel(project)}</div>
               <div className="text-[10px] text-[#8A8FA3]">{project.categoryBadge}</div>
             </div>
           </button>

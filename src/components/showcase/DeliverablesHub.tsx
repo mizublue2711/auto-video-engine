@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FileText, Download, Film, AlertTriangle, X, Mail, Sparkles, Gem, HardDriveDownload } from 'lucide-react';
 import { ShowcaseDictionary } from '../../i18n/showcaseDict';
-import { ProjectComprehensive, SupportedLang } from '../../data/projectsConfig';
+import { ProjectComprehensive, SupportedLang } from '../../data/types';
 
 interface DeliverablesHubProps {
   dict: ShowcaseDictionary['deliverables'];
@@ -19,56 +19,22 @@ export const DeliverablesHub: React.FC<DeliverablesHubProps> = ({
   const [showManualModal, setShowManualModal] = useState(false);
   const isChaiProject = activeProject.id === 'chai-meritz-2611';
 
-  const aeModalCopy = isChaiProject
-    ? currentLang === 'kr'
-      ? {
-          tag: 'CHAI × MERITZ // 수작업 워크플로우 경고',
-          headline: '5컷 숏드라마를 수동으로 제작하시겠습니까?',
-          body: 'Chai Communication × Meritz Partners 프로젝트는 듀얼 트랙 아키텍처를 적용했습니다: Genie 4로 텍스트 없는 5개 시네마틱 컷을 생성하고, Remotion으로 24.00 FPS 키네틱 자막과 EBU R128 오디오를 정밀 동기화했습니다.',
-          bodyHighlight:
-            'After Effects 수작업으로는 한국어 자막 키프레임과 오디오 싱크에만 3일이 소요됩니다.',
-          btnHire: '💼 수작업 After Effects(.AEP) 제작 의뢰하기',
-          orDivider: '또는 미래를 선택하세요',
-          btnAutomate: '🚀 Video-as-Code 자동화 워크플로우 계속 보기!',
-          mailto:
-            'mailto:mizu2711@gmail.com?subject=[CHAI × MERITZ OFFER] 수작업 After Effects (.AEP) 제작 문의',
-        }
-      : currentLang === 'en'
-      ? {
-          tag: 'CHAI × MERITZ // MANUAL WORKFLOW ALERT',
-          headline: 'WANT TO HAND-BUILD A 5-CUT SHORT DRAMA?',
-          body: 'Chai Communication × Meritz Partners uses a dual-track architecture: Genie 4 generates 5 clean cinematic plates, while Remotion orchestrates deterministic 24.00 FPS kinetic subtitles and EBU R128 audio mastering.',
-          bodyHighlight:
-            'Building this manually in After Effects would take 3 days of tweaking every Korean subtitle keyframe and audio cue.',
-          btnHire: '💼 Hire Me for a Hand-Crafted After Effects (.AEP) File',
-          orDivider: 'OR CHOOSE THE FUTURE',
-          btnAutomate: '🚀 Automate with Video-as-Code instead!',
-          mailto:
-            'mailto:mizu2711@gmail.com?subject=[CHAI × MERITZ OFFER] Manual After Effects (.AEP) Inquiry',
-        }
-      : {
-          tag: 'CHAI × MERITZ // CẢNH BÁO QUY TRÌNH THỦ CÔNG',
-          headline: 'BẠN MUỐN DỰNG THỦ CÔNG MỘT BẢN SHORT DRAMA 5 CUTS?',
-          body: 'Dự án Chai Communication × Meritz Partners ứng dụng kiến trúc kép: Genie 4 sinh phôi điện ảnh 5 cuts sạch chữ, kết hợp Remotion điều phối phụ đề nảy chữ Kinetic chuẩn xác 24.00 FPS và lồng tiếng EBU R128.',
-          bodyHighlight:
-            'Nếu làm bằng After Effects thủ công, bạn sẽ mất 3 ngày căn từng keyframe phụ đề tiếng Hàn và ghép âm thanh.',
-          btnHire: '💼 Thuê tôi ngay để nhận file After Effects dựng tay',
-          orDivider: 'HOẶC LỰA CHỌN TƯƠNG LAI',
-          btnAutomate: '🚀 Hoặc lựa chọn tương lai: Hãy tự động hóa với Video-as-Code!',
-          mailto:
-            'mailto:mizu2711@gmail.com?subject=[CHAI × MERITZ OFFER] Yêu cầu dựng thủ công bằng After Effects (.AEP)&body=Chào Thủy Vũ (Mizu2711),%0D%0A%0D%0ATôi đã xem qua dự án Chai Communication × Meritz Partners và muốn trao đổi về file After Effects (.AEP):',
-        }
-    : {
-        tag: dict.modal.tag,
-        headline: dict.modal.headline,
-        body: dict.modal.body,
-        bodyHighlight: dict.modal.bodyHighlight,
-        btnHire: dict.modal.btnHire,
-        orDivider: dict.modal.orDivider,
-        btnAutomate: dict.modal.btnAutomate,
-        mailto:
-          'mailto:mizu2711@gmail.com?subject=[CRABIT OFFER] Yêu cầu dựng thủ công bằng After Effects (.AEP)&body=Chào Thủy Vũ (Mizu2711),%0D%0A%0D%0ATôi đã xem qua Crabit Video-as-Code Showcase và rất ấn tượng với pipeline tự động hóa. Tôi muốn trao đổi về dự án:',
-      };
+  const aeModalCopy = {
+    tag: isChaiProject ? 'CHAI × MERITZ // MANUAL WORKFLOW ALERT' : dict.modal.tag,
+    headline: activeProject.downloads.aeTrapConfig.title[currentLang],
+    body: activeProject.downloads.aeTrapConfig.bodyText[currentLang],
+    bodyHighlight: isChaiProject
+      ? currentLang === 'kr'
+        ? 'After Effects 수작업으로는 한국어 자막 키프레임과 오디오 싱크에만 수주가 소요됩니다.'
+        : currentLang === 'en'
+        ? 'Manual After Effects rebuilding would cost weeks of tedious keyframe & audio syncing.'
+        : 'Dựng lại thủ công trên After Effects sẽ tiêu tốn hàng tuần căn keyframe phụ đề và âm thanh.'
+      : dict.modal.bodyHighlight,
+    btnHire: dict.modal.btnHire,
+    orDivider: dict.modal.orDivider,
+    btnAutomate: dict.modal.btnAutomate,
+    mailto: activeProject.downloads.aeTrapConfig.hireUrl,
+  };
 
   return (
     <section id="deliverables" className="py-24 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto text-center brutalist-strict">
@@ -137,24 +103,24 @@ export const DeliverablesHub: React.FC<DeliverablesHubProps> = ({
           <div>
             <div className="flex items-center justify-between mb-4">
               <span className="text-[10px] font-mono text-[#10B981] font-bold">
-                {isChaiProject ? '[ 02 // KEYFRAME STILLS ]' : '[ 02 // VECTOR ]'}
+                {isChaiProject ? '[ 02 // REMOTION ASSETS ]' : '[ 02 // VECTOR ]'}
               </span>
               <div className="p-2 bg-[#05050A] border border-[#1F1F2E] text-[#10B981] group-hover:border-[#10B981] transition-all">
                 <Gem size={20} strokeWidth={1.5} />
               </div>
             </div>
             <h3 className="text-lg font-sans font-black text-white mb-1 group-hover:text-[#10B981] transition-colors">
-              {isChaiProject ? 'Keyframe Stills Cuts 1–5 (.ZIP)' : dict.svgAssets.title}
+              {isChaiProject ? 'Remotion Components & Brand Assets (.ZIP)' : dict.svgAssets.title}
             </h3>
             <p className="text-xs text-[#8A8FA3] font-sans leading-relaxed mb-6">
               {isChaiProject
-                ? 'cut1_frame36.png – cut5_frame650.png extracted directly from the 24fps Meritz Partners master render.'
+                ? 'ChaiTopBanner, ChaiDynamicSubtitle, ChaiMeritzEndingCard, ChaiSquareDramaScene & Meritz brand logos.'
                 : dict.svgAssets.desc}
             </p>
           </div>
 
           <div className="pt-3 border-t border-[#1F1F2E] flex items-center justify-between text-xs font-mono font-bold text-[#10B981]">
-            <span>{isChaiProject ? 'DOWNLOAD STILLS ZIP' : dict.svgAssets.action}</span>
+            <span>{isChaiProject ? 'DOWNLOAD COMPONENTS ZIP' : dict.svgAssets.action}</span>
             <Download size={14} />
           </div>
         </a>

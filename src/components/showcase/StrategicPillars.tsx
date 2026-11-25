@@ -1,15 +1,114 @@
 import React, { useState } from 'react';
 import { Palette, ShieldCheck, Gem, Check, Sparkles, Sliders, Smartphone, Award, Cpu } from 'lucide-react';
 import { ShowcaseDictionary } from '../../i18n/showcaseDict';
+import { ProjectComprehensive, SupportedLang } from '../../data/types';
 
 interface StrategicPillarsProps {
   dict: ShowcaseDictionary['pillars'];
+  activeProject?: ProjectComprehensive;
+  currentLang?: SupportedLang;
 }
 
-export const StrategicPillars: React.FC<StrategicPillarsProps> = ({ dict }) => {
+export const StrategicPillars: React.FC<StrategicPillarsProps> = ({
+  dict,
+  activeProject,
+  currentLang = 'vi',
+}) => {
   const [activeTab, setActiveTab] = useState<'palette' | 'rig' | 'mascot'>('palette');
   const [caratCount, setCaratCount] = useState(25000);
   const [clawsRaised, setClawsRaised] = useState(true);
+
+  if (activeProject?.strategicPillars && activeProject.strategicPillars.length > 0) {
+    const accent = activeProject.themeColor;
+    const pillarIcons = [Palette, ShieldCheck, Cpu];
+
+    return (
+      <section id="brand-assets" className="py-24 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto brutalist-strict">
+        {/* SECTION HEADER */}
+        <div className="mb-14 text-center md:text-left border-b border-[#1F1F2E] pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <div
+              className="inline-flex items-center gap-2 text-xs font-mono font-bold px-2.5 py-1 border mb-3"
+              style={{
+                color: accent,
+                borderColor: `${accent}66`,
+                backgroundColor: `${accent}14`,
+              }}
+            >
+              <span className="w-1.5 h-1.5" style={{ backgroundColor: accent }} />
+              <span>STRATEGIC PILLARS // {activeProject.id.toUpperCase()}</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-sans font-black text-white tracking-tight uppercase">
+              {dict.sectionTitle}
+            </h2>
+            <p className="text-sm md:text-base text-[#8A8FA3] mt-2 max-w-2xl font-sans">
+              {activeProject.heroSummary[currentLang]}
+            </p>
+          </div>
+
+          <div className="hidden md:flex items-center gap-2 font-mono text-xs text-[#8A8FA3]">
+            <span className="text-[#10B981]">[ ⏣ BRAND_INTEGRITY_VERIFIED ]</span>
+          </div>
+        </div>
+
+        {/* 3 DYNAMIC STRATEGIC CARDS */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {activeProject.strategicPillars.map((pillar, idx) => {
+            const IconComp = pillarIcons[idx % pillarIcons.length];
+            return (
+              <div
+                key={pillar.id}
+                className="bg-[#0A0C14] border border-[#1F1F2E] transition-all p-6 sm:p-8 flex flex-col justify-between group shadow-xl relative overflow-hidden"
+                style={{ borderColor: `${accent}33` }}
+              >
+                <div
+                  className="absolute top-0 right-0 w-24 h-24 pointer-events-none"
+                  style={{ backgroundColor: `${accent}0D` }}
+                />
+
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[11px] font-mono font-bold" style={{ color: accent }}>
+                      [{pillar.id}] {pillar.category[currentLang]}
+                    </span>
+                    <div
+                      className="p-2 bg-[#05050A] border border-[#1F1F2E]"
+                      style={{ color: accent }}
+                    >
+                      <IconComp size={16} strokeWidth={1.5} />
+                    </div>
+                  </div>
+
+                  <h3 className="text-2xl font-sans font-black text-white mb-3">
+                    {pillar.title[currentLang]}
+                  </h3>
+                  <p className="text-sm text-[#8A8FA3] leading-relaxed mb-6 font-sans">
+                    {pillar.description[currentLang]}
+                  </p>
+
+                  <ul className="space-y-2 mb-6 font-mono text-xs text-slate-300">
+                    {pillar.checkpoints[currentLang].map((cp, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <Check size={14} className="text-[#10B981] mt-0.5 shrink-0" strokeWidth={2} />
+                        <span>{cp}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-[#05050A] border border-[#1F1F2E] px-3 py-2 flex items-center justify-between text-[10px] font-mono text-[#8A8FA3]">
+                  <span>PILLAR {pillar.id} // VERIFIED</span>
+                  <span style={{ color: accent }} className="font-bold">
+                    {activeProject.telemetry.fps} FPS LOCKED
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="brand-assets" className="py-24 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto brutalist-strict">

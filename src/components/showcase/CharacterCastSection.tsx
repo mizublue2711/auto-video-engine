@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Sparkles,
   Ruler,
@@ -14,9 +14,11 @@ import {
   ArrowDownToLine,
 } from 'lucide-react';
 import { Language } from '../../i18n/showcaseDict';
+import { ProjectComprehensive } from '../../data/types';
 
 interface CharacterCastSectionProps {
   currentLang: Language;
+  activeProject?: ProjectComprehensive;
 }
 
 export type CharacterId = 'student' | 'mascot' | 'director';
@@ -994,13 +996,192 @@ const CHARACTERS: CharacterSpec[] = [
   },
 ];
 
-export const CharacterCastSection: React.FC<CharacterCastSectionProps> = ({ currentLang }) => {
+export const CharacterCastSection: React.FC<CharacterCastSectionProps> = ({
+  currentLang,
+  activeProject,
+}) => {
   const [selectedId, setSelectedId] = useState<CharacterId>('student');
+  const [selectedRigIndex, setSelectedRigIndex] = useState<number>(0);
+
+  useEffect(() => {
+    setSelectedRigIndex(0);
+  }, [activeProject?.id]);
   const [copiedHex, setCopiedHex] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'architecture' | 'palette' | 'anatomy' | 'poses'>(
     'architecture'
   );
   const [studentViewportMode, setStudentViewportMode] = useState<'dual' | 'front' | 'walk'>('dual');
+
+  if (activeProject?.characterCastRigs && activeProject.characterCastRigs.length > 0) {
+    const rigs = activeProject.characterCastRigs;
+    const activeRig = rigs[selectedRigIndex] || rigs[0];
+    const accent = activeProject.themeColor;
+    const spec = activeRig.specs[currentLang];
+
+    return (
+      <section
+        id="character-cast"
+        className="py-24 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto brutalist-strict border-t border-[#1F1F2E]"
+      >
+        {/* SECTION HEADER */}
+        <div className="mb-12 text-center md:text-left border-b border-[#1F1F2E] pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <div
+              className="inline-flex items-center gap-2 text-xs font-mono font-bold px-2.5 py-1 border mb-3"
+              style={{
+                color: accent,
+                borderColor: `${accent}66`,
+                backgroundColor: `${accent}14`,
+              }}
+            >
+              <Sparkles size={13} />
+              <span>CHARACTER CAST RIGS // {activeProject.id.toUpperCase()}</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-sans font-black text-white tracking-tight uppercase">
+              {currentLang === 'kr'
+                ? '3인 메인 캐릭터 리그 & 비율 명세'
+                : currentLang === 'en'
+                ? '3-Character Canonical Cast & Rigging Specs'
+                : 'Bộ 3 Nhân Vật Chính & Thông Số Rigging'}
+            </h2>
+            <p className="text-sm md:text-base text-[#8A8FA3] mt-2 max-w-3xl font-sans">
+              {currentLang === 'kr'
+                ? '5개 조선 사극 컷 전반에 걸쳐 일관된 비율과 접지 좌표를 유지하는 마스터 벡터 캐릭터 시트.'
+                : currentLang === 'en'
+                ? 'Master vector character sheets locking proportions, costume DNA, and ground contact across all 5 Joseon cuts.'
+                : 'Hệ thống nhân vật vector chuẩn khóa tỷ lệ cơ thể, trang phục cổ trang Joseon và tọa độ tiếp đất xuyên suốt 5 phân cảnh.'}
+            </p>
+          </div>
+          <div className="font-mono text-xs text-[#10B981]">
+            [ ⏣ {rigs.length} CANONICAL RIGS LOCKED ]
+          </div>
+        </div>
+
+        {/* CHARACTER SELECTOR TABS */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          {rigs.map((rig, idx) => {
+            const isSelected = idx === selectedRigIndex;
+            return (
+              <button
+                key={rig.id}
+                type="button"
+                onClick={() => setSelectedRigIndex(idx)}
+                style={{
+                  borderColor: isSelected ? accent : undefined,
+                  boxShadow: isSelected ? `0 0 20px ${accent}24` : undefined,
+                }}
+                className={`p-4 bg-[#0A0C14] border text-left transition-all cursor-pointer ${
+                  isSelected
+                    ? 'text-white'
+                    : 'border-[#1F1F2E] text-[#8A8FA3] hover:border-slate-500 hover:text-white'
+                }`}
+              >
+                <div className="flex items-center justify-between font-mono text-[10px] mb-1.5">
+                  <span style={{ color: accent }} className="font-bold">
+                    0{idx + 1} // {rig.ratio}
+                  </span>
+                  <span className="text-[#8A8FA3]">{rig.fileSize}</span>
+                </div>
+                <div className="text-sm font-bold text-white mb-1">{rig.name[currentLang]}</div>
+                <div className="text-[10px] font-mono text-[#8A8FA3] uppercase">
+                  {rig.roleTag[currentLang]}
+                </div>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* INTERACTIVE SVG RIG INSPECTOR */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          {/* LEFT: SVG VIEWPORT */}
+          <div className="lg:col-span-6 bg-[#0A0C14] border border-[#1F1F2E] p-6 flex flex-col justify-between">
+            <div className="flex items-center justify-between font-mono text-[11px] text-[#8A8FA3] pb-3 mb-4 border-b border-[#1F1F2E]">
+              <span className="truncate">{activeRig.fileName}</span>
+              <span style={{ color: accent }} className="shrink-0 ml-2">
+                viewBox: {activeRig.viewBox || '0 0 1000 1000'}
+              </span>
+            </div>
+
+            <div className="relative flex-1 min-h-[380px] bg-[#05050A] border border-[#1F1F2E] flex items-center justify-center p-6 overflow-hidden">
+              <img
+                src={encodeURI(activeRig.svgUrl)}
+                alt={activeRig.name[currentLang]}
+                className="max-h-[420px] w-full h-full object-contain"
+              />
+            </div>
+
+            <div className="mt-4 pt-3 border-t border-[#1F1F2E] flex items-center justify-between gap-3 font-mono text-xs">
+              <span className="text-[#8A8FA3]">{activeRig.ratio}</span>
+              <a
+                href={encodeURI(activeRig.svgUrl)}
+                download={activeRig.fileName}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#05050A] border hover:text-white transition-all font-bold"
+                style={{ borderColor: `${accent}66`, color: accent }}
+              >
+                <Download size={13} />
+                <span>DOWNLOAD SVG ({activeRig.fileSize})</span>
+              </a>
+            </div>
+          </div>
+
+          {/* RIGHT: TECHNICAL SPECS */}
+          <div className="lg:col-span-6 bg-[#0A0C14] border border-[#1F1F2E] p-6 sm:p-8 flex flex-col justify-between space-y-6">
+            <div>
+              <div
+                className="inline-flex items-center gap-2 px-2.5 py-1 border font-mono text-[10px] font-bold mb-3"
+                style={{
+                  color: accent,
+                  borderColor: `${accent}55`,
+                  backgroundColor: `${accent}14`,
+                }}
+              >
+                <ShieldCheck size={12} />
+                <span>{activeRig.roleTag[currentLang]}</span>
+              </div>
+
+              <h3 className="text-2xl font-sans font-black text-white mb-6">
+                {activeRig.name[currentLang]}
+              </h3>
+
+              <div className="space-y-4">
+                <div className="p-4 bg-[#05050A] border border-[#1F1F2E]">
+                  <div className="flex items-center gap-2 font-mono text-[11px] font-bold mb-1.5" style={{ color: accent }}>
+                    <Layers size={13} />
+                    <span>STRUCTURE & COSTUME DNA</span>
+                  </div>
+                  <p className="text-sm text-slate-300 leading-relaxed">{spec.structure}</p>
+                </div>
+
+                <div className="p-4 bg-[#05050A] border border-[#1F1F2E]">
+                  <div className="flex items-center gap-2 font-mono text-[11px] font-bold mb-1.5" style={{ color: accent }}>
+                    <Ruler size={13} />
+                    <span>CANONICAL METRICS & STAGING</span>
+                  </div>
+                  <p className="text-sm text-slate-300 leading-relaxed">{spec.metrics}</p>
+                </div>
+
+                <div className="p-4 bg-[#05050A] border border-[#1F1F2E]">
+                  <div className="flex items-center gap-2 font-mono text-[11px] font-bold mb-1.5" style={{ color: accent }}>
+                    <Compass size={13} />
+                    <span>PROPORTION BREAKDOWN</span>
+                  </div>
+                  <p className="text-xs font-mono text-slate-300 leading-relaxed">{spec.ratioBreakdown}</p>
+                </div>
+
+                <div className="p-4 bg-[#05050A] border border-[#1F1F2E]">
+                  <div className="flex items-center gap-2 font-mono text-[11px] font-bold mb-1.5 text-[#10B981]">
+                    <ArrowDownToLine size={13} />
+                    <span>GROUND CONTACT PIVOT</span>
+                  </div>
+                  <p className="text-xs font-mono text-slate-300 leading-relaxed">{spec.groundContact}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   const activeChar = CHARACTERS.find((c) => c.id === selectedId) || CHARACTERS[0];
 

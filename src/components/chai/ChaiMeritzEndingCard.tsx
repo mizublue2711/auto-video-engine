@@ -1,5 +1,5 @@
 import React from 'react';
-import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 
 export interface ChaiEndingCardProps {
   startFrame?: number;
@@ -73,68 +73,25 @@ export const ChaiEndingCard: React.FC<ChaiEndingCardProps> = ({
         zIndex: 30,
       }}
     >
-      {/* Meritz Partners Vector Brand Emblem */}
+      {/* Official Meritz Partners Logo */}
       <div
         style={{
           marginBottom: isSquareLayout ? 20 : 32,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: isSquareLayout ? 10 : 14,
+          justifyContent: 'center',
         }}
       >
-        <div
+        <Img
+          src={staticFile('assets/chai/logo/logo_wh.png')}
+          alt={brandName}
           style={{
-            width: isSquareLayout ? 76 : 96,
-            height: isSquareLayout ? 76 : 96,
-            borderRadius: isSquareLayout ? 22 : 28,
-            background: `linear-gradient(135deg, ${primaryColor} 0%, #1D4ED8 100%)`,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 16px 40px rgba(0, 82, 255, 0.5)',
-            border: `2px solid ${badgeGold}`,
+            width: isSquareLayout ? 300 : 360,
+            height: 'auto',
+            objectFit: 'contain',
           }}
-        >
-          <svg
-            width={isSquareLayout ? 44 : 56}
-            height={isSquareLayout ? 44 : 56}
-            viewBox="0 0 64 64"
-            fill="none"
-          >
-            <path
-              d="M12 48V18L24 34L32 22L40 34L52 18V48"
-              stroke="#FFFFFF"
-              strokeWidth="6.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <circle cx="32" cy="12" r="4.5" fill={badgeGold} />
-          </svg>
-        </div>
-        <div
-          style={{
-            fontSize: isSquareLayout ? 22 : 26,
-            fontWeight: 900,
-            letterSpacing: '0.22em',
-            color: '#93C5FD',
-            fontFamily: 'Pretendard, "Noto Sans KR", sans-serif',
-          }}
-        >
-          {brandName}
-        </div>
-        <div
-          style={{
-            fontSize: isSquareLayout ? 44 : 54,
-            fontWeight: 900,
-            color: '#FFFFFF',
-            letterSpacing: '-0.02em',
-            textShadow: '0 4px 20px rgba(0, 82, 255, 0.45)',
-            fontFamily: 'Pretendard, "Noto Sans KR", sans-serif',
-          }}
-        >
-          메리츠 파트너스
-        </div>
+        />
       </div>
 
       {/* Punchline Copy */}

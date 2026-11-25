@@ -11,7 +11,8 @@ import { StoryboardFrameModal } from './StoryboardFrameModal';
 import { ContactTransmission } from './ContactTransmission';
 import { ProjectTabs } from './ProjectTabs';
 import { Language, showcaseDict } from '../../i18n/showcaseDict';
-import { SHOWCASE_PROJECTS, ProjectComprehensive } from '../../data/projectsConfig';
+import { SHOWCASE_PROJECTS } from '../../data/projects';
+import { ProjectComprehensive } from '../../data/types';
 import { Sparkles, Activity, ShieldCheck, Terminal, Cpu, Film, Monitor } from 'lucide-react';
 
 export const ShowcaseLandingPage: React.FC = () => {
@@ -177,10 +178,17 @@ export const ShowcaseLandingPage: React.FC = () => {
       </section>
 
       {/* 3. SECTION 2: BA TRỤ CỘT ĐỘT PHÁ (STRATEGIC VALUE ADDITIONS) */}
-      <StrategicPillars dict={dict.pillars} />
+      <StrategicPillars
+        dict={dict.pillars}
+        activeProject={activeProject}
+        currentLang={currentLang}
+      />
 
       {/* 4. CANONICAL 3-CHARACTER CAST RIGS SECTION */}
-      <CharacterCastSection currentLang={currentLang} />
+      <CharacterCastSection
+        currentLang={currentLang}
+        activeProject={activeProject}
+      />
 
       {/* 5. SECTION 3: QUY TRÌNH KÉP (DUAL-TRACK PIPELINE) */}
       <DualTrackPipeline dict={dict.pipeline} />
@@ -188,9 +196,11 @@ export const ShowcaseLandingPage: React.FC = () => {
       {/* 5. TELEMETRY & MOTION PHYSICS SECTION */}
       <TelemetrySection dict={dict.telemetrySection} />
 
-      {/* 6. PRODUCTION BLUEPRINT & 9-PHASE STORYBOARD SECTION */}
+      {/* 6. PRODUCTION BLUEPRINT & STORYBOARD SECTION */}
       <StoryboardBlueprintSection
         dict={dict.storyboardViewer}
+        activeProject={activeProject}
+        currentLang={currentLang}
         onOpenModal={() => setIsStoryboardOpen(true)}
       />
 
@@ -316,11 +326,13 @@ export const ShowcaseLandingPage: React.FC = () => {
       {/* 8. SECTION 05: TELEMETRY TRANSMISSION & DIRECT CONTACT HUB */}
       <ContactTransmission currentLang={currentLang} />
 
-      {/* 9. INTERACTIVE STORYBOARD MODAL (PROJECT SAMPLE) */}
+      {/* 9. INTERACTIVE STORYBOARD MODAL */}
       <StoryboardFrameModal
         isOpen={isStoryboardOpen}
         onClose={() => setIsStoryboardOpen(false)}
         dict={dict.storyboardViewer}
+        activeProject={activeProject}
+        currentLang={currentLang}
       />
 
       {/* 10. FOOTER */}
